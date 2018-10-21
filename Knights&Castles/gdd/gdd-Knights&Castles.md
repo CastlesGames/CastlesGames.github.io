@@ -150,7 +150,7 @@ A continuación se describe con más detalle los tres niveles del juego:
 ## 8. Progreso del juego
 En la siguiente ilustración se muestra el diagrama de progreso de juego:
 
-<img alt="Progreso del juego" src="imgs/estados-juego.png" width="400">
+<img alt="Progreso del juego" src="imgs/progreso-juego.jpeg" width="400">
 
 > Diagrama progreso de juego
 
