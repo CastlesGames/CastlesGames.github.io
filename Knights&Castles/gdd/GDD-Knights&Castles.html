@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GDD-Knights&amp;Castles.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="knights--castles"><em>Knights &amp; Castles</em></h1>
+<dl>
+<dt>Título</dt>
+<dd>Documento de diseño de juego - <em>Knights &amp; Castles</em></dd>
+<dt>Autores</dt>
+<dd>Díaz Pérez, Diego</dd>
+<dd>Laso Cáceres, Juan Carlos</dd>
+<dd>Mena Molina, Guillermo</dd>
+<dd>Rodríguez Corpas, Laura</dd>
+<dd>Rodríguez Martínez, Francisco Javier</dd>
+</dl>
+<h2 id="concepto">1. Concepto</h2>
+<ul>
+<li><strong>Título</strong>:  <em>Knights &amp; Castles</em>.</li>
+<li><strong>Estudio</strong>: <em>Castle’s Games</em>.</li>
+<li><strong>Género</strong>: Juego de Cartas y Rol de acción por turnos.</li>
+<li><strong>Arte</strong>: <em>Pixel Art</em>.</li>
+<li><strong>Plataforma</strong>: PC y <em>Smartphone</em>.</li>
+<li><strong>Versión:</strong> 1.0.</li>
+<li><strong>Sinopsis de jugabilidad y contenido</strong>: juego de cartas con ambientación fantástica en el que el protagonista deberá avanzar de sala en sala enfrentándose a los distintos enemigos que le aguardan, con el fin de llegar al enfrentamiento final en una emocionante batalla de cartas por turnos.</li>
+<li><strong>Categoría</strong>: <em>Knights &amp; Castles</em> se puede comparar con el videojuego <em>Hearthstone</em>, ya que tiene combates de cartas con las que el jugador puede atacar o defenderse. Las principales diferencias con <em>Hearthstone</em> es que en éste únicamente tiene esa mecánica de juego y son combates individuales contra otros jugadores, mientras que en <em>Knights &amp; Castles</em> el jugador tiene que ir avanzando a través de varios combates recorriendo niveles y un escenario. Además, en <em>Knights &amp; Castles</em> el jugador no crea un mazo de cartas que pueda utilizar en todas las partidas, si no que en cada partida que se empieza, el jugador comienza con unas cartas determinadas (5 cartas) y puede ir ampliando su mano (hasta un total de 7 cartas) durante el transcurso de la partida.</li>
+<li><strong>Licencia</strong>: este juego de cartas y rol de acción es totalmente original y no está basado en ningún libro o película.</li>
+<li><strong>Mecánica</strong>: el jugador tendrá la posibilidad de hacer click en las distintas cartas que posea en su mano para utilizarlas durante un combate. También podrá pulsar los botones que aparezcan en los escenarios, éstos le permitirán explorar el escenario e ir avanzando por ellos hasta llegar al final donde se deberá enfrentar al <em>Final Boss</em>.</li>
+<li><strong>Tecnología</strong>: el juego será desarrollado íntegramente en <strong>HTML5</strong>, <strong>CSS3</strong> y <em><strong>JavaScript</strong></em>.  En cuanto al arte del videojuego, se utilizará el programa <em><strong>Adobe Photoshop CC 2018</strong></em> del paquete <em>Adobe</em>.</li>
+<li><strong>Público</strong>: el público objetivo está entre el rango de edades de 16 a 30 años. Entre ellos, jugadores que disfruten los juegos de cartas por turnos, la ambientación medieval fantástica y que prefieran partidas rápidas o no tengan demasiado tiempo para dedicar a los videojuegos.</li>
+</ul>
+<h2 id="historial-de-versiones">2. Historial de versiones</h2>
+
+<table>
+<thead>
+<tr>
+<th align="center">Versión</th>
+<th align="center">Fecha</th>
+<th>Comentarios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0.0</td>
+<td align="center">15/10/2018</td>
+<td>Planteamiento del juego y construcción inicial del Documento de Diseño de Juego (<em>Game Document Design - G.D.D.</em>)</td>
+</tr>
+<tr>
+<td align="center">0.1</td>
+<td align="center">16/10/2018</td>
+<td>Se definen <em>mecánicas</em>, <em>arte del juego</em>, <em>estructuración de niveles</em></td>
+</tr>
+<tr>
+<td align="center">1.0</td>
+<td align="center">21/10/2018</td>
+<td>Se completa la primera versión del <em>G.D.D.</em> de <em>Knights &amp; Castles</em></td>
+</tr>
+</tbody>
+</table><h2 id="visión-general-del-videojuego">3. Visión general del videojuego</h2>
+<p><em>Knights &amp; Castles</em> es un juego de cartas y rol de acción por turnos con ambientación medieval donde el jugador toma el control de un caballero que tendrá que ir avanzando a través de las distintas habitaciones de un castillo derrotando a los distintos enemigos que vaya encontrando hasta llegar al enemigo final. Las batallas contra enemigos funcionarán por turnos y se jugarán mediante cartas con las que el jugador podrá atacar, defenderse o realizar hechizos de magia que le ayuden durante el combate.</p>
+<p>Cada carta tendrá un coste de maná, y durante cada turno el jugador tendrá un número limitado de puntos de maná con los que tendrá que elegir qué cartas le conviene utilizar en cada momento del combate. Las cartas iniciales tendrán un coste bajo, pero conforme el jugador vaya consiguiendo cartas mejores, éstas tendrán un coste más alto.</p>
+<p>El <em>gameplay</em> del juego se basa en la progresión, ya que el jugador tiene que ir avanzando a través de los niveles e ir convirtiéndose en un personaje más fuerte para luchar contra los enemigos. Además, el juego crea una sensación de aleatoriedad mediante los distintos diseños que tendrán los escenarios durante la partida y las cartas que el jugador puede ir consiguiendo a través de los niveles, intentando evitar que todas las partidas se sientan igual.</p>
+<p>Otra de las ventajas del juego es su duración. Cada partida tendrá un máximo de tres niveles y un enemigo final al que hay que derrotar para ganar, esto permitiría jugar partidas rápidas y facilitaría el juego a las personas que no tienen mucho tiempo libre.</p>
+<p>En definitiva, <em>Knights  &amp; Castles</em> es un juego rápido, con una duración prácticamente infinita gracias a su rejugabilidad y donde ninguna partida será igual que la anterior.</p>
+<h2 id="mecánicas">4. Mecánicas</h2>
+<ul>
+<li><strong>Cámara:</strong> videojuego en 2D. Plano Sagital. El jugador es capaz de ver a todos los personajes que se encuentren en una misma sala, y la propia sala al completo.</li>
+<li><strong>Controles:</strong> en PC mediante el ratón y haciendo <em>click</em> / En <em>Smartphone</em> mediante la pulsación de los diferentes botones que aparezcan en pantalla.</li>
+<li><strong>Puntuación:</strong> se obtienen puntos por avanzar a través de las distintas salas y habitaciones e ir derrotando a los enemigos que aparecen en ellas.</li>
+<li><strong>Guardar/Cargar:</strong> no se puede ni cargar ni guardar partida. Una vez cierras el juego, se vuelve a empezar desde cero.</li>
+<li><strong>Cartas</strong>: se utilizan durante los combates. Hay tres tipos de cartas: <em>ataque</em>, <em>escudo</em> y <em>magia</em>. Cada tipo tiene un propósito distinto y permite al jugador realizar distintas combinaciones.</li>
+<li><em><strong>Items</strong></em>: son objetos que se complementan con las cartas y que el jugador podrá llevar para mejorar sus estadísticas base y así mejorar el poder de sus cartas. Pueden ser <em>armas</em>, <em>armaduras</em> o <em>amuletos</em>.</li>
+<li><strong>Niveles</strong>: habrá tres niveles por los que el jugador tiene que avanzar hasta llegar al jefe final. Cada nivel tendrá su propia dificultad y sus propios enemigos, <em>ítems</em> o cartas que el jugador puede conseguir.</li>
+</ul>
+<h2 id="estados-del-juego">5. Estados del juego</h2>
+<p>A continuación se presenta el diagrama de estados del juego sobre las posibles pantallas de la interfaz en las que el jugador se puede encontrar:</p>
+<p><img src="imgs/estados-juego.png" alt="Diferentes estados del juego" title="Estados de juego"></p>
+<blockquote>
+<p>Diferentes estados del juego</p>
+</blockquote>
+<p>Estos estados se describen más detenidamente en el apartado siguiente - <em><strong>6. Interfaces</strong></em></p>
+<h2 id="interfaces">6. Interfaces</h2>
+<ul>
+<li><strong>Menú principal</strong>: es la pantalla inicial que se encuentra el jugador al iniciar el juego. El jugador podrá localizar en ella cuatro botones con los que tendrá la opción de abrir el menú de opciones, la pantalla de puntuaciones, la pantalla de créditos/contacto y el que da la opción de iniciar una partida. Estos botones se disponen alineados verticalmente uno encima de otro con una separación entre ellos. No hay <em>background</em>, en su defecto se enseña ya la primera sala del juego con el caballero. Los botones desaparecen una vez haces <em>click</em> o pulsas en el botón <em>Play</em>.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú de opciones</strong> pulsando en el botón <em>Opciones</em>.</li>
+<li>Hacia la <strong>pantalla de puntuaciones</strong> pulsando en el botón <em>Puntuaciones</em>.</li>
+<li>Hacia la <strong>pantalla de créditos</strong> pulsando en el botón <em>Créditos</em>.</li>
+<li>Hacia la <strong>pantalla de juego</strong> pulsando en el botón <em>Play</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Menú de opciones</strong>: pantalla en la cual el jugador puede eligir el <em>idioma</em> del juego (Castellano o Inglés) y habilitar/deshabilitar la <em>música y sonido</em>. La pantalla dispondrá de un botón para volver al <em>menú principal</em>.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón con una flecha la cual indica <em>volver a la pantalla anterior</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantalla de créditos / contacto</strong>: pantalla en la cual el jugador puede ver quiénes han sido los desarrolladores y artistas que han participado en la creación del videojuego. Tan sólo consta de la información y un botón de regreso al menú principal.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón con una flecha la cual indica <em>volver a la pantalla anterior</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantalla puntuaciones</strong>: pantalla donde se muestra al jugador las diferentes puntuaciones que ha ido obteniendo en las partidas que ha jugado. Tan sólo consta de la información y un botón de regreso al menú principal.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón con una flecha la cual indica <em>volver a la pantalla anterior</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantallas de juego /</strong> <em><strong>Heads-up Display</strong></em>: pantalla que muestra toda la información necesaria al jugador durante la partida. Se distribuyen de la siguiente manera:
+<ul>
+<li>PC:
+<ul>
+<li>Los objetos que el jugador equipe a su personaje se mostrarán con tres iconos (armadura, arma, amuleto) abajo de la pantalla a la izquierda. Justo abajo de ellos pondrá el nombre del objeto.</li>
+<li>Los botones de avanzar a la siguiente pantalla se representarán mediante flechas. Según la zona donde se encuentre y la que quiera avanzar, estos botones estarán colocados arriba, derecha o abajo de la pantalla.</li>
+<li>La barra de vida del jugador y de armadura se colocarán en la esquina superior izquierda de la pantalla con unos colores rojo y azul, respectivamente.</li>
+<li>Las cartas de las que disponga el jugador, se verán centradas en la zona de abajo de la pantalla. Sólo se podrá interactuar con las cartas durante un combate, fuera de él estarán deshabilitadas y el jugador sólo podrá leer la información que se le proporciona.</li>
+<li>En la esquina superior derecha se le mostrará un botón de pausa al jugador para que pueda pausar la partida en cualquier momento. Esta acción también podrá llevarse a cabo pulsando la tecla <em>p</em> en el teclado.</li>
+</ul>
+</li>
+<li><em>Smartphone</em>:
+<ul>
+<li>Los objetos que el jugador equipe a su personaje se mostrarán con tres iconos (armadura, arma, amuleto) a la izquierda de la pantalla en forma de columna. Justo al lado de cada uno de ellos se pondrá el nombre del objeto.</li>
+<li>Los botones de avanzar a la siguiente pantalla se representarán mediante flechas. Según la zona donde se encuentre y la que quiera avanzar, estos botones estarán colocados arriba, derecha o abajo de la pantalla.</li>
+<li>La barra de vida del jugador y de armadura se colocarán en la esquina superior izquierda de la pantalla con unos colores rojo y azul, respectivamente.</li>
+<li>Las cartas de las que disponga el jugador, se verán centradas en la zona de abajo de la pantalla. Sólo se podrá interactuar con las cartas durante un combate, fuera de él estarán deshabilitadas y el jugador sólo podrá leer la información que se le proporciona.</li>
+<li>En la esquina superior derecha se le mostrará un botón de pausa al jugador para que pueda pausar la partida en cualquier momento.</li>
+</ul>
+</li>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú de pausa</strong> pulsando sobre el botón de pausa situado en la esquina superior derecha.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantalla de pausa</strong>: pantalla donde el jugador puede parar el estado de la partida, durante el tiempo que quiera. Esta pantalla dispondrá de dos botones para volver al menú principal o bien reanudar la partida. Estos botones se encuentran centrados en pantalla y alineados verticalmente uno del otro.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón <em>Menú principal</em>.</li>
+<li>Hacia la <strong>pantalla de juego</strong> pulsando en el botón <em>Volver al juego</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantalla fin del juego / puntuación</strong>: pantalla donde se le muestra la puntuación obtenida al finalizar el juego. Consta de la información y un sólo botón para volver al menú principal, ya sea para comenzar una partida nueva o salir del juego.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón <em>Menú principal</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="niveles">7. Niveles</h2>
+<p>El juego consta de <strong>tres niveles</strong> en los cuales la dificultad de los enemigos irá aumentando para el jugador.</p>
+<p>Cada nivel consta de <strong>cinco salas</strong> y la estructura de cada nivel será de una primera sala fija, tres salas aleatorias y la sala final con el <em>Enemy Boss</em> correspondiente a ese nivel. <em><strong>El jugador no podrá volver hacia una sala anterior o nivel anterior en ningún momento</strong></em>.</p>
+<p>En las tres salas aleatorias el jugador se podrá encontrar diferentes sucesos los cuales aparecerán de forma totalmente aleatoria en cada partida. :</p>
+<ul>
+<li>Un <strong>enemigo</strong>: da lugar a un combate.</li>
+<li>Un <strong>cofre</strong>: el jugador puede obtener nuevas cartas o <em>items</em> con los que equiparse.</li>
+<li>Un <strong>evento aleatorio</strong>:</li>
+<li>Una <strong>enfermería</strong>: el jugador recupera sus puntos de vida perdidos en combates anteriores.</li>
+</ul>
+<p>El jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</p>
+<p>A continuación se describe con más detalle los tres niveles del juego:</p>
+<ul>
+<li><em><strong>Nivel 1</strong></em> <strong>- Entrada</strong>
+<ul>
+<li><strong>Entrada</strong>:  primer nivel del juego y el más sencillo. Este nivel consta de cinco salas. La 1ª Sala será un combate contra un enemigo básico, que nos servirá también como tutorial para aprender las mecánicas básicas del juego. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Por último, una sala final con el <em>Enemy Boss</em> de este nivel. Una vez derrotado se abrirá la opción de elegir entre <strong>tres caminos</strong> para avanzar.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</li>
+<li><em>Enemigos</em>: Goblin, HomoGoblin.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Nivel 2</strong></em> <strong>- Torreón / Jardines / Mazmorras</strong>
+<ul>
+<li><strong>Torreón</strong>: segundo nivel del juego con una dificultad intermedia. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Por último, una sala final con el <em>Enemy Boss</em> de este nivel. Una vez derrotado podremos avanzar hacia la <strong>Torre de Magia</strong>.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</li>
+<li><em>Enemigos</em>: Aprendiz de mago, Mago corrupto.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Jardines</strong>: segundo nivel del juego con una dificultad intermedia. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Por último, una sala final con el <em>Enemy Boss</em> de este nivel. Una vez derrotado podremos avanzar hacia el <strong>Salón de fiestas</strong>.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</li>
+<li><em>Enemigos</em>: Aprendiz de mago, Mago corrupto.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Mazmorras</strong>: segundo nivel del juego con una dificultad intermedia. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Por último, una sala final con el <em>Enemy Boss</em> de este nivel. Una vez derrotado podremos avanzar hacia los <strong>Aposentos de los guardias</strong>.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</li>
+<li><em>Enemigos</em>: Aprendiz de mago, Mago corrupto.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Nivel 3</strong></em> <strong>- Torre de magia / Salón de fiestas / Aposentos de los guardias / Sala del Trono</strong>
+<ul>
+<li><strong>Torre de magia</strong>: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la <strong>Sala del Trono</strong> para enfrentarnos al <em>Boss</em> final del juego.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.</li>
+<li><em>Enemigos</em>: Caballero oscuro.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Salón de fiestas</strong>: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la <strong>Sala del Trono</strong> para enfrentarnos al <em>Boss</em> final del juego.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.</li>
+<li><em>Enemigos</em>: Caballero oscuro.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Aposentos de los guardias</strong>: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la <strong>Sala del Trono</strong> para enfrentarnos al <em>Boss</em> final del juego.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.</li>
+<li><em>Enemigos</em>: Caballero oscuro.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Sala del trono</strong>: último nivel del Juego, solo dispone de una sala. Esta es el combate más complicado de todo el juego ya que nos enfrentaremos al <em>Final Boss</em>.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá derrotar al <em>Final Boss</em> del juego para poder ganar la partida.</li>
+<li><em>Enemigos</em>: Rey maldito</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="progreso-del-juego">8. Progreso del juego</h2>
+<p>En la siguiente ilustración se muestra el diagrama de progreso de juego:<br>
+<img src="imgs/estados-juego.png" alt="Diferentes estados del juego" title="Estados de juego"></p>
+<blockquote>
+<p>Diagrama progreso de juego</p>
+</blockquote>
+<h2 id="personajes">9. Personaje/s</h2>
+<ul>
+<li><strong>Personaje principal</strong>:
+<ul>
+<li><em>Nombre</em>: se desconoce.</li>
+<li><em>Descripción</em>: caballero misterioso del que se desconocen sus orígenes o sus intenciones. Ha<br>
+llegado al castillo para liberar al reino de la oscura influencia del Rey Maldito.</li>
+<li><em>Concepto</em>: el personaje será un varón adulto. Su vestimenta constara de una armadura vieja y<br>
+un yelmo. También portará una espada.</li>
+<li><em>Encuentro</em>: el jugador se encontrará con este personaje cuando de inicio una nueva partida, en la primera sala.</li>
+<li><em>Características</em>: vida máxima, armadura, ataque, defensa, cantidad de maná, poder mágico.</li>
+<li><em>Items</em>: tiene espacio para tres <em>items</em>: un arma, una armadura y un amuleto. Comenzará cada<br>
+partida sin ítems y podrá ir intercambiándolos con los que consiga a lo largo de la partida.</li>
+<li><em>Jugable/No-Jugable</em>: jugable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="enemigos">10. Enemigos</h2>
+<p>A continuación se da una breve descripción de los personajes que sirven de enemigo para el jugador en el juego. Se clasifican según el nivel en el que vayan apareciendo dichos personajes:</p>
+<ul>
+<li><strong>Enemigos nivel 1</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Goblin</strong>.</li>
+<li><em>Descripción</em>: pequeños monstruos que habitan por todo el castillo. Son unos monstruos débiles pero te pondrán en un aprieto si no los eliminas rápidamente.</li>
+<li><em>Encuentro</em>: podemos encontrarlos en los niveles 1 y 2.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Habilidades</em>:
+<ul>
+<li><em>Ataque con daga</em>: el goblin se abalanza contra el jugador inflingiendo 15 de daño base al personaje.</li>
+</ul>
+</li>
+<li><em>Items</em>: el enemigo soltará una carta aleatoria una vez lo derrotemos.</li>
+</ul>
+</li>
+<li><strong>Jefe final nivel 1</strong>
+<ul>
+<li><em>Nombre</em>: <strong>HomoGoblin</strong>.</li>
+<li><em>Descripción</em>: goblin de gran tamaño y mucho más poderoso que sus primes, los goblins. Este monstruo cuenta con un poderosa fuerza física y puede ponerse frenético si sufre muchos daños.</li>
+<li><em>Encuentro</em>: es el <em>Enemy Boss</em> del nivel 1.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Habilidades</em>:
+<ul>
+<li><em>Ataque con porra</em>: el homogoblin se abalanza contra el jugador inflingiendo 25 de daño base al personaje.</li>
+<li><em>Frenesí</em>: cuando le queda menos de un tercio de vida, aumenta su daño en 5 puntos.</li>
+</ul>
+</li>
+<li><em>Items</em>: el enemigo soltará una carta o <em>item</em> aleatorio una vez lo derrotemos.</li>
+</ul>
+</li>
+<li><strong>Enemigos nivel 2</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Aprendiz de mago</strong>.</li>
+<li><em>Descripción</em>: estos magos sin graduar conocen hechizos de bajo nivel, pero en ocasiones podrán sorprender al jugador con un hechizo poderoso que acaban de aprender.</li>
+<li><em>Encuentro</em>: podemos encontrarlos en los niveles 2 y 3.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Habilidades</em>:
+<ul>
+<li><em>Hechizo de fuego</em>: hechizo de bajo nivel que prenderá al jugador en llamas infringiendo 20 puntos de daño base al jugador.</li>
+<li><em>Gran bola de fuego</em>: enorma bola de fuego que causará 40 de daño base. La probabilidad de que el un aprendiz de mago realice este hechizo es muy baja.</li>
+</ul>
+</li>
+<li><em>Items</em>: el enemigo soltará una carta aleatoria una vez lo derrotemos.</li>
+</ul>
+</li>
+<li><strong>Jefe final nivel 2</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Mago corrupto</strong>.</li>
+<li><em>Descripción</em>: poderoso mago seguidor del culto de la magia oscura que conoce gran cantidad de hechizos prohibidos muy poderosos.</li>
+<li><em>Encuentro</em>: es el <em>Enemy Boss</em> del nivel 1.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Habilidades</em>:
+<ul>
+<li><em>Bola de fuego</em>: hechizo de fuego que infringe 30 puntos de daño base al jugador.</li>
+<li><em>Hielo corrupto</em>: hechizo de congelará al jugador y que infringe 20 puntos de daño base al jugador y reduce su defensa.</li>
+</ul>
+</li>
+<li><em>Items</em>: el enemigo soltará una carta o <em>item</em> aleatorio una vez lo derrotemos.</li>
+</ul>
+</li>
+<li><strong>Enemigos nivel 3</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Caballero oscuro</strong>.</li>
+<li><em>Descripción</em>: caballero que ha traicionado sus votos sagrados y acabará con cualquiera que se cruce en su camino.</li>
+<li><em>Encuentro</em>: podemos encontrarlos en el nivel 3.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Habilidades</em>:
+<ul>
+<li><em>Espadazo</em>: golpe con una enorme espada que infringe 30 puntos de daño base al jugador.</li>
+</ul>
+</li>
+<li><em>Items</em>: el enemigo soltará una carta aleatoria una vez lo derrotemos.</li>
+</ul>
+</li>
+<li><strong>Jefe final del juego</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Rey maldito</strong>.</li>
+<li><em>Descripción</em>: gobernante del castillo, se volvió demente al morir su hija y ahora gobierna un reino sumido en la miseria y la locura.</li>
+<li><em>Encuentro</em>: es el <em>Final Boss</em> del juego.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Habilidades</em>:
+<ul>
+<li><em>Golpe de cetro</em>: golpetazo con su bastón que infringe 30 puntos de daño base al jugador.</li>
+<li><em>Golpe con espada</em>: espadazo que infringe 40 puntos de daño base al jugador.</li>
+</ul>
+</li>
+<li><em>Items</em>: el enemigo no soltará ninguna carta o <em>item</em> al jugador.</li>
+</ul>
+</li>
+</ul>
+<h2 id="habilidades">Habilidades</h2>
+<p>El jugador dispondrá de una cantidad de <strong>cartas</strong> en la mano, las cuales podrá usar en los distintos combates contra los enemigos del castillo. El uso de las distintas cartas que posea el jugador durante un turno del combate se verá limitado por un <strong>indicador de <em>maná</em></strong>. Este indicador tiene, inicialmente, un máximo de <em>3 cupos</em> de <em>maná</em>, aunque puede incrementarse por algunos objetos que tenga el jugador de inventario.</p>
+<p>Inicialmente, el jugador comienza el juego con un total de <strong>5 cartas</strong> y podrá tener un total de <strong>7 cartas</strong> en su mano. Si la mano del jugador está <strong>completa</strong> no se podrán añadir más cartas a su mano. En cambio, deberá deshacerse de una que ya tenga para obtener una nueva.<br>
+La forma de conseguir cartas son las siguientes:</p>
+<ul>
+<li>Los enemigos o jefes finales a los que derrotes pueden <em>dropear</em> una carta.</li>
+<li>Se pueden encontrar cartas en los distintos cofres repartidos por el juego.</li>
+</ul>
+<p>Se pueden clasificar las cartas en tres <strong>tipos</strong>: <em>Ataque, Escudo y Magia</em>.</p>
+<ol>
+<li><em><strong>Ataque</strong></em>: cartas que utiliza el jugador para dañar a los enemigos y quitarles puntos de vida.
+<ul>
+<li><strong>Espadazo</strong>: ataque básico que consiste en un golpe de espada.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 10</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Mazazo</strong>: ataque fuerte a dos manos con una maza.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 25</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Golpe de escudo</strong>: ataque cargado con el escudo.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 5</li>
+<li><em>Aumento armadura</em>: 10 (1 turno)</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Flechazo</strong>: ataque con el arco que inflige un <em>bufo</em> negativo al enemigo durante 3 turnos. Efecto no acumulables hasta no haber pasado los 3 turnos.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 7 (1 turno) + 5 (3 turnos)</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Escudo</strong></em>: cartas que utiliza el jugador para aumentar la defensa durante el combate contra un enemigo.
+<ul>
+<li><strong>Incremento de armadura</strong>: Incremento de armadura.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 10 (1 turno)</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Incremento de armadura II</strong>: Incremento de armadura avanzado.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 25 (1 turno)</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Fortificación</strong>: Incrementa tu armadura en ese turno y aumenta la defensa durante el resto del combate
+<ul>
+<li><em>Coste de maná</em>: 3</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 50 (1 turno) + 1 defensa (combate)</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Magia</strong></em>: cartas con habilidades especiales que se pueden utilizar tanto para atacar como para defenderse y/o curarse durante el combate.
+<ul>
+<li><strong>Bola de fuego</strong>: lanza un bola de fuego al enemigo.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 35 (1 turno)</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Curar</strong>: habilidad mágica que hace recuperar 15 puntos de vida al jugador.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 15</li>
+</ul>
+</li>
+<li><strong>Curar II</strong>: habilidad mágica que hace recuperar 25 puntos de vida al jugador.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 25</li>
+</ul>
+</li>
+<li><strong>Destello</strong>: ciegas al enemigo evitando que pueda golpearte en el siguiente turno.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="inventario">Inventario</h2>
+<p>El jugador consta con un <strong>inventario</strong> donde puede añadir los objetos o <em>items</em> que consiga a lo largo del juego. El inventario se divide en 3 <strong>tipos</strong> de objetos que puede asignar el jugador a su personaje. Estos tipos son:</p>
+<ul>
+<li><em><strong>Armadura</strong></em> del personaje: <em>items</em> con los que modificar las características de <em>cantidad armadura</em>, <em>aumento de defensa</em> o aumentar la cantidad de <em>vida máxima</em>.</li>
+<li><em><strong>Arma</strong></em> del personaje: <em>items</em> con los que modificar la característica del jugador <em>aumento de ataque</em>.</li>
+<li><em><strong>Amuleto</strong></em> del personaje: <em>items</em> con los que se pueden aumentar cualquier característica del jugador, según el <em>item</em> que lleve equipado el personaje.</li>
+</ul>
+<p>Descripción de los distintos <em><strong>items</strong></em> que podrá conseguir el jugador a lo largo del juego para modificar las estadísticas base del jugador descritas anteriormente (vida máxima, cantidad armadura, aumento de ataque, aumento de defensa, aumento del poder mágico, cantidad de <em>maná</em>).</p>
+<p>A lo largo del juego se pueden encontrar <em>items</em></p>
+<ol>
+<li><em><strong>Armaduras</strong></em>
+<ul>
+<li><strong>Armadura de cuero</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>10</strong></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Armadura de metal</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>15</em></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Armadura de oro</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>20</strong></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <strong>3</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Armadura legendaria</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>50</strong></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <strong>5</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Armas</strong></em>
+<ul>
+<li><strong>Espada rota</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Espada</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Hacha de combate</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <strong>3</strong></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><em><strong>Excalibur</strong></em>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <strong>5</strong></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Amuletos</strong></em>
+<ul>
+<li><strong>Colgante de rubí</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Anillo de zafiro</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <strong>1</strong></li>
+</ul>
+</li>
+<li><strong>Moneda del Rey</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>5</strong></li>
+<li><em>Ataque</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Defensa</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <strong>0</strong></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <strong>1</strong></li>
+</ul>
+</li>
+<li><strong>Corona del Rey</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>20</strong></li>
+<li><em>Ataque</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Defensa</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <strong>2</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="logros">Logros</h2>
+<h2 id="música-y-sonidos">Música y sonidos</h2>
+<h2 id="imágenes-de-concepto">Imágenes de concepto</h2>
+<h2 id="miembros-del-equipo">Miembros del equipo</h2>
+<ol>
+<li>Game designer</li>
+<li>Programadores</li>
+<li>Artistas 2D</li>
+<li>Maquetadores web</li>
+</ol>
+<h2 id="detalles-de-produccion">Detalles de produccion</h2>
+<p>Fecha de inicio del videojuego: <em><strong>15 octubre 2018</strong></em><br>
+Fecha de terminación del videojuego: <em><strong>21 diciembre 2018</strong></em></p>
+</div>
+</body>
+
+</html>
