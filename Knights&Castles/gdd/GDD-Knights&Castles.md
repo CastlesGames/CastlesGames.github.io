@@ -53,7 +53,6 @@ En definitiva, *Knights  & Castles* es un juego rápido, con una duración prác
 ## 5. Estados del juego
 A continuación se presenta el diagrama de estados del juego sobre las posibles pantallas de la interfaz en las que el jugador se puede encontrar:
 
-![Diferentes estados del juego](imgs/estados-juego.png | width=50)
 <img src="imgs/estados-juego.png" width="400">
 
 > Diferentes estados del juego
