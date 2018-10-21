@@ -149,7 +149,8 @@ A continuación se describe con más detalle los tres niveles del juego:
 		+ *Música y efectos de sonido*: 
 ## 8. Progreso del juego
 En la siguiente ilustración se muestra el diagrama de progreso de juego:
-![Diferentes estados del juego](imgs/estados-juego.png "Estados de juego")
+
+![Diagrama progreso de juego](imgs/progreso-juego.jpeg "Diagrama progreso de juego")
 > Diagrama progreso de juego
 
 
