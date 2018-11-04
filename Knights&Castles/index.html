@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Knights & Castles' videogame with HTML5, JavaScript and CSS3">
+  <meta name="author" content="Castle's Games">
+
+  <title>Knights and Castles</title>
+
+  <!-- ANIMATE CSS -->
+  <link href="css/animate.css-master/animate.min.css" rel="stylesheet">
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+  <!-- AWESOME FONTS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- BOOTSTRAP-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap-theme.min.css">
+  <!-- FIN BOOTSTRAP 3.3.7 -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/knights&castles.css">
+
+
+</head>
+
+<body>
+
+  <div id="tituloJuego" class="col-centered">
+    <img id="tituloJuegoImg" src="assets/imgs/tituloJuego.png">
+  </div>
+
+  <div id="menusBackground">
+
+    <div class="container container-menus">
+      <!--MENU PRINCIPAL-->
+      <div id="menuPrincipal" class="row align-items-end">
+
+        <div class="row">
+          <div class="col-xs-12 col-centered">
+            <div class="btn" id="jugarBtn">
+              <span class="idiomaESP">Jugar</span>
+              <span class="idiomaING">Play</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-centered">
+            <div class="btn" id="puntuacionesBtn">
+              <span class="idiomaESP">Puntuaciones</span>
+              <span class="idiomaING">Scores</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-centered">
+            <div class="btn" id="opcionesBtn">
+              <span class="idiomaESP">Opciones</span>
+              <span class="idiomaING">Options</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-centered">
+            <div class="btn" id="creditosBtn">
+              <span class="idiomaESP">Creditos</span>
+              <span class="idiomaING">Credits</span>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-centered">
+            <span class="idiomaESP">Desarrollado con </span>
+            <span class="idiomaING">Developed with</span>
+            <br />
+            <img class="icons" src="assets/imgs/iconos/html5.svg">
+            <img class="icons" src="assets/imgs/iconos/javascript.svg">
+            <img class="icons" src="assets/imgs/iconos/css.svg">
+            <br />
+
+            <div class="iconsLicense">
+              Icons made by
+              <a href="http://www.freepik.com" title="Freepik">Freepik</a>,
+              <a href="https://www.flaticon.com/authors/freepik" title="Javascript">Javascript</a>
+              and
+              <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
+              from
+              <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+              is licensed by
+              <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+      <!--FIN MENU PRINCIPAL-->
+
+      <!--MENU OPCIONES-->
+      <div id="menuOpciones" class="row align-items-end">
+        <div class="row">
+          <div class="col-xs-12 col-centered">
+            <div>
+              <span class="idiomaESP">Idioma</span>
+              <span class="idiomaING">Language</span>
+            </div>
+            <div class="btn" id="idiomaESPbtn">
+              <span class="idiomaESP">Castellano</span>
+              <span class="idiomaING">Spanish</span>
+            </div>
+            <div class="btn" id="idiomaINGbtn">
+              <span class="idiomaESP">Inglés</span>
+              <span class="idiomaING">English</span>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-centered">
+            <div>
+              <span class="idiomaESP">Musica</span>
+              <span class="idiomaING">Music</span>
+            </div>
+            <div class="btn"><span>OFF</span></div>
+            <div class="btn"><span>ON</span></div>
+          </div>
+
+          <div class="col-xs-12 col-centered">
+            <div>
+              <span class="idiomaESP">Dificultad</span>
+              <span class="idiomaING">Difficulty</span>
+            </div>
+            <div class="btn">
+              <span class="idiomaESP">Normal</span>
+              <span class="idiomaING">Normal</span>
+            </div>
+            <div class="btn">
+              <span class="idiomaESP">Dificil</span>
+              <span class="idiomaING">Hard</span>
+            </div>
+          </div>
+
+
+          <div class="col-xs-12 col-centered">
+            <div class="btn volverAlMenu"></div>
+          </div>
+        </div>
+
+      </div>
+      <!--FIN MENU OPCIONES-->
+
+      <!--MENU CREDITOS-->
+      <div id="menuCreditos" class="row align-items-end">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="marcoFoto col-centered">
+            </div>
+            <div class="marcoTexto col-centered">
+              <span>Diego</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="marcoFoto col-centered">
+            </div>
+            <div class="marcoTexto col-centered">
+              <span>Javi</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="marcoFoto col-centered">
+            </div>
+            <div class="marcoTexto col-centered">
+              <span>Laura</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="marcoFoto col-centered">
+            </div>
+            <div class="marcoTexto col-centered">
+              <span>Guille</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="col-centered marcoGithub">
+              <a class="btn-github" href="https://castlesgames.github.io/">
+                <span class="fa fa-github"></span>
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="marcoFoto">
+            </div>
+            <div class="marcoTexto col-centered">
+              <span>Juancar</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-centered">
+            <div>
+              <a href="https://castlesgames.github.io/" class="idiomaESP col-centered linkGithub">Visita nuestra página de GitHub</a>
+              <a href="https://castlesgames.github.io/" class="idiomaING col-centered linkGithub">Visit our GitHub Page</a>
+            </div>
+          </div>
+
+
+          <div class="col-xs-12 col-centered">
+            <div class="btn volverAlMenu"></div>
+          </div>
+        </div>
+      </div>
+      <!--FIN MENU CREDITOS-->
+
+      <!--MENU PUNTUACIONES-->
+      <!--FIN MENU PUNTUACIONES-->
+
+      <!--MENU PAUSA-->
+      <div id="menuPausa" class="row align-items-center">
+        <div class="row">
+          <div class="col-xs-12 col-centered">
+            <div class="btn" id="continuarBtn">
+              <span class="idiomaESP">Continuar</span>
+              <span class="idiomaING">Resume</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-centered">
+            <div class="btn" id="salirBtn">
+              <span class="idiomaESP">Salir</span>
+              <span class="idiomaING">Exit</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+          </div>
+        </div>
+      </div>
+      <!--FIN MENU PAUSA-->
+    </div>
+
+  </div>
+
+  <div id="hud">
+    <div class="container-fluid container-hud">
+      <div id="hudMain">
+        <!-- HUD para la vida, armadura, inventario y pausa -->
+        <div id="pausaBtn">
+          <img src="assets/imgs/botones/pauseBtn.png">
+        </div>
+        
+        <div id="inventario">
+          <div id="armadura" class="inventarioItem">
+            <img src="assets/imgs/iconos/armadura.png">
+          </div>
+          <div id="arma" class="inventarioItem">
+            <img src="assets/imgs/iconos/arma.png">
+          </div>
+          <div id="amuleto" class="inventarioItem">
+            <img src="assets/imgs/iconos/amuleto.png">
+          </div>
+        </div>
+        <div id="estadisticas">
+          <div id="barraVida">
+            <div class="marcoEstadisticas"></div>
+            <progress value="100" max="100"></progress>
+          </div>
+          <div id="barraArmadura">
+            <div class="marcoEstadisticas"></div>
+            <progress value="20" max="100"></progress>
+          </div>
+        </div>
+      </div>
+
+      <div id="hudCartas" class="row align-items-end">
+
+        <div class="col-xs-2">
+          <!--COLUMNA VACÍA-->
+        </div>
+
+        <div class="col-xs-8">
+          <div class="col-xs-2 col-centered" >
+            <div class="carta" id="cartaExtra1">
+            </div>
+          </div>
+          <div class="col-xs-2 col-centered" >
+            <div class="carta" id="carta1">
+            </div>
+          </div>
+          <div class="col-xs-2 col-centered" >
+            <div class="carta" id="carta2">
+            </div>
+          </div>
+          <div class="col-xs-2 col-centered" >
+            <div class="carta" id="carta3">
+            </div>
+          </div>
+          <div class="col-xs-2 col-centered" >
+            <div class="carta" id="carta4">
+            </div>
+          </div>
+          <div class="col-xs-2 col-centered" >
+            <div class="carta" id="cartaExtra2">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-2">
+          <!--COLUMNA VACÍA-->
+        </div>
+
+      </div>
+
+      <div id="hudBtn">
+        <div id="sceneToUp" class="sceneBtn ">
+        <img src="assets/imgs/botones/sceneToUp.png">
+        </div>
+        <div id="sceneToLeft" class="sceneBtn">
+        <img src="assets/imgs/botones/sceneToLeft.png">
+        </div>
+        <div id="sceneToRight" class="sceneBtn">
+        <img src="assets/imgs/botones/sceneToRight.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME -->
+  <canvas id="canvas"></canvas>
+
+
+  <!-- CARGA AUDIOS DEL JUEGO -->
+
+  <!-- FIN CARGA AUDIOS DEL JUEGO -->
+
+  <!-- CARGAMOS BOOTSTRAP -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- FIN CARGA BOOTSTRAP 3.3.7 -->
+
+  <!-- CARGA SCRIPTS DEL JUEGO -->
+  <script src="scripts/navigate.js"></script>
+  <!-- FIN CARGA SCRIPTS DEL JUEGO -->
+
+</body>
+
+</html>
