@@ -1,0 +1,314 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  font-family: 'MedievalSharp', cursive;
+  color: rgba(240, 240, 240, 1);
+}
+
+
+
+.container-menus {
+  max-height: 1080px;
+  max-width: 900px;
+  height: inherit;
+  /*align-items: flex-end;*/
+  padding: 0;
+}
+
+.container-hud {
+  padding: 0;
+  height: 100%;
+}
+
+.row {
+  margin: 0;
+  width: 100%;
+}
+
+#canvas {
+  position: absolute;
+  background-color: darkgrey;
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+  top: 0;
+}
+
+.col-centered {
+  text-align: center;
+}
+
+.btn {
+  width: 200px;
+  height: 75px;
+  font-size: 24px;
+  line-height: 75px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  padding: 0;
+  background-image: url(../assets/imgs/botones/btn.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: outset;
+  color: rgba(64, 64, 64, 1);
+}
+
+.btn:hover {
+  font-weight: 600;
+}
+
+.volverAlMenu {
+  border: none;
+  background: transparent;
+}
+
+.volverAlMenu {
+  border: none;
+  background-image: url(../assets/imgs/botones/return.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#menusBackground {
+  background-color: rgba(8, 33, 73, .8);
+  height: 100%;
+  width: 100%
+}
+
+#hud {
+  height: 100%;
+  width: 100%;
+}
+
+#menuPrincipal,
+#menuOpciones,
+#menuCreditos,
+#menuPuntuaciones,
+#menuPausa {
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+#tituloJuego {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#tituloJuegoImg {
+  width: 700px;
+}
+
+#hudCartas,
+#hudBtn {
+  height: 100%;
+}
+
+#hudMain,
+#hudBtn {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#pausaBtn {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  height: 64px;
+  width: 64px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+#estadisticas {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}
+
+#inventario {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+}
+
+#pausaBtn img,
+#inventario img {
+  width: 100%;
+}
+
+#armadura,
+#arma,
+#amuleto {
+  width: 64px;
+  height: 64px;
+}
+
+.sceneBtn {
+  width: 64px;
+  height: 64px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+#sceneToLeft {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+#sceneToRight {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+#sceneToUp {
+  position: absolute;
+  left: 50%;
+  top: 2%;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50, 0%);
+  transform: translate(-50%, 0);
+
+}
+
+.carta {
+  height: 220px;
+  width: 150px;
+  background-image: url(../assets/imgs/cartas/carta-espadazo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 20px;
+}
+
+
+.marcoFoto {
+  height: 150px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: rgba(215, 215, 215, 1);
+  border-radius: 100%;
+  vertical-align: middle;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.marcoTexto {
+  font-weight: 600
+}
+
+.marcoGithub {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 150px;
+}
+
+.fa-github {
+  font-size: 150px;
+  color: rgba(240, 240, 240, 1);
+}
+
+.linkGithub {
+  color: rgba(240, 240, 240, 1);
+  font-style: italic;
+}
+
+.icons {
+  width: 50px;
+  height: auto;
+}
+
+.iconsLicense,
+.iconsLicense a {
+  font-size: 10px;
+  color: rgba(240, 240, 240, .8);
+  padding-top: 10px;
+}
+
+@media (min-width: 1200px) {
+  /* Los estilos aquí contenidos solo se aplicarán a partir
+    del tamaño de pantalla indicado */
+}
+
+@media (min-width: 992px) {
+  /* Los estilos aquí contenidos solo se aplicarán a partir
+    del tamaño de pantalla indicado */
+}
+
+@media (min-width: 768px) {
+  /* Los estilos aquí contenidos solo se aplicarán a partir
+    del tamaño de pantalla indicado */
+}
+
+@media (max-width: 767px) {
+
+  html,
+  body {
+    font-size: 15px;
+  }
+
+  #tituloJuegoImg {
+    width: 500px;
+    padding-top: 25px
+  }
+
+  .btn {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .marcoFoto {
+    height: 75px;
+    width: 75px
+  }
+
+  .marcoGithub {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 75px;
+    height: 75px;
+  }
+
+  .fa-github {
+    font-size: 75px;
+  }
+
+  .volverAlMenu {
+    height: 55px;
+  }
+
+  .carta {
+    width: 75px;
+    height: 110px
+  }
+
+}
