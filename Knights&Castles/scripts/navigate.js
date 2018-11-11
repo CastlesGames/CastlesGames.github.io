@@ -92,5 +92,4 @@ function onKeyDown(event) {
   }
 }
 
-
 window.addEventListener('keydown', onKeyDown, false);
