@@ -35,17 +35,17 @@
 
 <body>
 
-  <div id="tituloJuego" class="col-centered">
-    <img id="tituloJuegoImg" src="assets/imgs/tituloJuego.png">
-  </div>
-
   <div id="menusBackground">
 
     <div class="container container-menus">
+
       <!--MENU PRINCIPAL-->
-      <div id="menuPrincipal" class="row align-items-end">
+      <div id="menuPrincipal" class="row align-items-center">
 
         <div class="row">
+          <div class="tituloJuego col-xs-12 col-centered">
+            <img id="tituloJuegoImg" src="assets/imgs/tituloJuego.png">
+          </div>
           <div class="col-xs-12 col-centered">
             <div class="btn" id="jugarBtn">
               <span class="idiomaESP">Jugar</span>
@@ -101,8 +101,11 @@
       <!--FIN MENU PRINCIPAL-->
 
       <!--MENU OPCIONES-->
-      <div id="menuOpciones" class="row align-items-end">
+      <div id="menuOpciones" class="row align-items-center">
         <div class="row">
+          <div class="tituloJuego col-xs-12 col-centered">
+            <img id="tituloJuegoImg" src="assets/imgs/tituloJuego.png">
+          </div>
           <div class="col-xs-12 col-centered">
             <div>
               <span class="idiomaESP">Idioma</span>
@@ -152,8 +155,12 @@
       <!--FIN MENU OPCIONES-->
 
       <!--MENU CREDITOS-->
-      <div id="menuCreditos" class="row align-items-end">
+      <div id="menuCreditos" class="row align-items-center">
         <div class="row">
+
+          <div class="tituloJuego col-xs-12 col-centered">
+            <img id="tituloJuegoImg" src="assets/imgs/tituloJuego.png">
+          </div>
           <div class="col-xs-4">
             <div class="marcoFoto col-centered">
             </div>
@@ -245,16 +252,16 @@
         <div id="pausaBtn">
           <img src="assets/imgs/botones/pauseBtn.png">
         </div>
-        
+
         <div id="inventario">
           <div id="armadura" class="inventarioItem">
-            <img src="assets/imgs/iconos/armadura.png">
+
           </div>
           <div id="arma" class="inventarioItem">
-            <img src="assets/imgs/iconos/arma.png">
+
           </div>
           <div id="amuleto" class="inventarioItem">
-            <img src="assets/imgs/iconos/amuleto.png">
+
           </div>
         </div>
         <div id="estadisticas">
@@ -263,8 +270,9 @@
             <progress value="100" max="100"></progress>
           </div>
           <div id="barraArmadura">
-            <div class="marcoEstadisticas"></div>
-            <progress value="20" max="100"></progress>
+            <span class="idiomaESP">Armadura: </span>
+            <span class="idiomaING">Armor: </span>
+            <span id="statsArmadura">0</span>
           </div>
         </div>
       </div>
@@ -276,27 +284,27 @@
         </div>
 
         <div class="col-xs-8">
-          <div class="col-xs-2 col-centered" >
+          <div class="col-xs-2 col-centered">
             <div class="carta" id="cartaExtra1">
             </div>
           </div>
-          <div class="col-xs-2 col-centered" >
+          <div class="col-xs-2 col-centered">
             <div class="carta" id="carta1">
             </div>
           </div>
-          <div class="col-xs-2 col-centered" >
+          <div class="col-xs-2 col-centered">
             <div class="carta" id="carta2">
             </div>
           </div>
-          <div class="col-xs-2 col-centered" >
+          <div class="col-xs-2 col-centered">
             <div class="carta" id="carta3">
             </div>
           </div>
-          <div class="col-xs-2 col-centered" >
+          <div class="col-xs-2 col-centered">
             <div class="carta" id="carta4">
             </div>
           </div>
-          <div class="col-xs-2 col-centered" >
+          <div class="col-xs-2 col-centered">
             <div class="carta" id="cartaExtra2">
             </div>
           </div>
@@ -309,14 +317,8 @@
       </div>
 
       <div id="hudBtn">
-        <div id="sceneToUp" class="sceneBtn ">
-        <img src="assets/imgs/botones/sceneToUp.png">
-        </div>
-        <div id="sceneToLeft" class="sceneBtn">
-        <img src="assets/imgs/botones/sceneToLeft.png">
-        </div>
         <div id="sceneToRight" class="sceneBtn">
-        <img src="assets/imgs/botones/sceneToRight.png">
+          <img src="assets/imgs/botones/sceneToRight.png">
         </div>
       </div>
     </div>
@@ -341,6 +343,9 @@
 
   <!-- CARGA SCRIPTS DEL JUEGO -->
   <script src="scripts/navigate.js"></script>
+  <script src="scripts/item.js"></script>
+  <script src="scripts/jugador.js"></script>
+  <script src="scripts/main.js"></script>
   <!-- FIN CARGA SCRIPTS DEL JUEGO -->
 
 </body>
