@@ -13,18 +13,45 @@
         Quita las imágenes y botones y llama a la sala .end
 */
 
-function Cofre(_sala){
-    this.sala = _sala;
-}
+function Cofre(nombre) {
+    this.nombre = nombre;
+    this.recompensa = new Item("", "", 0, 0, 0, 0, 0);
+  }
 
 Cofre.prototype.init = function(){
-
+    var x = Math.floor((Math.random() * 4) + 1);
+    console.log("Eligo Item");
+    switch(x){
+        case 1:
+            console.log("Item 1");
+            this.recompensa = item1;
+            break;
+        case 2:
+            console.log("Item 2");
+            this.recompensa = item2;
+            break;
+        case 3:
+            console.log("Item 3");
+            this.recompensa = item3;
+            break;
+        case 4:
+            console.log("Item 4");
+            this.recompensa = item4;
+            break;
+    }
+    //MAQUETACION DE COFRE
 }
 
 Cofre.prototype.abrirCofre = function(){
-    
+    //PINTAR A this.recompensa
+    //PONER BOTÓN DE RECOGER
 }
 
-Cofre.prototype.RecogerRecompensaCofre = function(){
-    this.sala.end();
+Cofre.prototype.recogerRecompensaCofre = function(){
+    
+    //FUNCIONALIDAD DE RECOGER
+    player.addItem(this.recompensa);
+    console.log("Recompensa añadida");
+
+    player.toString();
 }

@@ -2,11 +2,15 @@
 //  ENEMIGO , COFRE , NADA , ENFERMERÍA
 // Se requieren los métodos:
 // Inicializar la Sala => Init
-// Fin de la Sala => End
 
-function Sala(/*Una sala recibe un objeto combate, cofre y enfermería*/ ){}
+function Sala(nombre){
+    this.nombre = nombre;
+}
 
 Sala.prototype.init = function(){
+
+    //MAQUETACION DE LA SALA! QUITAR BOTONES DE NAVEGACION
+
     var x = Math.floor((Math.random() * 4) + 1);
     switch(x){
         case 1:
@@ -16,24 +20,19 @@ Sala.prototype.init = function(){
         case 2:
             console.log("Inicializo un Cofre");
             //Llamo al objeto Cofre.Init()
-            var cofre = new Cofre(this);
-            cofre.init;
+            var cofre = new Cofre("Name");
+            cofre.init();
             break;
         case 3:
             console.log("Inicializo un NADA");
             //Pinto por pantalla: "SALA VACÍA"
-            //Llamo a Sala.prototype.end
-            end();
             break;
         case 4:
             console.log("Inicializo una enfermería");
-            //Llamo al objeto Enfermeria.Init()
+            //Llamo al objeto Enfermeria.Init()ç
+            var enfermeria = new Enfermeria(60);
+            enfermeria.init();
+            enfermeria.curar();
             break;
     }
-}
-
-Sala.prototype.end = function(){
-    //Cuando se acaba el Combate, Cofre o enfermería. Llaman a la sala para:
-    //Dar acceso al jugador a moverse.
-    
 }

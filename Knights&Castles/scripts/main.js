@@ -42,3 +42,6 @@ console.log("Jugador dañado (ha recibido un ataque de 20 de daño)");
 player.perderVida(20);
 player.toString();
 
+sala = new Sala("Cavernas");
+sala.init();
+
