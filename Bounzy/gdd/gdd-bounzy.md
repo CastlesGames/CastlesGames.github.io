@@ -1,6 +1,6 @@
-﻿# *XXX*
+﻿# *Wanted: Point and Shot (provisional)*
 Título
-: Documento de diseño de juego - *XXX*
+: Documento de diseño de juego - *Wanted: Point and Shot (provisional)*
 
 Autores
 : Díaz Pérez, Diego
@@ -10,36 +10,36 @@ Autores
 : Rodríguez Martínez, Francisco Javier
 
 ## 1. Concepto
-   + **Título**:  *Knights & Castles*.
+   + **Título**:  *Wanted: Point and Shot (provisional)*.
    + **Estudio**: *Castle's Games*.
    + **Género**: Arcade.
    + **Arte**: 3D con estilo *cartoon*.
-   + **Plataforma**: PC y *Smartphone*.
+   + **Plataforma**: Smartphone y PC (Web Version)*.
    + **Versión:** 1.0.
-   + **Sinopsis de jugabilidad y contenido**: *XXX* es un juego arcade basado en progresión de niveles con una ambientación western donde el protagonista tiene que derrotar a los enemigos disparando su arma.
-   + **Categoría**: *XXX* se puede comparar con el videojuego *Bounzy*, ya que tiene las mismas mecánicas. La principal diferencia entre los dos juegos es la temática.
+   + **Sinopsis de jugabilidad y contenido**: *Wanted: Point and Shot (provisional)* es un juego arcade basado en progresión de niveles con una ambientación western donde el protagonista tiene que derrotar a los enemigos disparando su arma.
+   + **Categoría**: *XXX* se puede comparar con el videojuego *Bounzy*, ya que tiene las mismas mecánicas. El valor diferenciador del juego es la temática Western. 
    + **Licencia**: *XXX* es totalmente original y no está basado en ningún libro o película. 
-   + **Mecánica**: El protagonista utiliza su arma para disparar balas que rebotarán entre los enemigos mediante física. Cada vez que una bala toque a un enemigo éste perderá un porcentaje de salud.
+   + **Mecánica**: El protagonista utiliza su arma para disparar balas que rebotarán entre los enemigos mediante un sistema de físicas. Cada vez que una bala toque a un enemigo éste perderá un porcentaje de salud.
    + **Tecnología**: El juego será desarrollado íntegramente en **Unity**.  En cuanto al arte del videojuego, se utilizará el programa ***Adobe Photoshop CC 2018*** del paquete *Adobe*. Para el modelado en 3D se utilizarán ***Maya*** y ***3DS Max***.
    + **Público**: El público objetivo está entre el rango de edades de 16 a 30 años. Entre ellos, jugadores masculinos que disfruten la ambientación western y prefieran partidas rápidas o no tengan demasiado tiempo para dedicarle al juego.
 
 ## 2. Historial de versiones
 | Versión 	| Fecha 	 | Comentarios|
 |:---------:|:----------:|------------|
-| 0.0 		| 13/10/2018 | Planteamiento del juego y construcción inicial del Documento de Diseño de Juego (*Game Document Design - G.D.D.*)|
-| 0.1		| 17/10/2018 | Se definen *mecánicas*, *arte del juego*, *estructuración de niveles* |
-| 1.0 		| 19/10/2018 | Se completa la primera versión del *G.D.D.* de *XXX*|
+| 0.0 		| 19/11/2018 | Planteamiento del juego y construcción inicial del Documento de Diseño de Juego (*Game Document Design - G.D.D.*)|
+| 0.1		| 30/11/2018 | Se definen *mecánicas*, *arte del juego*, *estructuración de niveles* |
+| 1.0 		| 05/12/2018 | Se completa la primera versión del *G.D.D.* de *XXX*|
 
 ## 3. Visión general del videojuego
-*Knights & Castles* es un juego de cartas y rol de acción por turnos con ambientación medieval donde el jugador toma el control de un caballero que tendrá que ir avanzando a través de las distintas habitaciones de un castillo derrotando a los distintos enemigos que vaya encontrando hasta llegar al enemigo final. Las batallas contra enemigos funcionarán por turnos y se jugarán mediante cartas con las que el jugador podrá atacar, defenderse o realizar hechizos de magia que le ayuden durante el combate.
+*Wanted: Point and Shot (provisional)* es un videojuego de género Arcade Free to Play en el que combina la fase de acción de Bounzy y una temática Western low poly, novedosa para este género. 
 
-Cada carta tendrá un coste de maná, y durante cada turno el jugador tendrá un número limitado de puntos de maná con los que tendrá que elegir qué cartas le conviene utilizar en cada momento del combate. Las cartas iniciales tendrán un coste bajo, pero conforme el jugador vaya consiguiendo cartas mejores, éstas tendrán un coste más alto.
+El jugador encarna al Sherif del condado cuya misión es acabar con la delincuencia, en cada nivel el jugador se encontrará con distintos enemigos y un boss final. El juego se basa en una progresión de niveles procedural en los que se aumenta la dificultad.
 
-El *gameplay* del juego se basa en la progresión, ya que el jugador tiene que ir avanzando a través de los niveles e ir convirtiéndose en un personaje más fuerte para luchar contra los enemigos. Además, el juego crea una sensación de aleatoriedad mediante los distintos diseños que tendrán los escenarios durante la partida y las cartas que el jugador puede ir consiguiendo a través de los niveles, intentando evitar que todas las partidas se sientan igual.
+La fase de acción se basa en un sistema de turnos y una mecánica de disparo, en la que el jugador apunta hacia una parte de la pantalla y dispara una serie de elementos (balas) que rebotan en el escenario a través de un sistema de físicas, estos elementos infringen daño a los enemigos del tablero y dichos enemigos caen una posición en el tablero cada turno, cuando llegan al personaje del jugador le infringen daño.
 
-Otra de las ventajas del juego es su duración. Cada partida tendrá un máximo de tres niveles y un enemigo final al que hay que derrotar para ganar, esto permitiría jugar partidas rápidas y facilitaría el juego a las personas que no tienen mucho tiempo libre.
-
-En definitiva, *Knights  & Castles* es un juego rápido, con una duración prácticamente infinita gracias a su rejugabilidad y donde ninguna partida será igual que la anterior.
+ - Fase de acción - Bounzy
+ 
+<img alt="Gameplay" src="assets/gameplay.png">
 
 ## 4. Mecánicas
    + **Cámara:** Videojuego en 3D con una cámara estática. Plano *top-down*. El jugador puede ver en todo momento todos los elementos del nivel.
@@ -51,7 +51,7 @@ En definitiva, *Knights  & Castles* es un juego rápido, con una duración prác
 ## 5. Estados del juego
 A continuación se presenta el diagrama de estados del juego sobre las posibles pantallas de la interfaz en las que el jugador se puede encontrar:
 
-<img alt="Diferentes estados del juego" src="imgs/estados-juego.png" width="400">
+<img alt="Diferentes estados del juego" src="assets/estados.png" >
 
 > Diferentes estados del juego
 
