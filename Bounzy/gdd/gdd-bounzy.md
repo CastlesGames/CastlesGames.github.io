@@ -163,212 +163,16 @@ A continuación se da una breve descripción de los personajes que sirven de ene
       + *Salud*: 10.
       + *Ataque*: 3.
     
-## Habilidades
-El jugador dispondrá de una cantidad de **cartas** en la mano, las cuales podrá usar en los distintos combates contra los enemigos del castillo. El uso de las distintas cartas que posea el jugador durante un turno del combate se verá limitado por un **indicador de *maná***. Este indicador tiene, inicialmente, un máximo de *3 cupos* de *maná*, aunque puede incrementarse por algunos objetos que tenga el jugador de inventario.
-
-Inicialmente, el jugador comienza el juego con un total de **5 cartas** y podrá tener un total de **7 cartas** en su mano. Si la mano del jugador está **completa** no se podrán añadir más cartas a su mano. En cambio, deberá deshacerse de una que ya tenga para obtener una nueva.
-La forma de conseguir cartas son las siguientes:
-+ Los enemigos o jefes finales a los que derrotes pueden *dropear* una carta.
-+ Se pueden encontrar cartas en los distintos cofres repartidos por el juego.
-
-Se pueden clasificar las cartas en tres **tipos**: *Ataque, Escudo y Magia*. 
-1. ***Ataque***: cartas que utiliza el jugador para dañar a los enemigos y quitarles puntos de vida. 
-    + **Espadazo**: ataque básico que consiste en un golpe de espada.
-      + *Coste de maná*: 1
-      + *Daño base*: 10
-      + *Aumento armadura*: 0
-      + *Curación*: 0
-    + **Mazazo**: ataque fuerte a dos manos con una maza. 
-      + *Coste de maná*: 2
-      + *Daño base*: 25
-      + *Aumento armadura*: 0
-      + *Curación*: 0
-    + **Golpe de escudo**: ataque cargado con el escudo.
-      + *Coste de maná*: 1
-      + *Daño base*: 5
-      + *Aumento armadura*: 10 (1 turno)
-      + *Curación*: 0
-    + **Flechazo**: ataque con el arco que inflige un *bufo* negativo al enemigo durante 3 turnos. Efecto no acumulables hasta no haber pasado los 3 turnos.
-      + *Coste de maná*: 1
-      + *Daño base*: 7 (1 turno) + 5 (3 turnos)
-      + *Aumento armadura*: 0
-      + *Curación*: 0
-2. ***Escudo***: cartas que utiliza el jugador para aumentar la defensa durante el combate contra un enemigo.
-    + **Incremento de armadura**: Incremento de armadura.
-      + *Coste de maná*: 1
-      + *Daño base*: 0
-      + *Aumento armadura*: 10 (1 turno)
-      + *Curación*: 0
-    + **Incremento de armadura II**: Incremento de armadura avanzado.
-      + *Coste de maná*: 2
-      + *Daño base*: 0
-      + *Aumento armadura*: 25 (1 turno)
-      + *Curación*: 0
-    + **Fortificación**: Incrementa tu armadura en ese turno y aumenta la defensa durante el resto del combate
-      + *Coste de maná*: 3
-      + *Daño base*: 0
-      + *Aumento armadura*: 50 (1 turno) + 1 defensa (combate)
-      + *Curación*: 0
-3. ***Magia***: cartas con habilidades especiales que se pueden utilizar tanto para atacar como para defenderse y/o curarse durante el combate.
-   + **Bola de fuego**: lanza un bola de fuego al enemigo.
-      + *Coste de maná*: 2
-      + *Daño base*: 35 (1 turno)
-      + *Aumento armadura*: 0
-      + *Curación*: 0
-   + **Curar**: habilidad mágica que hace recuperar 15 puntos de vida al jugador.
-      + *Coste de maná*: 1
-      + *Daño base*: 0
-      + *Aumento armadura*: 0
-      + *Curación*: 15 
-   + **Curar II**: habilidad mágica que hace recuperar 25 puntos de vida al jugador.
-      + *Coste de maná*: 2
-      + *Daño base*: 0
-      + *Aumento armadura*: 0
-      + *Curación*: 25
-   + **Destello**: ciegas al enemigo evitando que pueda golpearte en el siguiente turno. 
-      + *Coste de maná*: 2
-      + *Daño base*: 0
-      + *Aumento armadura*: 0
-      + *Curación*: 0
-
-## Inventario
-El jugador consta con un **inventario** donde puede añadir los objetos o *items* que consiga a lo largo del juego. El inventario se divide en 3 **tipos** de objetos que puede asignar el jugador a su personaje. Estos tipos son:
-+ ***Armadura*** del personaje: *items* con los que modificar las características de *cantidad armadura*, *aumento de defensa* o aumentar la cantidad de *vida máxima*.
-+ ***Arma*** del personaje: *items* con los que modificar la característica del jugador *aumento de ataque*.
-+ ***Amuleto*** del personaje: *items* con los que se pueden aumentar cualquier característica del jugador, según el *item* que lleve equipado el personaje.
-
-Descripción de los distintos ***items*** que podrá conseguir el jugador a lo largo del juego para modificar las estadísticas base del jugador descritas anteriormente (vida máxima, cantidad armadura, aumento de ataque, aumento de defensa, aumento del poder mágico, cantidad de *maná*).
-
-A lo largo del juego se pueden encontrar *items* 
-
-1. ***Armaduras***
-   + **Armadura de cuero**:
-	   + *Vida máxima*: 100 (base) + **10**
-	   + *Ataque*: 0 (base) + *0*
-	   + *Defensa*: 0 (base) + **1**
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + *0*
-   + **Armadura de metal**:
-	   + *Vida máxima*: 100 (base) + *15*
-	   + *Ataque*: 0 (base) + *0*
-	   + *Defensa*: 0 (base) + **2**
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + *0*
-   + **Armadura de oro**:
-	   + *Vida máxima*: 100 (base) + **20**
-	   + *Ataque*: 0 (base) + *0*
-	   + *Defensa*: 0 (base) + **3**
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + *0*
-   + **Armadura legendaria**: 
-	   + *Vida máxima*: 100 (base) + **50**
-	   + *Ataque*: 0 (base) + *0*
-	   + *Defensa*: 0 (base) + **5**
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + *0*
-2. ***Armas***
-   + **Espada rota**: 
-	   + *Vida máxima*: 100 (base) + *0*
-	   + *Ataque*: 0 (base) + **1**
-	   + *Defensa*: 0 (base) + *0*
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + *0*
-   + **Espada**:
-	   + *Vida máxima*: 100 (base) + *0*
-	   + *Ataque*: 0 (base) + **2**
-	   + *Defensa*: 0 (base) + *0*
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + *0*
-   + **Hacha de combate**:
-	   + *Vida máxima*: 100 (base) + *0*
-	   + *Ataque*: 0 (base) + **3**
-	   + *Defensa*: 0 (base) + *0*
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + *0*
-   + ***Excalibur***:
-	   + *Vida máxima*: 100 (base) + *0*
-	   + *Ataque*: 0 (base) + **5**
-	   + *Defensa*: 0 (base) + *0*
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + *0*
-3. ***Amuletos***
-   + **Colgante de rubí**:
-	   + *Vida máxima*: 100 (base) + *0*
-	   + *Ataque*: 0 (base) + *0*
-	   + *Defensa*: 0 (base) + *0*
-	   + *Poder mágico*: 0 (base) + **2**
-	   + *Cantidad de maná*: 3 (base) + *0*
-   + **Anillo de zafiro**: 
-	   + *Vida máxima*: 100 (base) + *0*
-	   + *Ataque*: 0 (base) + *0*
-	   + *Defensa*: 0 (base) + *0*
-	   + *Poder mágico*: 0 (base) + *0*
-	   + *Cantidad de maná*: 3 (base) + **1**
-   + **Moneda del Rey**:
-	   + *Vida máxima*: 100 (base) + **5**
-	   + *Ataque*: 0 (base) + **2**
-	   + *Defensa*: 0 (base) + **2**
-	   + *Poder mágico*: 0 (base) + **0**
-	   + *Cantidad de maná*: 3 (base) + **1**
-   + **Corona del Rey**: 
-	   + *Vida máxima*: 100 (base) + **20**
-	   + *Ataque*: 0 (base) + **1**
-	   + *Defensa*: 0 (base) + **1**
-	   + *Poder mágico*: 0 (base) + **1**
-	   + *Cantidad de maná*: 3 (base) + **2**
-	   
 ## Logros
 
 ## Música y sonidos
 
 ## Imágenes de concepto
-A continuación se muestran algunos primeros *concepts* sobre algunos escenarios del juego. Son tan sólo *concepts*, provisionales, por lo que variaran en comparación a los escenarios finales que se utilicen en el proyecto.
-+ Zona de los **Jardines**
+A continuación se muestran algunos primeros *concepts* del juego.
 
-<img alt="Concept Art: Escenario 1 - Jardín" src="imgs/escenarios/jardin/jardin.jpg">
++ **Pantalla de juego**
 
-> *Concept art*: Escenario 1 - Jardín
-
-+ Zona del **Torreón**
-
-<img alt="Concept Art: Escenario 1 - Torreón" src="imgs/escenarios/torreon/torreon1.JPG">
-
-> *Concept art*: Escenario 1 - Torreón
-
-<img alt="Concept Art: Escenario 2 - Torreón" src="imgs/escenarios/torreon/torreon2.jpg">
-
-> *Concept art*: Escenario 2 - Torreón
-
-<img alt="Concept Art: Escenario 3 - Torreón" src="imgs/escenarios/torreon/torreon3.jpg">
-
-> *Concept art*: Escenario 3 - Torreón
-
-+ Zona de las **Mazmorras**
-
-<img alt="Concept Art: Escenario - Mazmorras" src="imgs/escenarios/mazmorras/mazmorras.jpg">
-
-> *Concept art*: Escenario - Mazmorras
-
-+ Zona de la **Torre de Magia**
-
-<img alt="Concept Art: Escenario 1 - Torre de magia" src="imgs/escenarios/torre-de-magia/torre-de-magia.jpg">
-
-> *Concept art*: Escenario 1 - Torre de magia
-
-<img alt="Concept Art: Escenario 2 - Torre de magia" src="imgs/escenarios/torre-de-magia/torre-de-magia2.jpg">
-
-> *Concept art*: Escenario 2 - Torre de magia
-
-<img alt="Concept Art: Escenario 3 - Torre de magia" src="imgs/escenarios/torre-de-magia/torre-de-magia3.jpg">
-
-> *Concept art*: Escenario 3 - Torre de magia
-
-+ **Pasillos**
-
-<img alt="Concept Art: Escenario 1 - Pasillos" src="imgs/escenarios/pasillos/pasillos.jpg">
-
-> *Concept art*: Escenario 1 - Pasillos
-
+<img alt="Pantalla de juego" src="assets/Concept - Pantalla de juego.png">
 
 ## Miembros del equipo
 1. Game designer
@@ -377,6 +181,6 @@ A continuación se muestran algunos primeros *concepts* sobre algunos escenarios
 4. Maquetadores web
 
 ## Detalles de produccion
-Fecha de inicio del videojuego: ***15 octubre 2018***
+Fecha de inicio del videojuego: ***13 noviembre 2018***
 Fecha de terminación del videojuego: ***21 diciembre 2018***
 
