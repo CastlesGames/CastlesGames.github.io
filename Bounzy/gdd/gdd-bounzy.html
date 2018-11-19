@@ -1,0 +1,579 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gdd-bounzy.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="wanted-point-and-shot-provisional"><em>Wanted: Point and Shot (provisional)</em></h1>
+<dl>
+<dt>Título</dt>
+<dd>Documento de diseño de juego - <em>Wanted: Point and Shot (provisional)</em></dd>
+<dt>Autores</dt>
+<dd>Díaz Pérez, Diego</dd>
+<dd>Laso Cáceres, Juan Carlos</dd>
+<dd>Mena Molina, Guillermo</dd>
+<dd>Rodríguez Corpas, Laura</dd>
+<dd>Rodríguez Martínez, Francisco Javier</dd>
+</dl>
+<h2 id="concepto">1. Concepto</h2>
+<ul>
+<li><strong>Título</strong>:  <em>Wanted: Point and Shot (provisional)</em>.</li>
+<li><strong>Estudio</strong>: <em>Castle’s Games</em>.</li>
+<li><strong>Género</strong>: Arcade.</li>
+<li><strong>Arte</strong>: 3D con estilo <em>cartoon</em>.</li>
+<li><strong>Plataforma</strong>: Smartphone y PC (Web Version)*.</li>
+<li><strong>Versión:</strong> 1.0.</li>
+<li><strong>Sinopsis de jugabilidad y contenido</strong>: <em>Wanted: Point and Shot (provisional)</em> es un juego arcade basado en progresión de niveles con una ambientación western donde el protagonista tiene que derrotar a los enemigos disparando su arma.</li>
+<li><strong>Categoría</strong>: <em>XXX</em> se puede comparar con el videojuego <em>Bounzy</em>, ya que tiene las mismas mecánicas. El valor diferenciador del juego es la temática Western.</li>
+<li><strong>Licencia</strong>: <em>XXX</em> es totalmente original y no está basado en ningún libro o película.</li>
+<li><strong>Mecánica</strong>: El protagonista utiliza su arma para disparar balas que rebotarán entre los enemigos mediante un sistema de físicas. Cada vez que una bala toque a un enemigo éste perderá un porcentaje de salud.</li>
+<li><strong>Tecnología</strong>: El juego será desarrollado íntegramente en <strong>Unity</strong>.  En cuanto al arte del videojuego, se utilizará el programa <em><strong>Adobe Photoshop CC 2018</strong></em> del paquete <em>Adobe</em>. Para el modelado en 3D se utilizarán <em><strong>Maya</strong></em> y <em><strong>3DS Max</strong></em>.</li>
+<li><strong>Público</strong>: El público objetivo está entre el rango de edades de 16 a 30 años. Entre ellos, jugadores masculinos que disfruten la ambientación western y prefieran partidas rápidas o no tengan demasiado tiempo para dedicarle al juego.</li>
+</ul>
+<h2 id="historial-de-versiones">2. Historial de versiones</h2>
+
+<table>
+<thead>
+<tr>
+<th align="center">Versión</th>
+<th align="center">Fecha</th>
+<th>Comentarios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0.0</td>
+<td align="center">19/11/2018</td>
+<td>Planteamiento del juego y construcción inicial del Documento de Diseño de Juego (<em>Game Document Design - G.D.D.</em>)</td>
+</tr>
+<tr>
+<td align="center">0.1</td>
+<td align="center">30/11/2018</td>
+<td>Se definen <em>mecánicas</em>, <em>arte del juego</em>, <em>estructuración de niveles</em></td>
+</tr>
+<tr>
+<td align="center">1.0</td>
+<td align="center">05/12/2018</td>
+<td>Se completa la primera versión del <em>G.D.D.</em> de <em>XXX</em></td>
+</tr>
+</tbody>
+</table><h2 id="visión-general-del-videojuego">3. Visión general del videojuego</h2>
+<p><em>Wanted: Point and Shot (provisional)</em> es un videojuego de género Arcade Free to Play en el que combina la fase de acción de Bounzy y una temática Western low poly, novedosa para este género.</p>
+<p>El jugador encarna al Sherif del condado cuya misión es acabar con la delincuencia, en cada nivel el jugador se encontrará con distintos enemigos y un boss final. El juego se basa en una progresión de niveles procedural en los que se aumenta la dificultad.</p>
+<p>La fase de acción se basa en un sistema de turnos y una mecánica de disparo, en la que el jugador apunta hacia una parte de la pantalla y dispara una serie de elementos (balas) que rebotan en el escenario a través de un sistema de físicas, estos elementos infringen daño a los enemigos del tablero y dichos enemigos caen una posición en el tablero cada turno, cuando llegan al personaje del jugador le infringen daño.</p>
+<ul>
+<li>Fase de acción - Bounzy</li>
+</ul>
+<img alt="Gameplay" src="assets/gameplay.png" width="400">
+<h2 id="mecánicas">4. Mecánicas</h2>
+<ul>
+<li><strong>Cámara:</strong> Videojuego en 3D con una cámara estática. Plano <em>top-down</em>. El jugador puede ver en todo momento todos los elementos del nivel.</li>
+<li><strong>Controles:</strong> En PC el jugador apunta moviendo el cursor del ratón y dispara haciendo <em>clic</em>. En <em>Smartphone</em> se apunta manteniendo el dedo pulsado en la dirección hacia la que quieres disparar y disparas levantando el dedo de la pantalla.</li>
+<li><strong>Puntuación:</strong> La puntuación final que haya obtenido el jugador es el número de nivel al que haya llegado.</li>
+<li><strong>Guardar/Cargar:</strong> El progreso del jugador se guardará automáticamente. Al iniciar el juego seguirás en el nivel en el que acabaras la última vez.</li>
+<li><strong>Niveles</strong>: El número de niveles será infinito y se generarán de forma procedural, el jugador puede avanzar niveles continuamente. Cada nivel se divide en un número de enemigos y un boss final.</li>
+</ul>
+<h2 id="estados-del-juego">5. Estados del juego</h2>
+<p>A continuación se presenta el diagrama de estados del juego sobre las posibles pantallas de la interfaz en las que el jugador se puede encontrar:</p>
+<img alt="Diferentes estados del juego" src="assets/estados.png">
+<blockquote>
+<p>Diferentes estados del juego</p>
+</blockquote>
+<p>Estos estados se describen más detenidamente en el apartado siguiente - <em><strong>6. Interfaces</strong></em></p>
+<h2 id="interfaces">6. Interfaces</h2>
+<ul>
+<li><strong>Menú principal</strong>: Es la pantalla inicial que se encuentra el jugador al iniciar el juego. El jugador podrá localizar en ella dos botones con los que tendrá la opción de abrir el menú de opciones y de iniciar una partida. Estos botones se disponen alineados verticalmente uno encima de otro con una separación entre ellos. No hay <em>background</em>, en su defecto se enseña el propio escenario en el que se jugará la partida.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú de opciones</strong> pulsando en el botón <em>Opciones</em>.</li>
+<li>Hacia la <strong>pantalla de juego</strong> pulsando en el botón <em>Play</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Menú de opciones</strong>: Pantalla en la cual el jugador puede eligir el <em>idioma</em> del juego (Castellano o Inglés) y habilitar/deshabilitar la <em>música y sonido</em>. Además, en esta pantalla se podrán ver los créditos del juego. La pantalla dispondrá de un botón para volver al <em>menú principal</em>.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón con una flecha la cual indica <em>volver a la pantalla anterior</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantallas de juego /</strong> <em><strong>Heads-up Display</strong></em>: pantalla que muestra toda la información necesaria al jugador durante la partida. Se distribuyen de la siguiente manera:
+<ul>
+<li>PC:
+<ul>
+<li>El jugador siempre aparecerá en la parte inferior de la pantalla, dejando el resto de la pantalla para ver a los enemigos.</li>
+<li>La barra de vida del jugador se colocará en la esquina inferior izquierda de la pantalla y en color verde.</li>
+<li>El número de nivel en el que se encuentra el jugador aparecerá en la esquina superior izquierda.</li>
+<li>En la esquina superior derecha se le mostrará un botón de pausa al jugador para que pueda pausar la partida en cualquier momento. Esta acción también podrá llevarse a cabo pulsando la tecla <em>p</em> en el teclado en el caso de <em>PC</em>.</li>
+</ul>
+</li>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú de pausa</strong> pulsando sobre el botón de pausa situado en la esquina superior derecha.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantalla de pausa</strong>: Pantalla donde el jugador puede parar el estado de la partida, durante el tiempo que quiera. Esta pantalla dispondrá de dos botones para volver al menú principal o bien reanudar la partida. Estos botones se encuentran centrados en pantalla y alineados verticalmente uno del otro.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón <em>Menú principal</em>.</li>
+<li>Hacia la <strong>pantalla de juego</strong> pulsando en el botón <em>Volver al juego</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantalla fin del juego / puntuación</strong>: Pantalla donde se le muestra la puntuación obtenida al finalizar el juego. Consta de la información y un sólo botón para volver al menú principal, ya sea para comenzar una partida nueva o salir del juego.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón <em>Menú principal</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="niveles">7. Niveles</h2>
+<p>El juego consta de <strong>tres niveles</strong> en los cuales la dificultad de los enemigos irá aumentando para el jugador.</p>
+<p>Cada nivel consta de <strong>cinco salas</strong> y la estructura de cada nivel será de una primera sala fija, tres salas aleatorias y la sala final con el <em>Enemy Boss</em> correspondiente a ese nivel. <em><strong>El jugador no podrá volver hacia una sala anterior o nivel anterior en ningún momento</strong></em>.</p>
+<p>En las tres salas aleatorias el jugador se podrá encontrar diferentes sucesos los cuales aparecerán de forma totalmente aleatoria en cada partida. :</p>
+<ul>
+<li>Un <strong>enemigo</strong>: da lugar a un combate.</li>
+<li>Un <strong>cofre</strong>: el jugador puede obtener nuevas cartas o <em>items</em> con los que equiparse.</li>
+<li>Un <strong>evento aleatorio</strong>:</li>
+<li>Una <strong>enfermería</strong>: el jugador recupera sus puntos de vida perdidos en combates anteriores.</li>
+</ul>
+<p>El jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</p>
+<p>A continuación se describe con más detalle los tres niveles del juego:</p>
+<ul>
+<li><em><strong>Nivel 1</strong></em> <strong>- Entrada</strong>
+<ul>
+<li><strong>Entrada</strong>:  primer nivel del juego y el más sencillo. Este nivel consta de cinco salas. La 1ª Sala será un combate contra un enemigo básico, que nos servirá también como tutorial para aprender las mecánicas básicas del juego. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Por último, una sala final con el <em>Enemy Boss</em> de este nivel. Una vez derrotado se abrirá la opción de elegir entre <strong>tres caminos</strong> para avanzar.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</li>
+<li><em>Enemigos</em>: Goblin, HomoGoblin.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Nivel 2</strong></em> <strong>- Torreón / Jardines / Mazmorras</strong>
+<ul>
+<li><strong>Torreón</strong>: segundo nivel del juego con una dificultad intermedia. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Por último, una sala final con el <em>Enemy Boss</em> de este nivel. Una vez derrotado podremos avanzar hacia la <strong>Torre de Magia</strong>.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</li>
+<li><em>Enemigos</em>: Aprendiz de mago, Mago corrupto.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Jardines</strong>: segundo nivel del juego con una dificultad intermedia. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Por último, una sala final con el <em>Enemy Boss</em> de este nivel. Una vez derrotado podremos avanzar hacia el <strong>Salón de fiestas</strong>.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</li>
+<li><em>Enemigos</em>: Aprendiz de mago, Mago corrupto.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Mazmorras</strong>: segundo nivel del juego con una dificultad intermedia. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Por último, una sala final con el <em>Enemy Boss</em> de este nivel. Una vez derrotado podremos avanzar hacia los <strong>Aposentos de los guardias</strong>.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá atravesar todas las salas para avanzar al siguiente nivel. Una vez el jugador derrote al enemigo final del nivel podrá avanzar al siguiente nivel de la partida.</li>
+<li><em>Enemigos</em>: Aprendiz de mago, Mago corrupto.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Nivel 3</strong></em> <strong>- Torre de magia / Salón de fiestas / Aposentos de los guardias / Sala del Trono</strong>
+<ul>
+<li><strong>Torre de magia</strong>: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la <strong>Sala del Trono</strong> para enfrentarnos al <em>Boss</em> final del juego.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.</li>
+<li><em>Enemigos</em>: Caballero oscuro.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Salón de fiestas</strong>: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la <strong>Sala del Trono</strong> para enfrentarnos al <em>Boss</em> final del juego.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.</li>
+<li><em>Enemigos</em>: Caballero oscuro.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Aposentos de los guardias</strong>: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al <em>Enemy Boss</em> del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la <strong>Sala del Trono</strong> para enfrentarnos al <em>Boss</em> final del juego.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.</li>
+<li><em>Enemigos</em>: Caballero oscuro.</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+<li><strong>Sala del trono</strong>: último nivel del Juego, solo dispone de una sala. Esta es el combate más complicado de todo el juego ya que nos enfrentaremos al <em>Final Boss</em>.
+<ul>
+<li><em>Objetivos</em>: el jugador deberá derrotar al <em>Final Boss</em> del juego para poder ganar la partida.</li>
+<li><em>Enemigos</em>: Rey maldito</li>
+<li><em>Música y efectos de sonido</em>:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="progreso-del-juego">8. Progreso del juego</h2>
+<p>En la siguiente ilustración se muestra el diagrama de progreso de juego:</p>
+<img alt="Progreso del juego" src="imgs/progreso-juego.jpeg">
+<blockquote>
+<p>Diagrama progreso de juego</p>
+</blockquote>
+<h2 id="personajes">9. Personaje/s</h2>
+<ul>
+<li><strong>Personaje principal</strong>:
+<ul>
+<li><em>Nombre</em>: se desconoce.</li>
+<li><em>Descripción</em>: Es el sheriff encargado de eliminar a los bandidos.</li>
+<li><em>Concepto</em>: El personaje será un varón adulto. Su vestimenta tendrá estilo cowboy.</li>
+<li><em>Encuentro</em>: El jugador se encontrará con este personaje al iniciar cada partida, y jugará siempre con él.</li>
+<li><em>Características</em>: El personaje solo tendrá una salud máxima.</li>
+<li><em>Jugable/No-Jugable</em>: Jugable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="enemigos">10. Enemigos</h2>
+<p>A continuación se da una breve descripción de los personajes que sirven de enemigo para el jugador en el juego:</p>
+<ul>
+<li><strong>Enemigo Verde</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Forajido</strong>.</li>
+<li><em>Descripción</em>: Enemigos de color verde, son los más débiles del juego.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Salud</em>: 5.</li>
+<li><em>Ataque</em>: 1.</li>
+</ul>
+</li>
+<li><strong>Enemigo Azul</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Forajido</strong>.</li>
+<li><em>Descripción</em>: Enemigos de color azul, es</li>
+<li><em>Imagen</em>:</li>
+<li><em>Salud</em>: 10.</li>
+<li><em>Ataque</em>: 3.</li>
+</ul>
+</li>
+</ul>
+<h2 id="habilidades">Habilidades</h2>
+<p>El jugador dispondrá de una cantidad de <strong>cartas</strong> en la mano, las cuales podrá usar en los distintos combates contra los enemigos del castillo. El uso de las distintas cartas que posea el jugador durante un turno del combate se verá limitado por un <strong>indicador de <em>maná</em></strong>. Este indicador tiene, inicialmente, un máximo de <em>3 cupos</em> de <em>maná</em>, aunque puede incrementarse por algunos objetos que tenga el jugador de inventario.</p>
+<p>Inicialmente, el jugador comienza el juego con un total de <strong>5 cartas</strong> y podrá tener un total de <strong>7 cartas</strong> en su mano. Si la mano del jugador está <strong>completa</strong> no se podrán añadir más cartas a su mano. En cambio, deberá deshacerse de una que ya tenga para obtener una nueva.<br>
+La forma de conseguir cartas son las siguientes:</p>
+<ul>
+<li>Los enemigos o jefes finales a los que derrotes pueden <em>dropear</em> una carta.</li>
+<li>Se pueden encontrar cartas en los distintos cofres repartidos por el juego.</li>
+</ul>
+<p>Se pueden clasificar las cartas en tres <strong>tipos</strong>: <em>Ataque, Escudo y Magia</em>.</p>
+<ol>
+<li><em><strong>Ataque</strong></em>: cartas que utiliza el jugador para dañar a los enemigos y quitarles puntos de vida.
+<ul>
+<li><strong>Espadazo</strong>: ataque básico que consiste en un golpe de espada.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 10</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Mazazo</strong>: ataque fuerte a dos manos con una maza.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 25</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Golpe de escudo</strong>: ataque cargado con el escudo.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 5</li>
+<li><em>Aumento armadura</em>: 10 (1 turno)</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Flechazo</strong>: ataque con el arco que inflige un <em>bufo</em> negativo al enemigo durante 3 turnos. Efecto no acumulables hasta no haber pasado los 3 turnos.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 7 (1 turno) + 5 (3 turnos)</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Escudo</strong></em>: cartas que utiliza el jugador para aumentar la defensa durante el combate contra un enemigo.
+<ul>
+<li><strong>Incremento de armadura</strong>: Incremento de armadura.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 10 (1 turno)</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Incremento de armadura II</strong>: Incremento de armadura avanzado.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 25 (1 turno)</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Fortificación</strong>: Incrementa tu armadura en ese turno y aumenta la defensa durante el resto del combate
+<ul>
+<li><em>Coste de maná</em>: 3</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 50 (1 turno) + 1 defensa (combate)</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Magia</strong></em>: cartas con habilidades especiales que se pueden utilizar tanto para atacar como para defenderse y/o curarse durante el combate.
+<ul>
+<li><strong>Bola de fuego</strong>: lanza un bola de fuego al enemigo.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 35 (1 turno)</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+<li><strong>Curar</strong>: habilidad mágica que hace recuperar 15 puntos de vida al jugador.
+<ul>
+<li><em>Coste de maná</em>: 1</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 15</li>
+</ul>
+</li>
+<li><strong>Curar II</strong>: habilidad mágica que hace recuperar 25 puntos de vida al jugador.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 25</li>
+</ul>
+</li>
+<li><strong>Destello</strong>: ciegas al enemigo evitando que pueda golpearte en el siguiente turno.
+<ul>
+<li><em>Coste de maná</em>: 2</li>
+<li><em>Daño base</em>: 0</li>
+<li><em>Aumento armadura</em>: 0</li>
+<li><em>Curación</em>: 0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="inventario">Inventario</h2>
+<p>El jugador consta con un <strong>inventario</strong> donde puede añadir los objetos o <em>items</em> que consiga a lo largo del juego. El inventario se divide en 3 <strong>tipos</strong> de objetos que puede asignar el jugador a su personaje. Estos tipos son:</p>
+<ul>
+<li><em><strong>Armadura</strong></em> del personaje: <em>items</em> con los que modificar las características de <em>cantidad armadura</em>, <em>aumento de defensa</em> o aumentar la cantidad de <em>vida máxima</em>.</li>
+<li><em><strong>Arma</strong></em> del personaje: <em>items</em> con los que modificar la característica del jugador <em>aumento de ataque</em>.</li>
+<li><em><strong>Amuleto</strong></em> del personaje: <em>items</em> con los que se pueden aumentar cualquier característica del jugador, según el <em>item</em> que lleve equipado el personaje.</li>
+</ul>
+<p>Descripción de los distintos <em><strong>items</strong></em> que podrá conseguir el jugador a lo largo del juego para modificar las estadísticas base del jugador descritas anteriormente (vida máxima, cantidad armadura, aumento de ataque, aumento de defensa, aumento del poder mágico, cantidad de <em>maná</em>).</p>
+<p>A lo largo del juego se pueden encontrar <em>items</em></p>
+<ol>
+<li><em><strong>Armaduras</strong></em>
+<ul>
+<li><strong>Armadura de cuero</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>10</strong></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Armadura de metal</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>15</em></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Armadura de oro</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>20</strong></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <strong>3</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Armadura legendaria</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>50</strong></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <strong>5</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Armas</strong></em>
+<ul>
+<li><strong>Espada rota</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Espada</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Hacha de combate</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <strong>3</strong></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><em><strong>Excalibur</strong></em>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <strong>5</strong></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>Amuletos</strong></em>
+<ul>
+<li><strong>Colgante de rubí</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <em>0</em></li>
+</ul>
+</li>
+<li><strong>Anillo de zafiro</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <em>0</em></li>
+<li><em>Ataque</em>: 0 (base) + <em>0</em></li>
+<li><em>Defensa</em>: 0 (base) + <em>0</em></li>
+<li><em>Poder mágico</em>: 0 (base) + <em>0</em></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <strong>1</strong></li>
+</ul>
+</li>
+<li><strong>Moneda del Rey</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>5</strong></li>
+<li><em>Ataque</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Defensa</em>: 0 (base) + <strong>2</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <strong>0</strong></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <strong>1</strong></li>
+</ul>
+</li>
+<li><strong>Corona del Rey</strong>:
+<ul>
+<li><em>Vida máxima</em>: 100 (base) + <strong>20</strong></li>
+<li><em>Ataque</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Defensa</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Poder mágico</em>: 0 (base) + <strong>1</strong></li>
+<li><em>Cantidad de maná</em>: 3 (base) + <strong>2</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="logros">Logros</h2>
+<h2 id="música-y-sonidos">Música y sonidos</h2>
+<h2 id="imágenes-de-concepto">Imágenes de concepto</h2>
+<p>A continuación se muestran algunos primeros <em>concepts</em> sobre algunos escenarios del juego. Son tan sólo <em>concepts</em>, provisionales, por lo que variaran en comparación a los escenarios finales que se utilicen en el proyecto.</p>
+<ul>
+<li>Zona de los <strong>Jardines</strong></li>
+</ul>
+<img alt="Concept Art: Escenario 1 - Jardín" src="imgs/escenarios/jardin/jardin.jpg">
+<blockquote>
+<p><em>Concept art</em>: Escenario 1 - Jardín</p>
+</blockquote>
+<ul>
+<li>Zona del <strong>Torreón</strong></li>
+</ul>
+<img alt="Concept Art: Escenario 1 - Torreón" src="imgs/escenarios/torreon/torreon1.JPG">
+<blockquote>
+<p><em>Concept art</em>: Escenario 1 - Torreón</p>
+</blockquote>
+<img alt="Concept Art: Escenario 2 - Torreón" src="imgs/escenarios/torreon/torreon2.jpg">
+<blockquote>
+<p><em>Concept art</em>: Escenario 2 - Torreón</p>
+</blockquote>
+<img alt="Concept Art: Escenario 3 - Torreón" src="imgs/escenarios/torreon/torreon3.jpg">
+<blockquote>
+<p><em>Concept art</em>: Escenario 3 - Torreón</p>
+</blockquote>
+<ul>
+<li>Zona de las <strong>Mazmorras</strong></li>
+</ul>
+<img alt="Concept Art: Escenario - Mazmorras" src="imgs/escenarios/mazmorras/mazmorras.jpg">
+<blockquote>
+<p><em>Concept art</em>: Escenario - Mazmorras</p>
+</blockquote>
+<ul>
+<li>Zona de la <strong>Torre de Magia</strong></li>
+</ul>
+<img alt="Concept Art: Escenario 1 - Torre de magia" src="imgs/escenarios/torre-de-magia/torre-de-magia.jpg">
+<blockquote>
+<p><em>Concept art</em>: Escenario 1 - Torre de magia</p>
+</blockquote>
+<img alt="Concept Art: Escenario 2 - Torre de magia" src="imgs/escenarios/torre-de-magia/torre-de-magia2.jpg">
+<blockquote>
+<p><em>Concept art</em>: Escenario 2 - Torre de magia</p>
+</blockquote>
+<img alt="Concept Art: Escenario 3 - Torre de magia" src="imgs/escenarios/torre-de-magia/torre-de-magia3.jpg">
+<blockquote>
+<p><em>Concept art</em>: Escenario 3 - Torre de magia</p>
+</blockquote>
+<ul>
+<li><strong>Pasillos</strong></li>
+</ul>
+<img alt="Concept Art: Escenario 1 - Pasillos" src="imgs/escenarios/pasillos/pasillos.jpg">
+<blockquote>
+<p><em>Concept art</em>: Escenario 1 - Pasillos</p>
+</blockquote>
+<h2 id="miembros-del-equipo">Miembros del equipo</h2>
+<ol>
+<li>Game designer</li>
+<li>Programadores</li>
+<li>Artistas 2D</li>
+<li>Maquetadores web</li>
+</ol>
+<h2 id="detalles-de-produccion">Detalles de produccion</h2>
+<p>Fecha de inicio del videojuego: <em><strong>15 octubre 2018</strong></em><br>
+Fecha de terminación del videojuego: <em><strong>21 diciembre 2018</strong></em></p>
+</div>
+</body>
+
+</html>
