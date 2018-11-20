@@ -15,8 +15,10 @@
 
 function Cofre(nombre) {
     this.nombre = nombre;
-    this.recompensa = new Item("", "", 0, 0, 0, 0, 0);
-  }
+
+    //NEW CARTA o NEW ITEM random
+    this.recompensa = new Item("", "", 250, 40, 3, 2, 1);
+}
 
 Cofre.prototype.init = function(){
     var x = Math.floor((Math.random() * 4) + 1);
@@ -45,6 +47,8 @@ Cofre.prototype.init = function(){
 Cofre.prototype.abrirCofre = function(){
     //PINTAR A this.recompensa
     //PONER BOTÓN DE RECOGER
+    
+    //pintas por escena el elmento recogido, sacar new DIV mostrado el objeto
 }
 
 Cofre.prototype.recogerRecompensaCofre = function(){

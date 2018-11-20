@@ -10,7 +10,6 @@ function Sala(nombre){
 Sala.prototype.init = function(){
 
     //MAQUETACION DE LA SALA! QUITAR BOTONES DE NAVEGACION
-
     var x = Math.floor((Math.random() * 4) + 1);
     switch(x){
         case 1:

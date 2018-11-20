@@ -4,6 +4,9 @@ var item2 = new Item("Hacha de combate", "Arma", 10, 3, 0, 0, 0);
 var item3 = new Item("Moneda del Rey", "Amuleto", 5, 2, 2, 0, 1);
 var item4 = new Item("Anillo del diablo", "Amuleto", 10, 4, 4, 1, 2);
 
+var carta1 = new Carta("Espadazo", "Ataque", 10, 0, 0, 1, "/../assets/imgs/cartas/carta-espadazo.png");
+var carta2 = new Carta("Mazazo", "Ataque", 25, 0, 0, 2);
+
 //Se instancia un nuevo jugador
 var player = new Jugador("Gerald");
 
@@ -44,4 +47,8 @@ player.toString();
 
 sala = new Sala("Cavernas");
 sala.init();
+
+carta1.toString();
+carta2.toString();
+
 
