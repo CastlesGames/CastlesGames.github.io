@@ -84,7 +84,7 @@ Estos estados se describen más detenidamente en el apartado siguiente - ***6. I
 ## 7. Niveles
 Los niveles se completarán al derrotar a todos los enemigos. Cada nivel, consta de 10 a 20 oleadas de enemigos. Al final de cada turno al que le toque disparar al jugador, se creará una nueva oleada de enemigos en el grid y los enemigos que ya estén y no hayan sido derrotados, bajarán una posición en el grid del escenario, acercándose cada vez más al jugador.
 
-***Explayarse más en este punto***
+El número de oleadas, enemigos y posiciones de éstos en cada nivel se generarán de forma aleatoria. Sin embargo, conforme el jugador va avanzando niveles, la probabilidad de que los enemigos que vayan apareciendo sean más fuertes será mayor.
 
 ## 8. Progreso del juego
 En la siguiente ilustración se muestra el diagrama de progreso de juego:
@@ -121,14 +121,14 @@ A continuación se da una breve descripción de los personajes que sirven de ene
 	   + *Nombre*: **Forajido**.
 	   + *Descripción*: Enemigos marcados de color rojo, son los que presentarán más problemas al jugador ya que serán los más resistentes a la hora de destruirlos.
 	   + *Imagen*:
-	   + *Salud*: 3000
-	   + *Ataque*: 4
-	- **Boss**:
-		 + *Nombre*: **Billy el Niño**.
-		 + *Descripción*: Si consigue avanzar hasta la posición del jugador, se acaba la partida, y deberá comenzar de nuevo el nivel. Es muy resistente, y ocupa 4 casillas del grid.
-		 + *Imagen*:
-		 + *Salud*: 5000
-		 + *Ataque*: Toda la vida del jugador.
+	   + *Salud*: 3000.
+	   + *Ataque*: 4.
+   - **Boss**:
+	   + *Nombre*: **Billy el Niño**.
+           + *Descripción*: Si consigue avanzar hasta la posición del jugador, se acaba la partida, y deberá comenzar de nuevo el nivel. Es muy resistente, y ocupa 4 casillas del grid.
+           + *Imagen*:
+           + *Salud*: 5000
+	   + *Ataque*: Toda la vida del jugador.
     
 ## Música y sonidos
 
