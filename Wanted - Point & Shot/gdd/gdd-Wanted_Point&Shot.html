@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gdd-Wanted_Point&amp;Shot.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="wanted-point-and-shot-provisional"><em>Wanted: Point and Shot (provisional)</em></h1>
+<dl>
+<dt>Título</dt>
+<dd>Documento de diseño de juego - <em>Wanted: Point and Shot (provisional)</em></dd>
+<dt>Autores</dt>
+<dd>Díaz Pérez, Diego</dd>
+<dd>Laso Cáceres, Juan Carlos</dd>
+<dd>Mena Molina, Guillermo</dd>
+<dd>Rodríguez Corpas, Laura</dd>
+<dd>Rodríguez Martínez, Francisco Javier</dd>
+</dl>
+<h2 id="concepto">1. Concepto</h2>
+<ul>
+<li><strong>Título</strong>:  <em>Wanted: Point and Shot</em>.</li>
+<li><strong>Estudio</strong>: <em>Castle’s Games</em>.</li>
+<li><strong>Género</strong>: Arcade.</li>
+<li><strong>Arte</strong>: 3D con estilo <em>cartoon</em>.</li>
+<li><strong>Plataforma</strong>: Smartphone y PC (Web Version)*.</li>
+<li><strong>Versión:</strong> 1.0.</li>
+<li><strong>Sinopsis de jugabilidad y contenido</strong>: <em>Wanted: Point and Shot</em> es un juego arcade basado en progresión de niveles con una ambientación western donde el protagonista tiene que derrotar a los enemigos disparando su arma.</li>
+<li><strong>Categoría</strong>: <em>Wanted: Point and Shot</em> se puede comparar con el videojuego <em>Bounzy</em>, ya que tiene las mismas mecánicas. El valor diferenciador del juego es la temática Western.</li>
+<li><strong>Licencia</strong>: <em>Wanted: Point and Shot</em> es totalmente original y no está basado en ningún libro o película.</li>
+<li><strong>Mecánica</strong>: El protagonista utiliza su arma para disparar balas que rebotarán entre los enemigos mediante un sistema de físicas. Cada vez que una bala toque a un enemigo éste perderá un porcentaje de salud.</li>
+<li><strong>Tecnología</strong>: El juego será desarrollado íntegramente en <strong>Unity</strong>.  En cuanto al arte del videojuego, se utilizará el programa <em><strong>Adobe Photoshop CC 2018</strong></em> del paquete <em>Adobe</em>. Para el modelado en 3D se utilizarán <em><strong>Maya</strong></em> y <em><strong>3DS Max</strong></em>.</li>
+<li><strong>Público</strong>: El público objetivo está entre el rango de edades de 16 a 30 años. Entre ellos, jugadores masculinos que disfruten la ambientación western y prefieran partidas rápidas o no tengan demasiado tiempo para dedicarle al juego.</li>
+</ul>
+<h2 id="historial-de-versiones">2. Historial de versiones</h2>
+
+<table>
+<thead>
+<tr>
+<th align="center">Versión</th>
+<th align="center">Fecha</th>
+<th>Comentarios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0.0</td>
+<td align="center">19/11/2018</td>
+<td>Planteamiento del juego y construcción inicial del Documento de Diseño de Juego (<em>Game Document Design - G.D.D.</em>)</td>
+</tr>
+<tr>
+<td align="center">0.1</td>
+<td align="center">30/11/2018</td>
+<td>Se definen <em>mecánicas</em>, <em>arte del juego</em>, <em>estructuración de niveles</em></td>
+</tr>
+<tr>
+<td align="center">1.0</td>
+<td align="center">05/12/2018</td>
+<td>Se completa la primera versión del <em>G.D.D.</em> de <em>Wanted: Point and Shot</em></td>
+</tr>
+</tbody>
+</table><h2 id="visión-general-del-videojuego">3. Visión general del videojuego</h2>
+<p><em>Wanted: Point and Shot</em> es un videojuego de género Arcade Free to Play en el que combina la fase de acción de Bounzy y una temática Western <em>low poly</em>, novedosa para este género.</p>
+<p>El jugador encarna al <em>Sherif</em> del condado cuya misión es acabar con la delincuencia, en cada nivel el jugador se encontrará con distintos enemigos y un boss final. El juego se basa en una progresión de niveles procedural en los que se aumenta la dificultad.</p>
+<p>La fase de acción se basa en un sistema de turnos y una mecánica de disparo, en la que el jugador apunta hacia una parte de la pantalla y dispara una serie de elementos (balas) que rebotan en el escenario a través de un sistema de físicas, estos elementos infringen daño a los enemigos del tablero y dichos enemigos caen una posición en el tablero cada turno, cuando llegan al personaje del jugador le infringen daño.</p>
+<ul>
+<li>Fase de acción - Wanted: Point and Shot</li>
+</ul>
+<img alt="Gameplay" src="assets/gameplay.png">
+<h2 id="mecánicas">4. Mecánicas</h2>
+<ul>
+<li><strong>Cámara:</strong> Videojuego en 3D con una cámara estática. Plano <em>top-down</em>. El jugador puede ver en todo momento todos los elementos del nivel.</li>
+<li><strong>Controles:</strong> En PC el jugador apunta moviendo el cursor del ratón y dispara haciendo <em>clic</em>. En <em>Smartphone</em> se apunta manteniendo el dedo pulsado en la dirección hacia la que quieres disparar y disparas levantando el dedo de la pantalla.</li>
+<li><strong>Puntuación:</strong> La puntuación final que haya obtenido el jugador es el número de nivel al que haya llegado.</li>
+<li><strong>Guardar/Cargar:</strong> El progreso del jugador se guardará automáticamente. Al iniciar el juego seguirás en el nivel en el que acabaras la última vez.</li>
+<li><strong>Niveles</strong>: El número de niveles será infinito y se generarán de forma procedural, el jugador puede avanzar niveles continuamente. Cada nivel se divide en un número de enemigos y un boss final.</li>
+</ul>
+<h2 id="estados-del-juego">5. Estados del juego</h2>
+<p>A continuación se presenta el diagrama de estados del juego sobre las posibles pantallas de la interfaz en las que el jugador se puede encontrar:</p>
+<img alt="Diferentes estados del juego" src="assets/estados.png">
+<blockquote>
+<p>Diferentes estados del juego</p>
+</blockquote>
+<p>Estos estados se describen más detenidamente en el apartado siguiente - <em><strong>6. Interfaces</strong></em></p>
+<h2 id="interfaces">6. Interfaces</h2>
+<ul>
+<li><strong>Menú principal</strong>: Es la pantalla inicial que se encuentra el jugador al iniciar el juego. El jugador podrá localizar en ella dos botones con los que tendrá la opción de abrir el menú de opciones y de iniciar una partida. Estos botones se disponen alineados verticalmente uno encima de otro con una separación entre ellos. No hay <em>background</em>, en su defecto se enseña el propio escenario en el que se jugará la partida.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú de opciones</strong> pulsando en el botón <em>Opciones</em>.</li>
+<li>Hacia la <strong>pantalla de juego</strong> pulsando en el botón <em>Play</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Menú de opciones</strong>: Pantalla en la cual el jugador puede eligir el <em>idioma</em> del juego (Castellano o Inglés) y habilitar/deshabilitar la <em>música y sonido</em>. Además, en esta pantalla se podrán ver los créditos del juego. La pantalla dispondrá de un botón para volver al <em>menú principal</em>.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón con una flecha la cual indica <em>volver a la pantalla anterior</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantallas de juego /</strong> <em><strong>Heads-up Display</strong></em>: pantalla que muestra toda la información necesaria al jugador durante la partida. Se distribuyen de la siguiente manera:
+<ul>
+<li>PC:
+<ul>
+<li>El jugador siempre aparecerá en la parte inferior de la pantalla, dejando el resto de la pantalla para ver a los enemigos.</li>
+<li>La barra de vida del jugador se colocará en la esquina inferior izquierda de la pantalla y en color verde.</li>
+<li>El número de nivel en el que se encuentra el jugador aparecerá en la esquina superior izquierda.</li>
+<li>En la esquina superior derecha se le mostrará un botón de pausa al jugador para que pueda pausar la partida en cualquier momento. Esta acción también podrá llevarse a cabo pulsando la tecla <em>p</em> en el teclado en el caso de <em>PC</em>.</li>
+</ul>
+</li>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú de pausa</strong> pulsando sobre el botón de pausa situado en la esquina superior derecha.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantalla de pausa</strong>: Pantalla donde el jugador puede parar el estado de la partida, durante el tiempo que quiera. Esta pantalla dispondrá de dos botones para volver al menú principal o bien reanudar la partida. Estos botones se encuentran centrados en pantalla y alineados verticalmente uno del otro.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón <em>Menú principal</em>.</li>
+<li>Hacia la <strong>pantalla de juego</strong> pulsando en el botón <em>Volver al juego</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Pantalla fin del juego / puntuación</strong>: Pantalla donde se le muestra la puntuación obtenida al finalizar el juego. Consta de la información y un sólo botón para volver al menú principal, ya sea para comenzar una partida nueva o salir del juego.
+<ul>
+<li>Estados del juego:
+<ul>
+<li>Hacia el <strong>menú principal</strong> pulsando en el botón <em>Menú principal</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="niveles">7. Niveles</h2>
+<p>Los niveles se completarán al derrotar a todos los enemigos. Cada nivel, consta de 10 a 20 oleadas de enemigos. Al final de cada turno al que le toque disparar al jugador, se creará una nueva oleada de enemigos en el grid y los enemigos que ya estén y no hayan sido derrotados, bajarán una posición en el grid del escenario, acercándose cada vez más al jugador.</p>
+<p><em><strong>Explayarse más en este punto</strong></em></p>
+<h2 id="progreso-del-juego">8. Progreso del juego</h2>
+<p>En la siguiente ilustración se muestra el diagrama de progreso de juego:</p>
+<img alt="Progreso del juego" src="imgs/progreso-juego.jpeg">
+<blockquote>
+<p>Diagrama progreso de juego</p>
+</blockquote>
+<h2 id="personajes">9. Personaje/s</h2>
+<ul>
+<li><strong>Personaje principal</strong>:
+<ul>
+<li><em>Nombre</em>: <strong>Pat Garrett</strong></li>
+<li><em>Descripción</em>: Es el sheriff encargado de eliminar a los bandidos.</li>
+<li><em>Concepto</em>: El personaje será un varón adulto. Su vestimenta tendrá estilo cowboy.</li>
+<li><em>Encuentro</em>: El jugador se encontrará con este personaje al iniciar cada partida, y jugará siempre con él.</li>
+<li><em>Características</em>: El personaje solo tendrá una salud máxima.</li>
+<li><em>Jugable/No-Jugable</em>: Jugable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="enemigos">10. Enemigos</h2>
+<p>A continuación se da una breve descripción de los personajes que sirven de enemigo para el jugador en el juego:</p>
+<ul>
+<li><strong>Enemigo Verde</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Captus matón</strong>.</li>
+<li><em>Descripción</em>: Enemigos de color verde, son los más débiles del juego</li>
+<li><em>Imagen</em>:</li>
+<li><em>Salud</em>: 500.</li>
+<li><em>Ataque</em>: 1.</li>
+</ul>
+</li>
+<li><strong>Enemigo Azul</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Indio enrabietado</strong>.</li>
+<li><em>Descripción</em>: Enemigos marcados de color azul, son más difíciles de derrotar que los enemigos de color verde, ya que ven aumentada su salud y su daño de ataque.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Salud</em>: 1500.</li>
+<li><em>Ataque</em>: 3.</li>
+</ul>
+</li>
+<li><strong>Enemigo rojo</strong>
+<ul>
+<li><em>Nombre</em>: <strong>Forajido</strong>.</li>
+<li><em>Descripción</em>: Enemigos marcados de color rojo, son los que presentarán más problemas al jugador ya que serán los más resistentes a la hora de destruirlos.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Salud</em>: 3000</li>
+<li><em>Ataque</em>: 4</li>
+</ul>
+</li>
+<li><strong>Boss</strong>:
+<ul>
+<li><em>Nombre</em>: <strong>Billy el Niño</strong>.</li>
+<li><em>Descripción</em>: Si consigue avanzar hasta la posición del jugador, se acaba la partida, y deberá comenzar de nuevo el nivel. Es muy resistente, y ocupa 4 casillas del grid.</li>
+<li><em>Imagen</em>:</li>
+<li><em>Salud</em>: 5000</li>
+<li><em>Ataque</em>: Toda la vida del jugador.</li>
+</ul>
+</li>
+</ul>
+<h2 id="música-y-sonidos">Música y sonidos</h2>
+<h2 id="imágenes-de-concepto">Imágenes de concepto</h2>
+<p>A continuación se muestran algunos primeros <em>concepts</em> del juego.</p>
+<ul>
+<li><strong>Pantalla de juego</strong></li>
+</ul>
+<img alt="Pantalla de juego" src="assets/Concept - Pantalla de juego.png">
+<h2 id="miembros-del-equipo">Miembros del equipo</h2>
+<ol>
+<li>Game designer</li>
+<li>Programadores</li>
+<li>Artistas 3D y 2D</li>
+</ol>
+</div>
+</body>
+
+</html>
