@@ -1,6 +1,6 @@
-﻿# *Wanted: Point and Shot (provisional)*
+﻿# *Wanted: Point and Shot*
 Título
-: Documento de diseño de juego - *Wanted: Point and Shot (provisional)*
+: Documento de diseño de juego - *Wanted: Point and Shot*
 
 Autores
 : Díaz Pérez, Diego
@@ -14,14 +14,14 @@ Autores
    + **Estudio**: *Castle's Games*.
    + **Género**: Arcade.
    + **Arte**: 3D con estilo *cartoon*.
-   + **Plataforma**: Smartphone y PC (Web Version)*.
+   + **Plataforma**: Smartphone y PC (Web Version)*. 
    + **Versión:** 1.0.
    + **Sinopsis de jugabilidad y contenido**: *Wanted: Point and Shot* es un juego arcade basado en progresión de niveles con una ambientación western donde el protagonista tiene que derrotar a los enemigos disparando su arma.
    + **Categoría**: *Wanted: Point and Shot* se puede comparar con el videojuego *Bounzy*, ya que tiene las mismas mecánicas. El valor diferenciador del juego es la temática Western. 
    + **Licencia**: *Wanted: Point and Shot* es totalmente original y no está basado en ningún libro o película. 
    + **Mecánica**: El protagonista utiliza su arma para disparar balas que rebotarán entre los enemigos mediante un sistema de físicas. Cada vez que una bala toque a un enemigo éste perderá un porcentaje de salud.
    + **Tecnología**: El juego será desarrollado íntegramente en **Unity**.  En cuanto al arte del videojuego, se utilizará el programa ***Adobe Photoshop CC 2018*** del paquete *Adobe*. Para el modelado en 3D se utilizarán ***Maya*** y ***3DS Max***.
-   + **Público**: El público objetivo está entre el rango de edades de 16 a 30 años. Entre ellos, jugadores masculinos que disfruten la ambientación western y prefieran partidas rápidas o no tengan demasiado tiempo para dedicarle al juego.
+   + **Público**: El público objetivo está entre el rango de edades de 16 a 30 años. Entre ellos, jugadores que disfruten la ambientación *western* y prefieran partidas rápidas o no tengan demasiado tiempo para dedicarle al juego.
 
 ## 2. Historial de versiones
 | Versión 	| Fecha 	 | Comentarios|
@@ -82,19 +82,11 @@ Estos estados se describen más detenidamente en el apartado siguiente - ***6. I
 	      + Hacia el **menú principal** pulsando en el botón *Menú principal*.
       
 ## 7. Niveles
-Los niveles se completarán al derrotar a todos los enemigos. Cada nivel, consta de 10 a 20 oleadas de enemigos. Al final de cada turno al que le toque disparar al jugador, se creará una nueva oleada de enemigos en el grid y los enemigos que ya estén y no hayan sido derrotados, bajarán una posición en el grid del escenario, acercándose cada vez más al jugador.
+Los niveles se completarán al derrotar a todos los enemigos. Cada nivel, consta de 10 a 20 oleadas de enemigos. Al final de cada turno al que le toque disparar al jugador, se creará una nueva oleada de enemigos en el grid y los enemigos que ya estén sobre el escenario y no hayan sido derrotados, bajarán una posición en el grid del escenario, acercándose cada vez más a la posición del jugador.
 
-El número de oleadas, enemigos y posiciones de éstos en cada nivel se generarán de forma aleatoria. Sin embargo, conforme el jugador va avanzando niveles, la probabilidad de que los enemigos que vayan apareciendo sean más fuertes será mayor.
+El número de oleadas, enemigos y posiciones de éstos en cada nivel se generarán de forma aleatoria. Sin embargo, conforme el jugador va avanzando niveles, la probabilidad de que los enemigos que vayan apareciendo sean más duros de derrotar, será mayor.
 
-## 8. Progreso del juego
-En la siguiente ilustración se muestra el diagrama de progreso de juego:
-
-<img alt="Progreso del juego" src="imgs/progreso-juego.jpeg">
-
-> Diagrama progreso de juego
-
-
-## 9. Personaje/s
+## 8. Personaje/s
    - **Personaje principal**:
 	  + *Nombre*: **Pat Garrett**
       + *Descripción*: Es el sheriff encargado de eliminar a los bandidos.
@@ -103,7 +95,7 @@ En la siguiente ilustración se muestra el diagrama de progreso de juego:
       + *Características*: El personaje solo tendrá una salud máxima.
       + *Jugable/No-Jugable*: Jugable.
  
-## 10. Enemigos
+## 9. Enemigos
 A continuación se da una breve descripción de los personajes que sirven de enemigo para el jugador en el juego:
    - **Enemigo Verde**
       + *Nombre*: **Captus matón**.
@@ -125,22 +117,22 @@ A continuación se da una breve descripción de los personajes que sirven de ene
 	   + *Ataque*: 4.
    - **Boss**:
 	   + *Nombre*: **Billy el Niño**.
-           + *Descripción*: Si consigue avanzar hasta la posición del jugador, se acaba la partida, y deberá comenzar de nuevo el nivel. Es muy resistente, y ocupa 4 casillas del grid.
-           + *Imagen*:
-           + *Salud*: 5000
+       + *Descripción*: Si consigue avanzar hasta la posición del jugador, se acaba la partida, y deberá comenzar de nuevo el nivel. Es muy resistente, y ocupa 4 casillas del grid.
+       + *Imagen*:
+       + *Salud*: 5000.
 	   + *Ataque*: Toda la vida del jugador.
     
-## Música y sonidos
+## 10. Música y sonidos
 
-## Imágenes de concepto
+## 11. Imágenes de concepto
 A continuación se muestran algunos primeros *concepts* del juego.
 
 + **Pantalla de juego**
 
 <img alt="Pantalla de juego" src="assets/Concept - Pantalla de juego.png">
 
-## Miembros del equipo
-1. Game designer
-2. Programadores
-3. Artistas 3D y 2D
+## 12. Miembros del equipo
+1. Game designer: *Laura Rodríguez*.
+2. Programadores: *Diego Díaz*, *Guillermo Mena*.
+3. Artistas 3D y 2D: *Fco. Javier Rodríguez*, *Juan Carlos Laso*, *Laura Rodríguez*.
 
