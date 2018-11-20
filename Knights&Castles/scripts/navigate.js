@@ -92,4 +92,9 @@ function onKeyDown(event) {
   }
 }
 
+$("#armadura").click(function () {
+    var item = player.getArmaduraItem();
+    item.toString();
+});
+
 window.addEventListener('keydown', onKeyDown, false);

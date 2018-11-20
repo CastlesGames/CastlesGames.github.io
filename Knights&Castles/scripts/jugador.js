@@ -7,7 +7,6 @@ function Jugador(nombre) {
   this.magia = 0;
   this.mana = 3;
   this.inventario = new Array(new Item("", "", 0, 0, 0, 0, 0), new Item("", "", 0, 0, 0, 0, 0), new Item("", "", 0, 0, 0, 0, 0));
-
 }
 
 
@@ -130,4 +129,16 @@ Jugador.prototype.inventarioToString = function () {
     this.inventario[i].toString();
   }
 
+}
+
+Jugador.prototype.getArmaduraItem = function(){
+    return this.inventario[0];
+}
+
+Jugador.prototype.getArmaItem = function(){
+    return this.inventario[1];
+}
+
+Jugador.prototype.getAmuletoItem = function(){
+    return this.inventario[2];
 }

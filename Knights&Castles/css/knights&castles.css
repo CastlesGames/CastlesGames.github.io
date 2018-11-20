@@ -325,6 +325,19 @@ body {
         color: rgba(240, 240, 240, .8);
         padding-top: 10px;
     }
+    
+    
+    #armadura,
+    #arma,
+    #amuleto {
+        width: 32px;
+        height: 32px;
+    }
+
+    #pausaBtn {
+        width: 32px;
+        height: 32px;
+    }
 
 }
 
@@ -388,6 +401,18 @@ body {
         font-size: 8px;
         color: rgba(240, 240, 240, .8);
         padding-top: 0px;
+    }
+
+    #armadura,
+    #arma,
+    #amuleto {
+        width: 32px;
+        height: 32px;
+    }
+
+    #pausaBtn {
+        width: 32px;
+        height: 32px;
     }
 
 }
