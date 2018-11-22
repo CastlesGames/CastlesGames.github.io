@@ -1,13 +1,9 @@
-var player;
-var cartas;
-var items;
-
-function init() {
+function Game(){
   //Se instancia un nuevo jugador
-  player = new Jugador("Gerald");
+  var player = new Jugador("Gerald");
 
   //Se crean el array de Cartas
-  cartas = new Array(
+  var cartas = new Array(
     new Carta("Espadazo", "Ataque", 10, 0, 0, 1, "/../assets/imgs/cartas/carta-espadazo.png"),
     new Carta("Mazazo", "Ataque", 25, 0, 0, 2, "/../assets/imgs/cartas/carta-mazazo.png"),
     new Carta("Golpe de escudo", "Ataque", 5, 10, 0, 1, "/../assets/imgs/cartas/carta-golpeDeEscudo.png"),
@@ -22,7 +18,7 @@ function init() {
   )
 
   //Se crea el array de Items
-  items = new Array(
+  var items = new Array(
     new Item("Armadura de cuero", "Armadura", 10, 0, 1, 0, 0),
     new Item("Armadura de metal", "Armadura", 15, 0, 2, 0, 0),
     new Item("Armadura de oro", "Armadura", 20, 0, 3, 0, 0),
@@ -37,44 +33,4 @@ function init() {
     new Item("Corona del Rey", "Amuleto", 20, 1, 1, 1, 2),
   )
 
-  initCartas();
-  initItems();
 }
-
-function initCartas() {
-  var manoJugador = player.getManoCartas();
-  player.changeCarta(cartas[Math.floor((cartas.length-3) * Math.random())], 0);
-  player.changeCarta(cartas[Math.floor((cartas.length-3) * Math.random())], 1);
-  player.changeCarta(cartas[Math.floor((cartas.length-3) * Math.random())], 2);
-  player.changeCarta(cartas[Math.floor((cartas.length-3) * Math.random())], 3);
-  
-  
-  $('#carta1').css("background-image", "url(" + manoJugador[0].getRutaImg() + ")"); 
-  $('#carta2').css("background-image", "url(" + manoJugador[1].getRutaImg() + ")"); 
-  $('#carta3').css("background-image", "url(" + manoJugador[2].getRutaImg() + ")"); 
-  $('#carta4').css("background-image", "url(" + manoJugador[3].getRutaImg() + ")"); 
-}
-
-function initItems() {
-  player.addItem(items[Math.floor(items.length * Math.random())]);
-  player.addItem(items[Math.floor(items.length * Math.random())]);
-  player.addItem(items[Math.floor(items.length * Math.random())]);
-}
-
-$("#carta1").click(function(){
-  player.perderVida(20);
-});
-
-$("#carta2").click(function(){
-   player.addItem(items[11]);
-});
-
-$("#carta3").click(function(){
-   player.perderVida(5);
-});
-
-$("#carta4").click(function(){
-   player.restaurarVida();
-})
-
-

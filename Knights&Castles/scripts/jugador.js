@@ -1,12 +1,25 @@
 function Jugador(nombre) {
   this.nombre = nombre;
   this.vida = 100;
+  this.maxVida = 100;
   this.armadura = 0;
   this.ataque = 0;
   this.defensa = 0;
   this.magia = 0;
   this.mana = 3;
-  this.inventario = new Array(new Item("", "", 0, 0, 0, 0, 0), new Item("", "", 0, 0, 0, 0, 0), new Item("", "", 0, 0, 0, 0, 0));
+
+  this.inventario = new Array(
+    new Item("-", "-", 0, 0, 0, 0, 0),
+    new Item("-", "-", 0, 0, 0, 0, 0),
+    new Item("-", "-", 0, 0, 0, 0, 0)
+  );
+
+  this.manoCartas = new Array(
+    new Carta("", "", 0, 0, 0, 0, ""),
+    new Carta("", "", 0, 0, 0, 0, ""),
+    new Carta("", "", 0, 0, 0, 0, ""),
+    new Carta("", "", 0, 0, 0, 0, "")
+  );
 }
 
 
@@ -44,6 +57,13 @@ Jugador.prototype.addStats = function (item) {
   this.defensa = this.defensa + item.getPlusDefensa();
   this.magia = this.magia + item.getPlusMagia();
   this.mana = this.mana + item.getPlusMana();
+  this.maxVida = this.maxVida + item.getPlusVida();
+  
+  var currentLife = $("#healthBar").prop("value");
+  var maxLife = this.maxVida;
+  
+  $("#healthBar").attr({value: this.vida});
+  $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
 //Método que recalcula la características del jugador cuando pierde un objeto,
@@ -54,11 +74,14 @@ Jugador.prototype.perderStats = function (item) {
   this.defensa = this.defensa - item.getPlusDefensa();
   this.magia = this.magia - item.getPlusMagia();
   this.mana = this.mana - item.getPlusMana();
+  this.maxVida = this.maxVida - item.getPlusVida();
 }
 
 
 Jugador.prototype.perderVida = function (dañoRecibido) {
   this.vida = this.vida - (dañoRecibido - this.defensa);
+  $("#healthBar").val(this.vida);
+  $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
 //Restaura la vida del jugador al máximo.
@@ -68,6 +91,9 @@ Jugador.prototype.restaurarVida = function () {
     this.inventario[0].getPlusVida() +
     this.inventario[1].getPlusVida() +
     this.inventario[2].getPlusVida();
+
+  $("#healthBar").val(this.vida);
+  $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
 //Se puede llamar a esta función en cada turno de combate, para restaurar el nivel de maná
@@ -78,35 +104,44 @@ Jugador.prototype.restaurarMana = function () {
     this.inventario[2].getPlusMana();
 }
 
-/*//Métodos que sirven para calcular la nuevas caracteristicas del jugador según se aña-
-//dan o no objetos al inventario.
-Jugador.prototype.addVida = function () {
-  //No te restaura la vida por completo, según la vida que tenga el jugador, se aumen-
-  //ta con los valores de bonificacion de vida que le otorgan los objetos del inventario.
-  this.vida = this.vida +
-    this.inventario[0].getPlusVida() +
-    this.inventario[1].getPlusVida() +
-    this.inventario[2].getPlusVida();
+Jugador.prototype.getArmaduraItem = function () {
+  return this.inventario[0];
 }
-Jugador.prototype.addAtaque = function (item) {
-  this.ataque = 0 +
-    this.inventario[0].getPlusAtaque() +
-    this.inventario[1].getPlusAtaque() +
-    this.inventario[2].getPlusAtaque();
+
+Jugador.prototype.getArmaItem = function () {
+  return this.inventario[1];
 }
-Jugador.prototype.addDefensa = function (item) {
-  this.defensa = 0 +
-    this.inventario[0].getPlusDefensa() +
-    this.inventario[1].getPlusDefensa() +
-    this.inventario[2].getPlusDefensa();
+
+Jugador.prototype.getAmuletoItem = function () {
+  return this.inventario[2];
 }
-Jugador.prototype.addMagia = function (item) {
-  this.magia = 0 +
-    this.inventario[0].getPlusMagia() +
-    this.inventario[1].getPlusMagia() +
-    this.inventario[2].getPlusMagia();
+
+Jugador.prototype.addCarta = function (carta) {
+  if (this.manoCartas.length < 6) {
+    this.manoCartas.push(carta);
+    console.log("Carta añadida.")
+  } else {
+    console.log("No se puede añadir otra carta, descártate de una antes.")
+  }
 }
-*/
+
+Jugador.prototype.changeCarta = function (carta, num) {
+  //num es la posicion de la carta en el array a cambiar
+  this.manoCartas[num] = carta;
+}
+
+//Te muestra el inventario del jugador y sus caracteristicas.
+Jugador.prototype.inventarioToString = function () {
+  for (var i = 0; i < this.inventario.length; i++) {
+    this.inventario[i].toString();
+  }
+}
+
+Jugador.prototype.manoToString = function () {
+  for (var i = 0; i < this.manoCartas.length; i++) {
+    this.manoCartas[i].toString();
+  }
+}
 
 //Te muestra las caracteristicas del jugador
 Jugador.prototype.toString = function () {
@@ -122,23 +157,32 @@ Jugador.prototype.toString = function () {
   return console.log(txt);
 }
 
-//Te muestra el inventario del jugador y sus caracteristicas.
-Jugador.prototype.inventarioToString = function () {
-
-  for (var i = 0; i < this.inventario.length; i++) {
-    this.inventario[i].toString();
+Jugador.prototype.getCartaSeleccionada = function (idDivCarta) {
+  switch (idDivCarta) {
+    case "carta1":
+      return this.manoCartas[0];
+      break;
+    case "carta2":
+      return this.manoCartas[1];
+      break;
+    case "carta3":
+      return this.manoCartas[2];
+      break;
+    case "carta4":
+      return this.manoCartas[3];
+      break;
+    case "cartaExtra1":
+      return this.manoCartas[4];
+      break;
+    case "cartaExtra2":
+      return this.manoCartas[5];
+      break;
+    default:
+      console.log("ERROR EN JUGADOR.GETCARTASELECCIONADA()");
+      break;
   }
-
 }
 
-Jugador.prototype.getArmaduraItem = function(){
-    return this.inventario[0];
-}
-
-Jugador.prototype.getArmaItem = function(){
-    return this.inventario[1];
-}
-
-Jugador.prototype.getAmuletoItem = function(){
-    return this.inventario[2];
+Jugador.prototype.getManoCartas = function(){
+  return this.manoCartas;
 }
