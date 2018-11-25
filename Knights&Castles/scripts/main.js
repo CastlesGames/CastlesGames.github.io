@@ -1,10 +1,12 @@
 var player;
 var cartas;
 var items;
+var nivelTutorial;
 
 function init() {
   //Se instancia un nuevo jugador
   player = new Jugador("Gerald");
+  nivelTutorial = new NivelTutorial();
 
   //Se crean el array de Cartas
   cartas = new Array(
@@ -75,6 +77,14 @@ $("#carta3").click(function(){
 
 $("#carta4").click(function(){
    player.restaurarVida();
-})
+});
+
+$("#jugarBtn").click(function(){
+    nivelTutorial.nextSala();
+});
+
+$("#sceneToRight").click(function(){
+  nivelTutorial.nextSala();
+});
 
 

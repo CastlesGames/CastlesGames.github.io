@@ -11,6 +11,21 @@
         RecogerRecompensaCofre() => Da funcionalidad al botón y 
         llama al jugador y al método .addItem con el item recogido.
         Quita las imágenes y botones y llama a la sala .end
+
+        items = new Array(
+    0 new Item("Armadura de cuero", "Armadura", 10, 0, 1, 0, 0),
+    1 new Item("Armadura de metal", "Armadura", 15, 0, 2, 0, 0),
+    2 new Item("Armadura de oro", "Armadura", 20, 0, 3, 0, 0),
+    3 new Item("Armadura legendaria", "Armadura", 50, 0, 5, 0, 0),
+    4 new Item("Espada rota", "Arma", 0, 1, 0, 0, 0),
+    5 new Item("Espada", "Arma", 0, 2, 0, 0, 0),
+    6 new Item("Hacha de combate", "Arma", 0, 3, 0, 0, 0),
+    7 new Item("Excalibur", "Arma", 0, 5, 0, 0, 0),
+    8 new Item("Colgante de rubí", "Amuleto", 0, 0, 0, 2, 0),
+    9 new Item("Anillo de zafiro", "Amuleto", 0, 0, 0, 0, 1),
+    10 new Item("Moneda del Rey", "Amuleto", 5, 2, 2, 0, 1),
+    11 new Item("Corona del Rey", "Amuleto", 20, 1, 1, 1, 2),
+  )
 */
 
 function Cofre(nombre) {
@@ -21,26 +36,10 @@ function Cofre(nombre) {
 }
 
 Cofre.prototype.init = function(){
-    var x = Math.floor((Math.random() * 4) + 1);
-    console.log("Eligo Item");
-    switch(x){
-        case 1:
-            console.log("Item 1");
-            this.recompensa = item1;
-            break;
-        case 2:
-            console.log("Item 2");
-            this.recompensa = item2;
-            break;
-        case 3:
-            console.log("Item 3");
-            this.recompensa = item3;
-            break;
-        case 4:
-            console.log("Item 4");
-            this.recompensa = item4;
-            break;
-    }
+    var x = Math.floor((Math.random() * 11) + 0);
+    console.log("Eligo Item " +  x);
+    this.recompensa = items[x];
+    
     //MAQUETACION DE COFRE
 }
 
