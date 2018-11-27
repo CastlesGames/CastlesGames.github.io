@@ -246,6 +246,14 @@
 
   </div>
 
+  <div id="posPersonaje">
+
+  </div>
+
+  <div id="posEnemigo">
+
+  </div>
+
   <div id="hud">
     <div class="container-fluid container-hud">
 
@@ -253,38 +261,18 @@
       <div id="hudMain">
         <div id="estadisticas">
           <div id="barraVida">
-            <div class="marcoEstadisticas"></div>
-            <progress id="healthBar" value="100" max="100"></progress>
-            <span id="statsVida">100</span>
+            <div id="barraVidaProgreso"></div>
+            <span class="idiomaESP">Vida: </span>
+            <span class="idiomaING">Life: </span>
+            <span id="statsVida"></span>
           </div>
           <div id="barraArmadura">
+
             <span class="idiomaESP">Armadura: </span>
             <span class="idiomaING">Armor: </span>
             <span id="statsArmadura">0</span>
-          </div>
-        </div>
-      </div>
 
-      <div id="hudBtn">
-
-        <div id="pausaBtn">
-          <img src="assets/imgs/botones/pauseBtn.png">
-        </div>
-
-        <div id="inventario">
-          <div id="armadura" class="inventarioItem">
-            <img src="assets/imgs/iconos/armadura.png">
           </div>
-          <div id="arma" class="inventarioItem">
-            <img src="assets/imgs/iconos/arma.png">
-          </div>
-          <div id="amuleto" class="inventarioItem">
-            <img src="assets/imgs/iconos/amuleto.png">
-          </div>
-        </div>
-
-        <div id="sceneToRight" class="sceneBtn">
-          <img src="assets/imgs/botones/sceneToRight.png">
         </div>
       </div>
 
@@ -325,14 +313,81 @@
         <div class="col-xs-2 manoCartas">
           <!--COLUMNA VACÍA-->
         </div>
-
-
-        <!-- HUD BTNS y NAVEGACION -->
-       
-
       </div>
 
+      <!-- BOTÓN (oculto) ABRIR COFRE -->
+      <div id="abrirCofre" class="botonAccion"></div>
 
+      <!-- BOTÓN (oculto) RESTAURAR VIDA -->
+      <div id="restaurarVida" class="botonAccion"></div>
+
+      <!-- MENSAJE CONFIRMAR ITEM O CARTA -->
+      <div id="mensajeItemCarta">
+        <span class="idiomaESP">Has encontrado el siguiente objeto: </span>
+        <span class="idiomaING">You've found this object:</span>
+        <div id="mostrarCarta"></div>
+        <div id="mostrarItem">
+          <span id="nombreItemCofre"></span>
+          <br>
+          <span id="tipoItemCofre"></span>
+          <br>
+          <br>
+          <span class="idiomaESP">Aumento vida: </span>
+          <span class="idiomaING">Plus life: </span>
+          <span id="plusvidaItemCofre"></span>
+          <br>
+          <span class="idiomaESP">Aumento ataque: </span>
+          <span class="idiomaING">Plus attack: </span>
+          <span id="plusataqueItemCofre"></span>
+          <br>
+          <span class="idiomaESP">Aumento defensa: </span>
+          <span class="idiomaING">Plus defense: </span>
+          <span id="plusdefensaItemCofre"></span>
+          <br>
+          <span class="idiomaESP">Aumento magia: </span>
+          <span class="idiomaING">Plus magic: </span>
+          <span id="plusmagiaItemCofre"></span>
+          <br>
+          <span class="idiomaESP">Aumento mana: </span>
+          <span class="idiomaING">Plus mana: </span>
+          <span id="plusmanaItemCofre"></span>
+          <br>
+        </div>
+        <div id="cogerItemCarta">
+          <span class="idiomaESP">Añadir objeto</span>
+          <span class="idiomaING">Add object</span>
+        </div>
+        <div id="dejarItemCarta">
+          <span class="idiomaESP">Dejar objeto</span>
+          <span class="idiomaING">Leave object</span>
+        </div>
+        <div id="cambioCarta">
+          <span class="idiomaESP">Selecciona una carta de tu mano para descartarla</span>
+          <span class="idiomaING">Select a card from your hand to discard it</span>
+        </div>
+      </div>
+
+      <!-- MENSAJE RESTAURACIÓN DE VIDA -->
+
+      <!-- HUD BTNS y NAVEGACION -->
+      <div id="hudBtn">
+
+        <div id="pausaBtn">
+          <img src="assets/imgs/botones/pauseBtn.png">
+        </div>
+
+        <div id="inventario">
+          <div id="armadura" class="inventarioItem">
+            <img src="assets/imgs/iconos/armadura.png">
+          </div>
+          <div id="arma" class="inventarioItem">
+            <img src="assets/imgs/iconos/arma.png">
+          </div>
+          <div id="amuleto" class="inventarioItem">
+            <img src="assets/imgs/iconos/amuleto.png">
+          </div>
+        </div>
+      </div>
 
       <!-- HUD MOSTRAR INVENTARIO ACTUAL -->
       <div id="hudInventario">
@@ -363,6 +418,13 @@
         <br>
 
       </div>
+
+      <!-- HUD MOSTRAR BOTONES NAVEGACION POR ESCENAS -->
+      <div id="hudNavegacion">
+        <div id="sceneToRight" class="sceneBtn">
+          <img src="assets/imgs/botones/sceneToRight.png">
+        </div>
+      </div>
     </div>
   </div>
 
@@ -389,6 +451,7 @@
   <!-- FIN CARGA BOOTSTRAP 3.3.7 -->
 
   <!-- CARGA SCRIPTS DEL JUEGO -->
+
   <script src="scripts/navigate.js"></script>
   <script src="scripts/item.js"></script>
   <script src="scripts/carta.js"></script>

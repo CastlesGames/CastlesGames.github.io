@@ -8,6 +8,19 @@ $("#menuCreditos").css("display", "none");
 $("#menuPausa").css("display", "none");
 $("#hudGame").css("display", "none");
 $("#hudInventario").css("display", "none");
+$("#abrirCofre").css("display", "none");
+$("#restaurarVida").css("display", "none");
+$("#mensajeItemCarta").css("display", "none");
+$("#mostrarCarta").css("display", "none");
+$("#mostrarItem").css("display", "none");
+$("#hudNavegacion").css("display", "none");
+$("#mostrarItem").css("display", "none");
+$("#cartaExtra1").css("background-image", "none");
+$("#cartaExtra2").css("background-image", "none");
+$("#cambioCarta").css("display", "none");
+
+$("#posPersonaje").css("display", "none");
+$("#posEnemigo").css("display", "none");
 
 
 $(".idiomaESP").css("display", "");
@@ -44,6 +57,8 @@ $("#pausaBtn").click(function () {
   $("#menuPrincipal").css("display", "none");
   $("#menuPausa").css("display", "");
   $("#tituloJuego").css("display", "none");
+  $("#posPersonaje").css("display", "none");
+  $("#posEnemigo").css("display", "none");
 });
 
 //Funcionalidad botón salir y continuar el juego
@@ -53,6 +68,12 @@ $("#salirBtn").click(function () {
   $("#backgroundNiebla").css("display", "");
   $("#menuPausa").css("display", "none");
   $("#tituloJuego").css("display", "");
+  $("#mensajeItemCarta").css("display", "none");
+  $("#mostrarCarta").css("display", "none");
+  $("#mostrarItem").css("display", "none");
+  $("#cambioCarta").css("display", "none");
+  $("#posPersonaje").css("display", "none");
+  $("#posEnemigo").css("display", "none");
 });
 
 $("#continuarBtn").click(function () {
@@ -63,6 +84,11 @@ $("#continuarBtn").click(function () {
   $("#menuPrincipal").css("display", "");
   $("#menuPausa").css("display", "none");
   $("#tituloJuego").css("display", "none");
+  $("#posPersonaje").css("display", "");
+  if (enCombate) {
+    $("#posEnemigo").css("display", "");
+  }
+
 });
 
 //Funcionalidad JugarBTN
@@ -73,7 +99,12 @@ $("#jugarBtn").click(function () {
   $("#menuPrincipal").css("display", "");
   $("#hud").css("display", "");
   $("#tituloJuego").css("display", "none");
-  
+  $("#mensajeItemCarta").css("display", "none");
+  $("#cartaExtra1").css("background-image", "none");
+  $("#cartaExtra2").css("background-image", "none");
+  $("#cambioCarta").css("display", "none");
+  $("#posPersonaje").css("display", "");
+
   new init();
 });
 
@@ -93,6 +124,12 @@ $("#creditosBtn").click(function () {
 $("#salirBtn").click(function () {
   $("#menuPausa").css("display", "none");
   $("#menuPrincipal").css("display", "");
+  $("#mensajeItemCarta").css("display", "none");
+  $("#cartaExtra1").css("background-image", "none");
+  $("#cartaExtra2").css("background-image", "none");
+  $("#posPersonaje").css("display", "none");
+  $("#posEnemigo").css("display", "none");
+
 });
 
 function onKeyDown(event) {
@@ -187,8 +224,95 @@ $("#amuleto").click(function () {
 
     $("#hudInventario").css("display", "none");
     $(".manoCartas").css("display", "");
+
     showInventarioItem = false;
   }
 });
+
+//Funcionalidad abrir cofre
+$("#abrirCofre").click(function () {
+  cofre.abrirCofre();
+  $("#mensajeItemCarta").css("display", "");
+  $("#hudCartas").css("display", "");
+  $("#hudBtn").css("display", "");
+
+});
+
+$("#restaurarVida").click(function () {
+  enfermeria.curar();
+});
+
+//Funcionalidad añadir o dejar item
+$("#cogerItemCarta").click(function () {
+  var tipoRecompensa = cofre.tipoRecompensa;
+  if (tipoRecompensa == "Carta") {
+    player.addCarta(cofre.getRecompensa());
+  } else {
+    player.addItem(cofre.getRecompensa());
+  }
+  $("#abrirCofre").addClass("disabledbutton");
+});
+
+$("#dejarItemCarta").click(function () {
+  $("#mensajeItemCarta").css("display", "none");
+  $("#mostrarCarta").css("display", "none");
+  $("#mostrarItem").css("display", "none");
+
+  $("#abrirCofre").addClass("disabledbutton"); //No se le da la opción al jugador de poder abrir de nuevo el cofre.
+});
+
+$("#carta1").click(function () {
+  if (eligiendoCartaDescarte) {
+    player.changeCarta(cofre.getRecompensa(), 0);
+    eligiendoCartaDescarte = false;
+  } else {
+    player.getCartaSeleccionada($(this).attr("id"));
+  }
+});
+$("#carta2").click(function () {
+  if (eligiendoCartaDescarte) {
+    player.changeCarta(cofre.getRecompensa(), 1);
+    eligiendoCartaDescarte = false;
+  } else {
+    player.getCartaSeleccionada($(this).attr("id"));
+  }
+});
+$("#carta3").click(function () {
+  if (eligiendoCartaDescarte) {
+    player.changeCarta(cofre.getRecompensa(), 2);
+    eligiendoCartaDescarte = false;
+  } else {
+    player.getCartaSeleccionada($(this).attr("id"));
+  }
+});
+$("#carta4").click(function () {
+  if (eligiendoCartaDescarte) {
+    player.changeCarta(cofre.getRecompensa(), 3);
+    eligiendoCartaDescarte = false;
+  } else {
+    player.getCartaSeleccionada($(this).attr("id"));
+  }
+});
+$("#cartaExtra1").click(function () {
+  if (eligiendoCartaDescarte) {
+    player.changeCarta(cofre.getRecompensa(), 4);
+    eligiendoCartaDescarte = false;
+  } else {
+    player.getCartaSeleccionada($(this).attr("id"));
+  }
+});
+$("#cartaExtra2").click(function () {
+  if (eligiendoCartaDescarte) {
+    player.changeCarta(cofre.getRecompensa(), 5);
+    eligiendoCartaDescarte = false;
+  } else {
+    player.getCartaSeleccionada($(this).attr("id"));
+  }
+});
+
+$("#sceneToRight").click(function(){
+  nivelTutorial.nextSala();
+  nivelTutorial.paintSala();
+})
 
 window.addEventListener('keydown', onKeyDown, false);

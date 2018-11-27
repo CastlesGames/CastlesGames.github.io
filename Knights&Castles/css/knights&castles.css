@@ -40,6 +40,10 @@ body {
   text-align: center;
 }
 
+.disabledbutton {
+  pointer-events: none;
+}
+
 .btn {
   width: 200px;
   height: 50px;
@@ -121,13 +125,93 @@ body {
   font-size: 15px;
 }
 
+#posPersonaje {
+  position: absolute;
+  height: 128px;
+  width: 128px;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../assets/imgs/sprites/personaje/Knight.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#posEnemigo {
+  position: absolute;
+  height: 128px;
+  width: 128px;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../assets/imgs/sprites/enemigos/nivel1/goblin128.png);
+    background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.botonAccion {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+#cogerItemCarta,
+#dejarItemCarta {
+  cursor: pointer;
+  margin-top: 2%;
+}
+
+#dejarItemCarta > span,
+#cogerItemCarta > span {
+  border: 1px solid white;
+  padding: 2px;
+}
+
+#mensajeItemCarta {
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5);
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2%;
+  font-size: 15px;
+}
+
+#mostrarCarta {
+  height: 220px;
+  width: 112.5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 10;
+}
+
+
 #nombreItem,
 #tipoItem,
 #plusvidaItem,
 #plusataqueItem,
 #plusdefensaItem,
 #plusmagiaItem,
-#plusmanaItem {
+#plusmanaItem,
+#nombreItemCofre,
+#tipoItemCofre,
+#plusvidaItemCofre,
+#plusataqueItemCofre,
+#plusdefensaItemCofre,
+#plusmagiaItemCofre,
+#plusmanaItemCofre {
   font-size: 18px;
   font-weight: 800;
 }
@@ -238,7 +322,7 @@ body {
 
 .carta {
   height: 220px;
-  width: 150px;
+  width: 112.5px;
   /*background-image: url(../assets/imgs/cartas/carta-espadazo.png);*/
   background-position: center;
   background-repeat: no-repeat;
@@ -295,6 +379,7 @@ body {
   color: rgba(240, 240, 240, .8);
   padding-top: 10px;
 }
+
 
 progress {
   -webkit-appearance: none;
@@ -491,10 +576,16 @@ progress::-moz-progress-bar {
   #plusataqueItem,
   #plusdefensaItem,
   #plusmagiaItem,
-  #plusmanaItem {
+  #plusmanaItem,
+  #nombreItemCofre,
+  #tipoItemCofre,
+  #plusvidaItemCofre,
+  #plusataqueItemCofre,
+  #plusdefensaItemCofre,
+  #plusmagiaItemCofre,
+  #plusmanaItemCofre {
     font-size: 13px;
     font-weight: 800;
-
   }
 
 }

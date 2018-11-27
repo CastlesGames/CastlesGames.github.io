@@ -1,3 +1,5 @@
+var eligiendoCartaDescarte = false;
+
 function Jugador(nombre) {
   this.nombre = nombre;
   this.vida = 100;
@@ -20,6 +22,8 @@ function Jugador(nombre) {
     new Carta("", "", 0, 0, 0, 0, ""),
     new Carta("", "", 0, 0, 0, 0, "")
   );
+
+  $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
 
@@ -46,6 +50,10 @@ Jugador.prototype.addItem = function (nuevoItem) {
       this.addStats(nuevoItem);
       break;
   }
+
+  $("#mensajeItemCarta").css("display", "none");
+  $("#mostrarCarta").css("display", "none");
+  $("#mostrarItem").css("display", "none");
 }
 
 
@@ -58,11 +66,7 @@ Jugador.prototype.addStats = function (item) {
   this.magia = this.magia + item.getPlusMagia();
   this.mana = this.mana + item.getPlusMana();
   this.maxVida = this.maxVida + item.getPlusVida();
-  
-  var currentLife = $("#healthBar").prop("value");
-  var maxLife = this.maxVida;
-  
-  $("#healthBar").attr({value: this.vida});
+
   $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
@@ -75,24 +79,28 @@ Jugador.prototype.perderStats = function (item) {
   this.magia = this.magia - item.getPlusMagia();
   this.mana = this.mana - item.getPlusMana();
   this.maxVida = this.maxVida - item.getPlusVida();
+
+  $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
 
 Jugador.prototype.perderVida = function (dañoRecibido) {
   this.vida = this.vida - (dañoRecibido - this.defensa);
-  $("#healthBar").val(this.vida);
-  $("#statsVida").text(this.vida + " / " + this.maxVida);
+
+  if (this.vida <= 0) {
+    $("#statsVida").text(0 + " / " + this.maxVida);
+    //llmar a finalizar partida
+  } else {
+    $("#statsVida").text(this.vida + " / " + this.maxVida);
+  }
+
 }
 
 //Restaura la vida del jugador al máximo.
 Jugador.prototype.restaurarVida = function () {
   //Se llama a esta funcion cuando se entra en enfermería
-  this.vida = 100 +
-    this.inventario[0].getPlusVida() +
-    this.inventario[1].getPlusVida() +
-    this.inventario[2].getPlusVida();
+  this.vida = this.maxVida;
 
-  $("#healthBar").val(this.vida);
   $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
@@ -118,16 +126,61 @@ Jugador.prototype.getAmuletoItem = function () {
 
 Jugador.prototype.addCarta = function (carta) {
   if (this.manoCartas.length < 6) {
+
+    eligiendoCarta = false;
+    
+    if (this.manoCartas.length == 4) {
+      $("#cartaExtra1").css("background-image", "url(" + carta.getRutaImg() + ")");
+    } else {
+      $("#cartaExtra2").css("background-image", "url(" + carta.getRutaImg() + ")");
+    }
+    
     this.manoCartas.push(carta);
-    console.log("Carta añadida.")
+    $("#mensajeItemCarta").css("display", "none");
+    $("#mostrarCarta").css("display", "none");
+    $("#mostrarItem").css("display", "none");
+    $("#cambioCarta").css("display", "none");
+    
   } else {
-    console.log("No se puede añadir otra carta, descártate de una antes.")
+   
+    $("#cambioCarta").css("display", "");
+    eligiendoCartaDescarte = true;
+    
   }
 }
 
 Jugador.prototype.changeCarta = function (carta, num) {
   //num es la posicion de la carta en el array a cambiar
   this.manoCartas[num] = carta;
+
+  switch (num) {
+    case 0:
+      $('#carta1').css("background-image", "url(" + carta.getRutaImg() + ")");
+      break;
+    case 1:
+      $('#carta2').css("background-image", "url(" + carta.getRutaImg() + ")");
+      break;
+    case 2:
+      $('#carta3').css("background-image", "url(" + carta.getRutaImg() + ")");
+      break;
+    case 3:
+      $('#carta4').css("background-image", "url(" + carta.getRutaImg() + ")");
+      break;
+    case 4:
+      $('#cartaExtra1').css("background-image", "url(" + carta.getRutaImg() + ")");
+      break;
+    case 5:
+      $('#cartaExtra2').css("background-image", "url(" + carta.getRutaImg() + ")");
+      break;
+  }
+
+  $("#mensajeItemCarta").css("display", "none");
+  $("#mostrarCarta").css("display", "none");
+  $("#mostrarItem").css("display", "none");
+
+  cofre = new Cofre();
+  cofre.init();
+
 }
 
 //Te muestra el inventario del jugador y sus caracteristicas.
@@ -160,29 +213,43 @@ Jugador.prototype.toString = function () {
 Jugador.prototype.getCartaSeleccionada = function (idDivCarta) {
   switch (idDivCarta) {
     case "carta1":
+      this.manoCartas[0].toString();
+      console.log(this.manoCartas[0]);
       return this.manoCartas[0];
       break;
     case "carta2":
+      this.manoCartas[1].toString();
+      console.log(this.manoCartas[1]);
       return this.manoCartas[1];
       break;
     case "carta3":
+      this.manoCartas[2].toString();
+      console.log(this.manoCartas[2]);
       return this.manoCartas[2];
       break;
     case "carta4":
+      this.manoCartas[3].toString();
+      console.log(this.manoCartas[3]);
       return this.manoCartas[3];
       break;
     case "cartaExtra1":
+      console.log(this.manoCartas[4]);
       return this.manoCartas[4];
+      
       break;
     case "cartaExtra2":
+      console.log(this.manoCartas[5]);
       return this.manoCartas[5];
       break;
     default:
       console.log("ERROR EN JUGADOR.GETCARTASELECCIONADA()");
       break;
   }
+  
+  
+  
 }
 
-Jugador.prototype.getManoCartas = function(){
+Jugador.prototype.getManoCartas = function () {
   return this.manoCartas;
 }

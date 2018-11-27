@@ -2,83 +2,95 @@
 //  ENEMIGO , COFRE , NADA , ENFERMERÍA
 // Se requieren los métodos:
 // Inicializar la Sala => Init
+var enCombate = false;
 
-function Sala(nombre){
-    this.nombre = nombre;
+function Sala(nombre) {
+  this.nombre = nombre;
 }
 
-Sala.prototype.initRandom = function(){
+//Sala.prototype.initRandom
+Sala.prototype.initRandom = function () {
 
-    //MAQUETACION DE LA SALA! QUITAR BOTONES DE NAVEGACION
-    $("#hudBtn").css("display", "none");
-    $("#hudCartas").css("display", "none");
+  //MAQUETACION DE LA SALA! QUITAR BOTONES DE NAVEGACION
 
-    var x = Math.floor((Math.random() * 4) + 1);
-    switch(x){
-        case 1:
-            console.log("Inicializo un combate");
-            //Llamo al objeto Combate.Init()
-            break;
-        case 2:
-            console.log("Inicializo un Cofre");
-            //Llamo al objeto Cofre.Init()
-            var cofre = new Cofre("Name");
-            cofre.init();
-            break;
-        case 3:
-            console.log("Inicializo un NADA");
-            //Pinto por pantalla: "SALA VACÍA"
-            break;
-        case 4:
-            console.log("Inicializo una enfermería");
-            //Llamo al objeto Enfermeria.Init()ç
-            var enfermeria = new Enfermeria(60);
-            enfermeria.init();
-            enfermeria.curar();
-            break;
-    }
+  $("#hudCartas").css("display", "none");
+  $("#hudNavegacion").css("display", ""); //Siempre aparece, solo desaparece cuando hay un combate. No puede avanzar hasta pasar ese combate.
+  $("#abrirCofre").css("display", "none");
+  $("#restaurarVida").css("display", "none");
+
+  var x = Math.floor((Math.random() * 4) + 1);
+  switch (x) {
+    case 1:
+      this.setCombate();
+     /* $("#hudNavegacion").css("display", "none");
+      $("#hudCartas").css("display", "");
+      enCombate = true;
+      //init combate*/
+
+      break;
+    case 2:
+      this.setCofre();
+      cofre = new Cofre();
+      cofre.init();
+      break;
+    case 3:
+      this.setNada();
+      break;
+    case 4:
+      this.setEnfermeria();
+      enfermeria = new Enfermeria();
+      enfermeria.init();
+      break;
+  }
 }
 
-Sala.prototype.setCofre = function(){
-    $("#hudBtn").css("display", "none");
-    $("#hudCartas").css("display", "none");
-
-    var cofre = new Cofre("Name");
-    cofre.init();
+Sala.prototype.setHud = function(){
+  $("#hudCartas").css("display", "none");
+  $("#hudNavegacion").css("display", ""); //Siempre aparece, solo desaparece cuando hay un combate. No puede avanzar hasta pasar ese combate.
+  $("#abrirCofre").css("display", "none");
+  $("#restaurarVida").css("display", "none");
 }
 
-Sala.prototype.setCombate = function(){
-    $("#hudBtn").css("display", "none");
-    $("#hudCartas").css("display", "none");
+Sala.prototype.setCofre = function () {
+  this.setHud();
+  $("#abrirCofre").css("display", "");
+  enCombate = false;
 
-    console.log("Inicializo combate");
-    //Llamo a combate init
-
-    //TODO
-    //llamar a combate
-    nivelTutorial.endSala();
+  cofre = new Cofre("Name");
+  cofre.init();
 }
 
-Sala.prototype.setEnfermeria = function(){
-    $("#hudBtn").css("display", "none");
-    $("#hudCartas").css("display", "none");
+Sala.prototype.setCombate = function () {
+  this.setHud();
+  $("#hudNavegacion").css("display", "none");
+  $("#hudCartas").css("display", "");
+  enCombate = true;
+  //Llamo a combate init
 
-    var enfermeria = new Enfermeria(60);
-    enfermeria.init();        
-    enfermeria.curar();
+  //TODO
+  //llamar a combate
 }
 
-Sala.prototype.setNada = function(){
-    $("#hudBtn").css("display", "none");
-    $("#hudCartas").css("display", "none");
+Sala.prototype.setEnfermeria = function () {
+  this.setHud();
+  $("#restaurarVida").css("display", "");
+  enCombate = false;
 
-    //Pinto sala Vacía
-    var vacia = new Vacia();
-    vacia.init();
+  enfermeria = new Enfermeria();
+  enfermeria.init();
 }
 
-Sala.prototype.endSala = function(){
-    console.log("Pinto la flecha");
-    $("#hudBtn").css("display", "");
-    
+Sala.prototype.setNada = function () {
+  this.setHud();
+  enCombate = false;
+
+  //Pinto sala Vacía
+  /*vacia = new Vacia();
+  vacia.init();*/
+}
+
+Sala.prototype.endSala = function () {
+  console.log("Pinto la flecha");
+  $("#hudBtn").css("display", "");
+
 }

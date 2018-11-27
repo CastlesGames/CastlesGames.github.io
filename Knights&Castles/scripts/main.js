@@ -2,11 +2,13 @@ var player;
 var cartas;
 var items;
 var nivelTutorial;
+var cofre;
+var enfermeria;
+var combate;
 
 function init() {
   //Se instancia un nuevo jugador
   player = new Jugador("Gerald");
-  nivelTutorial = new NivelTutorial();
 
   //Se crean el array de Cartas
   cartas = new Array(
@@ -41,50 +43,33 @@ function init() {
 
   initCartas();
   initItems();
+
+  salaInicial = new Sala("Inicial");
+  salaInicial.initRandom();
+  
+  nivelTutorial = new NivelTutorial();
+  nivelTutorial.paintSala();
+  
+  player.perderVida(80);
 }
 
 function initCartas() {
   var manoJugador = player.getManoCartas();
-  player.changeCarta(cartas[Math.floor((cartas.length-3) * Math.random())], 0);
-  player.changeCarta(cartas[Math.floor((cartas.length-3) * Math.random())], 1);
-  player.changeCarta(cartas[Math.floor((cartas.length-3) * Math.random())], 2);
-  player.changeCarta(cartas[Math.floor((cartas.length-3) * Math.random())], 3);
   
-  
-  $('#carta1').css("background-image", "url(" + manoJugador[0].getRutaImg() + ")"); 
-  $('#carta2').css("background-image", "url(" + manoJugador[1].getRutaImg() + ")"); 
-  $('#carta3').css("background-image", "url(" + manoJugador[2].getRutaImg() + ")"); 
-  $('#carta4').css("background-image", "url(" + manoJugador[3].getRutaImg() + ")"); 
+  //Inicializamos la mano del jugador (de forma random no, establecer cartas iniciales.)
+  player.changeCarta(cartas[0], 0);
+  player.changeCarta(cartas[0], 1);
+  player.changeCarta(cartas[4], 2);
+  player.changeCarta(cartas[5], 3);
+
+  $('#carta1').css("background-image", "url(" + manoJugador[0].getRutaImg() + ")");
+  $('#carta2').css("background-image", "url(" + manoJugador[1].getRutaImg() + ")");
+  $('#carta3').css("background-image", "url(" + manoJugador[2].getRutaImg() + ")");
+  $('#carta4').css("background-image", "url(" + manoJugador[3].getRutaImg() + ")");
 }
 
 function initItems() {
-  player.addItem(items[Math.floor(items.length * Math.random())]);
-  player.addItem(items[Math.floor(items.length * Math.random())]);
-  player.addItem(items[Math.floor(items.length * Math.random())]);
+  player.addItem(items[0]);
+  player.addItem(items[7]);
+  player.addItem(items[9]);
 }
-
-$("#carta1").click(function(){
-  player.perderVida(20);
-});
-
-$("#carta2").click(function(){
-   player.addItem(items[11]);
-});
-
-$("#carta3").click(function(){
-   player.perderVida(5);
-});
-
-$("#carta4").click(function(){
-   player.restaurarVida();
-});
-
-$("#jugarBtn").click(function(){
-    nivelTutorial.nextSala();
-});
-
-$("#sceneToRight").click(function(){
-  nivelTutorial.nextSala();
-});
-
-
