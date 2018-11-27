@@ -27,6 +27,13 @@ body {
   width: 100%;
 }
 
+#nombreNivel {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
 #canvas {
   position: absolute;
   background-color: darkgrey;
@@ -34,6 +41,33 @@ body {
   height: 100%;
   z-index: -1000;
   top: 0;
+}
+
+#caminoTorreon,
+#caminoJardin,
+#caminoMazmorras {
+  position: absolute;
+  cursor: pointer;
+}
+
+#caminoTorreon {
+
+    right: 2%;
+  top: 30%;
+  transform: translate(0%,-50%);
+}
+
+#caminoJardin {
+  right: 2%;
+  top: 50%;
+  transform: translate(0%,-50%);
+  
+}
+
+#caminoMazmorras {
+  right: 2%;
+  top: 70%;
+  transform: translate(0%,-50%);
 }
 
 .col-centered {
@@ -132,7 +166,7 @@ body {
   left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-image: url(../assets/imgs/sprites/personaje/Knight.png);
+  background-image: url(../assets/imgs/sprites/personaje/Knigth128.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -145,8 +179,7 @@ body {
   left: 75%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-image: url(../assets/imgs/sprites/enemigos/nivel1/goblin128.png);
-    background-position: center;
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }

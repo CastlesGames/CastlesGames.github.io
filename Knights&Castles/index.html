@@ -246,15 +246,37 @@
 
   </div>
 
-  <div id="posPersonaje">
+  <div>
+    <div id="caminoTorreon" class="btn">
+      <span class="idiomaESP">Torreón</span>
+      <span class="idiomaING">Tower</span>
+    </div>
 
+    <div id="caminoJardin" class="btn">
+      <span class="idiomaESP">Jardines</span>
+      <span class="idiomaING">Gardens</span>
+    </div>
+
+    <div id="caminoMazmorras" class="btn">
+      <span class="idiomaESP">Mazmorras</span>
+      <span class="idiomaING">Dungeons</span>
+    </div>
   </div>
 
+  <div id="nombreNivel">
+    <span id="nombreNivelESP" class="idiomaESP"></span>
+    <span id="nombreNivelING" class="idiomaING"></span>
+  </div>
+  <div id="posPersonaje"></div>
   <div id="posEnemigo">
+    <span id="statsEnemigo">100</span>
+    <div id="x">
 
+    </div>
   </div>
 
   <div id="hud">
+
     <div class="container-fluid container-hud">
 
       <!-- HUD MAIN -->
@@ -274,6 +296,8 @@
 
           </div>
         </div>
+
+        <div id="localizacion"></div>
       </div>
 
       <!-- HUD COMBATE -->
@@ -425,6 +449,9 @@
           <img src="assets/imgs/botones/sceneToRight.png">
         </div>
       </div>
+
+
+
     </div>
   </div>
 
@@ -438,7 +465,15 @@
 
 
   <!-- CARGA AUDIOS DEL JUEGO -->
-
+  <audio id="ataqueAudio" src="assets/audio/ataque.ogg"></audio>
+  <audio autoplay  id="backgroundAudio" src="assets/audio/backgroundMenu.ogg" loop="loop"></audio>
+  <audio id="background2Audio" src="assets/audio/backgroundMenu2.ogg" loop="loop"></audio>
+  <audio id="ataqueEnemigoAudio" src="assets/audio/ataqueEnemigo.ogg"></audio>
+  <audio id="btnAudio" src="assets/audio/boton.ogg"></audio>
+  <audio id="pocaVidaAudio" src="assets/audio/pocaVida.ogg"></audio>
+  <audio id="hitAudio" src="assets/audio/hit.ogg"></audio>
+  <audio id="abrirCofreAudio" src="assets/audio/abrirCofre.ogg"></audio>
+  <audio id="recuperarVidaAudio" src="assets/audio/recuperarVida.ogg"></audio>
   <!-- FIN CARGA AUDIOS DEL JUEGO -->
 
   <!-- CARGAMOS BOOTSTRAP -->
@@ -453,14 +488,23 @@
   <!-- CARGA SCRIPTS DEL JUEGO -->
 
   <script src="scripts/navigate.js"></script>
+
+  <script src="scripts/ataque.js"></script>
+
   <script src="scripts/item.js"></script>
   <script src="scripts/carta.js"></script>
   <script src="scripts/jugador.js"></script>
+  <script src="scripts/enemigo.js"></script>
+
   <script src="scripts/cofre.js"></script>
   <script src="scripts/enfermeria.js"></script>
-  <script src="scripts/sala.js"></script>
-  <script src="scripts/nivelTutorial.js"></script>
+  <script src="scripts/combate.js"></script>
   <script src="scripts/vacia.js"></script>
+  <script src="scripts/sala.js"></script>
+
+  <script src="scripts/nivel.js"></script>
+  <script src="scripts/nivelTutorial.js"></script>
+
   <script src="scripts/main.js"></script>
   <!-- FIN CARGA SCRIPTS DEL JUEGO -->
 

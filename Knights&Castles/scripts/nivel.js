@@ -6,7 +6,7 @@
  * 
  */
 
-function Nivel(nombreNivel) {
+function Nivel(nombreNivel, nombreNivelIngles) {
   //Lo podemos hacer del tamaño que queramos, en principio, de 10 salas cada nivel
   /**
    * 2 ENFERMERIAS POR NIVEL -> una al principio tras el combate con el Boss, otra al final, antes del combate con el Boss del nivel.
@@ -28,10 +28,11 @@ function Nivel(nombreNivel) {
     "Combate Boss"
   );
   this.nombreNivel = nombreNivel;
+  this.nombreNivelIngles = nombreNivelIngles;
   this.currentSala = 0;
 }
 
-NivelTutorial.prototype.paintSala = function () {
+Nivel.prototype.paintSala = function () {
 
   if (this.currentSala >= 10) {
     this.endNivel();
@@ -61,16 +62,16 @@ NivelTutorial.prototype.paintSala = function () {
   }
 }
 
-NivelTutorial.prototype.nextSala = function () {
+Nivel.prototype.nextSala = function () {
   this.currentSala++;
 }
 
-NivelTutorial.prototype.endSala = function () {
+Nivel.prototype.endSala = function () {
   console.log("Acabo sala");
   this.salasList[this.currentSala].endSala();
   this.currentSala++;
 }
 
-NivelTutorial.prototype.endNivel = function () {
+Nivel.prototype.endNivel = function () {
   //Nivel acabado
 }

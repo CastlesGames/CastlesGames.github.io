@@ -1,4 +1,14 @@
 var showInventarioItem = false;
+var btnAudio = document.getElementById("btnAudio");
+var ataqueAudio = document.getElementById("ataqueAudio");
+var backgroundAudio = document.getElementById("backgroundAudio");
+var background2Audio = document.getElementById("background2Audio");
+var ataqueEnemigoAudio = document.getElementById("ataqueEnemigoAudio");
+var hitAudio = document.getElementById("hitAudio");
+var pocaVidaAudio = document.getElementById("pocaVidaAudio");
+var abrirCofreAudio = document.getElementById("abrirCofreAudio");
+var recuperarVidaAudio = document.getElementById("recuperarVidaAudio");
+
 $("#menusBackground").css("display", "");
 $("#hud").css("display", "none");
 $("#menuPrincipal").css("display", "");
@@ -59,6 +69,8 @@ $("#pausaBtn").click(function () {
   $("#tituloJuego").css("display", "none");
   $("#posPersonaje").css("display", "none");
   $("#posEnemigo").css("display", "none");
+  $("#nombreNivel").css("display", "none");
+  hitAudio.play();
 });
 
 //Funcionalidad botón salir y continuar el juego
@@ -74,6 +86,10 @@ $("#salirBtn").click(function () {
   $("#cambioCarta").css("display", "none");
   $("#posPersonaje").css("display", "none");
   $("#posEnemigo").css("display", "none");
+  $("#nombreNivel").css("display", "none");
+  backgroundAudio.play();
+  background2Audio.pause();
+  background2Audio.currentTime = 0;
 });
 
 $("#continuarBtn").click(function () {
@@ -88,6 +104,7 @@ $("#continuarBtn").click(function () {
   if (enCombate) {
     $("#posEnemigo").css("display", "");
   }
+  $("#nombreNivel").css("display", "");
 
 });
 
@@ -104,7 +121,10 @@ $("#jugarBtn").click(function () {
   $("#cartaExtra2").css("background-image", "none");
   $("#cambioCarta").css("display", "none");
   $("#posPersonaje").css("display", "");
-
+  $("#nombreNivel").css("display", "");
+  background2Audio.play();
+  backgroundAudio.pause();
+  backgroundAudio.currentTime = 0;
   new init();
 });
 
@@ -168,6 +188,8 @@ $("#armadura").click(function () {
     $(".manoCartas").css("display", "");
     showInventarioItem = false;
   }
+  
+  hitAudio.play();
 });
 
 $("#arma").click(function () {
@@ -197,6 +219,8 @@ $("#arma").click(function () {
     $(".manoCartas").css("display", "");
     showInventarioItem = false;
   }
+  
+  hitAudio.play();
 });
 
 $("#amuleto").click(function () {
@@ -227,6 +251,8 @@ $("#amuleto").click(function () {
 
     showInventarioItem = false;
   }
+  
+  hitAudio.play();
 });
 
 //Funcionalidad abrir cofre
@@ -235,11 +261,12 @@ $("#abrirCofre").click(function () {
   $("#mensajeItemCarta").css("display", "");
   $("#hudCartas").css("display", "");
   $("#hudBtn").css("display", "");
-
+  abrirCofreAudio.play();
 });
 
 $("#restaurarVida").click(function () {
   enfermeria.curar();
+  recuperarVidaAudio.play();
 });
 
 //Funcionalidad añadir o dejar item
@@ -313,6 +340,14 @@ $("#cartaExtra2").click(function () {
 $("#sceneToRight").click(function(){
   nivelTutorial.nextSala();
   nivelTutorial.paintSala();
+  hitAudio.play();
 })
 
+$(".btn").click(function(){
+  btnAudio.play();
+});
+
 window.addEventListener('keydown', onKeyDown, false);
+$(document).ready(function(){
+  backgroundAudio.play();
+});

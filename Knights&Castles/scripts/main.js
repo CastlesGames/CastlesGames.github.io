@@ -1,3 +1,4 @@
+/*Variables globales*/
 var player;
 var cartas;
 var items;
@@ -5,6 +6,10 @@ var nivelTutorial;
 var cofre;
 var enfermeria;
 var combate;
+var numNivel = 1;
+var nombreLocalizacion;
+
+/************************/
 
 function init() {
   //Se instancia un nuevo jugador
@@ -44,13 +49,13 @@ function init() {
   initCartas();
   initItems();
 
-  salaInicial = new Sala("Inicial");
-  salaInicial.initRandom();
+  /*salaInicial = new Sala("Inicial");
+  salaInicial.initRandom();*/
   
-  nivelTutorial = new NivelTutorial();
+  nivelTutorial = new NivelTutorial("Entrada", "Entrance");
   nivelTutorial.paintSala();
-  
-  player.perderVida(80);
+  $("#nombreNivelESP").text(nivelTutorial.getNombre());
+  $("#nombreNivelING").text(nivelTutorial.getNombreIngles());
 }
 
 function initCartas() {
@@ -73,3 +78,4 @@ function initItems() {
   player.addItem(items[7]);
   player.addItem(items[9]);
 }
+

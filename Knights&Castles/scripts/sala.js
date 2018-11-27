@@ -22,24 +22,15 @@ Sala.prototype.initRandom = function () {
   switch (x) {
     case 1:
       this.setCombate();
-     /* $("#hudNavegacion").css("display", "none");
-      $("#hudCartas").css("display", "");
-      enCombate = true;
-      //init combate*/
-
       break;
     case 2:
       this.setCofre();
-      cofre = new Cofre();
-      cofre.init();
       break;
     case 3:
       this.setNada();
       break;
     case 4:
       this.setEnfermeria();
-      enfermeria = new Enfermeria();
-      enfermeria.init();
       break;
   }
 }
@@ -49,6 +40,7 @@ Sala.prototype.setHud = function(){
   $("#hudNavegacion").css("display", ""); //Siempre aparece, solo desaparece cuando hay un combate. No puede avanzar hasta pasar ese combate.
   $("#abrirCofre").css("display", "none");
   $("#restaurarVida").css("display", "none");
+  $("#posEnemigo").css("display", "none");
 }
 
 Sala.prototype.setCofre = function () {
@@ -65,10 +57,9 @@ Sala.prototype.setCombate = function () {
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
   enCombate = true;
-  //Llamo a combate init
-
-  //TODO
-  //llamar a combate
+  combate = new Combate(numNivel, false);
+  combate.init();
+  //combate.start();
 }
 
 Sala.prototype.setEnfermeria = function () {

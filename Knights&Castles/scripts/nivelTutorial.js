@@ -6,12 +6,15 @@
  * 
  */
 
-function NivelTutorial() {
+function NivelTutorial(nombre, nombreIngles) {
+  this.nombre = nombre;
+  this.nombreIngles = nombreIngles;
   this.salasList = new Array(
     "Nada",
     "Combate",
     "Cofre",
-    "Enfermería"
+    "Nada",
+    "Enfermería",
   );
   this.currentSala = 0;
 }
@@ -41,14 +44,25 @@ NivelTutorial.prototype.paintSala = function () {
   }
 }
 
+
 NivelTutorial.prototype.nextSala = function () {
   this.currentSala++;
 }
 
 NivelTutorial.prototype.endSala = function () {
-  
+  //mostrar la opción para elegir ruta
 }
 
 NivelTutorial.prototype.endTutorial = function () {
   //Nivel acabado
+  new Sala("Nada").setNada();
+  $("#elegirCamino").css("display", "");
+}
+
+NivelTutorial.prototype.getNombre = function(){
+  return this.nombre;
+}
+
+NivelTutorial.prototype.getNombreIngles = function(){
+  return this.nombreIngles;
 }
