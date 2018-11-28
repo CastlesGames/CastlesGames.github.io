@@ -62,6 +62,15 @@ Sala.prototype.setCombate = function () {
   //combate.start();
 }
 
+Sala.prototype.setCombateBoss = function(){
+    this.setHud();
+  $("#hudNavegacion").css("display", "none");
+  $("#hudCartas").css("display", "");
+  enCombate = true;
+  combate = new Combate(numNivel, true);
+  combate.init();
+}
+
 Sala.prototype.setEnfermeria = function () {
   this.setHud();
   $("#restaurarVida").css("display", "");

@@ -177,10 +177,6 @@ Jugador.prototype.changeCarta = function (carta, num) {
   $("#mensajeItemCarta").css("display", "none");
   $("#mostrarCarta").css("display", "none");
   $("#mostrarItem").css("display", "none");
-
-  cofre = new Cofre();
-  cofre.init();
-
 }
 
 //Te muestra el inventario del jugador y sus caracteristicas.

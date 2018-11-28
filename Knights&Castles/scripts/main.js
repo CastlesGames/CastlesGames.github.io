@@ -1,13 +1,14 @@
 /*Variables globales*/
-var player;
-var cartas;
-var items;
+var player, cartas, items;
 var nivelTutorial;
-var cofre;
-var enfermeria;
-var combate;
+var cofre, enfermeria, combate;
 var numNivel = 1;
 var nombreLocalizacion;
+var enTutorial = true;
+var dificultadNormal = true;
+var isPaused = false;
+var contador_seg, contador_min, seg, min, cronometro;
+
 
 /************************/
 
@@ -49,18 +50,23 @@ function init() {
   initCartas();
   initItems();
 
-  /*salaInicial = new Sala("Inicial");
-  salaInicial.initRandom();*/
+  numNivel = 1;
+  enTutorial = true;
+  eligiendoCamino = false;
+  eligiendoNivel = false;
   
   nivelTutorial = new NivelTutorial("Entrada", "Entrance");
   nivelTutorial.paintSala();
+  
   $("#nombreNivelESP").text(nivelTutorial.getNombre());
   $("#nombreNivelING").text(nivelTutorial.getNombreIngles());
+
+  startTime();
 }
 
 function initCartas() {
   var manoJugador = player.getManoCartas();
-  
+
   //Inicializamos la mano del jugador (de forma random no, establecer cartas iniciales.)
   player.changeCarta(cartas[0], 0);
   player.changeCarta(cartas[0], 1);
@@ -79,3 +85,40 @@ function initItems() {
   player.addItem(items[9]);
 }
 
+function startTime() {
+  isPaused = false;
+  contador_seg = 0;
+  contador_min = 0;
+  console.log("he llegado al cronometro");
+
+  seg = document.getElementById("segundos");
+  min = document.getElementById("minutos");
+
+  cronometro = setInterval(
+    function () {
+      if (!isPaused) {
+        if (contador_seg == 60) {
+          contador_seg = 0;
+          contador_min++;
+          min.innerHTML = contador_min;
+
+          if (contador_min == 60) {
+            contador_min = 0;
+          }
+        }
+
+        seg.innerHTML = contador_seg;
+        contador_seg++;
+      }
+    }, 1000);
+
+}
+
+function stopTime() {
+  clearInterval(cronometro);
+  cronometro = null;
+  contador_seg = 0;
+  contador_min = 0;
+  min.innerHTML = contador_min;
+  seg.innerHTML = contador_seg;
+}

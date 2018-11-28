@@ -1,7 +1,12 @@
 function Enemigo(nombre, esBoss, vida) {
   this.nombre = nombre;
   this.esBoss = esBoss; //boolean que indica si es boss o no
-  this.vida = vida;
+  if(dificultadNormal){
+    this.vida = vida;
+  }else{
+    this.vida = vida*2;
+  }
+  
   this.ataques = new Array(new Ataque("", 0), new Ataque("", 0));
   this.rutaImg = "";
   this.dropItem = new Array(
@@ -15,7 +20,7 @@ function Enemigo(nombre, esBoss, vida) {
       this.ataques[0].setDaño(15);
       this.ataques[1].setNombre("Ataque con daga");
       this.ataques[1].setDaño(15);
-      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel1/goblin128.png";
+      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel1/goblin64.png";
       break;
     case "HomoGoblin":
       this.ataques[0].setNombre("Ataque con porra");
@@ -43,7 +48,7 @@ function Enemigo(nombre, esBoss, vida) {
       this.ataques[0].setDaño(30);
       this.ataques[1].setNombre("Espadazo");
       this.ataques[1].setDaño(30);
-      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel1/goblin128.png";
+      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel1/goblin64.png";
       break;
     case "Rey maldito":
       this.ataques[0].setNombre("Golpe de cetro");

@@ -126,8 +126,8 @@
               <span class="idiomaESP">Musica</span>
               <span class="idiomaING">Music</span>
             </div>
-            <div class="btn"><span>OFF</span></div>
-            <div class="btn"><span>ON</span></div>
+            <div class="btn" id="musicaOff"><span>OFF</span></div>
+            <div class="btn" id="musicaOn"><span>ON</span></div>
           </div>
 
           <div class="col-xs-12 col-centered">
@@ -135,11 +135,11 @@
               <span class="idiomaESP">Dificultad</span>
               <span class="idiomaING">Difficulty</span>
             </div>
-            <div class="btn">
+            <div class="btn" id="dificultadNormal">
               <span class="idiomaESP">Normal</span>
               <span class="idiomaING">Normal</span>
             </div>
-            <div class="btn">
+            <div class="btn" id="dificultadDificil">
               <span class="idiomaESP">Dificil</span>
               <span class="idiomaING">Hard</span>
             </div>
@@ -246,7 +246,7 @@
 
   </div>
 
-  <div>
+  <div id="elegirCamino">
     <div id="caminoTorreon" class="btn">
       <span class="idiomaESP">Torreón</span>
       <span class="idiomaING">Tower</span>
@@ -261,6 +261,11 @@
       <span class="idiomaESP">Mazmorras</span>
       <span class="idiomaING">Dungeons</span>
     </div>
+  </div>
+
+  <div id="siguienteNivel">
+    <span id="siguienteNivelESP" class="nextlvl btn idiomaESP"></span>
+    <span id="siguienteNivelING" class="nextlvl btn idiomaING"></span>
   </div>
 
   <div id="nombreNivel">
@@ -288,16 +293,20 @@
             <span class="idiomaING">Life: </span>
             <span id="statsVida"></span>
           </div>
-          <div id="barraArmadura">
 
+          <div id="barraArmadura">
             <span class="idiomaESP">Armadura: </span>
             <span class="idiomaING">Armor: </span>
             <span id="statsArmadura">0</span>
+          </div>
+
+          <div id="cronometro">
+            <p>
+              <span id="minutos">0</span>'<span id="segundos">0</span>''
+            </p>
 
           </div>
         </div>
-
-        <div id="localizacion"></div>
       </div>
 
       <!-- HUD COMBATE -->
@@ -457,7 +466,9 @@
 
 
   <!-- Menu de backgrounds -->
-  <div id="backgroundNiebla"></div>
+  <div id="wrapper">
+    <div id="backgroundNiebla"></div>
+  </div>
   <div id="background"></div>
 
   <!-- GAME -->
@@ -466,7 +477,7 @@
 
   <!-- CARGA AUDIOS DEL JUEGO -->
   <audio id="ataqueAudio" src="assets/audio/ataque.ogg"></audio>
-  <audio autoplay  id="backgroundAudio" src="assets/audio/backgroundMenu.ogg" loop="loop"></audio>
+  <audio autoplay id="backgroundAudio" src="assets/audio/backgroundMenu.ogg" loop="loop"></audio>
   <audio id="background2Audio" src="assets/audio/backgroundMenu2.ogg" loop="loop"></audio>
   <audio id="ataqueEnemigoAudio" src="assets/audio/ataqueEnemigo.ogg"></audio>
   <audio id="btnAudio" src="assets/audio/boton.ogg"></audio>

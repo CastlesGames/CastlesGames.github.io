@@ -5,6 +5,8 @@ body {
   font-size: 24px;
   font-family: 'MedievalSharp', cursive;
   color: rgba(240, 240, 240, 1);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 
@@ -45,23 +47,26 @@ body {
 
 #caminoTorreon,
 #caminoJardin,
-#caminoMazmorras {
+#caminoMazmorras,
+#siguienteNivelESP,
+#siguienteNivelING{
   position: absolute;
   cursor: pointer;
+  z-index: 100
 }
 
 #caminoTorreon {
-
-    right: 2%;
+  right: 2%;
   top: 30%;
   transform: translate(0%,-50%);
 }
 
-#caminoJardin {
+#caminoJardin,
+#siguienteNivelESP,
+#siguienteNivelING{
   right: 2%;
   top: 50%;
   transform: translate(0%,-50%);
-  
 }
 
 #caminoMazmorras {
@@ -118,7 +123,7 @@ body {
 
 #backgroundNiebla {
   position: absolute;
-  width: 80000px;
+  width: 5076px;;
   height: 100%;
   top: 0;
   left: 0;
@@ -180,7 +185,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 

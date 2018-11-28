@@ -13,34 +13,45 @@ function NivelTutorial(nombre, nombreIngles) {
     "Nada",
     "Combate",
     "Cofre",
+    "Enfermeria",
     "Nada",
-    "Enfermería",
+    "Random",
+    "Combate",
+    "Random",
+    "Enfermeria",
+    "CombateBoss"
   );
   this.currentSala = 0;
 }
 
 NivelTutorial.prototype.paintSala = function () {
 
-  if (this.currentSala >= 4) {
+  if (this.currentSala >= this.salasList.length) {
     this.endTutorial();
   }
 
   switch (this.currentSala) {
     case 0:
+    case 4:
       new Sala("Nada").setNada();
       break;
     case 1:
+    case 6:
       new Sala("Combate").setCombate();
       break;
     case 2:
       new Sala("Cofre").setCofre();
       break;
     case 3:
-      new Sala("Nada").setNada();
-      break;
-    case 4:
+    case 8:
       new Sala("Enfermeria").setEnfermeria();
       break;
+    case 5:
+    case 7:
+      new Sala("Random").initRandom();
+      break;
+    case 9:
+      new Sala("CombateBoss").setCombateBoss();
   }
 }
 
@@ -56,7 +67,11 @@ NivelTutorial.prototype.endSala = function () {
 NivelTutorial.prototype.endTutorial = function () {
   //Nivel acabado
   new Sala("Nada").setNada();
+  eligiendoCamino = true;
   $("#elegirCamino").css("display", "");
+  $("#hudNavegacion").css("display","none");
+  enTutorial = false;
+  numNivel++;
 }
 
 NivelTutorial.prototype.getNombre = function(){

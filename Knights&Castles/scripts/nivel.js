@@ -34,7 +34,7 @@ function Nivel(nombreNivel, nombreNivelIngles) {
 
 Nivel.prototype.paintSala = function () {
 
-  if (this.currentSala >= 10) {
+  if (this.currentSala >= this.ordenSalas.length) {
     this.endNivel();
   }
 
@@ -53,11 +53,13 @@ Nivel.prototype.paintSala = function () {
       break;
     case 4:
     case 7:
-    case 9:
       new Sala("Combate").setCombate();
       break;
     case 5:
       new Sala("Nada").setNada();
+      break;
+    case 9:
+      new Sala("Combate boss").setCombateBoss();
       break;
   }
 }
@@ -73,5 +75,35 @@ Nivel.prototype.endSala = function () {
 }
 
 Nivel.prototype.endNivel = function () {
-  //Nivel acabado
+  if (numNivel < 3) {
+    //Nivel acabado
+    new Sala("Nada").setNada();
+    $("#siguienteNivel").css("display", "");
+    switch (this.getNombre()) {
+      case "Torreon":
+        $("#siguienteNivelESP").text("Torre de magia");
+        $("#siguienteNivelING").text("Magic tower");
+        break;
+      case "Jardines":
+        $("#siguienteNivelESP").text("Salon fiestas");
+        $("#siguienteNivelING").text("Party room");
+        break;
+      case "Mazmorras":
+        $("#siguienteNivelESP").text("Aposentos");
+        $("#siguienteNivelING").text("Chambers");
+        break;
+    }
+
+    $("#hudNavegacion").css("display", "none");
+    eligiendoNivel = true;
+    numNivel++;
+  }
+}
+
+Nivel.prototype.getNombre = function () {
+  return this.nombreNivel;
+}
+
+Nivel.prototype.getNombreIngles = function () {
+  return this.nombreNivelIngles;
 }
