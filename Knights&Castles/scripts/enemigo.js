@@ -20,42 +20,42 @@ function Enemigo(nombre, esBoss, vida) {
       this.ataques[0].setDaño(15);
       this.ataques[1].setNombre("Ataque con daga");
       this.ataques[1].setDaño(15);
-      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel1/goblin64.png";
+      this.rutaImg = "assets/imgs/sprites/enemigos/nivel1/goblin64.png";
       break;
     case "HomoGoblin":
       this.ataques[0].setNombre("Ataque con porra");
       this.ataques[0].setDaño(25);
       this.ataques[1].setNombre("Ataque con porra");
       this.ataques[1].setDaño(25);
-      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel1/goblin128.png";
+      this.rutaImg = "assets/imgs/sprites/enemigos/nivel1/goblin128.png";
       break;
     case "Aprendiz de mago":
       this.ataques[0].setNombre("Hechizo de fuego");
       this.ataques[0].setDaño(15);
       this.ataques[1].setNombre("Gran bola de fuego");
       this.ataques[1].setDaño(25);
-      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel2/Apprentice128.png";
+      this.rutaImg = "assets/imgs/sprites/enemigos/nivel2/Apprentice128.png";
       break;
     case "Mago corrupto":
       this.ataques[0].setNombre("Gran bola de fuego");
       this.ataques[0].setDaño(30);
       this.ataques[1].setNombre("Hielo corrupto");
       this.ataques[1].setDaño(15);
-      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel2/Mage128.png";
+      this.rutaImg = "assets/imgs/sprites/enemigos/nivel2/Mage128.png";
       break;
     case "Caballero oscuro":
       this.ataques[0].setNombre("Espadazo");
       this.ataques[0].setDaño(30);
       this.ataques[1].setNombre("Espadazo");
       this.ataques[1].setDaño(30);
-      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel1/goblin64.png";
+      this.rutaImg = "assets/imgs/sprites/enemigos/nivel1/goblin64.png";
       break;
     case "Rey maldito":
       this.ataques[0].setNombre("Golpe de cetro");
       this.ataques[0].setDaño(30);
       this.ataques[1].setNombre("Golpe con espada");
       this.ataques[1].setDaño(40);
-      this.rutaImg = "../assets/imgs/sprites/enemigos/nivel1/goblin128.png";
+      this.rutaImg = "assets/imgs/sprites/enemigos/nivel1/goblin128.png";
       break;
   }
 }

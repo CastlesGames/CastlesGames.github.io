@@ -21,17 +21,17 @@ function Cofre(nombre) {
 
   //Se crean el array de Cartas
   this.cartasCofre = new Array(
-    new Carta("Espadazo", "Ataque", 10, 0, 0, 1, "/../assets/imgs/cartas/carta-espadazo.png"),
-    new Carta("Mazazo", "Ataque", 25, 0, 0, 2, "/../assets/imgs/cartas/carta-mazazo.png"),
-    new Carta("Golpe de escudo", "Ataque", 5, 10, 0, 1, "/../assets/imgs/cartas/carta-golpeDeEscudo.png"),
-    new Carta("Flechazo", "Ataque", 7, 0, 0, 1, "/../assets/imgs/cartas/carta-flechazo.png"),
-    new Carta("Incremento de armadura", "Escudo", 0, 10, 0, 1, "/../assets/imgs/cartas/carta-incrementoDeArmadura.png"),
-    new Carta("Incremento de armadura II", "Escudo", 0, 25, 0, 2, "/../assets/imgs/cartas/carta-incrementoDeArmadura2.png"),
-    new Carta("Fortificacion", "Escudo", 0, 50, 0, 3, "/../assets/imgs/cartas/carta-fortificacion.png"),
-    new Carta("Bola de fuego", "Magia", 35, 0, 0, 2, "/../assets/imgs/cartas/carta-bolaDeFuego.png"),
-    new Carta("Curar", "Magia", 0, 0, 15, 1, "/../assets/imgs/cartas/carta-curar.png"),
-    new Carta("Curar II", "Magia", 0, 0, 25, 2, "/../assets/imgs/cartas/carta-curar2.png"),
-    new Carta("Destello", "Magia", 0, 0, 0, 2, "/../assets/imgs/cartas/carta-destello.png"),
+    new Carta("Espadazo", "Ataque", 10, 0, 0, 1, "assets/imgs/cartas/carta-espadazo.png"),
+    new Carta("Mazazo", "Ataque", 25, 0, 0, 2, "assets/imgs/cartas/carta-mazazo.png"),
+    new Carta("Golpe de escudo", "Ataque", 5, 10, 0, 1, "assets/imgs/cartas/carta-golpeDeEscudo.png"),
+    new Carta("Flechazo", "Ataque", 7, 0, 0, 1, "assets/imgs/cartas/carta-flechazo.png"),
+    new Carta("Incremento de armadura", "Escudo", 0, 10, 0, 1, "assets/imgs/cartas/carta-incrementoDeArmadura.png"),
+    new Carta("Incremento de armadura II", "Escudo", 0, 25, 0, 2, "assets/imgs/cartas/carta-incrementoDeArmadura2.png"),
+    new Carta("Fortificacion", "Escudo", 0, 50, 0, 3, "assets/imgs/cartas/carta-fortificacion.png"),
+    new Carta("Bola de fuego", "Magia", 35, 0, 0, 2, "assets/imgs/cartas/carta-bolaDeFuego.png"),
+    new Carta("Curar", "Magia", 0, 0, 15, 1, "assets/imgs/cartas/carta-curar.png"),
+    new Carta("Curar II", "Magia", 0, 0, 25, 2, "assets/imgs/cartas/carta-curar2.png"),
+    new Carta("Destello", "Magia", 0, 0, 0, 2, "assets/imgs/cartas/carta-destello.png"),
   )
 
   //Se crea el array de Items
@@ -82,16 +82,10 @@ Cofre.prototype.init = function () {
       break;
   }
 
-  /*console.log("x:" + x);
-  console.log("numCartasRnadom:" + numCartaRandom);
-  console.log("numItemRandom:" + numItemRandom);
-  console.log("Recompensa:" + this.recompensa);*/
-
-  //this.recompensa.toString();
 }
 
 Cofre.prototype.abrirCofre = function () {
-  $("#abrirCofre").css("background-image", "url(../assets/imgs/iconos/OpenChest.png)");
+  $("#abrirCofre").css("background-image", "url(assets/imgs/iconos/OpenChest.png)");
 
   //console.log(this.tipoRecompensa);
   if (this.tipoRecompensa == "Carta") {

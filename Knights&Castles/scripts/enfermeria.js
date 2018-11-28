@@ -15,7 +15,7 @@ function Enfermeria(curacion) {
 Enfermeria.prototype.init = function () {
   //MAQUETACION DE ENFERMERIA
   $("#restaurarVida").css("display", "");
-  $("#restaurarVida").css("background-image", "url(/../assets/imgs/iconos/health.png)");
+  $("#restaurarVida").css("background-image", "url(assets/imgs/iconos/health.png)");
 }
 
 Enfermeria.prototype.curar = function () {
