@@ -50,9 +50,9 @@ function init() {
   initCartas();
   initItems();
 
-  numNivel = 1;
-  enTutorial = true;
-  eligiendoCamino = false;
+  numNivel = 1; //
+  enTutorial = true;  //
+  eligiendoCamino = false;  
   eligiendoNivel = false;
   
   nivelTutorial = new NivelTutorial("Entrada", "Entrance");
@@ -69,7 +69,7 @@ function initCartas() {
 
   //Inicializamos la mano del jugador (de forma random no, establecer cartas iniciales.)
   player.changeCarta(cartas[0], 0);
-  player.changeCarta(cartas[0], 1);
+  player.changeCarta(cartas[1], 1);
   player.changeCarta(cartas[4], 2);
   player.changeCarta(cartas[5], 3);
 

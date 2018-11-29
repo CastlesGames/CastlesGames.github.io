@@ -45,5 +45,4 @@ Combate.prototype.init = function(){
   $("#posEnemigo").css("background-image", "url(" + this.enemigo.getRutaImg() + ")");
   $("#statsEnemigo").text(this.enemigo.getVida());
   $("#hudNavegacion").css("display", "");
-  console.log("he entrado");
 }

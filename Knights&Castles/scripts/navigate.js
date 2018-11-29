@@ -33,6 +33,8 @@ $("#cartaExtra2").css("background-image", "none");
 $("#cambioCarta").css("display", "none");
 $("#elegirCamino").css("display", "none");
 $("#siguienteNivel").css("display", "none");
+$("#hudCombate").css("display", "none");
+
 
 $("#posPersonaje").css("display", "none");
 $("#posEnemigo").css("display", "none");
@@ -77,6 +79,7 @@ $("#pausaBtn").click(function () {
   $("#nombreNivel").css("display", "none");
   $("#elegirCamino").css("display", "none");
   $("#siguienteNivel").css("display", "none");
+  $("#hudCombate").css("display", "none");
   isPaused = true;
   hitAudio.play();
 });
@@ -95,6 +98,7 @@ $("#salirBtn").click(function () {
   $("#posPersonaje").css("display", "none");
   $("#posEnemigo").css("display", "none");
   $("#nombreNivel").css("display", "none");
+  $("#hudCombate").css("display", "none");
   stopTime();
   backgroundAudio.play();
   background2Audio.pause();
@@ -113,6 +117,7 @@ $("#continuarBtn").click(function () {
   isPaused = false;
   if (enCombate) {
     $("#posEnemigo").css("display", "");
+    $("#hudCombate").css("display", "");
   }
   
   if(eligiendoCamino){
@@ -362,8 +367,11 @@ $("#cartaExtra2").click(function () {
   }
 });
 
+
 $("#sceneToRight").click(function () {
+  
   $("#mensajeItemCarta").css("display", "none");
+  
   if (enTutorial) {
     nivelTutorial.nextSala();
     nivelTutorial.paintSala();

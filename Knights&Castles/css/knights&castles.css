@@ -9,7 +9,34 @@ body {
   overflow-y: hidden;
 }
 
+#hudCombate {}
 
+#contadorMana {
+  width: 64px;
+  height: 64px;
+  background-color: aqua;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  text-align: center;
+  line-height: 64px;
+}
+
+#btnCombate {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  text-align: center;
+  z-index: 500;
+}
+
+#pasarTurno,
+#usarCarta {
+  border: 2px solid white;
+  margin: 4px;
+  cursor: pointer;
+}
 
 .container-menus {
   max-height: 1080px;
@@ -49,7 +76,7 @@ body {
 #caminoJardin,
 #caminoMazmorras,
 #siguienteNivelESP,
-#siguienteNivelING{
+#siguienteNivelING {
   position: absolute;
   cursor: pointer;
   z-index: 100
@@ -58,21 +85,21 @@ body {
 #caminoTorreon {
   right: 2%;
   top: 30%;
-  transform: translate(0%,-50%);
+  transform: translate(0%, -50%);
 }
 
 #caminoJardin,
 #siguienteNivelESP,
-#siguienteNivelING{
+#siguienteNivelING {
   right: 2%;
   top: 50%;
-  transform: translate(0%,-50%);
+  transform: translate(0%, -50%);
 }
 
 #caminoMazmorras {
   right: 2%;
   top: 70%;
-  transform: translate(0%,-50%);
+  transform: translate(0%, -50%);
 }
 
 .col-centered {
@@ -123,7 +150,8 @@ body {
 
 #backgroundNiebla {
   position: absolute;
-  width: 5076px;;
+  width: 5076px;
+  ;
   height: 100%;
   top: 0;
   left: 0;
@@ -200,15 +228,16 @@ body {
   cursor: pointer;
 }
 
-#creditosMusica{
+#creditosMusica {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
 }
-#creditosMusica > p{
+
+#creditosMusica > p {
   text-align: center;
-  color: rgba(255,255,255,.5);
+  color: rgba(255, 255, 255, .5);
   font-size: 5px;
   padding: 0;
   margin: 0;

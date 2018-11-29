@@ -36,6 +36,7 @@ Sala.prototype.initRandom = function () {
 }
 
 Sala.prototype.setHud = function(){
+  $("#hudCombate").css("display", "none"); //inicializo que no se vea, luego si entro en combate lo inicializo y lo hago visible
   $("#hudCartas").css("display", "none");
   $("#hudNavegacion").css("display", ""); //Siempre aparece, solo desaparece cuando hay un combate. No puede avanzar hasta pasar ese combate.
   $("#abrirCofre").css("display", "none");
@@ -54,6 +55,7 @@ Sala.prototype.setCofre = function () {
 
 Sala.prototype.setCombate = function () {
   this.setHud();
+  $("#hudCombate").css("display", "");
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
   enCombate = true;
@@ -64,6 +66,7 @@ Sala.prototype.setCombate = function () {
 
 Sala.prototype.setCombateBoss = function(){
     this.setHud();
+  $("#hudCombate").css("display", "");
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
   enCombate = true;
