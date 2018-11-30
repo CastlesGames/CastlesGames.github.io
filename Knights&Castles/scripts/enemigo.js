@@ -77,7 +77,8 @@ Enemigo.prototype.perderVida = function (dañoRecibido) {
 }
 
 Enemigo.prototype.getAtaqueRandom = function () {
-  return this.nombre;
+  var x = Math.floor((Math.random() * 2));
+  return this.ataques[x];
 }
 
 Enemigo.prototype.getRutaImg = function () {

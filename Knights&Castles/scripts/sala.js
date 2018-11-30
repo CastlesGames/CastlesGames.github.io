@@ -3,6 +3,7 @@
 // Se requieren los métodos:
 // Inicializar la Sala => Init
 var enCombate = false;
+var combate;
 
 function Sala(nombre) {
   this.nombre = nombre;
@@ -58,10 +59,27 @@ Sala.prototype.setCombate = function () {
   $("#hudCombate").css("display", "");
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
+
   enCombate = true;
   combate = new Combate(numNivel, false);
   combate.init();
-  //combate.start();
+
+  $("#usarCarta").click(function(){
+    if(combate == undefined){
+      console.log("NO EXISTE");
+    }
+    else{
+      combate.usoCarta();
+    }
+  });
+  $("#pasarTurno").click(function(){
+    if(combate == undefined){
+      console.log("NO EXISTE");
+    }
+    else{
+      combate.finTurno();
+    }
+  });
 }
 
 Sala.prototype.setCombateBoss = function(){
@@ -72,6 +90,23 @@ Sala.prototype.setCombateBoss = function(){
   enCombate = true;
   combate = new Combate(numNivel, true);
   combate.init();
+
+  $("#usarCarta").click(function(){
+    if(combate == undefined){
+      console.log("NO EXISTE");
+    }
+    else{
+      combate.usoCarta();
+    }
+  });
+  $("#pasarTurno").click(function(){
+    if(combate == undefined){
+      console.log("NO EXISTE");
+    }
+    else{
+      combate.finTurno();
+    }
+  });
 }
 
 Sala.prototype.setEnfermeria = function () {
