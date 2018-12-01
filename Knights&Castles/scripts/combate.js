@@ -43,12 +43,13 @@ Combate.prototype.init = function(numNivel, boss){
     }
   }
   this.cartaSeleccionada = null;
-  player.restaurarDefensa();
   
   $("#posEnemigo").css("display", "");
   $("#posEnemigo").css("background-image", "url(" + this.enemigo.getRutaImg() + ")");
   $("#statsEnemigo").text(this.enemigo.getVida());
   $("#hudNavegacion").css("display", "none");
+  $("#btnCombate").css("display","");
+  $("#attackGif").css("display","none");
   this.turnoJugador();
 }
 
@@ -61,8 +62,11 @@ Combate.prototype.turnoJugador = function(){
 
       console.log("ESTOY EN TURNO JUGADOR");
       player.restaurarMana();
+      player.restaurarArmadura();
       player.cartaSeleccionada = null;
-      $("#btnCombate").css("display", "");
+      $("#usarCarta").css("display", "");
+      $("#pasarTurno").css("display", "");
+      $("#combateFeedback").text("¡ Tú turno !");
   }
   else{
     console.log("GAME OVER");
@@ -71,24 +75,35 @@ Combate.prototype.turnoJugador = function(){
 
 Combate.prototype.usoCarta = function (){
   if(player.cartaSeleccionada != null){
-    console.log("Mana del jugador" + player.mana + " vs " + player.cartaSeleccionada.getMana() + "Lo Llamo desde" +this);
     if(player.mana >= player.cartaSeleccionada.getMana()){
       player.perderMana(player.cartaSeleccionada.getMana());
-  
+      $("#combateFeedback").text("¡ Usas la carta " + player.cartaSeleccionada.getNombre() + " !");
+      
       //MECANICAS DE CARTAS
       switch(player.cartaSeleccionada.getTipo()){
         case "Ataque":
-          this.enemigo.perderVida(player.cartaSeleccionada.getDaño());
-          $("#statsEnemigo").text(this.enemigo.getVida());
+          this.enemigo.perderVida(player.cartaSeleccionada.getDaño()+ player.ataque);
+          //AÑADIR ANIMACION DE ATAQUE SOBRE ENEMIGO
+          $("#attackGif").css("display","");
+          $("#attackGif").css("left","72%");
+          setTimeout(function(){
+            $("#attackGif").css("display","none");
+          },400);
+          player.añadirArmadura(player.cartaSeleccionada.getArmadura());
           if(this.enemigo.vida <= 0){
             this.endCombate();
           }
         break;
         case "Escudo":
-          player.modificarDefensa(player.cartaSeleccionada.getArmadura());
+          player.añadirArmadura(player.cartaSeleccionada.getArmadura());
         break;
         case "Magia":
-        
+          this.enemigo.perderVida(player.cartaSeleccionada.getDaño()+ player.ataque);
+          //AÑADIR ANIMACION DE ATAQUE SOBRE ENEMIGO
+          player.curarseMagia(player.cartaSeleccionada.getCuracion());
+          if(this.enemigo.vida <= 0){
+            this.endCombate();
+          }
         break;
         default:
         console.log("[ERROR] Mecanica de carta: No programada");
@@ -106,27 +121,40 @@ Combate.prototype.usoCarta = function (){
 }
 
 Combate.prototype.finTurno = function(){
-  $("#btnCombate").css("display", "none");
-  
-  this.turnoEnemigo();
+  $("#usarCarta").css("display", "none");
+  $("#pasarTurno").css("display", "none");
+  $("#combateFeedback").text("¡ Fin de Turno!");
+  var t = this;
+  setTimeout(function(){t.turnoEnemigo();}, 1000);
 }
 
 Combate.prototype.turnoEnemigo = function(){
-
+  var t = this;
   if(this.enemigo.getVida() <= 0){
     this.endCombate();
   }
   else{
-    console.log("Estoy en Turno Enemigo");
+    $("#combateFeedback").text("¡ Turno Enemigo!");
     var ataqueIA = this.enemigo.getAtaqueRandom();
+    
+    setTimeout(function(){
+    $("#combateFeedback").text("Ataque del enemigo " + ataqueIA.getDaño());
+    //AÑADIR ANIMACION DE ATAQUE SOBRE PERSONAJE
+    $("#attackGif").css("display","");
+    $("#attackGif").css("left","22%");
+    setTimeout(function(){
+      $("#attackGif").css("display","none");
+    },400);
     player.perderVida(ataqueIA.getDaño());
 
     if(player.vida <= 0){
       console.log("GAME OVER");
     }
     else{
-      this.turnoJugador();
+      setTimeout(function (){t.turnoJugador();},2000);
     }
+    },1000);
+    
   }
 }
 
@@ -135,5 +163,6 @@ Combate.prototype.endCombate = function(){
   $("#posEnemigo").css("display", "none");
   $("#hudNavegacion").css("display", "");
   $("#hudCombate").css("display", "none");
+  $("#btnCombate").css("display","none");
   $("#hudCartas").css("display", "none");
 }

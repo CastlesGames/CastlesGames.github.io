@@ -298,8 +298,12 @@
   <div id="hudCombate">
     <div id="contadorMana">
     </div>
-
+    <div id="attackGif">
+        <img src="assets/attackgif.gif" />
+    </div>
     <div id="btnCombate">
+        <div class="alert alert-secondary" role="alert" id="combateFeedback">
+          </div>
       <div id="usarCarta">
         <span class="idiomaESP">Usar carta</span>
         <span class="idiomaING">Use card</span>
@@ -308,9 +312,9 @@
         <span class="idiomaESP">Terminar turno</span>
         <span class="idiomaING">Finish turn</span>
       </div>
+      </div>
     </div>
   </div>
-
   <div id="hud">
 
     <div class="container-fluid container-hud">
@@ -335,6 +339,12 @@
             <span class="idiomaESP">Armadura: </span>
             <span class="idiomaING">Armor: </span>
             <span id="statsArmadura">0</span>
+          </div>
+
+          <div id="barraAtaque">
+            <span class="idiomaESP">Ataque: </span>
+            <span class="idiomaING">Attack: </span>
+            <span id="statsAtaque">0</span>
           </div>
 
           <div id="cronometro">

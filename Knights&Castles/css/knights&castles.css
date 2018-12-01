@@ -12,14 +12,22 @@ body {
 #hudCombate {}
 
 #contadorMana {
-  width: 64px;
+  width: 128px;
   height: 64px;
-  background-color: aqua;
+  background-color: rgb(129, 50, 109);
   position: absolute;
   bottom: 2%;
   right: 2%;
   text-align: center;
   line-height: 64px;
+}
+
+#attackGif{
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 40%;
+  left: 72%;
 }
 
 #btnCombate {

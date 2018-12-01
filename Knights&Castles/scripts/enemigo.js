@@ -74,6 +74,7 @@ Enemigo.prototype.getEsBoss = function () {
 
 Enemigo.prototype.perderVida = function (dañoRecibido) {
   this.vida = this.vida - dañoRecibido;
+  $("#statsEnemigo").text(this.vida);
 }
 
 Enemigo.prototype.getAtaqueRandom = function () {

@@ -25,7 +25,7 @@ function Jugador(nombre) {
 
   $("#statsVida").text(this.vida + " / " + this.maxVida);
   $("#statsDefensa").text(this.defensa);
-  $("#contadorMana").text(this.mana);
+  $("#contadorMana").text("Mana: "+ this.mana);
   this.cartaSeleccionada = null;
 }
 
@@ -57,6 +57,9 @@ Jugador.prototype.addItem = function (nuevoItem) {
   $("#mensajeItemCarta").css("display", "none");
   $("#mostrarCarta").css("display", "none");
   $("#mostrarItem").css("display", "none");
+
+  $("#statsDefensa").text(this.defensa);
+  $("#statsAtaque").text(this.ataque);
 }
 
 
@@ -88,13 +91,28 @@ Jugador.prototype.perderStats = function (item) {
 
 
 Jugador.prototype.perderVida = function (dañoRecibido) {
-  this.vida = this.vida - (dañoRecibido - this.defensa);
-
+  if(this.armadura > 0){
+    var acumulacion = this.armadura - dañoRecibido;
+    if(acumulacion < 0){
+      this.armadura = 0;
+      this.vida = this.vida + (acumulacion + this.defensa);
+    }
+    else
+    {
+      this.armadura = this.armadura - dañoRecibido;
+    }
+  }
+  else
+  {
+    this.vida = this.vida - (dañoRecibido - this.defensa);
+  }
   if (this.vida <= 0) {
     $("#statsVida").text(0 + " / " + this.maxVida);
+    $("#statsArmadura").text(this.armadura);
     //llmar a finalizar partida
   } else {
     $("#statsVida").text(this.vida + " / " + this.maxVida);
+    $("#statsArmadura").text(this.armadura);
   }
 }
 
@@ -106,6 +124,11 @@ Jugador.prototype.restaurarVida = function () {
   $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
+Jugador.prototype.curarseMagia = function(value){
+  this.vida = this.vida + value;
+  $("#statsVida").text(this.vida + " / " + this.maxVida);
+}
+
 //Se puede llamar a esta función en cada turno de combate, para restaurar el nivel de maná
 Jugador.prototype.restaurarMana = function () {
   this.mana = 3 +
@@ -113,12 +136,12 @@ Jugador.prototype.restaurarMana = function () {
     this.inventario[1].getPlusMana() +
     this.inventario[2].getPlusMana();
 
-    $("#contadorMana").text(this.mana);
+    $("#contadorMana").text("Mana: "+ this.mana);
 }
 
 Jugador.prototype.perderMana = function (manaAGastar) {
   this.mana = this.mana - manaAGastar;
-  $("#contadorMana").text(this.mana);
+  $("#contadorMana").text("Mana: "+ this.mana);
 }
 
 Jugador.prototype.restaurarDefensa = function(){
@@ -133,6 +156,16 @@ Jugador.prototype.restaurarDefensa = function(){
 Jugador.prototype.modificarDefensa = function(defensaAModificar){
   this.defensa = this.defensa + defensaAModificar;
   $("#statsDefensa").text(this.defensa);
+}
+
+Jugador.prototype.restaurarArmadura = function (){
+  this.armadura = 0;
+  $("#statsArmadura").text(this.armadura);
+}
+
+Jugador.prototype.añadirArmadura = function (armaduraAañadir){
+  this.armadura = this.armadura + armaduraAañadir;
+  $("#statsArmadura").text(this.armadura);
 }
 
 Jugador.prototype.getArmaduraItem = function () {
