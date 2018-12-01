@@ -49,7 +49,6 @@ Sala.prototype.setCofre = function () {
   this.setHud();
   $("#abrirCofre").css("display", "");
   enCombate = false;
-
   cofre = new Cofre("Name");
   cofre.init();
 }
@@ -59,27 +58,18 @@ Sala.prototype.setCombate = function () {
   $("#hudCombate").css("display", "");
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
-
+  
   enCombate = true;
-  combate = new Combate(numNivel, false);
-  combate.init();
-
-  $("#usarCarta").click(function(){
-    if(combate == undefined){
-      console.log("NO EXISTE");
-    }
-    else{
+  if(combate == undefined){
+    combate = new Combate();
+    $("#usarCarta").click(function(){
       combate.usoCarta();
-    }
-  });
-  $("#pasarTurno").click(function(){
-    if(combate == undefined){
-      console.log("NO EXISTE");
-    }
-    else{
+    });
+    $("#pasarTurno").click(function(){
       combate.finTurno();
-    }
-  });
+    });
+  } 
+  combate.init(numNivel, false);
 }
 
 Sala.prototype.setCombateBoss = function(){
@@ -88,25 +78,16 @@ Sala.prototype.setCombateBoss = function(){
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
   enCombate = true;
-  combate = new Combate(numNivel, true);
-  combate.init();
-
-  $("#usarCarta").click(function(){
-    if(combate == undefined){
-      console.log("NO EXISTE");
-    }
-    else{
+  if(combate == undefined){
+    combate = new Combate();
+    $("#usarCarta").click(function(){
       combate.usoCarta();
-    }
-  });
-  $("#pasarTurno").click(function(){
-    if(combate == undefined){
-      console.log("NO EXISTE");
-    }
-    else{
+    });
+    $("#pasarTurno").click(function(){
       combate.finTurno();
-    }
-  });
+    });
+  } 
+  combate.init(numNivel, true);
 }
 
 Sala.prototype.setEnfermeria = function () {
@@ -128,7 +109,6 @@ Sala.prototype.setNada = function () {
 }
 
 Sala.prototype.endSala = function () {
-  console.log("Pinto la flecha");
   $("#hudBtn").css("display", "");
 
 }

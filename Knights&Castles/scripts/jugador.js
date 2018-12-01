@@ -8,7 +8,7 @@ function Jugador(nombre) {
   this.ataque = 0;
   this.defensa = 0;
   this.magia = 0;
-  this.mana = 2;
+  this.mana = 3;
 
   this.inventario = new Array(
     new Item("-", "-", 0, 0, 0, 0, 0),
@@ -24,6 +24,8 @@ function Jugador(nombre) {
   );
 
   $("#statsVida").text(this.vida + " / " + this.maxVida);
+  $("#statsDefensa").text(this.defensa);
+  $("#contadorMana").text(this.mana);
   this.cartaSeleccionada = null;
 }
 
@@ -94,7 +96,6 @@ Jugador.prototype.perderVida = function (dañoRecibido) {
   } else {
     $("#statsVida").text(this.vida + " / " + this.maxVida);
   }
-
 }
 
 //Restaura la vida del jugador al máximo.
@@ -111,6 +112,27 @@ Jugador.prototype.restaurarMana = function () {
     this.inventario[0].getPlusMana() +
     this.inventario[1].getPlusMana() +
     this.inventario[2].getPlusMana();
+
+    $("#contadorMana").text(this.mana);
+}
+
+Jugador.prototype.perderMana = function (manaAGastar) {
+  this.mana = this.mana - manaAGastar;
+  $("#contadorMana").text(this.mana);
+}
+
+Jugador.prototype.restaurarDefensa = function(){
+  this.defensa = 0 +
+  this.inventario[0].getPlusDefensa() +
+  this.inventario[1].getPlusDefensa() +
+  this.inventario[2].getPlusDefensa();
+
+  $("#statsDefensa").text(this.defensa);
+}
+
+Jugador.prototype.modificarDefensa = function(defensaAModificar){
+  this.defensa = this.defensa + defensaAModificar;
+  $("#statsDefensa").text(this.defensa);
 }
 
 Jugador.prototype.getArmaduraItem = function () {
@@ -211,36 +233,30 @@ Jugador.prototype.getCartaSeleccionada = function (idDivCarta) {
   switch (idDivCarta) {
     case "carta1":
       this.manoCartas[0].toString();
-      console.log(this.manoCartas[0]);
       this.cartaSeleccionada = this.manoCartas[0];
       return this.manoCartas[0];
       break;
     case "carta2":
       this.manoCartas[1].toString();
-      console.log(this.manoCartas[1]);
       this.cartaSeleccionada = this.manoCartas[1];
       return this.manoCartas[1];
       break;
     case "carta3":
       this.manoCartas[2].toString();
-      console.log(this.manoCartas[2]);
       this.cartaSeleccionada = this.manoCartas[2];
       return this.manoCartas[2];
       break;
     case "carta4":
       this.manoCartas[3].toString();
-      console.log(this.manoCartas[3]);
       this.cartaSeleccionada = this.manoCartas[3];
       return this.manoCartas[3];
       break;
     case "cartaExtra1":
-      console.log(this.manoCartas[4]);
       this.cartaSeleccionada = this.manoCartas[4];
       return this.manoCartas[4];
       
       break;
     case "cartaExtra2":
-      console.log(this.manoCartas[5]);
       this.cartaSeleccionada = this.manoCartas[5];
       return this.manoCartas[5];
       break;

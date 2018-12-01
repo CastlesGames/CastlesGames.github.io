@@ -1,7 +1,11 @@
 /**
  * SCRIPT COMBATE -> nivel (INTEGER) nos indica el nivel en el que se desarrolla el combate, dependiendo del nivel que sea, inicializará el combate con un enemigo u otro; Boss es un boolean que indica si estamos ante un combate con boss o no.
  **/
-function Combate(numNivel, boss) {
+function Combate() {
+}
+
+Combate.prototype.init = function(numNivel, boss){
+
   this.enemigo;
   this.numNivel = numNivel;
   this.finCombate = false;
@@ -38,16 +42,14 @@ function Combate(numNivel, boss) {
         break;
     }
   }
-  this.turnoJugadorBool = true;
   this.cartaSeleccionada = null;
-}
-
-Combate.prototype.init = function(){
+  player.restaurarDefensa();
+  
   $("#posEnemigo").css("display", "");
   $("#posEnemigo").css("background-image", "url(" + this.enemigo.getRutaImg() + ")");
   $("#statsEnemigo").text(this.enemigo.getVida());
   $("#hudNavegacion").css("display", "none");
-
+  this.turnoJugador();
 }
 
 Combate.prototype.turnoJugador = function(){
@@ -68,22 +70,22 @@ Combate.prototype.turnoJugador = function(){
 }
 
 Combate.prototype.usoCarta = function (){
-
   if(player.cartaSeleccionada != null){
-    if(player.mana > player.cartaSeleccionada.getMana()){
-      player.mana = player.mana - player.cartaSeleccionada.getMana();
+    console.log("Mana del jugador" + player.mana + " vs " + player.cartaSeleccionada.getMana() + "Lo Llamo desde" +this);
+    if(player.mana >= player.cartaSeleccionada.getMana()){
+      player.perderMana(player.cartaSeleccionada.getMana());
   
       //MECANICAS DE CARTAS
       switch(player.cartaSeleccionada.getTipo()){
         case "Ataque":
-          this.enemigo.vida = this.enemigo.vida - player.cartaSeleccionada.getDaño();
+          this.enemigo.perderVida(player.cartaSeleccionada.getDaño());
+          $("#statsEnemigo").text(this.enemigo.getVida());
           if(this.enemigo.vida <= 0){
-            console.log("ENEMIGO MUERTO");
             this.endCombate();
           }
         break;
         case "Escudo":
-
+          player.modificarDefensa(player.cartaSeleccionada.getArmadura());
         break;
         case "Magia":
         
@@ -92,8 +94,6 @@ Combate.prototype.usoCarta = function (){
         console.log("[ERROR] Mecanica de carta: No programada");
         break;
       }
-    
-      console.log("El enemigo " + this.enemigo.getNombre() + " le queda vida " + this.enemigo.getVida());
     }
     else{
       console.log("NO TIENES MANA");
@@ -112,21 +112,14 @@ Combate.prototype.finTurno = function(){
 }
 
 Combate.prototype.turnoEnemigo = function(){
-  console.log("VIDA ENEMIGO: " +this.enemigo.getVida());
 
   if(this.enemigo.getVida() <= 0){
-    console.log("Enenmigo Muerto");
     this.endCombate();
   }
   else{
     console.log("Estoy en Turno Enemigo");
     var ataqueIA = this.enemigo.getAtaqueRandom();
-    console.log("Enemigo " + this.enemigo.getNombre() + " usa ataque " + ataqueIA.getNombre()
-    + " daña al jugador con " + ataqueIA.getDaño());
-
-    console.log("Vida Jugador: " + player.vida);
-    player.vida = player.vida - ataqueIA.getDaño();
-    console.log("Vida Jugador: " + player.vida);
+    player.perderVida(ataqueIA.getDaño());
 
     if(player.vida <= 0){
       console.log("GAME OVER");
@@ -138,7 +131,6 @@ Combate.prototype.turnoEnemigo = function(){
 }
 
 Combate.prototype.endCombate = function(){
-  console.log("Limpio los sprites del combate");
 
   $("#posEnemigo").css("display", "none");
   $("#hudNavegacion").css("display", "");
