@@ -105,7 +105,13 @@ Combate.prototype.usoCarta = function () {
           break;
         case "Magia":
           this.enemigo.perderVida(player.cartaSeleccionada.getDaño() + player.ataque);
+          player.añadirArmadura(player.cartaSeleccionada.getArmadura());
           //AÑADIR ANIMACION DE ATAQUE SOBRE ENEMIGO
+          $("#attackGif").css("display", "");
+          $("#attackGif").css("left", "72%");
+          setTimeout(function () {
+            $("#attackGif").css("display", "none");
+          }, 400);
           player.curarseMagia(player.cartaSeleccionada.getCuracion());
           if (this.enemigo.vida <= 0) {
             this.endCombate();
