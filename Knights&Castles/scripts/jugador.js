@@ -25,7 +25,7 @@ function Jugador(nombre) {
 
   $("#statsVida").text(this.vida + " / " + this.maxVida);
   $("#statsDefensa").text(this.defensa);
-  $("#contadorMana").text("Mana: "+ this.mana);
+  $("#contadorMana").text(this.mana);
   this.cartaSeleccionada = null;
 }
 
@@ -136,12 +136,12 @@ Jugador.prototype.restaurarMana = function () {
     this.inventario[1].getPlusMana() +
     this.inventario[2].getPlusMana();
 
-    $("#contadorMana").text("Mana: "+ this.mana);
+    $("#contadorMana").text(this.mana);
 }
 
 Jugador.prototype.perderMana = function (manaAGastar) {
   this.mana = this.mana - manaAGastar;
-  $("#contadorMana").text("Mana: "+ this.mana);
+  $("#contadorMana").text(this.mana);
 }
 
 Jugador.prototype.restaurarDefensa = function(){

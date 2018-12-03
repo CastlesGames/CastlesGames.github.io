@@ -54,8 +54,8 @@
           </div>
           <div class="col-xs-12 col-centered">
             <div class="btn" id="puntuacionesBtn">
-              <span class="idiomaESP">Puntuaciones</span>
-              <span class="idiomaING">Scores</span>
+              <span class="idiomaESP">Mejor tiempo</span>
+              <span class="idiomaING">Best time</span>
             </div>
           </div>
           <div class="col-xs-12 col-centered">
@@ -234,6 +234,24 @@
       <!--FIN MENU CREDITOS-->
 
       <!--MENU PUNTUACIONES-->
+      <div id="menuPuntuaciones">
+
+        <div>
+          <div>
+            <span class="idiomaESP">Mejor tiempo de juego:</span>
+            <span class="idiomaING">Best game time:</span>
+          </div>
+          <div>
+            <span id="bestTimeUser"></span>
+            <br>
+            <span id="bestTimeMin"></span>
+            <span id="bestTimeSeg"></span>
+          </div>
+          <div class="btn volverAlMenu"></div>
+        </div>
+
+
+      </div>
       <!--FIN MENU PUNTUACIONES-->
 
       <!--MENU PAUSA-->
@@ -256,6 +274,34 @@
         </div>
       </div>
       <!--FIN MENU PAUSA-->
+
+      <!--fINAL DE PARTIDA-->
+      <div id="finalpartida">
+        <div>
+          <span class="idiomaESP" style="font-size: 24px;">!Enhorabuena!</span>
+          <span class="idiomaING" style="font-size: 24px;">Congratulations!</span>
+          <br>
+          <span class="idiomaESP">Has completado el juego en</span>
+          <span class="idiomaING">You've completed the game in</span>
+          <br>
+          <span id="finalScore"></span>
+          <br>
+          <div class="btn volverAlMenu"></div>
+        </div>
+      </div>
+
+      <!--fINAL DE PARTIDA-->
+      <div id="gameOver">
+        <div>
+          <span class="idiomaESP" style="font-size: 24px;">Fin del juego</span>
+          <span class="idiomaING" style="font-size: 24px;">Game Over</span>
+          <br>
+          <span class="idiomaESP">Has sido derrotado</span>
+          <span class="idiomaING">You've been defeated</span>
+          <br>
+          <div class="btn volverAlMenu"></div>
+        </div>
+      </div>
 
     </div>
 
@@ -287,6 +333,7 @@
     <span id="nombreNivelESP" class="idiomaESP"></span>
     <span id="nombreNivelING" class="idiomaING"></span>
   </div>
+
   <div id="posPersonaje"></div>
   <div id="posEnemigo">
     <span id="statsEnemigo">100</span>
@@ -299,11 +346,11 @@
     <div id="contadorMana">
     </div>
     <div id="attackGif">
-        <img src="assets/attackgif.gif" />
+      <img src="assets/attackgif.gif" />
     </div>
     <div id="btnCombate">
-        <div class="alert alert-secondary" role="alert" id="combateFeedback">
-          </div>
+      <div class="alert alert-secondary" role="alert" id="combateFeedback">
+      </div>
       <div id="usarCarta">
         <span class="idiomaESP">Usar carta</span>
         <span class="idiomaING">Use card</span>
@@ -312,9 +359,9 @@
         <span class="idiomaESP">Terminar turno</span>
         <span class="idiomaING">Finish turn</span>
       </div>
-      </div>
     </div>
   </div>
+
   <div id="hud">
 
     <div class="container-fluid container-hud">
@@ -348,7 +395,7 @@
           </div>
 
           <div id="cronometro">
-            <p>
+            <p style="margin: 0;">
               <span id="minutos">0</span>'<span id="segundos">0</span>''
             </p>
 
@@ -523,6 +570,7 @@
 
 
   <!-- CARGA AUDIOS DEL JUEGO -->
+  <audio id="combateAudio" src="assets/audio/backgroundCombat.ogg" loop="loop"></audio>
   <audio id="ataqueAudio" src="assets/audio/ataque.ogg"></audio>
   <audio autoplay id="backgroundAudio" src="assets/audio/backgroundMenu.ogg" loop="loop"></audio>
   <audio id="background2Audio" src="assets/audio/backgroundMenu2.ogg" loop="loop"></audio>
@@ -532,6 +580,7 @@
   <audio id="hitAudio" src="assets/audio/hit.ogg"></audio>
   <audio id="abrirCofreAudio" src="assets/audio/abrirCofre.ogg"></audio>
   <audio id="recuperarVidaAudio" src="assets/audio/recuperarVida.ogg"></audio>
+
   <!-- FIN CARGA AUDIOS DEL JUEGO -->
 
   <!-- CARGAMOS BOOTSTRAP -->

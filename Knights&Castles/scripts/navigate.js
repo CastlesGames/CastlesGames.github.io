@@ -10,6 +10,7 @@ var hitAudio = document.getElementById("hitAudio");
 var pocaVidaAudio = document.getElementById("pocaVidaAudio");
 var abrirCofreAudio = document.getElementById("abrirCofreAudio");
 var recuperarVidaAudio = document.getElementById("recuperarVidaAudio");
+var combateAudio = document.getElementById("combateAudio");
 
 
 $("#menusBackground").css("display", "");
@@ -34,6 +35,8 @@ $("#cambioCarta").css("display", "none");
 $("#elegirCamino").css("display", "none");
 $("#siguienteNivel").css("display", "none");
 $("#hudCombate").css("display", "none");
+$("#finalpartida").css("display", "none");
+$("#gameOver").css("display", "none");
 
 
 $("#posPersonaje").css("display", "none");
@@ -63,6 +66,8 @@ $(".volverAlMenu").click(function () {
   $("#menuCreditos").css("display", "none");
   $("#hudGame").css("display", "none");
   $("#hudGame").css("display", "none");
+  $("#gameOver").css("display", "none");
+  $("#finalpartida").css("display", "none");
 });
 
 //Funcionalidad botón pausa
@@ -101,6 +106,8 @@ $("#salirBtn").click(function () {
   $("#hudCombate").css("display", "none");
   stopTime();
   backgroundAudio.play();
+  combateAudio.pause();
+  combateAudio.currentTime = 0;
   background2Audio.pause();
   background2Audio.currentTime = 0;
 });
@@ -119,16 +126,25 @@ $("#continuarBtn").click(function () {
     $("#posEnemigo").css("display", "");
     $("#hudCombate").css("display", "");
   }
-  
-  if(eligiendoCamino){
+
+  if (eligiendoCamino) {
     $("#elegirCamino").css("display", "");
   }
-  
-  if(eligiendoNivel){
+
+  if (eligiendoNivel) {
     $("#siguienteNivel").css("display", "");
   }
   $("#nombreNivel").css("display", "");
 
+});
+
+//funcionalidad PuntuacionesBTN
+$("#puntuacionesBtn").click(function () {
+  $("#menuPrincipal").css("display", "none");
+  $("#bestTimeUser").text(localStorage.getItem("bestUser"));
+  $("#bestTimeMin").text(localStorage.getItem("bestTimeMin") + "'");
+  $("#bestTimeSeg").text(localStorage.getItem("bestTimeSeg") + "''");
+  $("#menuPuntuaciones").css("display", "");
 });
 
 //Funcionalidad JugarBTN
@@ -369,9 +385,9 @@ $("#cartaExtra2").click(function () {
 
 
 $("#sceneToRight").click(function () {
-  
+  $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
   $("#mensajeItemCarta").css("display", "none");
-  
+
   if (enTutorial) {
     nivelTutorial.nextSala();
     nivelTutorial.paintSala();
@@ -405,6 +421,7 @@ $("#musicaOff").click(function () {
   recuperarVidaAudio.volume = 0;
   ataqueEnemigoAudio.volume = 0;
   ataqueAudio.volume = 0;
+  combateAudio.volume = 0;
 });
 $("#musicaOn").click(function () {
   backgroundAudio.volume = 1;
@@ -416,6 +433,7 @@ $("#musicaOn").click(function () {
   recuperarVidaAudio.volume = 1;
   ataqueEnemigoAudio.volume = 1;
   ataqueAudio.volume = 1;
+  combateAudio.volume = 1;
 });
 
 $("#caminoTorreon").click(function () {
@@ -424,6 +442,8 @@ $("#caminoTorreon").click(function () {
   $("#elegirCamino").css("display", "none");
   $("#nombreNivelESP").text(nivel.getNombre());
   $("#nombreNivelING").text(nivel.getNombreIngles());
+  currentEscenario = escenarioTorreon;
+  $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
 });
 
 $("#caminoJardin").click(function () {
@@ -432,6 +452,8 @@ $("#caminoJardin").click(function () {
   $("#elegirCamino").css("display", "none");
   $("#nombreNivelESP").text(nivel.getNombre());
   $("#nombreNivelING").text(nivel.getNombreIngles());
+  currentEscenario = escenarioJardines;
+  $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
 });
 
 $("#caminoMazmorras").click(function () {
@@ -440,6 +462,8 @@ $("#caminoMazmorras").click(function () {
   $("#elegirCamino").css("display", "none");
   $("#nombreNivelESP").text(nivel.getNombre());
   $("#nombreNivelING").text(nivel.getNombreIngles());
+  currentEscenario = escenarioMazmorras;
+  $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
 });
 
 //Funcionalidad siguiente nivel
@@ -449,12 +473,18 @@ $(".nextlvl").click(function () {
   switch (nombre) {
     case "Torreon":
       nivel = new Nivel("Torre de magia", "Magic tower");
+      currentEscenario = escenarioTorreMagia;
+        $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
       break;
     case "Jardines":
       nivel = new Nivel("Salon de fiestas", "Party room");
+      currentEscenario = escenarioSalon;
+        $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
       break;
     case "Mazmorras":
       nivel = new Nivel("Aposentos de los guardias", "Chambers of the guards");
+      currentEscenario = escenarioAposentos;
+        $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
       break;
   }
   $("#siguienteNivel").css("display", "none");
@@ -467,5 +497,3 @@ window.addEventListener('keydown', onKeyDown, false);
 $(document).ready(function () {
   backgroundAudio.play();
 });
-
-

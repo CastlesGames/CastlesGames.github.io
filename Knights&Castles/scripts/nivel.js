@@ -16,7 +16,8 @@ function Nivel(nombreNivel, nombreNivelIngles) {
    * 3 ZONAS ALEATORIAS
    */
   this.ordenSalas = new Array(
-    "Enfermeria",
+    "Enfermeria", 
+    "Cofre",
     "Random",
     "Cofre",
     "Random",
@@ -40,25 +41,26 @@ Nivel.prototype.paintSala = function () {
 
   switch (this.currentSala) {
     case 0:
-    case 8:
+    case 9:
       new Sala("Enfermeria").setEnfermeria();
       break;
     case 1:
     case 3:
-    case 6:
-      new Sala("Random").initRandom();
-      break;
-    case 2:
       new Sala("Cofre").setCofre();
       break;
+    case 2:
     case 4:
     case 7:
-      new Sala("Combate").setCombate();
+      new Sala("Random").initRandom();
       break;
     case 5:
+    case 8:
+      new Sala("Combate").setCombate();
+      break;
+    case 6:
       new Sala("Nada").setNada();
       break;
-    case 9:
+    case 10:
       new Sala("Combate boss").setCombateBoss();
       break;
   }

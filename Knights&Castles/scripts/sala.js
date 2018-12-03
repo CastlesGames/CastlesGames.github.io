@@ -78,6 +78,7 @@ Sala.prototype.setCombateBoss = function(){
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
   enCombate = true;
+  numCombateBoss++;
   if(combate == undefined){
     combate = new Combate();
     $("#usarCarta").click(function(){
