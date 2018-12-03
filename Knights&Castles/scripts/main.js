@@ -53,9 +53,9 @@ function init() {
     new Carta("Incremento de armadura II", "Escudo", 0, 40, 0, 2, "assets/imgs/cartas/carta-incrementoDeArmadura2.png"),
     new Carta("Fortificacion", "Escudo", 0, 50, 0, 3, "assets/imgs/cartas/carta-fortificacion.png"),
     new Carta("Bola de fuego", "Magia", 25, 0, 0, 2, "assets/imgs/cartas/carta-bolaDeFuego.png"),
-    new Carta("Curar", "Magia", 0, 0, 15, 1, "assets/imgs/cartas/carta-curar.png"),
-    new Carta("Curar II", "Magia", 0, 0, 25, 2, "assets/imgs/cartas/carta-curar2.png"),
-    new Carta("Destello", "Magia", 0, 0, 0, 2, "assets/imgs/cartas/carta-destello.png"),
+    new Carta("Curar", "Magia", 0, 0, 25, 1, "assets/imgs/cartas/carta-curar.png"),
+    new Carta("Curar II", "Magia", 0, 0, 50, 2, "assets/imgs/cartas/carta-curar2.png"),
+    new Carta("Destello", "Magia", 5, 75, 0, 2, "assets/imgs/cartas/carta-destello.png"),
   )
 
   //Se crea el array de Items
