@@ -27,7 +27,7 @@ function Enemigo(nombre, esBoss, vida) {
       this.ataques[0].setDaño(45);
       this.ataques[1].setNombre("Ataque con porra");
       this.ataques[1].setDaño(45);
-      this.rutaImg = "assets/imgs/sprites/enemigos/nivel1/goblin128.png";
+      this.rutaImg = "assets/imgs/sprites/enemigos/nivel1/goblin128_v2.png";
       break;
     case "Aprendiz de mago":
       this.ataques[0].setNombre("Hechizo de fuego");
