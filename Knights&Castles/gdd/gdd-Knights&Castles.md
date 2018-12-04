@@ -20,7 +20,7 @@ Autores
    + **Categoría**: *Knights & Castles* se puede comparar con el videojuego *Hearthstone*, ya que tiene combates de cartas con las que el jugador puede atacar o defenderse. Las principales diferencias con *Hearthstone* es que en éste únicamente tiene esa mecánica de juego y son combates individuales contra otros jugadores, mientras que en *Knights & Castles* el jugador tiene que ir avanzando a través de varios combates recorriendo niveles y un escenario. Además, en *Knights & Castles* el jugador no crea un mazo de cartas que pueda utilizar en todas las partidas, si no que en cada partida que se empieza, el jugador comienza con unas cartas determinadas (5 cartas) y puede ir ampliando su mano (hasta un total de 7 cartas) durante el transcurso de la partida.
    + **Licencia**: este juego de cartas y rol de acción es totalmente original y no está basado en ningún libro o película. 
    + **Mecánica**: el jugador tendrá la posibilidad de hacer click en las distintas cartas que posea en su mano para utilizarlas durante un combate. También podrá pulsar los botones que aparezcan en los escenarios, éstos le permitirán explorar el escenario e ir avanzando por ellos hasta llegar al final donde se deberá enfrentar al *Final Boss*.
-   + **Tecnología**: el juego será desarrollado íntegramente en **HTML5**, **CSS3** y ***JavaScript***.  En cuanto al arte del videojuego, se utilizará el programa ***Adobe Photoshop CC 2018*** del paquete *Adobe*.
+   + **Tecnología**: el juego ha sido desarrollado íntegramente en **HTML5**, **CSS3** y ***JavaScript***.  En cuanto al arte del videojuego, se ha utilizado el programa ***Adobe Photoshop CC 2018*** del paquete *Adobe*.
    + **Público**: el público objetivo está entre el rango de edades de 16 a 30 años. Entre ellos, jugadores que disfruten los juegos de cartas por turnos, la ambientación medieval fantástica y que prefieran partidas rápidas o no tengan demasiado tiempo para dedicar a los videojuegos.
 
 ## 2. Historial de versiones
@@ -28,7 +28,15 @@ Autores
 |:---------:|:----------:|------------|
 | 0.0 		| 15/10/2018 | Planteamiento del juego y construcción inicial del Documento de Diseño de Juego (*Game Document Design - G.D.D.*)|
 | 0.1		| 16/10/2018 | Se definen *mecánicas*, *arte del juego*, *estructuración de niveles* |
-| 1.0 		| 21/10/2018 | Se completa la primera versión del *G.D.D.* de *Knights & Castles*|
+| 0.2 		| 21/10/2018 | Se completa la primera versión del *G.D.D.* de *Knights & Castles* |
+| 0.3		| 30/10/2018 | Se completa la mecánica del personaje principal (salud, armadura...) |
+| 0.4		| 08/11/2018 | Se completa el sistema de cartas |
+| 0.5		| 14/11/2018 | Se completa el sistema de niveles |
+| 0.6		| 20/11/2018 | Se completa el sistema de inventario |
+| 0.7		| 25/11/2018 | Se completan escenarios y audios del juego |
+| 0.8		| 28/11/2018 | Se completa el sistema de combate |
+| 0.9		| 03/11/2018 | Se añaden detalles que mejoren la experiencia de juego (feedback visual) |
+| 1.0		| 04/12/2018 | Se completa la versión final de *Knights & Castles* |
 
 ## 3. Visión general del videojuego
 *Knights & Castles* es un juego de cartas y rol de acción por turnos con ambientación medieval donde el jugador toma el control de un caballero que tendrá que ir avanzando a través de las distintas habitaciones de un castillo derrotando a los distintos enemigos que vaya encontrando hasta llegar al enemigo final. Las batallas contra enemigos funcionarán por turnos y se jugarán mediante cartas con las que el jugador podrá atacar, defenderse o realizar hechizos de magia que le ayuden durante el combate.
@@ -76,15 +84,15 @@ Estos estados se describen más detenidamente en el apartado siguiente - ***6. I
 	      + Hacia el **menú principal** pulsando en el botón con una flecha la cual indica *volver a la pantalla anterior*.
    + **Pantallas de juego /** ***Heads-up Display***: pantalla que muestra toda la información necesaria al jugador durante la partida. Se distribuyen de la siguiente manera:
 	   + PC: 
-		   + Los objetos que el jugador equipe a su personaje se mostrarán con tres iconos (armadura, arma, amuleto) abajo de la pantalla a la izquierda. Justo abajo de ellos pondrá el nombre del objeto.
-		   + Los botones de avanzar a la siguiente pantalla se representarán mediante flechas. Según la zona donde se encuentre y la que quiera avanzar, estos botones estarán colocados arriba, derecha o izquierda de la pantalla.
-		   + La barra de vida del jugador y de armadura se colocarán en la esquina superior izquierda de la pantalla con unos colores rojo y azul, respectivamente.
+		   + Los objetos que el jugador equipe a su personaje se mostrarán con tres iconos (armadura, arma, amuleto) abajo de la pantalla a la izquierda.
+		   + Los botones de avanzar a la siguiente pantalla se representarán mediante flechas.
+		   + La salud del jugador y su armadura se colocarán en la esquina superior izquierda de la pantalla.
 		   + Las cartas de las que disponga el jugador, se verán centradas en la zona de abajo de la pantalla. Sólo se podrá interactuar con las cartas durante un combate, fuera de él estarán deshabilitadas y el jugador sólo podrá leer la información que se le proporciona.
 		   + En la esquina superior derecha se le mostrará un botón de pausa al jugador para que pueda pausar la partida en cualquier momento. Esta acción también podrá llevarse a cabo pulsando la tecla *p* en el teclado.
 	   + *Smartphone*:
-		   + Los objetos que el jugador equipe a su personaje se mostrarán con tres iconos (armadura, arma, amuleto) a la izquierda de la pantalla en forma de columna. Justo al lado de cada uno de ellos se pondrá el nombre del objeto.
+		   + Los objetos que el jugador equipe a su personaje se mostrarán con tres iconos (armadura, arma, amuleto) a la izquierda de la pantalla en forma de columna.
 		   + Los botones de avanzar a la siguiente pantalla se representarán mediante flechas. Según la zona donde se encuentre y la que quiera avanzar, estos botones estarán colocados arriba, derecha o izquierda de la pantalla.
-		   + La barra de vida del jugador y de armadura se colocarán en la esquina superior izquierda de la pantalla con unos colores rojo y azul, respectivamente.
+		   + La salud del jugador y su armadura se colocarán en la esquina superior izquierda de la pantalla.
 		   + Las cartas de las que disponga el jugador, se verán centradas en la zona de abajo de la pantalla. Sólo se podrá interactuar con las cartas durante un combate, fuera de él estarán deshabilitadas y el jugador sólo podrá leer la información que se le proporciona.
 		   + En la esquina superior derecha se le mostrará un botón de pausa al jugador para que pueda pausar la partida en cualquier momento.
 	   + Estados del juego:
@@ -132,20 +140,16 @@ A continuación se describe con más detalle los tres niveles del juego:
 		+ *Música y efectos de sonido*: 
   + ***Nivel 3*** **- Torre de magia / Salón de fiestas / Aposentos de los guardias / Sala del Trono**
 	 + **Torre de magia**: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al *Enemy Boss* del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la **Sala del Trono** para enfrentarnos al *Boss* final del juego.
-		+ *Objetivos*: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.
+		+ *Objetivos*: el jugador deberá completar todas las salas del nivel.
 		+ *Enemigos*: Caballero oscuro.
 		+ *Música y efectos de sonido*: 
 	 + **Salón de fiestas**: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al *Enemy Boss* del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la **Sala del Trono** para enfrentarnos al *Boss* final del juego.
-		+ *Objetivos*: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.
+		+ *Objetivos*: el jugador deberá completar todas las salas del nivel.
 		+ *Enemigos*: Caballero oscuro.
 		+ *Música y efectos de sonido*: 
-	 + **Aposentos de los guardias**: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al *Enemy Boss* del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente. Al superar la cuarta sala, accederemos a la **Sala del Trono** para enfrentarnos al *Boss* final del juego.
-		+ *Objetivos*: el jugador deberá completar todas las salas del nivel para poder acceder a la Sala del Trono.
+	 + **Aposentos de los guardias**: tercer nivel del juego con una dificultad alta. Este nivel consta de cinco salas. La 1ª Sala será una sala con cofre para recompensar al jugador por haber derrotado al *Enemy Boss* del nivel anterior. En esta sala también nos curaremos la vida por completo. Luego encontraremos tres salas más donde se darán los diferentes sucesos descritos anteriormente.
+		+ *Objetivos*: el jugador deberá completar todas las salas del nivel.
 		+ *Enemigos*: Caballero oscuro.
-		+ *Música y efectos de sonido*: 
-	 + **Sala del trono**: último nivel del Juego, solo dispone de una sala. Esta es el combate más complicado de todo el juego ya que nos enfrentaremos al *Final Boss*.
-		+ *Objetivos*: el jugador deberá derrotar al *Final Boss* del juego para poder ganar la partida.
-		+ *Enemigos*: Rey maldito
 		+ *Música y efectos de sonido*: 
 ## 8. Progreso del juego
 En la siguiente ilustración se muestra el diagrama de progreso de juego:
@@ -157,9 +161,8 @@ En la siguiente ilustración se muestra el diagrama de progreso de juego:
 
 ## 9. Personaje/s
    - **Personaje principal**:
-	  + *Nombre*: se desconoce.
-      + *Descripción*: caballero misterioso del que se desconocen sus orígenes o sus intenciones. Ha
-llegado al castillo para liberar al reino de la oscura influencia del Rey Maldito.
+	  + *Nombre*: Geralt.
+      + *Descripción*: caballero misterioso del que se desconocen sus orígenes o sus intenciones.
       + *Concepto*: el personaje será un varón adulto. Su vestimenta constara de una armadura vieja y
 un yelmo. También portará una espada.
       + *Encuentro*: el jugador se encontrará con este personaje cuando de inicio una nueva partida, en la primera sala.
@@ -245,51 +248,51 @@ Se pueden clasificar las cartas en tres **tipos**: *Ataque, Escudo y Magia*.
       + *Curación*: 0
     + **Golpe de escudo**: ataque cargado con el escudo.
       + *Coste de maná*: 1
-      + *Daño base*: 5
-      + *Aumento armadura*: 10 (1 turno)
+      + *Daño base*: 15
+      + *Aumento armadura*: 20
       + *Curación*: 0
     + **Flechazo**: ataque con el arco que inflige un *bufo* negativo al enemigo durante 3 turnos. Efecto no acumulables hasta no haber pasado los 3 turnos.
       + *Coste de maná*: 1
-      + *Daño base*: 7 (1 turno) + 5 (3 turnos)
+      + *Daño base*: 15
       + *Aumento armadura*: 0
+      + *Curación*: 0
+    + **Destello**: ciegas al enemigo evitando que pueda golpearte en el siguiente turno. 
+      + *Coste de maná*: 2
+      + *Daño base*: 10
+      + *Aumento armadura*: 50
       + *Curación*: 0
 2. ***Escudo***: cartas que utiliza el jugador para aumentar la defensa durante el combate contra un enemigo.
     + **Incremento de armadura**: Incremento de armadura.
       + *Coste de maná*: 1
       + *Daño base*: 0
-      + *Aumento armadura*: 10 (1 turno)
+      + *Aumento armadura*: 25
       + *Curación*: 0
     + **Incremento de armadura II**: Incremento de armadura avanzado.
       + *Coste de maná*: 2
       + *Daño base*: 0
-      + *Aumento armadura*: 25 (1 turno)
+      + *Aumento armadura*: 50
       + *Curación*: 0
     + **Fortificación**: Incrementa tu armadura en ese turno y aumenta la defensa durante el resto del combate
       + *Coste de maná*: 3
       + *Daño base*: 0
-      + *Aumento armadura*: 50 (1 turno) + 1 defensa (combate)
+      + *Aumento armadura*: 70
       + *Curación*: 0
 3. ***Magia***: cartas con habilidades especiales que se pueden utilizar tanto para atacar como para defenderse y/o curarse durante el combate.
    + **Bola de fuego**: lanza un bola de fuego al enemigo.
       + *Coste de maná*: 2
-      + *Daño base*: 35 (1 turno)
+      + *Daño base*: 30
       + *Aumento armadura*: 0
       + *Curación*: 0
    + **Curar**: habilidad mágica que hace recuperar 15 puntos de vida al jugador.
       + *Coste de maná*: 1
       + *Daño base*: 0
       + *Aumento armadura*: 0
-      + *Curación*: 15 
+      + *Curación*: 25
    + **Curar II**: habilidad mágica que hace recuperar 25 puntos de vida al jugador.
       + *Coste de maná*: 2
       + *Daño base*: 0
       + *Aumento armadura*: 0
-      + *Curación*: 25
-   + **Destello**: ciegas al enemigo evitando que pueda golpearte en el siguiente turno. 
-      + *Coste de maná*: 2
-      + *Daño base*: 0
-      + *Aumento armadura*: 0
-      + *Curación*: 0
+      + *Curación*: 50
 
 ## Inventario
 El jugador consta con un **inventario** donde puede añadir los objetos o *items* que consiga a lo largo del juego. El inventario se divide en 3 **tipos** de objetos que puede asignar el jugador a su personaje. Estos tipos son:
@@ -377,12 +380,19 @@ A lo largo del juego se pueden encontrar *items*
 	   + *Poder mágico*: 0 (base) + **1**
 	   + *Cantidad de maná*: 3 (base) + **2**
 	   
-## Logros
-
 ## Música y sonidos
+Para la música del juego se he buscado usar melodías que concuerden con la temática medieval del juego. El audio utilizado en *Knights & Castles* se ha obtenido de un repositorio de muestras de audio. Algunas de estas muestras cuentan con una licencia *CC0 1.0* de dominio público, mientras que otras cuentan con una licencia *CC BY 3.0* de atribución. Los autores de estas muestras son:
+
+*Moan Male Beat Punch by Dersuperanton (freesound.org)
+Zombie Roar by Gneube (freesound.org)
+Misterious Magic by Eric Matyas (soundimage.org)
+Button by Distillerystudio (freesound.org)
+Heartbeat by Jobro (freesound.org)
+Boss Battle Loop 2 by TeknoAXE (teknoaxe.com)*
 
 ## Imágenes de concepto
-A continuación se muestran algunos primeros *concepts* sobre algunos escenarios del juego. Son tan sólo *concepts*, provisionales, por lo que variaran en comparación a los escenarios finales que se utilicen en el proyecto.
+A continuación se muestran algunos primeros *concepts* sobre algunos escenarios del juego. 
+
 + Zona de los **Jardines**
 
 <img alt="Concept Art: Escenario 1 - Jardín" src="imgs/escenarios/jardin/jardin.jpg">
@@ -425,10 +435,27 @@ A continuación se muestran algunos primeros *concepts* sobre algunos escenarios
 
 + **Pasillos**
 
-<img alt="Concept Art: Escenario 1 - Pasillos" src="imgs/escenarios/pasillos/pasillos.jpg">
+<img alt="Escenario 1 - Pasillos" src="imgs/escenarios/pasillos/pasillos.jpg">
 
 > *Concept art*: Escenario 1 - Pasillos
 
+Y las siguientes son imágenes de los escenarios finales realizados a partir de estos concepts utilizados en el juego:
+
++ Zona de los **Jardines**
+
+<img alt="Jardín" src="../assets/imgs/imagenesEscenarios/jardin1.png">
+
++ Zona del **Torreón**
+
+<img alt="Torreón" src="../assets/imgs/imagenesEscenarios/torreon1.png">
+
++ Zona de las **Mazmorras**
+
+<img alt="Mazmorra" src="../assets/imgs/imagenesEscenarios/mazmorra1.png">
+
++ Zona de la **Torre de Magia**
+
+<img alt="Torre de Magia" src="../assets/imgs/imagenesEscenarios/torremagia1.png">
 
 ## Miembros del equipo
 1. Game designer
@@ -438,5 +465,5 @@ A continuación se muestran algunos primeros *concepts* sobre algunos escenarios
 
 ## Detalles de produccion
 Fecha de inicio del videojuego: ***15 octubre 2018***
-Fecha de terminación del videojuego: ***21 diciembre 2018***
+Fecha de terminación del videojuego: ***04 diciembre 2018***
 
