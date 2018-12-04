@@ -91,19 +91,15 @@ Jugador.prototype.perderStats = function (item) {
 
 
 Jugador.prototype.perderVida = function (dañoRecibido) {
-  if(this.armadura > 0){
+  if (this.armadura > 0) {
     var acumulacion = this.armadura - dañoRecibido;
-    if(acumulacion < 0){
+    if (acumulacion < 0) {
       this.armadura = 0;
       this.vida = this.vida + (acumulacion + this.defensa);
-    }
-    else
-    {
+    } else {
       this.armadura = this.armadura - dañoRecibido;
     }
-  }
-  else
-  {
+  } else {
     this.vida = this.vida - (dañoRecibido - this.defensa);
   }
   if (this.vida <= 0) {
@@ -124,7 +120,7 @@ Jugador.prototype.restaurarVida = function () {
   $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
 
-Jugador.prototype.curarseMagia = function(value){
+Jugador.prototype.curarseMagia = function (value) {
   this.vida = this.vida + value;
   $("#statsVida").text(this.vida + " / " + this.maxVida);
 }
@@ -136,7 +132,7 @@ Jugador.prototype.restaurarMana = function () {
     this.inventario[1].getPlusMana() +
     this.inventario[2].getPlusMana();
 
-    $("#contadorMana").text(this.mana);
+  $("#contadorMana").text(this.mana);
 }
 
 Jugador.prototype.perderMana = function (manaAGastar) {
@@ -144,26 +140,26 @@ Jugador.prototype.perderMana = function (manaAGastar) {
   $("#contadorMana").text(this.mana);
 }
 
-Jugador.prototype.restaurarDefensa = function(){
+Jugador.prototype.restaurarDefensa = function () {
   this.defensa = 0 +
-  this.inventario[0].getPlusDefensa() +
-  this.inventario[1].getPlusDefensa() +
-  this.inventario[2].getPlusDefensa();
+    this.inventario[0].getPlusDefensa() +
+    this.inventario[1].getPlusDefensa() +
+    this.inventario[2].getPlusDefensa();
 
   $("#statsDefensa").text(this.defensa);
 }
 
-Jugador.prototype.modificarDefensa = function(defensaAModificar){
+Jugador.prototype.modificarDefensa = function (defensaAModificar) {
   this.defensa = this.defensa + defensaAModificar;
   $("#statsDefensa").text(this.defensa);
 }
 
-Jugador.prototype.restaurarArmadura = function (){
+Jugador.prototype.restaurarArmadura = function () {
   this.armadura = 0;
   $("#statsArmadura").text(this.armadura);
 }
 
-Jugador.prototype.añadirArmadura = function (armaduraAañadir){
+Jugador.prototype.añadirArmadura = function (armaduraAañadir) {
   this.armadura = this.armadura + armaduraAañadir;
   $("#statsArmadura").text(this.armadura);
 }
@@ -184,24 +180,24 @@ Jugador.prototype.addCarta = function (carta) {
   if (this.manoCartas.length < 6) {
 
     eligiendoCarta = false;
-    
+
     if (this.manoCartas.length == 4) {
       $("#cartaExtra1").css("background-image", "url(" + carta.getRutaImg() + ")");
     } else {
       $("#cartaExtra2").css("background-image", "url(" + carta.getRutaImg() + ")");
     }
-    
+
     this.manoCartas.push(carta);
     $("#mensajeItemCarta").css("display", "none");
     $("#mostrarCarta").css("display", "none");
     $("#mostrarItem").css("display", "none");
     $("#cambioCarta").css("display", "none");
-    
+
   } else {
-   
+
     $("#cambioCarta").css("display", "");
     eligiendoCartaDescarte = true;
-    
+
   }
 }
 
@@ -263,35 +259,54 @@ Jugador.prototype.toString = function () {
 }
 
 Jugador.prototype.getCartaSeleccionada = function (idDivCarta) {
+$("#carta1").css("background-color", "transparent");
+  $("#carta2").css("background-color", "transparent");
+  $("#carta3").css("background-color", "transparent");
+  $("#carta4").css("background-color", "transparent");
+  $("#cartaExtra1").css("background-color", "transparent");
+  $("#cartaExtra2").css("background-color", "transparent");
+  $("#" + idDivCarta).css("background-color", "rgba(255,255,255,.5)");
+
   switch (idDivCarta) {
     case "carta1":
-      this.manoCartas[0].toString();
-      this.cartaSeleccionada = this.manoCartas[0];
-      return this.manoCartas[0];
+      if (!this.manoCartas[0].getBloqueoCarta()) {
+        this.cartaSeleccionada = this.manoCartas[0];
+        return this.manoCartas[0];
+      }
+
       break;
     case "carta2":
-      this.manoCartas[1].toString();
-      this.cartaSeleccionada = this.manoCartas[1];
-      return this.manoCartas[1];
+
+      if (!this.manoCartas[1].getBloqueoCarta()) {
+        this.cartaSeleccionada = this.manoCartas[1];
+        return this.manoCartas[1];
+      }
       break;
     case "carta3":
-      this.manoCartas[2].toString();
-      this.cartaSeleccionada = this.manoCartas[2];
-      return this.manoCartas[2];
+
+      if (!this.manoCartas[2].getBloqueoCarta()) {
+        this.cartaSeleccionada = this.manoCartas[2];
+        return this.manoCartas[2];
+      }
       break;
     case "carta4":
-      this.manoCartas[3].toString();
-      this.cartaSeleccionada = this.manoCartas[3];
-      return this.manoCartas[3];
+      if (!this.manoCartas[3].getBloqueoCarta()) {
+        this.cartaSeleccionada = this.manoCartas[3];
+        return this.manoCartas[3];
+      }
       break;
     case "cartaExtra1":
-      this.cartaSeleccionada = this.manoCartas[4];
-      return this.manoCartas[4];
-      
+      if (!this.manoCartas[4].getBloqueoCarta()) {
+        this.cartaSeleccionada = this.manoCartas[4];
+        return this.manoCartas[4];
+      }
+
       break;
     case "cartaExtra2":
-      this.cartaSeleccionada = this.manoCartas[5];
-      return this.manoCartas[5];
+      if (!this.manoCartas[5].getBloqueoCarta()) {
+        this.cartaSeleccionada = this.manoCartas[5];
+        return this.manoCartas[5];
+      }
       break;
     default:
       console.log("ERROR EN JUGADOR.GETCARTASELECCIONADA()");
@@ -300,6 +315,23 @@ Jugador.prototype.getCartaSeleccionada = function (idDivCarta) {
   }
 }
 
+Jugador.prototype.getDivCartaSeleccionada = function (idDivCarta) {
+  return idDivCarta;
+}
+
 Jugador.prototype.getManoCartas = function () {
   return this.manoCartas;
+}
+
+Jugador.prototype.restaurarBlockCartas = function () {
+  for (var i = 0; i < this.manoCartas.length; i++) {
+    this.manoCartas[i].setActiveCard();
+  }
+  
+  $("#carta1").css("filter", "brightness(100%)");
+  $("#carta2").css("filter", "brightness(100%)");
+  $("#carta3").css("filter", "brightness(100%)");
+  $("#carta4").css("filter", "brightness(100%)");
+  $("#cartaExtra1").css("filter", "brightness(100%)");
+  $("#cartaExtra2").css("filter", "brightness(100%)");
 }

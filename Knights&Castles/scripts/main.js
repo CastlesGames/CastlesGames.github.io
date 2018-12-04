@@ -3,7 +3,7 @@ var player, cartas, items;
 var nivelTutorial;
 var cofre, enfermeria, combate;
 var numNivel = 1;
-var numCombateBoss = 0;
+var numCombateBoss = 1;
 var nombreLocalizacion;
 var enTutorial = true;
 var dificultadNormal = true;
@@ -31,10 +31,8 @@ var escenarioAposentos = [new Image(), new Image(), new Image(), new Image()];
 /************************/
 
 function init() {
-  var i;
 
-  console.log("local storage");
-  for (i = 0; i < localStorage.length; i++) {
+  for (var i = 0; i < localStorage.length; i++) {
     console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
   }
 
@@ -47,15 +45,15 @@ function init() {
   cartas = new Array(
     new Carta("Espadazo", "Ataque", 10, 0, 0, 1, "assets/imgs/cartas/carta-espadazo.png"),
     new Carta("Mazazo", "Ataque", 25, 0, 0, 2, "assets/imgs/cartas/carta-mazazo.png"),
-    new Carta("Golpe de escudo", "Ataque", 5, 10, 0, 1, "assets/imgs/cartas/carta-golpeDeEscudo.png"),
-    new Carta("Flechazo", "Ataque", 7, 0, 0, 1, "assets/imgs/cartas/carta-flechazo.png"),
+    new Carta("Golpe de escudo", "Ataque", 15, 20, 0, 1, "assets/imgs/cartas/carta-golpeDeEscudo.png"),
+    new Carta("Flechazo", "Ataque", 15, 0, 0, 1, "assets/imgs/cartas/carta-flechazo.png"),
     new Carta("Incremento de armadura", "Escudo", 0, 25, 0, 1, "assets/imgs/cartas/carta-incrementoDeArmadura.png"),
-    new Carta("Incremento de armadura II", "Escudo", 0, 40, 0, 2, "assets/imgs/cartas/carta-incrementoDeArmadura2.png"),
-    new Carta("Fortificacion", "Escudo", 0, 50, 0, 3, "assets/imgs/cartas/carta-fortificacion.png"),
-    new Carta("Bola de fuego", "Magia", 25, 0, 0, 2, "assets/imgs/cartas/carta-bolaDeFuego.png"),
+    new Carta("Incremento de armadura II", "Escudo", 0, 50, 0, 2, "assets/imgs/cartas/carta-incrementoDeArmadura2.png"),
+    new Carta("Fortificacion", "Escudo", 0, 70, 0, 3, "assets/imgs/cartas/carta-fortificacion.png"),
+    new Carta("Bola de fuego", "Ataque", 30, 0, 0, 2, "assets/imgs/cartas/carta-bolaDeFuego.png"),
     new Carta("Curar", "Magia", 0, 0, 25, 1, "assets/imgs/cartas/carta-curar.png"),
     new Carta("Curar II", "Magia", 0, 0, 50, 2, "assets/imgs/cartas/carta-curar2.png"),
-    new Carta("Destello", "Magia", 5, 75, 0, 2, "assets/imgs/cartas/carta-destello.png"),
+    new Carta("Destello", "Ataque", 10, 50, 0, 2, "assets/imgs/cartas/carta-destello.png"),
   )
 
   //Se crea el array de Items
@@ -78,6 +76,7 @@ function init() {
   initItems();
 
   numNivel = 1; //
+  numCombateBoss = 1;
   enTutorial = true; //
   eligiendoCamino = false;
   eligiendoNivel = false;
@@ -95,7 +94,7 @@ function initCartas() {
   var manoJugador = player.getManoCartas();
 
   //Inicializamos la mano del jugador (de forma random no, establecer cartas iniciales.)
-  player.changeCarta(cartas[7], 0);
+  player.changeCarta(cartas[0], 0);
   player.changeCarta(cartas[3], 1);
   player.changeCarta(cartas[4], 2);
   player.changeCarta(cartas[5], 3);
@@ -108,33 +107,50 @@ function initCartas() {
 
 function initEscenarios() {
   escenarioEntrada[0].src = "assets/imgs/imagenesEscenarios/entrada0.png";
-  escenarioEntrada[1] = escenarioEntrada[0];
-  escenarioEntrada[2] = escenarioEntrada[0];
-  escenarioEntrada[3] = escenarioEntrada[0];
-  escenarioSalon[0].src = "assets/imgs/imagenesEscenarios/salon0.png";
-  escenarioSalon[1] = escenarioSalon[0];
-  escenarioSalon[2] = escenarioSalon[0];
-  escenarioSalon[3] = escenarioSalon[0];
+  escenarioEntrada[1].src = "assets/imgs/imagenesEscenarios/entrada1.png";
+  escenarioEntrada[2].src = "assets/imgs/imagenesEscenarios/entrada1.png";
+  escenarioEntrada[3].src = "assets/imgs/imagenesEscenarios/entrada2.png";
+
+
   escenarioTorreon[0].src = "assets/imgs/imagenesEscenarios/torreon0.png";
   escenarioTorreon[1].src = "assets/imgs/imagenesEscenarios/torreon1.png";
   escenarioTorreon[2].src = "assets/imgs/imagenesEscenarios/torreon2.png";
   escenarioTorreon[3].src = "assets/imgs/imagenesEscenarios/torreon3.png";
+
   escenarioJardines[0].src = "assets/imgs/imagenesEscenarios/jardin0.png";
   escenarioJardines[1].src = "assets/imgs/imagenesEscenarios/jardin1.png";
   escenarioJardines[2].src = "assets/imgs/imagenesEscenarios/jardin2.png";
   escenarioJardines[3].src = "assets/imgs/imagenesEscenarios/jardin3.png";
+
+  escenarioMazmorras[0].src = "assets/imgs/imagenesEscenarios/mazmorra0.png";
+  escenarioMazmorras[1].src = "assets/imgs/imagenesEscenarios/mazmorra1.png";
+  escenarioMazmorras[2].src = "assets/imgs/imagenesEscenarios/mazmorra2.png";
+  escenarioMazmorras[3].src = "assets/imgs/imagenesEscenarios/mazmorra3.png";
+
   escenarioTorreMagia[0].src = "assets/imgs/imagenesEscenarios/torremagia0.png";
   escenarioTorreMagia[1].src = "assets/imgs/imagenesEscenarios/torremagia1.png";
   escenarioTorreMagia[2].src = "assets/imgs/imagenesEscenarios/torremagia2.png";
   escenarioTorreMagia[3].src = "assets/imgs/imagenesEscenarios/torremagia3.png";
+
+  escenarioSalon[0].src = "assets/imgs/imagenesEscenarios/salon0.png";
+  escenarioSalon[1].src = "assets/imgs/imagenesEscenarios/salon1.png";
+  escenarioSalon[2].src = "assets/imgs/imagenesEscenarios/salon2.png";
+  escenarioSalon[3].src = "assets/imgs/imagenesEscenarios/salon3.png";
+
+
+  escenarioAposentos[0].src = "assets/imgs/imagenesEscenarios/aposentos0.png";
+  escenarioAposentos[1].src = "assets/imgs/imagenesEscenarios/aposentos1.png";
+  escenarioAposentos[2].src = "assets/imgs/imagenesEscenarios/aposentos2.png";
+  escenarioAposentos[3].src = "assets/imgs/imagenesEscenarios/aposentos3.png";
+
   currentEscenario = escenarioEntrada;
   $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
 }
 
 function initItems() {
   player.addItem(items[0]);
-  player.addItem(items[7]);
-  player.addItem(items[9]);
+  player.addItem(items[4]);
+  player.addItem(items[8]);
 }
 
 function startTime() {

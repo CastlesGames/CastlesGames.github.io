@@ -4,11 +4,11 @@
 function Combate() {}
 
 Combate.prototype.init = function (numNivel, boss) {
-  console.log(numNivel);
   this.enemigo;
   this.numNivel = numNivel;
   this.finCombate = false;
   this.boss = boss;
+  player.restaurarBlockCartas();
 
   if (this.boss == false) {
     switch (this.numNivel) {
@@ -68,7 +68,8 @@ Combate.prototype.turnoJugador = function () {
     player.cartaSeleccionada = null;
     $("#usarCarta").css("display", "");
     $("#pasarTurno").css("display", "");
-    $("#combateFeedback").text("¡ Tú turno !");
+    $("#combateFeedback").text("¡ Tu turno !");
+    
   } else {
     console.log("GAME OVER");
     combateAudio.pause();
@@ -104,7 +105,7 @@ Combate.prototype.usoCarta = function () {
           player.añadirArmadura(player.cartaSeleccionada.getArmadura());
           break;
         case "Magia":
-          this.enemigo.perderVida(player.cartaSeleccionada.getDaño() + player.ataque);
+          //this.enemigo.perderVida(player.cartaSeleccionada.getDaño() + player.ataque);
           player.añadirArmadura(player.cartaSeleccionada.getArmadura());
           //AÑADIR ANIMACION DE ATAQUE SOBRE ENEMIGO
           $("#attackGif").css("display", "");
@@ -123,6 +124,8 @@ Combate.prototype.usoCarta = function () {
       }
     } else {
       console.log("NO TIENES MANA");
+      $("#combateFeedback").text("¡ No tienes mana !");
+      player.cartaSeleccionada = null;
       //FEEDBACK VISUAL
     }
   } else {
@@ -134,6 +137,9 @@ Combate.prototype.finTurno = function () {
   $("#usarCarta").css("display", "none");
   $("#pasarTurno").css("display", "none");
   $("#combateFeedback").text("¡ Fin de Turno!");
+  
+  player.restaurarBlockCartas();  //restauramos las cartas al pasar al turno del jugador
+  
   var t = this;
   setTimeout(function () {
     t.turnoEnemigo();
@@ -141,11 +147,12 @@ Combate.prototype.finTurno = function () {
 }
 
 Combate.prototype.turnoEnemigo = function () {
+  
   var t = this;
   if (this.enemigo.getVida() <= 0) {
     this.endCombate();
   } else {
-    $("#combateFeedback").text("¡Turno Enemigo!");
+    $("#combateFeedback").text("¡ Turno del enemigo !");
     var ataqueIA = this.enemigo.getAtaqueRandom();
 
     setTimeout(function () {
@@ -191,15 +198,22 @@ Combate.prototype.turnoEnemigo = function () {
 Combate.prototype.endCombate = function () {
   combateAudio.pause();
   combateAudio.currentTime = 0;
-  backgroundAudio.play();
+  background2Audio.play();
 
   $("#posEnemigo").css("display", "none");
   $("#hudNavegacion").css("display", "");
   $("#hudCombate").css("display", "none");
   $("#btnCombate").css("display", "none");
   $("#hudCartas").css("display", "none");
+  $("#combateGanado").css("display", "");
+  setTimeout(function () {
+    $("#combateGanado").css("display", "none");
+  }, 1000);
+  
+  player.restaurarBlockCartas();  //restauramos las cartas al finalizar el combate
+  
 
-  if (numCombateBoss == 3) {
+  if (numCombateBoss > 3) {
     gameTimeMin = contador_min;
     gameTimeSeg = contador_seg;
 
@@ -226,45 +240,23 @@ Combate.prototype.endCombate = function () {
       localStorage.setItem("gameUser", gameUser);
       localStorage.setItem("gameTimeMin", gameTimeMin);
       localStorage.setItem("gameTimeSeg", gameTimeSeg);
+      bestUser = localStorage.getItem("bestUser");
+      bestTimeMin = localStorage.getItem("bestTimeMin");
+      bestTimeSeg = localStorage.getItem("bestTimeSeg");
 
-      if (localStorage.getItem("bestUser") == null) {
-        console.log("Por aqui1");
-        bestUser = gameUser;
-        bestTimeMin = gameTimeMin;
-        bestTimeSeg = gameTimeSeg;
-
-        localStorage.setItem("bestUser", bestUser);
-        localStorage.setItem("bestTimeMin", bestTimeMin);
-        localStorage.setItem("bestTimeSeg", bestTimeSeg);
-
+      console.log(bestUser + " " + bestTimeMin + " " + bestTimeSeg + " ");
+      if (bestUser == null) {
+        localStorage.setItem("bestUser", gameUser);
+        localStorage.setItem("bestTimeMin", gameTimeMin);
+        localStorage.setItem("bestTimeSeg", gameTimeSeg);
       } else {
-        console.log("Por aqui2");
-        var mejorMinutos = localStorage.getItem("bestTimeMin");
-        var mejorSegundos = localStorage.getItem("bestTimeMin");
-
-        if (gameTimeMin < mejorMinutos) {
-          console.log("Por aqui2.1");
-          bestUser = gameUser;
-          bestTimeMin = gameTimeMin;
-          bestTimeSeg = gameTimeSeg;
-
-          localStorage.setItem("bestUser", bestUser);
-          localStorage.setItem("bestTimeMin", bestTimeMin);
-          localStorage.setItem("bestTimeSeg", bestTimeSeg);
-        } else if (gameTimeMin == mejorMinutos) {
-          console.log("Por aqui2.2");
-          if (gameTimeSeg <= mejorSegundos) {
-            console.log("Por aqui2.2.1");
-            bestUser = gameUser;
-            bestTimeMin = gameTimeMin;
-            bestTimeSeg = gameTimeSeg;
-
-            localStorage.setItem("bestUser", bestUser);
-            localStorage.setItem("bestTimeMin", bestTimeMin);
-            localStorage.setItem("bestTimeSeg", bestTimeSeg);
+        if (bestTimeMin >= gameTimeMin) {
+          if (bestTimeSeg >= gameTimeSeg) {
+            localStorage.setItem("bestUser", gameUser);
+            localStorage.setItem("bestTimeMin", gameTimeMin);
+            localStorage.setItem("bestTimeSeg", gameTimeSeg);
           }
         }
-
       }
 
 

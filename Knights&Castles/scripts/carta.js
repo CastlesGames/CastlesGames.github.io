@@ -15,6 +15,7 @@ function Carta(
     this.curacion = curacion;
     this.mana = mana;
     this.rutaImg = rutaImg;
+  this.cartaBloqueada = false;
 }
 
 Carta.prototype.toString = function(){
@@ -56,6 +57,18 @@ Carta.prototype.getCuracion = function(){
 
 Carta.prototype.getRutaImg = function(){
     return this.rutaImg;
+}
+
+Carta.prototype.setDisabledCard = function(){
+  this.cartaBloqueada = true;
+}
+
+Carta.prototype.setActiveCard = function(idCarta){
+  this.cartaBloqueada = false;
+}
+
+Carta.prototype.getBloqueoCarta = function(){
+  return this.cartaBloqueada;
 }
 
 

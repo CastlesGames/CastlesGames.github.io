@@ -55,7 +55,7 @@ function Enemigo(nombre, esBoss, vida) {
       this.ataques[0].setDaño(75);
       this.ataques[1].setNombre("Golpe con espada");
       this.ataques[1].setDaño(90);
-      this.rutaImg = "assets/imgs/sprites/enemigos/nivel1/goblin128.png";
+      this.rutaImg = "assets/imgs/sprites/enemigos/nivel3/King128.png";
       break;
   }
 

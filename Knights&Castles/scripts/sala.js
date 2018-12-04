@@ -36,7 +36,7 @@ Sala.prototype.initRandom = function () {
   }
 }
 
-Sala.prototype.setHud = function(){
+Sala.prototype.setHud = function () {
   $("#hudCombate").css("display", "none"); //inicializo que no se vea, luego si entro en combate lo inicializo y lo hago visible
   $("#hudCartas").css("display", "none");
   $("#hudNavegacion").css("display", ""); //Siempre aparece, solo desaparece cuando hay un combate. No puede avanzar hasta pasar ese combate.
@@ -58,36 +58,59 @@ Sala.prototype.setCombate = function () {
   $("#hudCombate").css("display", "");
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
-  
+
   enCombate = true;
-  if(combate == undefined){
+
+  if (combate == undefined) {
+
     combate = new Combate();
-    $("#usarCarta").click(function(){
+
+    $("#usarCarta").click(function () {
       combate.usoCarta();
+
+      player.cartaSeleccionada.setDisabledCard(); //bloqueo la carta para que no vuelva a ser seleccionada
+      var card = player.cartaSeleccionada;
+      var manoCartas = player.getManoCartas();
+      //Oscurezco la carta seleccionada
+      if (card == manoCartas[0]) {
+        $("#carta1").css("filter", "brightness(40%)");
+      } else if (card == manoCartas[1]) {
+        $("#carta2").css("filter", "brightness(40%)");
+      } else if (card == manoCartas[2]) {
+        $("#carta3").css("filter", "brightness(40%)");
+      } else if (card == manoCartas[3]) {
+        $("#carta4").css("filter", "brightness(40%)");
+      } else if (card == manoCartas[4]) {
+        $("#cartaExtra1").css("filter", "brightness(40%)");
+      } else if (card == manoCartas[5]) {
+        $("#cartaExtra2").css("filter", "brightness(40%)");
+      }
+      player.cartaSeleccionada = null;
+
     });
-    $("#pasarTurno").click(function(){
+    $("#pasarTurno").click(function () {
       combate.finTurno();
     });
-  } 
+  }
   combate.init(numNivel, false);
 }
 
-Sala.prototype.setCombateBoss = function(){
-    this.setHud();
+Sala.prototype.setCombateBoss = function () {
+  this.setHud();
   $("#hudCombate").css("display", "");
   $("#hudNavegacion").css("display", "none");
   $("#hudCartas").css("display", "");
   enCombate = true;
   numCombateBoss++;
-  if(combate == undefined){
+  if (combate == undefined) {
     combate = new Combate();
-    $("#usarCarta").click(function(){
+    $("#usarCarta").click(function () {
       combate.usoCarta();
     });
-    $("#pasarTurno").click(function(){
+    $("#pasarTurno").click(function () {
       combate.finTurno();
     });
-  } 
+  }
   combate.init(numNivel, true);
 }
 

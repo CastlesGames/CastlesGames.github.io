@@ -1,116 +1,132 @@
 html,
 body {
-    width: 100%;
-    height: 100%;
-    font-size: 24px;
-    font-family: 'MedievalSharp', cursive;
-    color: rgba(240, 240, 240, 1);
-    overflow-x: hidden;
-    overflow-y: hidden;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  font-family: 'MedievalSharp', cursive;
+  color: rgba(240, 240, 240, 1);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #finalpartida {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2%;
-    background-color: rgba(0, 0, 0, .7);
-    text-align: center;
-    border: 2px solid rgba(0, 0, 0, .8);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2%;
+  background-color: rgba(0, 0, 0, .7);
+  text-align: center;
+  border: 2px solid rgba(0, 0, 0, .8);
 }
 
 #gameOver {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2%;
-    background-color: rgba(0, 0, 0, .7);
-    text-align: center;
-    border: 2px solid rgba(0, 0, 0, .8);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2%;
+  background-color: rgba(0, 0, 0, .7);
+  text-align: center;
+  border: 2px solid rgba(0, 0, 0, .8);
 }
 
 #hudCombate {}
 
+#combateGanado {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2%;
+  background-color: rgba(0, 0, 0, .7);
+  text-align: center;
+  border: 2px solid rgba(0, 0, 0, .8);
+  z-index: 500;
+}
+
 #contadorMana {
-    width: 64px;
-    height: 64px;
-    background-image: url(../assets/imgs/iconos/gemamana.png);
-    background-position: center;
-    background-size: contain;
-    font-size: 18px;
-    color: black;
-    font-weight: 800;
-    position: absolute;
-    bottom: 2%;
-    right: 2%;
-    text-align: center;
-    line-height: 64px;
+  width: 64px;
+  height: 64px;
+  background-image: url(../assets/imgs/iconos/gemamana.png);
+  background-position: center;
+  background-size: contain;
+  font-size: 18px;
+  color: black;
+  font-weight: 800;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  text-align: center;
+  line-height: 64px;
 }
 
 #attackGif {
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    top: 40%;
-    left: 72%;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 40%;
+  left: 72%;
 }
 
 #btnCombate {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    text-align: center;
-    z-index: 500;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  text-align: center;
+  z-index: 500;
 }
 
 #pasarTurno,
 #usarCarta {
-    border: 2px solid rgba(0, 0, 0, .5);
-    margin: 4px;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, .4);
+  border: 2px solid rgba(0, 0, 0, .5);
+  margin: 4px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.inventarioItem:hover {
+  filter: brightness(130%);
 }
 
 .container-menus {
-    max-height: 1080px;
-    max-width: 900px;
-    height: inherit;
-    /*align-items: flex-end;*/
-    padding: 0;
+  max-height: 1080px;
+  max-width: 900px;
+  height: inherit;
+  /*align-items: flex-end;*/
+  padding: 0;
 }
 
 .container-hud {
-    padding: 0;
-    height: 100%;
+  padding: 0;
+  height: 100%;
 }
 
 .row {
-    margin: 0;
-    width: 100%;
+  margin: 0;
+  width: 100%;
 }
 
 #nombreNivel {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 2px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2px;
 }
 
 #canvas {
-    position: absolute;
-    background-color: lightgoldenrodyellow;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
-    z-index: -1000;
-    top: 0;
+  position: absolute;
+  background-color: lightgoldenrodyellow;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+  top: 0;
 }
 
 #caminoTorreon,
@@ -118,218 +134,225 @@ body {
 #caminoMazmorras,
 #siguienteNivelESP,
 #siguienteNivelING {
-    position: absolute;
-    cursor: pointer;
-    z-index: 100
+  position: absolute;
+  cursor: pointer;
+  z-index: 100
 }
 
 #caminoTorreon {
-    right: 2%;
-    top: 30%;
-    transform: translate(0%, -50%);
+  right: 2%;
+  top: 30%;
+  transform: translate(0%, -50%);
 }
 
 #caminoJardin,
 #siguienteNivelESP,
 #siguienteNivelING {
-    right: 2%;
-    top: 50%;
-    transform: translate(0%, -50%);
+  right: 2%;
+  top: 50%;
+  transform: translate(0%, -50%);
 }
 
 #caminoMazmorras {
-    right: 2%;
-    top: 70%;
-    transform: translate(0%, -50%);
+  right: 2%;
+  top: 70%;
+  transform: translate(0%, -50%);
 }
 
 .col-centered {
-    text-align: center;
+  text-align: center;
 }
 
 .disabledbutton {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .btn {
-    width: 200px;
-    height: 50px;
-    font-size: 15px;
-    line-height: 50px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 0;
-    background-image: url(../assets/imgs/botones/btn.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-style: outset;
-    color: rgba(64, 64, 64, 1);
+  width: 200px;
+  height: 50px;
+  font-size: 15px;
+  line-height: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 0;
+  background-image: url(../assets/imgs/botones/btn.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: outset;
+  color: rgba(64, 64, 64, 1);
 }
 
 .btn:hover {
-    font-weight: 600;
-    filter: brightness(130%);
+  font-weight: 600;
+  filter: brightness(130%);
 }
 
 .volverAlMenu {
-    border: none;
-    background: transparent;
+  border: none;
+  background: transparent;
 }
 
 .volverAlMenu {
-    border: none;
-    background-image: url(../assets/imgs/botones/return.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+  border: none;
+  background-image: url(../assets/imgs/botones/return.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 #menusBackground {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 #menuPuntuaciones > div {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2%;
-    background-color: rgba(0, 0, 0, .7);
-    text-align: center;
-    border: 2px solid rgba(0, 0, 0, .8);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2%;
+  background-color: rgba(0, 0, 0, .7);
+  text-align: center;
+  border: 2px solid rgba(0, 0, 0, .8);
 }
 
 #backgroundNiebla {
-    position: absolute;
-    width: 5076px;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(../assets/imgs/escenas/menuBackground-niebla.png);
-    background-repeat: repeat-x;
-    background-position: center;
-    background-size: contain;
-    animation: slide 60s linear infinite;
-    z-index: -9;
+  position: absolute;
+  width: 5076px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url(../assets/imgs/escenas/menuBackground-niebla.png);
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: contain;
+  animation: slide 60s linear infinite;
+  z-index: -9;
 }
 
 #background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(../assets/imgs/escenas/menuBackground.png);
-    background-repeat: repeat-x;
-    background-position: center;
-    background-size: cover;
-    z-index: -10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url(../assets/imgs/escenas/menuBackground.png);
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: cover;
+  z-index: -10;
 }
 
 #hud {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 #hudInventario {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2%;
-    background-color: rgba(0, 0, 0, .5);
-    text-align: center;
-    font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2%;
+  background-color: rgba(0, 0, 0, .5);
+  text-align: center;
+  font-size: 15px;
 }
 
 #posPersonaje {
-    position: absolute;
-    height: 128px;
-    width: 128px;
-    left: 25%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url(../assets/imgs/sprites/personaje/Knigth128.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+  position: absolute;
+  height: 128px;
+  width: 128px;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../assets/imgs/sprites/personaje/Knigth128.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #posEnemigo {
-    position: absolute;
-    height: 128px;
-    width: 128px;
-    left: 75%;
-    top: 50%;
-    font-size: 18px;
-    transform: translate(-50%, -50%);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: absolute;
+  height: 128px;
+  width: 128px;
+  left: 75%;
+  top: 50%;
+  font-size: 18px;
+  transform: translate(-50%, -50%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#posEnemigo > span{
+  background-color: rgba(0,0,0,.8);
+  padding: 2px;
 }
 
 
 .botonAccion {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #creditosMusica {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 #creditosMusica > p {
-    text-align: center;
-    color: rgba(255, 255, 255, .5);
-    font-size: 5px;
-    padding: 0;
-    margin: 0;
-    font-weight: 200;
+  text-align: center;
+  color: rgba(255, 255, 255, .5);
+  font-size: 5px;
+  padding: 0;
+  margin: 0;
+  font-weight: 200;
 }
 
 #cogerItemCarta,
 #dejarItemCarta {
-    cursor: pointer;
-    margin-top: 2%;
+  cursor: pointer;
+  margin-top: 2%;
 }
 
 #dejarItemCarta > span,
 #cogerItemCarta > span {
-    border: 1px solid white;
-    padding: 2px;
+  border: 1px solid white;
+  padding: 2px;
 }
 
 #mensajeItemCarta {
-    position: absolute;
-    background-color: rgba(0, 0, 0, .5);
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2%;
-    font-size: 15px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5);
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2%;
+  font-size: 15px;
 }
 
 #mostrarCarta {
-    height: 220px;
-    width: 112.5px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    z-index: 10;
+  height: 220px;
+  width: 112.5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 10;
 }
 
 
@@ -347,8 +370,8 @@ body {
 #plusdefensaItemCofre,
 #plusmagiaItemCofre,
 #plusmanaItemCofre {
-    font-size: 18px;
-    font-weight: 800;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 
@@ -357,397 +380,409 @@ body {
 #menuCreditos,
 #menuPuntuaciones,
 #menuPausa {
-    height: 100%;
-    padding-bottom: 20px;
+  height: 100%;
+  padding-bottom: 20px;
 }
 
 #tituloJuego {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 #tituloJuegoImg {
-    width: 500px;
+  width: 500px;
 }
 
 #hudCartas {
-    height: 100%;
+  height: 100%;
 }
 
 #hudMain {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #pausaBtn {
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    height: 64px;
-    width: 64px;
-    z-index: 2;
-    cursor: pointer;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  height: 64px;
+  width: 64px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#pausaBtn:hover {
+  filter: brightness(130%);
 }
 
 #estadisticas {
-    position: absolute;
-    top: 2%;
-    left: 2%;
-    background-color: rgba(0, 0, 0, .3);
-    padding: 2%;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  background-color: rgba(0, 0, 0, .3);
+  padding: 2%;
 }
 
 #inventario {
-    position: absolute;
-    bottom: 2%;
-    left: 2%;
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
 }
 
 #pausaBtn img,
 #inventario img {
-    width: 100%;
+  width: 100%;
 }
 
 #armadura,
 #arma,
 #amuleto {
-    width: 64px;
-    height: 64px;
-    cursor: pointer;
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
 }
 
 .sceneBtn {
-    width: 64px;
-    height: 64px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
+  width: 64px;
+  height: 64px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
 }
 
 #sceneToLeft {
-    position: absolute;
-    top: 50%;
-    left: 2%;
-    -webkit-transform: translate(0, -50%);
-    -moz-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 
 #sceneToRight {
-    position: absolute;
-    top: 50%;
-    right: 2%;
-    -webkit-transform: translate(0, -50%);
-    -moz-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+#sceneToRight:hover {
+  filter: brightness(130%);
 }
 
 #sceneToUp {
-    position: absolute;
-    left: 50%;
-    top: 2%;
-    -webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50, 0%);
-    transform: translate(-50%, 0);
+  position: absolute;
+  left: 50%;
+  top: 2%;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50, 0%);
+  transform: translate(-50%, 0);
 
 }
 
 .carta {
-    height: 220px;
-    width: 112.5px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-bottom: 20px;
-    cursor: pointer;
+  height: 240px;
+  width: 180px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 1px;
+  
 }
 
 
 .marcoFoto {
-    height: 100px;
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    background-color: rgba(215, 215, 215, 1);
-    border-radius: 100%;
-    vertical-align: middle;
-    margin-bottom: 5px;
-    margin-top: 5px;
+  height: 100px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: rgba(215, 215, 215, 1);
+  border-radius: 100%;
+  vertical-align: middle;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .marcoTexto {
-    font-weight: 600;
-    
+  font-weight: 600;
+
 }
 
 .marcoTexto > span {
-       background-color: rgba(0,0,0,.3);
-    border-radius: 5px;
-    padding: 2px;
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 5px;
+  padding: 2px;
 }
 
 .marcoGithub {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 100px;
-    height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100px;
+  height: 100px;
 }
 
 .fa-github {
-    font-size: 100px;
-    color: rgba(240, 240, 240, 1);
+  font-size: 100px;
+  color: rgba(240, 240, 240, 1);
 }
 
 .linkGithub {
-    color: rgba(240, 240, 240, 1);
-    font-style: italic;
+  color: rgba(240, 240, 240, 1);
+  font-style: italic;
 }
 
 .icons {
-    width: 50px;
-    height: auto;
+  width: 50px;
+  height: auto;
 }
 
 .iconsLicense,
 .iconsLicense a {
-    font-size: 10px;
-    color: rgba(240, 240, 240, .8);
-    padding-top: 10px;
+  font-size: 10px;
+  color: rgba(240, 240, 240, .8);
+  padding-top: 10px;
 }
 
 
 progress {
-    -webkit-appearance: none;
-    background-color: indianred;
+  -webkit-appearance: none;
+  background-color: indianred;
 }
 
 progress::-webkit-progress-bar {
-    background-color: indianred;
+  background-color: indianred;
 }
 
 progress::-webkit-progress-value {
-    background-color: limegreen;
+  background-color: limegreen;
 }
 
 progress::-moz-progress-bar {
-    background-color: limegreen;
+  background-color: limegreen;
 }
 
 
 @media (min-width: 1200px) {
-    /* Los estilos aquí contenidos solo se aplicarán a partir
+  /* Los estilos aquí contenidos solo se aplicarán a partir
     del tamaño de pantalla indicado */
 }
 
 @media (min-width: 992px) {
-    /* Los estilos aquí contenidos solo se aplicarán a partir
+  /* Los estilos aquí contenidos solo se aplicarán a partir
     del tamaño de pantalla indicado */
 }
 
 @media (min-width: 768px) {
-    /* Los estilos aquí contenidos solo se aplicarán a partir
+  /* Los estilos aquí contenidos solo se aplicarán a partir
     del tamaño de pantalla indicado */
 }
 
 @media (max-width: 767px) {
 
-    html,
-    body {
-        font-size: 10px;
-    }
+  html,
+  body {
+    font-size: 10px;
+  }
 
-    #mostrarCarta {
-        height: 110px;
-        width: 75px;
-    }
+  #mostrarCarta {
+    height: 110px;
+    width: 75px;
+  }
 
-    #tituloJuegoImg {
-        width: 350px;
-        padding-top: 25px
-    }
+  #tituloJuegoImg {
+    width: 350px;
+    padding-top: 25px
+  }
 
-    .btn {
-        width: 250px;
-        height: 35px;
-        line-height: 35px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        font-size: 10px;
-    }
+  .btn {
+    width: 250px;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 10px;
+  }
 
-    .marcoFoto {
-        height: 45px;
-        width: 45px;
-        margin-top: 15px;
-        margin-bottom: 5px;
-    }
+  .marcoFoto {
+    height: 45px;
+    width: 45px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
 
-    .marcoGithub {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: 45px;
-        height: 45px;
-    }
+  .marcoGithub {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 45px;
+    height: 45px;
+  }
 
-    .fa-github {
-        font-size: 55px;
-    }
+  .fa-github {
+    font-size: 55px;
+  }
 
-    .volverAlMenu {
-        height: 35px;
-    }
+  .volverAlMenu {
+    height: 35px;
+  }
 
-    .carta {
-        width: 75px;
-        height: 110px
-    }
+  .carta {
+    width: 95px;
+    height: 130px
+  }
 
-    .icons {
-        width: 20px;
-        height: auto;
-    }
+  .icons {
+    width: 20px;
+    height: auto;
+  }
 
-    .iconsLicense,
-    .iconsLicense a {
-        font-size: 8px;
-        color: rgba(240, 240, 240, .8);
-        padding-top: 10px;
-    }
+  .iconsLicense,
+  .iconsLicense a {
+    font-size: 8px;
+    color: rgba(240, 240, 240, .8);
+    padding-top: 10px;
+  }
 
 
-    #armadura,
-    #arma,
-    #amuleto {
-        width: 32px;
-        height: 32px;
-    }
+  #armadura,
+  #arma,
+  #amuleto {
+    width: 32px;
+    height: 32px;
+  }
 
-    #pausaBtn {
-        width: 32px;
-        height: 32px;
-    }
+  #pausaBtn {
+    width: 32px;
+    height: 32px;
+  }
 
 }
 
 @media (max-height: 450px) {
 
-    html,
-    body {
-        font-size: 10px;
-    }
+  html,
+  body {
+    font-size: 10px;
+  }
 
-    #mostrarCarta {
-        height: 110px;
-        width: 75px;
-    }
+  #mostrarCarta {
+    height: 110px;
+    width: 75px;
+  }
 
-    #tituloJuegoImg {
-        width: 250px;
-        padding-top: 25px
-    }
+  #tituloJuegoImg {
+    width: 250px;
+    padding-top: 25px
+  }
 
-    .btn {
-        width: 200px;
-        height: 25px;
-        line-height: 25px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        font-size: 8px;
-    }
+  .btn {
+    width: 200px;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 8px;
+  }
 
-    .marcoFoto {
-        height: 45px;
-        width: 45px;
-        margin-top: 15px;
-        margin-bottom: 5px;
-    }
+  .marcoFoto {
+    height: 45px;
+    width: 45px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
 
-    .marcoGithub {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: 45px;
-        height: 45px;
-    }
+  .marcoGithub {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 45px;
+    height: 45px;
+  }
 
-    .fa-github {
-        font-size: 55px;
-    }
+  .fa-github {
+    font-size: 55px;
+  }
 
-    .volverAlMenu {
-        height: 35px;
-    }
+  .volverAlMenu {
+    height: 35px;
+  }
 
-    .carta {
-        width: 75px;
-        height: 110px
-    }
+  .carta {
+    width: 95px;
+    height: 130px
+  }
 
-    .icons {
-        width: 20px;
-        height: auto;
-    }
+  .icons {
+    width: 20px;
+    height: auto;
+  }
 
-    .iconsLicense,
-    .iconsLicense a {
-        font-size: 8px;
-        color: rgba(240, 240, 240, .8);
-        padding-top: 0px;
-    }
+  .iconsLicense,
+  .iconsLicense a {
+    font-size: 8px;
+    color: rgba(240, 240, 240, .8);
+    padding-top: 0px;
+  }
 
-    #armadura,
-    #arma,
-    #amuleto {
-        width: 32px;
-        height: 32px;
-    }
+  #armadura,
+  #arma,
+  #amuleto {
+    width: 32px;
+    height: 32px;
+  }
 
-    #pausaBtn {
-        width: 32px;
-        height: 32px;
-    }
+  #pausaBtn {
+    width: 32px;
+    height: 32px;
+  }
 
-    #hudInventario {
-        padding: 1%;
-        font-size: 10px;
-    }
+  #hudInventario {
+    padding: 1%;
+    font-size: 10px;
+  }
 
-    #nombreItem,
-    #tipoItem,
-    #plusvidaItem,
-    #plusataqueItem,
-    #plusdefensaItem,
-    #plusmagiaItem,
-    #plusmanaItem,
-    #nombreItemCofre,
-    #tipoItemCofre,
-    #plusvidaItemCofre,
-    #plusataqueItemCofre,
-    #plusdefensaItemCofre,
-    #plusmagiaItemCofre,
-    #plusmanaItemCofre {
-        font-size: 13px;
-        font-weight: 800;
-    }
+
+
+  #nombreItem,
+  #tipoItem,
+  #plusvidaItem,
+  #plusataqueItem,
+  #plusdefensaItem,
+  #plusmagiaItem,
+  #plusmanaItem,
+  #nombreItemCofre,
+  #tipoItemCofre,
+  #plusvidaItemCofre,
+  #plusataqueItemCofre,
+  #plusdefensaItemCofre,
+  #plusmagiaItemCofre,
+  #plusmanaItemCofre {
+    font-size: 13px;
+    font-weight: 800;
+  }
 
 }
 
 @keyframes slide {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
 
-    100% {
-        transform: translate3d(-1376px, 0, 0);
-    }
+  100% {
+    transform: translate3d(-1376px, 0, 0);
+  }

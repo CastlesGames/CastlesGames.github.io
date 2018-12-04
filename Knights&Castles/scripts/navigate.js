@@ -37,7 +37,7 @@ $("#siguienteNivel").css("display", "none");
 $("#hudCombate").css("display", "none");
 $("#finalpartida").css("display", "none");
 $("#gameOver").css("display", "none");
-
+$("#combateGanado").css("display", "none");
 
 $("#posPersonaje").css("display", "none");
 $("#posEnemigo").css("display", "none");
@@ -383,6 +383,61 @@ $("#cartaExtra2").click(function () {
   }
 });
 
+/*
+$("#carta1").hover(
+  function () {
+    $(this).css("filter", "brightness(115%)");
+  },
+  function () {
+    $(this).css("filter", "brightness(100%)");
+  }
+);
+
+$("#carta2").hover(
+  function () {
+    $(this).css("filter", "brightness(115%)");
+  },
+  function () {
+    $(this).css("filter", "brightness(100%)");
+  }
+);
+
+$("#carta3").hover(
+  function () {
+    $(this).css("filter", "brightness(115%)");
+  },
+  function () {
+    $(this).css("filter", "brightness(100%)");
+  }
+);
+
+$("#carta4").hover(
+  function () {
+    $(this).css("filter", "brightness(115%)");
+  },
+  function () {
+    $(this).css("filter", "brightness(100%)");
+  }
+);
+
+$("#cartaExtra1").hover(
+  function () {
+    $(this).css("filter", "brightness(115%)");
+  },
+  function () {
+    $(this).css("filter", "brightness(100%)");
+  }
+);
+
+$("#cartaExtra2").hover(
+  function () {
+    $(this).css("filter", "brightness(115%)");
+  },
+  function () {
+    $(this).css("filter", "brightness(100%)");
+  }
+);
+*/
 
 $("#sceneToRight").click(function () {
   $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
@@ -474,17 +529,17 @@ $(".nextlvl").click(function () {
     case "Torreon":
       nivel = new Nivel("Torre de magia", "Magic tower");
       currentEscenario = escenarioTorreMagia;
-        $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
+      $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
       break;
     case "Jardines":
       nivel = new Nivel("Salon de fiestas", "Party room");
       currentEscenario = escenarioSalon;
-        $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
+      $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
       break;
     case "Mazmorras":
       nivel = new Nivel("Aposentos de los guardias", "Chambers of the guards");
       currentEscenario = escenarioAposentos;
-        $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
+      $("#canvas").css("background-image", "url(" + currentEscenario[Math.floor(Math.random() * currentEscenario.length)].src + ")");
       break;
   }
   $("#siguienteNivel").css("display", "none");
