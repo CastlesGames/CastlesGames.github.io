@@ -9,6 +9,10 @@ Autores
 : Rodríguez Corpas, Laura
 : Rodríguez Martínez, Francisco Javier
 
+
+[Castle's Games ](https://github.com/CastlesGames/CastlesGames.github.io)
+[Castle's Games - GitHub Page](https://castlesgames.github.io/)
+
 ## 1. Concepto
    + **Título**:  *Knights & Castles*.
    + **Estudio**: *Castle's Games*.
@@ -178,6 +182,7 @@ A continuación se da una breve descripción de los personajes que sirven de ene
       + *Descripción*: pequeños monstruos que habitan por todo el castillo. Son unos monstruos débiles pero te pondrán en un aprieto si no los eliminas rápidamente.
       + *Encuentro*: podemos encontrarlos en los niveles 1 y 2.
       + *Imagen*:
+      <img alt="Goblin" src="../assets/imgs/sprites/enemigos/nivel1/goblin64.png">
       + *Habilidades*: 
 	      + *Ataque con daga*: el goblin se abalanza contra el jugador inflingiendo 15 de daño base al personaje.
       + *Items*: el enemigo soltará una carta aleatoria una vez lo derrotemos.
@@ -186,6 +191,7 @@ A continuación se da una breve descripción de los personajes que sirven de ene
       + *Descripción*: goblin de gran tamaño y mucho más poderoso que sus primes, los goblins. Este monstruo cuenta con un poderosa fuerza física y puede ponerse frenético si sufre muchos daños.
       + *Encuentro*: es el *Enemy Boss* del nivel 1.
       + *Imagen*:
+      <img alt="HomoGoblin" src="../assets/imgs/sprites/enemigos/nivel1/goblin128_v2.png">
       + *Habilidades*: 
 	      + *Ataque con porra*: el homogoblin se abalanza contra el jugador inflingiendo 25 de daño base al personaje.
 	      + *Frenesí*: cuando le queda menos de un tercio de vida, aumenta su daño en 5 puntos. 
@@ -195,6 +201,7 @@ A continuación se da una breve descripción de los personajes que sirven de ene
       + *Descripción*: estos magos sin graduar conocen hechizos de bajo nivel, pero en ocasiones podrán sorprender al jugador con un hechizo poderoso que acaban de aprender.
       + *Encuentro*: podemos encontrarlos en los niveles 2 y 3.
       + *Imagen*:
+      <img alt="AprendizMago" src="../assets/imgs/sprites/enemigos/nivel2/Apprentice128.png">
       + *Habilidades*: 
 	      + *Hechizo de fuego*: hechizo de bajo nivel que prenderá al jugador en llamas infringiendo 20 puntos de daño base al jugador.
 	      + *Gran bola de fuego*: enorma bola de fuego que causará 40 de daño base. La probabilidad de que el un aprendiz de mago realice este hechizo es muy baja.
@@ -204,6 +211,7 @@ A continuación se da una breve descripción de los personajes que sirven de ene
       + *Descripción*: poderoso mago seguidor del culto de la magia oscura que conoce gran cantidad de hechizos prohibidos muy poderosos.
       + *Encuentro*: es el *Enemy Boss* del nivel 1.
       + *Imagen*:
+      <img alt="MagoCorrupto" src="../assets/imgs/sprites/enemigos/nivel2/Mage128.png">
       + *Habilidades*: 
 	      + *Bola de fuego*: hechizo de fuego que infringe 30 puntos de daño base al jugador.
 	      + *Hielo corrupto*: hechizo de congelará al jugador y que infringe 20 puntos de daño base al jugador y reduce su defensa.
@@ -213,6 +221,7 @@ A continuación se da una breve descripción de los personajes que sirven de ene
       + *Descripción*: caballero que ha traicionado sus votos sagrados y acabará con cualquiera que se cruce en su camino.
       + *Encuentro*: podemos encontrarlos en el nivel 3.
       + *Imagen*:
+      <img alt="CaballeroOscuro" src="../assets/imgs/sprites/enemigos/nivel3/DarkKnigth128.png">
       + *Habilidades*: 
 	      + *Espadazo*: golpe con una enorme espada que infringe 30 puntos de daño base al jugador. 
       + *Items*: el enemigo soltará una carta aleatoria una vez lo derrotemos.
@@ -221,6 +230,7 @@ A continuación se da una breve descripción de los personajes que sirven de ene
       + *Descripción*: gobernante del castillo, se volvió demente al morir su hija y ahora gobierna un reino sumido en la miseria y la locura.
       + *Encuentro*: es el *Final Boss* del juego.
       + *Imagen*:
+      <img alt="CaballeroOscuro" src="../assets/imgs/sprites/enemigos/nivel3/King128.png">
       + *Habilidades*: 
 	      + *Golpe de cetro*: golpetazo con su bastón que infringe 30 puntos de daño base al jugador.
 	      + *Golpe con espada*: espadazo que infringe 40 puntos de daño base al jugador. 
@@ -439,7 +449,7 @@ A continuación se muestran algunos primeros *concepts* sobre algunos escenarios
 
 > *Concept art*: Escenario 1 - Pasillos
 
-Y las siguientes son imágenes de los escenarios finales realizados a partir de estos concepts utilizados en el juego:
+Y las siguientes son imágenes de los escenarios finales realizados a partir de estos *concepts* utilizados en el juego:
 
 + Zona de los **Jardines**
 
@@ -457,11 +467,24 @@ Y las siguientes son imágenes de los escenarios finales realizados a partir de 
 
 <img alt="Torre de Magia" src="../assets/imgs/imagenesEscenarios/torremagia1.png">
 
+## Manual de juego
+El usuario podrá jugar tanto en un PC como en un *Smartphone*.
+
+La interacción con los diferentes elementos del videojuego (utilización de las cartas, botones de avance de escena, apertura de cofres, navegación por el menú...) será mediante la pulsación (*smartphone*) o haciendo *click* con el ratón en dichos elementos.
+
+Tan sólo será necesario disponer de un teclado (para la introducción del nombre del jugador al final de la partida) y ratón en PC.
+
+Para avanzar al siguiente escenario, deberás derrotar como mínimo a 2 enemigos y un boss final. La dificultad de los enemigos según avanzas al siguiente escenario en el juego, irá aumentando.
+
+Si el jugador elige la dificultad difícil, los personajes enemigos dispondrán del doble de vida y aumentarán su poder de ataque en 25 puntos de daño, mientras que el jugador dispondrá de las mismas cartas de inicio con el mismo poder de ataque y mismos objetos iniciales en el inventario.
+
+En caso de que el jugador sea derrotado o bien decida abandonar la partida en desarrollo, iniciará una nueva partida desde el inicio del juego ya que esta versión no dispone de puntos de guardado para guardar el progreso de la partida.
+
 ## Miembros del equipo
-1. Game designer
-2. Programadores
-3. Artistas 2D
-4. Maquetadores web
+1. Game designer: ***Laura Rodríguez***
+2. Programadores: ***Diego Díaz*** & ***Francisco Javier Rodríguez***
+3. Artistas 2D: ***Juan Carlos Laso***, ***Guillermo Mena*** & ***Laura Rodríguez***
+4. Maquetadores web: ***Francisco Javier Rodríguez***
 
 ## Detalles de produccion
 Fecha de inicio del videojuego: ***15 octubre 2018***
