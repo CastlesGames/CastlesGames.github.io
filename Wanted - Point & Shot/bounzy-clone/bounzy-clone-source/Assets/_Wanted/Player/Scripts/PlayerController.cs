@@ -31,12 +31,12 @@ public class PlayerController : MonoBehaviour
     void InputController_OnHoldUp(Vector3 direction)
     {
         if(direction.y > 0){
-            Debug.Log("Capturo el evento");
             BulletController bullet = Instantiate(_bulletPrefab);
             bullet.Initialized(direction);
             if (OnShot != null) OnShot();
         }
         else{
+            //TODO: Anular el disparo
             Debug.Log("Anulo disparo");
         }
     }
