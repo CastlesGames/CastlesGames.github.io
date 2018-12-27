@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801101837898549697}
   - component: {fileID: 3789645933963183401}
-  - component: {fileID: 5502122684562554648}
-  - component: {fileID: 393867401185303832}
+  - component: {fileID: 2816915503581005946}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -82,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5502122684562554648
+--- !u!114 &2816915503581005946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,24 +90,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1801101837898549696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c225050a560a443bb505b05cddd1349, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bb846f4fa3424258891d62533805160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &393867401185303832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801101837898549696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4aa3791656514f8eb8237b6fb1c0582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inputController: {fileID: 5502122684562554648}
-  _bulletPrefab: {fileID: 4361333320055386070, guid: ae81876060ca04c86a1f8c646d9bd166,
-    type: 3}
+  _life: 10
+  _damageBullet: 1
+  _bullets: 12
+  _shotVelocity: 8
 --- !u!1 &6183877169339020722
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6183877169339020722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1801101837898549697}
@@ -201,4 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b2f6231be5e44968b37c5d2fa82e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputController: {fileID: 0}
+  _playerController: {fileID: 0}
   _transform: {fileID: 94436306452396869}
+  _renderer: {fileID: 5020746469857470300}

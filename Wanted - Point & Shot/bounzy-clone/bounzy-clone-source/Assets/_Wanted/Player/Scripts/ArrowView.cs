@@ -5,25 +5,61 @@ using UnityEngine;
 public class ArrowView : MonoBehaviour
 {
     [SerializeField]
+    InputController _inputController;
+
+    [SerializeField]
+    PlayerController _playerController;
+
+    [SerializeField]
     Transform _transform;
+
+    [SerializeField]
+    SpriteRenderer _renderer;
+
+    private bool _canDraw = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _inputController.OnHold += InputController_OnHold;
+        _playerController.OnShot += PlayerController_OnShot;
+        _playerController.OnActivateShot += PlayerController_OnActivateShot;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        if(Input.GetMouseButton(0))
+        _inputController.OnHold -= InputController_OnHold;
+        _playerController.OnShot -= PlayerController_OnShot;
+        _playerController.OnActivateShot -= PlayerController_OnActivateShot;
+    }
+
+    void InputController_OnHold(Vector3 direction){
+        if (_canDraw)
         {
-            DrawArrow();
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+
+            if (direction.y > 0.25f)
+            {
+                _renderer.enabled = true;
+            }
+            else
+            {
+                _renderer.enabled = false;
+            }
         }
     }
 
-    void DrawArrow(){
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+    void PlayerController_OnShot()
+    {
+        _canDraw = false;
+        _renderer.enabled = false;
+    }
+
+    void PlayerController_OnActivateShot()
+    {
+        _canDraw = true;
+        _renderer.enabled = true;
+        _transform.rotation = Quaternion.identity;
     }
 }
