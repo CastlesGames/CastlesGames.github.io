@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _life: 10
   _damageBullet: 1
-  _bullets: 12
+  _bullets: 3
   _shotVelocity: 8
 --- !u!114 &1804956174
 MonoBehaviour:
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 2816915503581005946}
   _inputController: {fileID: 0}
+  _levelController: {fileID: 0}
   _bulletPrefab: {fileID: 4361333320055386070, guid: ae81876060ca04c86a1f8c646d9bd166,
     type: 3}
   _bulletSpawner: {fileID: 0}

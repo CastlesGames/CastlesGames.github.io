@@ -47,15 +47,21 @@ public class Player : MonoBehaviour
 
     public void ChangeLife(float change)
     {
-        _life += change;
+        _life -= change;
         if(_life > 0)
         {
-            OnChangeLife(_life);
+            if(OnChangeLife != null) OnChangeLife(_life);
         }
         else
         {
-            OnDied();
+            if (OnDied != null) OnDied();
         }
+    }
+
+    public void Kill()
+    {
+        _life = 0;
+        if (OnDied != null) OnDied();
     }
 
     public void ChangeBullets(int change)
@@ -68,5 +74,10 @@ public class Player : MonoBehaviour
     {
         _damageBullet += change;
         OnChangeDamageBullet(_damageBullet);
+    }
+
+    public bool IsLife()
+    {
+        return _life > 0;
     }
 }

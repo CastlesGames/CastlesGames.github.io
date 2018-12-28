@@ -11,12 +11,20 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _damage;
 
+    public float Damage
+    {
+        get
+        {
+            return _damage;
+        }
+    }
+
     [SerializeField]
     private float _life;
 
     public event System.Action<float> OnChangeLife;
     public event System.Action<Enemy> OnDied;
-    public event System.Action<float> OnDoDamage;
+    public event System.Action<Enemy> OnDoDamage;
 
     private LevelController _levelController;
     private int _currentPosition;
@@ -85,9 +93,9 @@ public class Enemy : MonoBehaviour
         _transform.DOMoveY(_transform.position.y - 0.97f, 1f).OnComplete(() => {
             if (_currentPosition >= _damagePosition)
             {
-                if (OnDoDamage != null) OnDoDamage(_damage);
-                if (OnDied != null) OnDied(this);
-                Destroy(this.gameObject);
+                if (OnDoDamage != null) OnDoDamage(this);
+                //if (OnDied != null) OnDied(this);
+                //Destroy(this.gameObject);
             }
         });
         _currentPosition++;

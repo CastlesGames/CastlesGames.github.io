@@ -35,11 +35,13 @@ public class LevelController : MonoBehaviour
     {
         Initialized(0);
         _playerController.OnFinishShot += PlayerController_OnFinishShot;
+        _playerController.OnPlayerDied += PlayerController_OnPlayerDied;
     }
 
     private void OnDestroy()
     {
         _playerController.OnFinishShot -= PlayerController_OnFinishShot;
+        _playerController.OnPlayerDied -= PlayerController_OnPlayerDied;
     }
 
     public void Initialized(int level)
@@ -50,6 +52,25 @@ public class LevelController : MonoBehaviour
         SpawnEnemies(_level);
     }
 
+    private void ClearLevel()
+    {
+        if (_enemies.Count > 0)
+        {
+            for (int i = 0; i < _enemies.Count; i++)
+            {
+                Destroy(_enemies[i].gameObject);
+            }
+        }
+        _enemies.Clear();
+        if (_boss != null) Destroy(_boss.gameObject);
+    }
+
+    private void PlayerController_OnPlayerDied()
+    {
+        ClearLevel();
+        Initialized(_level);
+    }
+
     private void PlayerController_OnFinishShot()
     {
         NextWave();
@@ -58,17 +79,51 @@ public class LevelController : MonoBehaviour
     private void Boss_OnDied()
     {
         _boss = null;
+        if (_currentWave >= 9)
+        {
+            if (_enemies.Count == 0 && _boss == null)
+            {
+                Debug.Log("HE GANADO");
+                //TODO: FLUJO DE VICTORIA
+                ClearLevel();
+                Initialized(_level + 1);
+            }
+        }
     }
 
     private void Enemy_OnDied(Enemy enemy)
     {
         _enemies.Remove(enemy);
+
+        if(_currentWave >= 9)
+        {
+            if(_enemies.Count == 0 && _boss == null)
+            {
+                Debug.Log("HE GANADO");
+                //TODO: FLUJO DE VICTORIA
+                ClearLevel();
+                Initialized(_level + 1);
+            }
+        }
+    }
+
+    private void Enemy_OnDoDamage(Enemy enemy)
+    {
+        _playerController.GetDamage(enemy.Damage);
+        _enemies.Remove(enemy);
+        Destroy(enemy.gameObject);
+    }
+
+    private void Boss_OnDoDamage(Boss boss)
+    {
+        Debug.Log("FIN");
+        _playerController.KillPlayer();
+        Destroy(_boss.gameObject);
+        _boss = null;
     }
 
     private void NextWave()
     {
-        //TODO: Instancia nuevos enemigos si se puede
-        //Siempre baja el tablero
         if (OnMoveTable != null) OnMoveTable();
 
         //SE ESPERA PARA EL MOV DEL TABLERO
@@ -79,22 +134,25 @@ public class LevelController : MonoBehaviour
     {
         yield return Timing.WaitForSeconds(time);
 
-        if(_currentWave < 7)
+        if (_playerController.IsPlayerAlive())
         {
-            //QUEDAN OLEADAS DE ENEMIGOS
-            SpawnEnemies(_level);
-        }
-        else if(_currentWave == 8)
-        {
-            //SALE EL BOSS
-            SpawnBoss(_level);
-        }
-        else
-        {
-            _currentWave++;
-        }
+            if (_currentWave < 7)
+            {
+                //QUEDAN OLEADAS DE ENEMIGOS
+                SpawnEnemies(_level);
+            }
+            else if (_currentWave == 8)
+            {
+                //SALE EL BOSS
+                SpawnBoss(_level);
+            }
+            else
+            {
+                _currentWave++;
+            }
 
-        if (OnUserTurn != null) OnUserTurn();
+            if (OnUserTurn != null) OnUserTurn();
+        }
     }
 
     private void SpawnEnemies(int level)
@@ -120,7 +178,10 @@ public class LevelController : MonoBehaviour
                 _enemiesSpawnersTransforms[index]);
             enemy.Initialized(level, this);
             enemy.OnDied += Enemy_OnDied;
+            enemy.OnDoDamage += Enemy_OnDoDamage;
+
             _enemies.Add(enemy);
+
             positions[index] = false;
 
         }
@@ -133,6 +194,8 @@ public class LevelController : MonoBehaviour
             _bossesSpawnersTransforms[Random.Range(0, _bossesSpawnersTransforms.Count)]);
         boss.Initialized(level, this);
         boss.OnDied += Boss_OnDied;
+        boss.OnDoDamage += Boss_OnDoDamage;
+
         _boss = boss;
 
         _currentWave++;

@@ -26,17 +26,40 @@ public class PlayerController : MonoBehaviour
     public event System.Action OnShot;
     public event System.Action OnFinishShot;
     public event System.Action OnActivateShot;
+    public event System.Action OnPlayerDied;
 
     void Start()
     {
         _inputController.OnHoldUp += InputController_OnHoldUp;
         _levelController.OnUserTurn += LevelController_OnUserTurn;
+        _player.OnDied += Player_OnDied;
+    }
+
+    public void GetDamage(float damage)
+    {
+        _player.ChangeLife(damage);
+    }
+
+    public void KillPlayer()
+    {
+        _player.Kill();
+    }
+
+    public bool IsPlayerAlive()
+    {
+        return _player.IsLife();
     }
 
     private void OnDestroy()
     {
         _inputController.OnHoldUp -= InputController_OnHoldUp;
         _levelController.OnUserTurn -= LevelController_OnUserTurn;
+        _player.OnDied -= Player_OnDied;
+    }
+
+    private void Player_OnDied()
+    {
+        if (OnPlayerDied != null) OnPlayerDied();
     }
 
     void InputController_OnHoldUp(Vector3 direction)
