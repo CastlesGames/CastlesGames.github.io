@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1801101837898549697}
   - component: {fileID: 3789645933963183401}
   - component: {fileID: 2816915503581005946}
+  - component: {fileID: 1804956174}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -97,6 +98,23 @@ MonoBehaviour:
   _damageBullet: 1
   _bullets: 12
   _shotVelocity: 8
+--- !u!114 &1804956174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801101837898549696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4aa3791656514f8eb8237b6fb1c0582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 2816915503581005946}
+  _inputController: {fileID: 0}
+  _bulletPrefab: {fileID: 4361333320055386070, guid: ae81876060ca04c86a1f8c646d9bd166,
+    type: 3}
+  _bulletSpawner: {fileID: 0}
 --- !u!1 &6183877169339020722
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputController: {fileID: 0}
-  _playerController: {fileID: 0}
+  _playerController: {fileID: 1804956174}
   _transform: {fileID: 94436306452396869}
   _renderer: {fileID: 5020746469857470300}

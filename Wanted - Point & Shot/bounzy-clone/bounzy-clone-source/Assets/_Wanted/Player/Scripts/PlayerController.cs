@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     InputController _inputController;
 
     [SerializeField]
+    LevelController _levelController;
+
+    [SerializeField]
     BulletController _bulletPrefab;
 
     [SerializeField]
@@ -27,18 +30,20 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _inputController.OnHoldUp += InputController_OnHoldUp;
+        _levelController.OnUserTurn += LevelController_OnUserTurn;
     }
 
     private void OnDestroy()
     {
         _inputController.OnHoldUp -= InputController_OnHoldUp;
+        _levelController.OnUserTurn -= LevelController_OnUserTurn;
     }
 
     void InputController_OnHoldUp(Vector3 direction)
     {
         if (canShot)
         {
-            if (direction.y > 0.25f)
+            if (direction.y > 0.3f)
             {
                 canShot = false;
                 currentBulletsShot = 0;
@@ -72,18 +77,11 @@ public class PlayerController : MonoBehaviour
         if(currentBulletsShot >= _player.Bullets)
         {
             //TODO: LLamar a FinishShot
-            ActivateShot();
+            if (OnFinishShot != null) OnFinishShot();
         }
     }
 
-    void FinishShot()
-    {
-        //TODO: LLamar al flujo de LevelController, se activa el disparo
-        //desde LevelController
-        if (OnFinishShot != null) OnFinishShot();
-    }
-
-    void ActivateShot()
+    void LevelController_OnUserTurn()
     {
         canShot = true;
         if (OnActivateShot != null) OnActivateShot();

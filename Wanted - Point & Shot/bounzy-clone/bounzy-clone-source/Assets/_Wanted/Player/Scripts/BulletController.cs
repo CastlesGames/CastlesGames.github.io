@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField]
-    float _destroyPoint;
+    float _destroyPointBottom = -3f;
+    float _destroyPointTop = 3.9f;
 
     [SerializeField]
     Rigidbody2D _rigidbody;
@@ -29,7 +29,8 @@ public class BulletController : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.y < _destroyPoint)
+        if(transform.position.y < _destroyPointBottom || 
+        transform.position.y > _destroyPointTop )
         {
             if (OnDestroy != null) OnDestroy();
             Destroy(this.gameObject);

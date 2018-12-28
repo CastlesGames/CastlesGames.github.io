@@ -39,7 +39,7 @@ public class ArrowView : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             _transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
 
-            if (direction.y > 0.25f)
+            if (direction.y > 0.3f)
             {
                 _renderer.enabled = true;
             }
