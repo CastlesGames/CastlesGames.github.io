@@ -190,6 +190,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 611623453, guid: 125e7b4bf7b16466bbfd95a9d30b19a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab82bfd222e8847a0b16053ff7648a29,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 125e7b4bf7b16466bbfd95a9d30b19a7, type: 3}
 --- !u!1 &519420028
@@ -382,6 +387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelController
       objectReference: {fileID: 0}
+    - target: {fileID: 1274251743445731801, guid: 29d3f2c61c16c4807aa514661e669f25,
+        type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 1983919353}
     - target: {fileID: 949111979362321662, guid: 29d3f2c61c16c4807aa514661e669f25,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -437,11 +447,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1274251743445731801, guid: 29d3f2c61c16c4807aa514661e669f25,
-        type: 3}
-      propertyPath: _playerController
-      value: 
-      objectReference: {fileID: 1983919353}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
 --- !u!1001 &1342333827154332992
@@ -525,6 +530,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1804956174, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
+      propertyPath: _inputController
+      value: 
+      objectReference: {fileID: 1030182724}
+    - target: {fileID: 1804956174, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 30313019}
+    - target: {fileID: 1804956174, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
+      propertyPath: _levelController
+      value: 
+      objectReference: {fileID: 1144799478}
     - target: {fileID: 1801101837898549697, guid: e72d2762f20bc4942a3b7f5b65948971,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -585,18 +602,6 @@ PrefabInstance:
       propertyPath: _inputController
       value: 
       objectReference: {fileID: 1030182724}
-    - target: {fileID: 1804956174, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
-      propertyPath: _inputController
-      value: 
-      objectReference: {fileID: 1030182724}
-    - target: {fileID: 1804956174, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
-      propertyPath: _bulletSpawner
-      value: 
-      objectReference: {fileID: 30313019}
-    - target: {fileID: 1804956174, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
-      propertyPath: _levelController
-      value: 
-      objectReference: {fileID: 1144799478}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
 --- !u!1001 &2341220436484614146
