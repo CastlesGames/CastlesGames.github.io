@@ -35,13 +35,11 @@ public class LevelController : MonoBehaviour
     {
         Initialized(0);
         _playerController.OnFinishShot += PlayerController_OnFinishShot;
-        _playerController.OnPlayerDied += PlayerController_OnPlayerDied;
     }
 
     private void OnDestroy()
     {
         _playerController.OnFinishShot -= PlayerController_OnFinishShot;
-        _playerController.OnPlayerDied -= PlayerController_OnPlayerDied;
     }
 
     public void Initialized(int level)
@@ -50,6 +48,7 @@ public class LevelController : MonoBehaviour
         _level = level;
         _currentWave = 0;
         SpawnEnemies(_level);
+        if (OnUserTurn != null) OnUserTurn();
     }
 
     private void ClearLevel()
@@ -63,12 +62,6 @@ public class LevelController : MonoBehaviour
         }
         _enemies.Clear();
         if (_boss != null) Destroy(_boss.gameObject);
-    }
-
-    private void PlayerController_OnPlayerDied()
-    {
-        ClearLevel();
-        Initialized(_level);
     }
 
     private void PlayerController_OnFinishShot()
@@ -86,7 +79,6 @@ public class LevelController : MonoBehaviour
                 Debug.Log("HE GANADO");
                 //TODO: FLUJO DE VICTORIA
                 ClearLevel();
-                Initialized(_level + 1);
             }
         }
     }
@@ -102,7 +94,6 @@ public class LevelController : MonoBehaviour
                 Debug.Log("HE GANADO");
                 //TODO: FLUJO DE VICTORIA
                 ClearLevel();
-                Initialized(_level + 1);
             }
         }
     }
@@ -152,6 +143,13 @@ public class LevelController : MonoBehaviour
             }
 
             if (OnUserTurn != null) OnUserTurn();
+        }
+        else
+        {
+            //TODO:FLUJO DE DERROTA
+            if (OnGameOver != null) OnGameOver();
+            Debug.Log("PIERDO");
+            ClearLevel();
         }
     }
 

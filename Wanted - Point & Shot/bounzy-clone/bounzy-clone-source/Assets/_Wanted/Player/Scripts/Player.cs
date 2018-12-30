@@ -41,27 +41,26 @@ public class Player : MonoBehaviour
     }
 
     public System.Action<float> OnChangeLife;
-    public System.Action OnDied;
     public System.Action<int> OnChangeBullets;
     public System.Action<float> OnChangeDamageBullet;
+
+    public void Initialized(float life, float damageBullet, int bullets)
+    {
+        _life = life;
+        _damageBullet = damageBullet;
+        _bullets = bullets;
+    }
 
     public void ChangeLife(float change)
     {
         _life -= change;
-        if(_life > 0)
-        {
-            if(OnChangeLife != null) OnChangeLife(_life);
-        }
-        else
-        {
-            if (OnDied != null) OnDied();
-        }
+        if (OnChangeLife != null) OnChangeLife(_life);
     }
 
     public void Kill()
     {
         _life = 0;
-        if (OnDied != null) OnDied();
+        if (OnChangeLife != null) OnChangeLife(_life);
     }
 
     public void ChangeBullets(int change)
