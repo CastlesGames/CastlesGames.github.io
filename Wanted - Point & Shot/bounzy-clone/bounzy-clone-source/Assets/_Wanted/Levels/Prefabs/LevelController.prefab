@@ -64,6 +64,8 @@ MonoBehaviour:
   _bossesPrefabs:
   - {fileID: 2974688595960462280, guid: 515c20d3a6d99484bb618db4ac13d970, type: 3}
   _playerController: {fileID: 0}
+  _levelView: {fileID: 0}
+  _victoryView: {fileID: 0}
 --- !u!1 &949111979713602569
 GameObject:
   m_ObjectHideFlags: 0

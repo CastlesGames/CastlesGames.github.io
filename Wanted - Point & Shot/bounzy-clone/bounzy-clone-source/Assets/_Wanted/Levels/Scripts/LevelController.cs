@@ -20,35 +20,61 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     PlayerController _playerController;
 
+    [SerializeField]
+    LevelView _levelView;
+
+    [SerializeField]
+    VictoryView _victoryView;
+
     private List<Enemy> _enemies = new List<Enemy>();
     private Boss _boss;
 
     private int _currentWave;
     private int _level;
+    private bool _pause;
+    private bool _victory;
 
-    public event System.Action OnVictory;
+    public bool Pause
+    {
+        get
+        {
+            return _pause;
+        }
+    }
+
+    public event System.Action<int, int> OnVictory;
     public event System.Action OnGameOver;
-    public event System.Action OnUserTurn;
+    public event System.Action<int> OnUserTurn;
     public event System.Action OnMoveTable;
+    public event System.Action<int,int> OnInitialized;
 
     private void Start()
     {
         Initialized(0);
         _playerController.OnFinishShot += PlayerController_OnFinishShot;
+        _levelView.OnPause += LevelView_OnPause;
+        _levelView.OnContinue += LevelView_OnContinue;
+        _victoryView.OnNextLevel += VictoryView_OnNextLevel;
     }
 
     private void OnDestroy()
     {
         _playerController.OnFinishShot -= PlayerController_OnFinishShot;
+        _levelView.OnPause -= LevelView_OnPause;
+        _levelView.OnContinue -= LevelView_OnContinue;
+        _victoryView.OnNextLevel -= VictoryView_OnNextLevel;
     }
 
     public void Initialized(int level)
     {
-        //TODO: Instancia nuevos enemigo
+        Debug.Log("Inicializo Nivel");
         _level = level;
         _currentWave = 0;
+        _pause = false;
+        _victory = false;
         SpawnEnemies(_level);
-        if (OnUserTurn != null) OnUserTurn();
+        if (OnUserTurn != null) OnUserTurn(_currentWave);
+        if (OnInitialized != null) OnInitialized(_level,_currentWave);
     }
 
     private void ClearLevel()
@@ -62,6 +88,20 @@ public class LevelController : MonoBehaviour
         }
         _enemies.Clear();
         if (_boss != null) Destroy(_boss.gameObject);
+    }
+
+    private void VictoryView_OnNextLevel(){
+        Initialized(_level + 1);
+    }
+
+    private void LevelView_OnPause()
+    {
+        PauseLevel();
+    }
+
+    private void LevelView_OnContinue()
+    {
+        ContinueLevel();
     }
 
     private void PlayerController_OnFinishShot()
@@ -78,7 +118,7 @@ public class LevelController : MonoBehaviour
             {
                 Debug.Log("HE GANADO");
                 //TODO: FLUJO DE VICTORIA
-                ClearLevel();
+                _victory = true;
             }
         }
     }
@@ -93,7 +133,7 @@ public class LevelController : MonoBehaviour
             {
                 Debug.Log("HE GANADO");
                 //TODO: FLUJO DE VICTORIA
-                ClearLevel();
+                _victory = true;
             }
         }
     }
@@ -127,22 +167,30 @@ public class LevelController : MonoBehaviour
 
         if (_playerController.IsPlayerAlive())
         {
-            if (_currentWave < 7)
+            if(_victory)
             {
-                //QUEDAN OLEADAS DE ENEMIGOS
-                SpawnEnemies(_level);
-            }
-            else if (_currentWave == 8)
-            {
-                //SALE EL BOSS
-                SpawnBoss(_level);
+                if (OnVictory != null) OnVictory(_level, _currentWave);
+                ClearLevel();
             }
             else
             {
-                _currentWave++;
-            }
+                if (_currentWave < 7)
+                {
+                    //QUEDAN OLEADAS DE ENEMIGOS
+                    SpawnEnemies(_level);
+                }
+                else if (_currentWave == 8)
+                {
+                    //SALE EL BOSS
+                    SpawnBoss(_level);
+                }
+                else
+                {
+                    _currentWave++;
+                }
 
-            if (OnUserTurn != null) OnUserTurn();
+                if (OnUserTurn != null) OnUserTurn(_currentWave);
+            }
         }
         else
         {
@@ -197,5 +245,15 @@ public class LevelController : MonoBehaviour
         _boss = boss;
 
         _currentWave++;
+    }
+
+    private void PauseLevel(){
+        Time.timeScale = 0;
+        _pause = true;
+    }
+
+    private void ContinueLevel(){
+        Time.timeScale = 1;
+        _pause = false;
     }
 }

@@ -796,80 +796,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 667, y: 200}
   m_Pivot: {x: 0, y: 1}
---- !u!1 &3089453930233303750
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8249165180493514135}
-  - component: {fileID: 4743186368682360705}
-  - component: {fileID: 1582662610114493078}
-  m_Layer: 5
-  m_Name: Wave8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8249165180493514135
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3089453930233303750}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3662520097890247701}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 314, y: 0}
-  m_SizeDelta: {x: 28, y: 16}
-  m_Pivot: {x: 0, y: 0.5}
---- !u!222 &4743186368682360705
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3089453930233303750}
-  m_CullTransparentMesh: 0
---- !u!114 &1582662610114493078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3089453930233303750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6f994c5bae4074d3f92c668a709647d0, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
 --- !u!1 &3108448560315468685
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.1000061, y: 0}
   m_SizeDelta: {x: -78, y: -52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4151307382067162444
@@ -1183,7 +1109,7 @@ GameObject:
   - component: {fileID: 978798749822316615}
   - component: {fileID: 8226991277984921113}
   m_Layer: 5
-  m_Name: Image
+  m_Name: LevelImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1834,7 +1760,7 @@ GameObject:
   - component: {fileID: 2553639174292345443}
   - component: {fileID: 2768719631522195960}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1854,11 +1780,11 @@ RectTransform:
   m_Father: {fileID: 6118354382736488386}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -10, y: 140.00006}
   m_SizeDelta: {x: 140, y: 150}
-  m_Pivot: {x: 1, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &2553639174292345443
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1894,7 +1820,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 6
     m_MaxSize: 72
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2254,15 +2180,14 @@ RectTransform:
   - {fileID: 3443116202022480129}
   - {fileID: 6070513521248604775}
   - {fileID: 2753021874246018479}
-  - {fileID: 8249165180493514135}
   - {fileID: 5688229188447045402}
   m_Father: {fileID: 687721018473081064}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 130, y: -80.00006}
-  m_SizeDelta: {x: -260, y: 60}
+  m_AnchoredPosition: {x: 117.5, y: -80}
+  m_SizeDelta: {x: -285, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2789854412237951818
 CanvasRenderer:
@@ -2490,7 +2415,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7106412018001910797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510434989118046813}
+        m_MethodName: Continue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &7731172799721599941
@@ -3105,7 +3041,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7987423643986561627}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6573891702324884756}
+        m_MethodName: EndTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &7987423644369124843
@@ -3120,7 +3067,7 @@ GameObject:
   - component: {fileID: 7987423644369124852}
   - component: {fileID: 7987423644369124853}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DamageBulletText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3273,6 +3220,8 @@ GameObject:
   - component: {fileID: 7987423645277467820}
   - component: {fileID: 7987423645277467821}
   - component: {fileID: 7987423645277467810}
+  - component: {fileID: 1510434989118046813}
+  - component: {fileID: 6573891702324884756}
   m_Layer: 5
   m_Name: GameplayCanvas
   m_TagString: Untagged
@@ -3366,6 +3315,58 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1510434989118046813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7987423645277467811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6a53f8b762e4197bd3fc04da17c150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelText: {fileID: 2768719631522195960}
+  _randomPhrasesTransform: {fileID: 7398634704831427798}
+  _titleRandomPhrasesText: {fileID: 14788596383241644}
+  _randomPhraseText: {fileID: 3494409904850753148}
+  _waveListImages:
+  - {fileID: 204679068382773810}
+  - {fileID: 5999969432653595115}
+  - {fileID: 8644030182532513751}
+  - {fileID: 9138900674944651847}
+  - {fileID: 90225662948810319}
+  - {fileID: 1769925893164994826}
+  - {fileID: 6723573681840580295}
+  - {fileID: 8037817865015623040}
+  - {fileID: 8086365447303142989}
+  _pauseButton: {fileID: 3457637831845093857}
+  _pauseBackground: {fileID: 2990888148444893849}
+  _pausePopUp: {fileID: 6530351280933456380}
+  _randomPhrases:
+  - "\xA1A por ellos!"
+  - "\xA1Juega para ganar!"
+  - Apunta y dispara...
+  _levelController: {fileID: 0}
+--- !u!114 &6573891702324884756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7987423645277467811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f6429d17d71443ca3ef7e8d4d66dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageBulletText: {fileID: 7987423644369124853}
+  _lifeText: {fileID: 7086391557408008441}
+  _lifeSlider: {fileID: 2446010856888899822}
+  _endTurnButton: {fileID: 7987423643986561625}
+  _player: {fileID: 0}
+  _playerController: {fileID: 0}
 --- !u!1 &8031713155761330776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,7 +3558,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7913081430060811984}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510434989118046813}
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &8089677159435313575
@@ -3646,7 +3658,7 @@ GameObject:
   - component: {fileID: 6412249573245281673}
   - component: {fileID: 7086391557408008441}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LifeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3725,7 +3737,7 @@ GameObject:
   - component: {fileID: 6173680237520727654}
   - component: {fileID: 7295670342791109104}
   m_Layer: 5
-  m_Name: Background
+  m_Name: RandomPhrasesBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3748,10 +3760,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 1440, y: 300}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6173680237520727654
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3875,7 +3887,7 @@ GameObject:
   - component: {fileID: 9163958236979757408}
   - component: {fileID: 8086365447303142989}
   m_Layer: 5
-  m_Name: Wave9
+  m_Name: Wave8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3893,11 +3905,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3662520097890247701}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 354, y: 0}
+  m_AnchoredPosition: {x: 319, y: 0}
   m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &9163958236979757408

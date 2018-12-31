@@ -20,18 +20,41 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Transform _bulletSpawner;
 
-    private bool canShot = true;
-    private int currentBulletsShot;
+    [SerializeField]
+    PlayerView _playerView;
+
+    private bool _canShot = true;
+    private int _currentBulletsShot;
 
     public event System.Action OnShot;
     public event System.Action OnFinishShot;
     public event System.Action OnActivateShot;
+    public event System.Action OnInstantiateBullets;
 
-    void Start()
+    void Awake()
     {
         _inputController.OnHoldUp += InputController_OnHoldUp;
         _levelController.OnUserTurn += LevelController_OnUserTurn;
-        _levelController.OnGameOver += LevelController_OnGameOver;
+        _playerView.OnEndTurn += PlayerView_OnEndTurn;
+        _levelController.OnVictory += LevelController_OnVictory;
+        _levelController.OnInitialized += LevelController_OnInitialized;
+    }
+
+    private void LevelController_OnInitialized(int level, int currentWave){
+        Initialized(level, currentWave);
+    }
+
+    void Initialized(int level, int currentWave)
+    {
+        _player.Initialized(5, 10, 5);
+        Timing.RunCoroutine(DelayCanShot());
+    }
+
+    IEnumerator<float> DelayCanShot()
+    {
+        Debug.Log("CanShot " + _canShot);
+        yield return Timing.WaitForSeconds(0.2f);
+        _canShot = true;
     }
 
     public void GetDamage(float damage)
@@ -53,17 +76,31 @@ public class PlayerController : MonoBehaviour
     {
         _inputController.OnHoldUp -= InputController_OnHoldUp;
         _levelController.OnUserTurn -= LevelController_OnUserTurn;
-        _levelController.OnGameOver -= LevelController_OnGameOver;
+        _playerView.OnEndTurn -= PlayerView_OnEndTurn;
+        _levelController.OnVictory -= LevelController_OnVictory;
+        _levelController.OnInitialized -= LevelController_OnInitialized;
+    }
+
+    private void PlayerView_OnEndTurn(){
+        foreach(Transform t in _bulletSpawner){
+            Destroy(t.gameObject);
+            BulletController_OnDestroy();
+        }
+    }
+
+    private void LevelController_OnVictory(int level, int currentWave)
+    {
+        _canShot = false;
     }
 
     void InputController_OnHoldUp(Vector3 direction)
     {
-        if (canShot)
+        if (_canShot)
         {
             if (direction.y > 0.3f)
             {
-                canShot = false;
-                currentBulletsShot = 0;
+                _canShot = false;
+                _currentBulletsShot = 0;
 
                 Timing.RunCoroutine(InstantiateBullets(0.1f, direction));
 
@@ -71,7 +108,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                canShot = true;
+                _canShot = true;
             }
         }
     }
@@ -86,26 +123,23 @@ public class PlayerController : MonoBehaviour
 
             yield return Timing.WaitForSeconds(time);
         }
+
+        if (OnInstantiateBullets != null) OnInstantiateBullets();
     }
 
     void BulletController_OnDestroy()
     {
-        currentBulletsShot++;
-        if(currentBulletsShot >= _player.Bullets)
+        _currentBulletsShot++;
+        if(_currentBulletsShot >= _player.Bullets)
         {
             //TODO: LLamar a FinishShot
             if (OnFinishShot != null) OnFinishShot();
         }
     }
 
-    void LevelController_OnUserTurn()
+    void LevelController_OnUserTurn(int currentWave)
     {
-        canShot = true;
+        _canShot = true;
         if (OnActivateShot != null) OnActivateShot();
-    }
-
-    void LevelController_OnGameOver()
-    {
-        _player.Initialized(5,2,5);
     }
 }

@@ -21,7 +21,9 @@ public class InputController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if(OnHoldUp != null)OnHoldUp(PointDirection());
+            if(Camera.main.ScreenToWorldPoint(Input.mousePosition).y < 3.1f){
+                if (OnHoldUp != null) OnHoldUp(PointDirection());
+            }
         }
     }
 

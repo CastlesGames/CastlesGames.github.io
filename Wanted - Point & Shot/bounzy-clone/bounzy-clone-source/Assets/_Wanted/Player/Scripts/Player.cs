@@ -40,15 +40,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    public System.Action<float> OnChangeLife;
-    public System.Action<int> OnChangeBullets;
-    public System.Action<float> OnChangeDamageBullet;
+    public event System.Action<float> OnChangeLife;
+    public event System.Action<int> OnChangeBullets;
+    public event System.Action<float> OnChangeDamageBullet;
+    public event System.Action<float, float> OnInitialized;
 
     public void Initialized(float life, float damageBullet, int bullets)
     {
         _life = life;
         _damageBullet = damageBullet;
         _bullets = bullets;
+        if (OnInitialized != null) OnInitialized(_life, _damageBullet);
     }
 
     public void ChangeLife(float change)
