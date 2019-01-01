@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using DG.Tweening;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -14,24 +15,19 @@ public class SceneLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadAsyncScene("GameScene"));
+        LoadAsyncScene("GameScene");
     }
 
-    IEnumerator LoadAsyncScene(string scene)
+    private void Update()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene,LoadSceneMode.Single);
+        _text.text = (_slider.value * 100).ToString("f0") + "%";
+    }
 
-        while (!asyncLoad.isDone)
-        {
-            Debug.Log("Progress " + asyncLoad.progress);
-            _slider.value = asyncLoad.progress;
-            _text.text = (int)(asyncLoad.progress * 111) + "%";
-            if (asyncLoad.progress == 0.9f)
-            {
-                _slider.value = 1f;
-                asyncLoad.allowSceneActivation = true;
-            }
-            yield return null;
-        }
+    void LoadAsyncScene(string scene)
+    {
+        _slider.value = 0;
+        _slider.DOValue(1f, 3f).OnComplete(() => {
+           SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        });
     }
 }
