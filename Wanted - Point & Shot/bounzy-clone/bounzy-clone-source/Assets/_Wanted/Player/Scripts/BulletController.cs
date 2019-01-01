@@ -18,7 +18,7 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    public event System.Action OnDestroy;
+    public event System.Action<float> OnDestroy;
 
     public void Initialized(Vector3 direction, float velocity, float damage){
         _rigidbody.velocity = direction * velocity;
@@ -30,7 +30,7 @@ public class BulletController : MonoBehaviour
         if(transform.position.y < _destroyPointBottom || 
         transform.position.y > _destroyPointTop )
         {
-            if (OnDestroy != null) OnDestroy();
+            if (OnDestroy != null) OnDestroy(transform.position.x);
             Destroy(this.gameObject);
         }
     }

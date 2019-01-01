@@ -21,7 +21,7 @@ public class PlayerView : MonoBehaviour
     [SerializeField]
     PlayerController _playerController;
 
-    public event System.Action OnEndTurn;
+    //public event System.Action OnEndTurn;
 
     // Start is called before the first frame update
     void Awake()
@@ -70,7 +70,7 @@ public class PlayerView : MonoBehaviour
         _lifeSlider.value = life;
     }
 
-    public void EndTurn(){
-        if (OnEndTurn != null) OnEndTurn();
-    }
+    //public void EndTurn(){
+    //    if (OnEndTurn != null) OnEndTurn();
+    //}
 }

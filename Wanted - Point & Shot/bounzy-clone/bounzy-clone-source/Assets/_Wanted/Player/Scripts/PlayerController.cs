@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using MovementEffects;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,10 +21,14 @@ public class PlayerController : MonoBehaviour
     Transform _bulletSpawner;
 
     [SerializeField]
-    PlayerView _playerView;
+    Transform _transform;
+
+    [SerializeField]
+    LevelView _levelView;
 
     private bool _canShot = true;
     private int _currentBulletsShot;
+    private float _positionX;
 
     public event System.Action OnShot;
     public event System.Action OnFinishShot;
@@ -34,18 +39,83 @@ public class PlayerController : MonoBehaviour
     {
         _inputController.OnHoldUp += InputController_OnHoldUp;
         _levelController.OnUserTurn += LevelController_OnUserTurn;
-        _playerView.OnEndTurn += PlayerView_OnEndTurn;
+        _levelView.OnEndTurn += LevelView_OnEndTurn;
         _levelController.OnVictory += LevelController_OnVictory;
         _levelController.OnInitialized += LevelController_OnInitialized;
+    }
+
+    private void OnDestroy()
+    {
+        _inputController.OnHoldUp -= InputController_OnHoldUp;
+        _levelController.OnUserTurn -= LevelController_OnUserTurn;
+        _levelView.OnEndTurn -= LevelView_OnEndTurn;
+        _levelController.OnVictory -= LevelController_OnVictory;
+        _levelController.OnInitialized -= LevelController_OnInitialized;
     }
 
     private void LevelController_OnInitialized(int level, int currentWave){
         Initialized(level, currentWave);
     }
 
+    private void LevelController_OnVictory(int level, int currentWave)
+    {
+        _canShot = false;
+    }
+
+    private void InputController_OnHoldUp(Vector3 direction)
+    {
+        if (_canShot && !_levelController.Pause)
+        {
+            if (direction.y > 0.3f)
+            {
+                _canShot = false;
+                _currentBulletsShot = 0;
+
+                Timing.RunCoroutine(InstantiateBullets(0.1f, direction));
+
+                if (OnShot != null) OnShot();
+            }
+            else
+            {
+                _canShot = true;
+            }
+        }
+    }
+
+    private void BulletController_OnDestroy(float positionX)
+    {
+        _currentBulletsShot++;
+        if(_currentBulletsShot == 1)
+        {
+            _positionX = positionX;
+        }
+        if (_currentBulletsShot >= _player.Bullets)
+        {
+            //if (OnFinishShot != null) OnFinishShot();
+            Move(_positionX);
+        }
+    }
+
+    private void LevelView_OnEndTurn()
+    {
+        foreach (Transform t in _bulletSpawner)
+        {
+            Destroy(t.gameObject);
+            BulletController_OnDestroy(t.position.x);
+        }
+    }
+
+    private void LevelController_OnUserTurn(int currentWave)
+    {
+        _canShot = true;
+        if (OnActivateShot != null) OnActivateShot();
+    }
+
     void Initialized(int level, int currentWave)
     {
         _player.Initialized(12, 10, 5);
+        _positionX = 0f;
+        _transform.position = new Vector3(_positionX,-3f,0f);
         Timing.RunCoroutine(DelayCanShot());
     }
 
@@ -70,47 +140,6 @@ public class PlayerController : MonoBehaviour
         return _player.IsLife();
     }
 
-    private void OnDestroy()
-    {
-        _inputController.OnHoldUp -= InputController_OnHoldUp;
-        _levelController.OnUserTurn -= LevelController_OnUserTurn;
-        _playerView.OnEndTurn -= PlayerView_OnEndTurn;
-        _levelController.OnVictory -= LevelController_OnVictory;
-        _levelController.OnInitialized -= LevelController_OnInitialized;
-    }
-
-    private void PlayerView_OnEndTurn(){
-        foreach(Transform t in _bulletSpawner){
-            Destroy(t.gameObject);
-            BulletController_OnDestroy();
-        }
-    }
-
-    private void LevelController_OnVictory(int level, int currentWave)
-    {
-        _canShot = false;
-    }
-
-    void InputController_OnHoldUp(Vector3 direction)
-    {
-        if (_canShot && !_levelController.Pause)
-        {
-            if (direction.y > 0.3f)
-            {
-                _canShot = false;
-                _currentBulletsShot = 0;
-
-                Timing.RunCoroutine(InstantiateBullets(0.1f, direction));
-
-                if (OnShot != null) OnShot();
-            }
-            else
-            {
-                _canShot = true;
-            }
-        }
-    }
-
     IEnumerator<float> InstantiateBullets(float time, Vector3 direction)
     {
         for (int i = 0; i < _player.Bullets; i++)
@@ -125,18 +154,25 @@ public class PlayerController : MonoBehaviour
         if (OnInstantiateBullets != null) OnInstantiateBullets();
     }
 
-    void BulletController_OnDestroy()
+    void Move(float positionX)
     {
-        _currentBulletsShot++;
-        if(_currentBulletsShot >= _player.Bullets)
+        if(positionX > 1.3f)
         {
-            if (OnFinishShot != null) OnFinishShot();
+            _transform.DOMoveX(1.3f, 0.4f).OnComplete(() => {
+                if (OnFinishShot != null) OnFinishShot();
+             });
         }
-    }
-
-    void LevelController_OnUserTurn(int currentWave)
-    {
-        _canShot = true;
-        if (OnActivateShot != null) OnActivateShot();
+        else if(positionX < -1.3f)
+        {
+            _transform.DOMoveX(-1.3f, 0.4f).OnComplete(() => {
+                if (OnFinishShot != null) OnFinishShot();
+            });
+        }
+        else
+        {
+            _transform.DOMoveX(positionX, 0.4f).OnComplete(() => {
+                if (OnFinishShot != null) OnFinishShot();
+            });
+        }
     }
 }

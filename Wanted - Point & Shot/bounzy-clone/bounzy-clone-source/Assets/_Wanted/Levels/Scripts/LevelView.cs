@@ -40,6 +40,7 @@ public class LevelView : MonoBehaviour
     public event System.Action OnPause;
     public event System.Action OnDesPause;
     public event System.Action OnContinue;
+    public event System.Action OnEndTurn;
 
     private void Awake()
     {
@@ -140,5 +141,10 @@ public class LevelView : MonoBehaviour
             if (OnContinue != null) OnContinue();
             _pauseBackground.gameObject.SetActive(false);
         });
+    }
+
+    public void EndTurn()
+    {
+        if (OnEndTurn != null) OnEndTurn();
     }
 }
