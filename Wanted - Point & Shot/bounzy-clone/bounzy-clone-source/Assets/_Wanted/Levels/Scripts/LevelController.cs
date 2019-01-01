@@ -176,7 +176,14 @@ public class LevelController : MonoBehaviour
 
         if (_playerController.IsPlayerAlive())
         {
-            if(_victory)
+            if (_currentWave >= 9)
+            {
+                if (_enemies.Count == 0 && _boss == null)
+                {
+                    _victory = true;
+                }
+            }
+            if (_victory)
             {
                 if (OnVictory != null) OnVictory(_level, _currentWave);
                 ClearLevel();
