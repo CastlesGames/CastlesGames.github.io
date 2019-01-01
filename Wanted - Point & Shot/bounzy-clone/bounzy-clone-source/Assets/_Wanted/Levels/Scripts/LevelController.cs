@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MovementEffects;
 using UnityEngine;
 
@@ -26,6 +25,9 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     VictoryView _victoryView;
 
+    [SerializeField]
+    GameOverView _gameOverView;
+
     private List<Enemy> _enemies = new List<Enemy>();
     private Boss _boss;
 
@@ -43,7 +45,7 @@ public class LevelController : MonoBehaviour
     }
 
     public event System.Action<int, int> OnVictory;
-    public event System.Action OnGameOver;
+    public event System.Action<int, int> OnGameOver;
     public event System.Action<int> OnUserTurn;
     public event System.Action OnMoveTable;
     public event System.Action<int,int> OnInitialized;
@@ -53,21 +55,24 @@ public class LevelController : MonoBehaviour
         Initialized(0);
         _playerController.OnFinishShot += PlayerController_OnFinishShot;
         _levelView.OnPause += LevelView_OnPause;
+        _levelView.OnDesPause += LevelView_OnDesPause;
         _levelView.OnContinue += LevelView_OnContinue;
         _victoryView.OnNextLevel += VictoryView_OnNextLevel;
+        _gameOverView.OnRestartLevel += GameOverView_OnRestartLevel;
     }
 
     private void OnDestroy()
     {
         _playerController.OnFinishShot -= PlayerController_OnFinishShot;
         _levelView.OnPause -= LevelView_OnPause;
+        _levelView.OnDesPause -= LevelView_OnDesPause;
         _levelView.OnContinue -= LevelView_OnContinue;
         _victoryView.OnNextLevel -= VictoryView_OnNextLevel;
+        _gameOverView.OnRestartLevel -= GameOverView_OnRestartLevel;
     }
 
     public void Initialized(int level)
     {
-        Debug.Log("Inicializo Nivel");
         _level = level;
         _currentWave = 0;
         _pause = false;
@@ -94,14 +99,24 @@ public class LevelController : MonoBehaviour
         Initialized(_level + 1);
     }
 
+    private void GameOverView_OnRestartLevel()
+    {
+        Initialized(_level);
+    }
+
     private void LevelView_OnPause()
     {
         PauseLevel();
     }
 
-    private void LevelView_OnContinue()
+    private void LevelView_OnDesPause()
     {
         ContinueLevel();
+    }
+
+    private void LevelView_OnContinue()
+    {
+        _pause = false;
     }
 
     private void PlayerController_OnFinishShot()
@@ -116,8 +131,6 @@ public class LevelController : MonoBehaviour
         {
             if (_enemies.Count == 0 && _boss == null)
             {
-                Debug.Log("HE GANADO");
-                //TODO: FLUJO DE VICTORIA
                 _victory = true;
             }
         }
@@ -131,8 +144,6 @@ public class LevelController : MonoBehaviour
         {
             if(_enemies.Count == 0 && _boss == null)
             {
-                Debug.Log("HE GANADO");
-                //TODO: FLUJO DE VICTORIA
                 _victory = true;
             }
         }
@@ -147,7 +158,6 @@ public class LevelController : MonoBehaviour
 
     private void Boss_OnDoDamage(Boss boss)
     {
-        Debug.Log("FIN");
         _playerController.KillPlayer();
         Destroy(_boss.gameObject);
         _boss = null;
@@ -157,7 +167,6 @@ public class LevelController : MonoBehaviour
     {
         if (OnMoveTable != null) OnMoveTable();
 
-        //SE ESPERA PARA EL MOV DEL TABLERO
         Timing.RunCoroutine(NextWaveLogic(1.1f));
     }
 
@@ -176,12 +185,10 @@ public class LevelController : MonoBehaviour
             {
                 if (_currentWave < 7)
                 {
-                    //QUEDAN OLEADAS DE ENEMIGOS
                     SpawnEnemies(_level);
                 }
                 else if (_currentWave == 8)
                 {
-                    //SALE EL BOSS
                     SpawnBoss(_level);
                 }
                 else
@@ -194,9 +201,7 @@ public class LevelController : MonoBehaviour
         }
         else
         {
-            //TODO:FLUJO DE DERROTA
-            if (OnGameOver != null) OnGameOver();
-            Debug.Log("PIERDO");
+            if (OnGameOver != null) OnGameOver(_level,_currentWave);
             ClearLevel();
         }
     }
@@ -254,6 +259,5 @@ public class LevelController : MonoBehaviour
 
     private void ContinueLevel(){
         Time.timeScale = 1;
-        _pause = false;
     }
 }

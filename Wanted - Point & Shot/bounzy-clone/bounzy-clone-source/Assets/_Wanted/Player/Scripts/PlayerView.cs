@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour
@@ -26,7 +24,7 @@ public class PlayerView : MonoBehaviour
     public event System.Action OnEndTurn;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _player.OnInitialized += Player_OnInitialized;
         _player.OnChangeLife += Player_OnChangeLife;

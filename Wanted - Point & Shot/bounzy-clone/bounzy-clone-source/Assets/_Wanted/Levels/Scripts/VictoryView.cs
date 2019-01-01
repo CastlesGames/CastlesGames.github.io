@@ -18,8 +18,7 @@ public class VictoryView : MonoBehaviour
 
     public event System.Action OnNextLevel;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _levelController.OnVictory += LevelController_OnVictory;
     }

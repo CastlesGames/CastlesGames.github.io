@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using MovementEffects;
 
@@ -46,13 +45,12 @@ public class PlayerController : MonoBehaviour
 
     void Initialized(int level, int currentWave)
     {
-        _player.Initialized(5, 10, 5);
+        _player.Initialized(12, 10, 5);
         Timing.RunCoroutine(DelayCanShot());
     }
 
     IEnumerator<float> DelayCanShot()
     {
-        Debug.Log("CanShot " + _canShot);
         yield return Timing.WaitForSeconds(0.2f);
         _canShot = true;
     }
@@ -95,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     void InputController_OnHoldUp(Vector3 direction)
     {
-        if (_canShot)
+        if (_canShot && !_levelController.Pause)
         {
             if (direction.y > 0.3f)
             {
@@ -132,7 +130,6 @@ public class PlayerController : MonoBehaviour
         _currentBulletsShot++;
         if(_currentBulletsShot >= _player.Bullets)
         {
-            //TODO: LLamar a FinishShot
             if (OnFinishShot != null) OnFinishShot();
         }
     }

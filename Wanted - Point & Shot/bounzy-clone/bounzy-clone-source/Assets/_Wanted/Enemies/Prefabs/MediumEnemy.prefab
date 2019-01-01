@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 837680838732856920}
   - component: {fileID: 7582811801382606405}
   - component: {fileID: 7491003257953399070}
-  - component: {fileID: 8564807337655579090}
+  - component: {fileID: 1532055596561426057}
   m_Layer: 0
   m_Name: LifeCanvas
   m_TagString: Untagged
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8564807337655579090
+--- !u!114 &1532055596561426057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 3081615076428600202}
   - component: {fileID: 3298857367032280055}
   m_Layer: 0
-  m_Name: HardEnemy
+  m_Name: MediumEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +538,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8f48bbcdd87244640af90a92395ee32e, type: 3}
-  m_Color: {r: 1, g: 0.4669811, b: 0.4669811, a: 1}
+  m_Color: {r: 1, g: 0.9183788, b: 0.4666667, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -587,5 +587,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 8307445740018014061}
-  _damage: 5
-  _life: 42
+  _damage: 3
+  _life: 28

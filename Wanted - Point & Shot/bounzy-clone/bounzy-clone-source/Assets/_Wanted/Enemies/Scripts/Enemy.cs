@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     private float _life;
 
     public event System.Action<float> OnChangeLife;
+    public event System.Action<float> OnInitialized;
     public event System.Action<Enemy> OnDied;
     public event System.Action<Enemy> OnDoDamage;
 
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour
         if (_levelController != null) _levelController.OnMoveTable += LevelController_OnMoveTable;
         _life = CalculateLife(level);
         _damage = CalculateDamage(level);
+        if (OnInitialized != null) OnInitialized(_life);
     }
 
     private void OnDestroy()
@@ -94,8 +96,6 @@ public class Enemy : MonoBehaviour
             if (_currentPosition >= _damagePosition)
             {
                 if (OnDoDamage != null) OnDoDamage(this);
-                //if (OnDied != null) OnDied(this);
-                //Destroy(this.gameObject);
             }
         });
         _currentPosition++;

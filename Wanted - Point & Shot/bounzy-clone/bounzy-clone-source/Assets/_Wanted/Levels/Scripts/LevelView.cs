@@ -38,9 +38,10 @@ public class LevelView : MonoBehaviour
     LevelController _levelController;
 
     public event System.Action OnPause;
+    public event System.Action OnDesPause;
     public event System.Action OnContinue;
 
-    private void Start()
+    private void Awake()
     {
         _levelController.OnInitialized += LevelController_OnInitialized;
         _levelController.OnUserTurn += LevelController_OnUserTurn;
@@ -125,15 +126,19 @@ public class LevelView : MonoBehaviour
 
     public void Pause(){
         _pauseBackground.gameObject.SetActive(true);
-        _pausePopUp.gameObject.SetActive(true);
 
-        if (OnPause != null) OnPause();
+        _pausePopUp.localScale = Vector3.zero;
+        _pausePopUp.DOScale(1f,0.5f).OnComplete(() => {
+            if (OnPause != null) OnPause();
+        });
     }
 
     public void Continue(){
-        _pauseBackground.gameObject.SetActive(false);
-        _pausePopUp.gameObject.SetActive(false);
+        if (OnDesPause != null) OnDesPause();
 
-        if (OnContinue != null) OnContinue();
+        _pausePopUp.DOScale(0f, 0.5f).OnComplete(() => {
+            if (OnContinue != null) OnContinue();
+            _pauseBackground.gameObject.SetActive(false);
+        });
     }
 }

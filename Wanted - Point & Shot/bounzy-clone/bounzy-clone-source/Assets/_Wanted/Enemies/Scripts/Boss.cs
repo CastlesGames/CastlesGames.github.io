@@ -25,6 +25,7 @@ public class Boss : MonoBehaviour
     LevelController _levelController;
 
     public event System.Action<float> OnChangeLife;
+    public event System.Action<float> OnInitialized;
     public event System.Action OnDied;
     public event System.Action<Boss> OnDoDamage;
 
@@ -37,6 +38,7 @@ public class Boss : MonoBehaviour
         if (_levelController != null) _levelController.OnMoveTable += LevelController_OnMoveTable;
         _life = CalculateLife(level);
         _damage = CalculateDamage(level);
+        if (OnInitialized != null) OnInitialized(_life);
     }
 
     private void OnDestroy()

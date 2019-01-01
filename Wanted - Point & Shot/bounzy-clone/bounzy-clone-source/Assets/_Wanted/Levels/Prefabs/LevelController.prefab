@@ -58,14 +58,15 @@ MonoBehaviour:
   - {fileID: 949111980261104057}
   - {fileID: 949111979713602614}
   _enemiesPrefabs:
-  - {fileID: 3298857367032280055, guid: 952b1a1173ba644989d8ebf440530779, type: 3}
+  - {fileID: 3298857367032280055, guid: 483a9a4d1119749c1a593a2347c57ceb, type: 3}
   - {fileID: 3298857367032280055, guid: f94b17e1534384c7eb177d3bdf227a27, type: 3}
-  - {fileID: 3298857367032280055, guid: 2b0ddfdb9952b4a9f8131ef98018eb52, type: 3}
+  - {fileID: 3298857367032280055, guid: e9cf73fcd19154b1b8553cd86f3c2e82, type: 3}
   _bossesPrefabs:
   - {fileID: 2974688595960462280, guid: 515c20d3a6d99484bb618db4ac13d970, type: 3}
   _playerController: {fileID: 0}
   _levelView: {fileID: 0}
   _victoryView: {fileID: 0}
+  _gameOverView: {fileID: 0}
 --- !u!1 &949111979713602569
 GameObject:
   m_ObjectHideFlags: 0

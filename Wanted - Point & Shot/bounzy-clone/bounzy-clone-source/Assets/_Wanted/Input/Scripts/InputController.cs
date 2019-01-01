@@ -1,16 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
     public event System.Action<Vector3> OnHoldUp;
     public event System.Action<Vector3> OnHold;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -21,7 +14,7 @@ public class InputController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if(Camera.main.ScreenToWorldPoint(Input.mousePosition).y < 3.1f){
+            if(Camera.main.ScreenToWorldPoint(Input.mousePosition).y < 3.9f){
                 if (OnHoldUp != null) OnHoldUp(PointDirection());
             }
         }
