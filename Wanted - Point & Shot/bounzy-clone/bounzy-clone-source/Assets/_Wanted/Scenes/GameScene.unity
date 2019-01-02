@@ -742,6 +742,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelController
       objectReference: {fileID: 0}
+    - target: {fileID: 1877754306, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
+      propertyPath: _menuView
+      value: 
+      objectReference: {fileID: 1207126050}
+    - target: {fileID: 1877754306, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
+      propertyPath: _victoryView
+      value: 
+      objectReference: {fileID: 499625713}
+    - target: {fileID: 1877754306, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
+      propertyPath: _gameOverView
+      value: 
+      objectReference: {fileID: 854870903}
     - target: {fileID: 1274251743445731801, guid: 29d3f2c61c16c4807aa514661e669f25,
         type: 3}
       propertyPath: _playerController
@@ -807,22 +819,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1877754306, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
-      propertyPath: _menuView
-      value: 
-      objectReference: {fileID: 1207126050}
-    - target: {fileID: 1877754306, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
-      propertyPath: _victoryView
-      value: 
-      objectReference: {fileID: 499625713}
-    - target: {fileID: 1877754306, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
-      propertyPath: _gameOverView
-      value: 
-      objectReference: {fileID: 854870903}
-    - target: {fileID: 1877754306, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
-      propertyPath: _levelController
-      value: 
-      objectReference: {fileID: 1144799478}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
 --- !u!1001 &5915497254740202979
