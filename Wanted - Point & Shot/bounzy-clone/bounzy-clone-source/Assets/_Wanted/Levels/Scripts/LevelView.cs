@@ -8,6 +8,9 @@ using MovementEffects;
 public class LevelView : MonoBehaviour
 {
     [SerializeField]
+    Transform _levelUI;
+
+    [SerializeField]
     Text _levelText;
 
     [SerializeField]
@@ -41,17 +44,32 @@ public class LevelView : MonoBehaviour
     public event System.Action OnDesPause;
     public event System.Action OnContinue;
     public event System.Action OnEndTurn;
+    public event System.Action OnGoToMenu;
 
     private void Awake()
     {
         _levelController.OnInitialized += LevelController_OnInitialized;
         _levelController.OnUserTurn += LevelController_OnUserTurn;
+        _levelController.OnVictory += LevelController_OnVictory;
+        _levelController.OnGameOver += LevelController_OnGameOver;
     }
 
     private void OnDestroy()
     {
         _levelController.OnInitialized -= LevelController_OnInitialized; 
         _levelController.OnUserTurn -= LevelController_OnUserTurn;
+        _levelController.OnVictory -= LevelController_OnVictory;
+        _levelController.OnGameOver -= LevelController_OnGameOver;
+    }
+
+    private void LevelController_OnGameOver(int level, int currentWave)
+    {
+        _levelUI.gameObject.SetActive(false);
+    }
+
+    private void LevelController_OnVictory(int level, int currentWave)
+    {
+        _levelUI.gameObject.SetActive(false);
     }
 
     private void LevelController_OnInitialized(int level, int currentWave)
@@ -66,6 +84,7 @@ public class LevelView : MonoBehaviour
 
     void Initialized(int level, int currentWave)
     {
+        _levelUI.gameObject.SetActive(true);
         _levelText.text = (level+1).ToString();
         _levelText.transform.DOScale(1.2f,0.1f).OnComplete(() => {
             _levelText.transform.DOScale(1f, 0.1f);
@@ -146,5 +165,13 @@ public class LevelView : MonoBehaviour
     public void EndTurn()
     {
         if (OnEndTurn != null) OnEndTurn();
+    }
+
+    public void GoToMenu()
+    {
+        if (OnGoToMenu != null) OnGoToMenu();
+        if (OnDesPause != null) OnDesPause();
+        _pauseBackground.gameObject.SetActive(false);
+        _levelUI.gameObject.SetActive(false);
     }
 }

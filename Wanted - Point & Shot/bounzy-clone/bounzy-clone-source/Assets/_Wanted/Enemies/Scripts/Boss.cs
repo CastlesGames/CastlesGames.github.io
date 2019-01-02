@@ -93,7 +93,7 @@ public class Boss : MonoBehaviour
 
     private void Move()
     {
-        _transform.DOMoveY(_transform.position.y - 0.97f, 1f).OnComplete(() => {
+        _transform.DOMoveY(_transform.position.y - 0.97f, 0.5f).OnComplete(() => {
             if (_currentPosition >= _damagePosition)
             {
                 if (OnDoDamage != null) OnDoDamage(this);

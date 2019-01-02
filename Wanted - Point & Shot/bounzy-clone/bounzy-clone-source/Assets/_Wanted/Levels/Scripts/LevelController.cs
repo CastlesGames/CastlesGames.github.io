@@ -17,16 +17,13 @@ public class LevelController : MonoBehaviour
     List<Boss> _bossesPrefabs;
 
     [SerializeField]
+    LevelManager _levelManager;
+
+    [SerializeField]
     PlayerController _playerController;
 
     [SerializeField]
     LevelView _levelView;
-
-    [SerializeField]
-    VictoryView _victoryView;
-
-    [SerializeField]
-    GameOverView _gameOverView;
 
     private List<Enemy> _enemies = new List<Enemy>();
     private Boss _boss;
@@ -35,6 +32,7 @@ public class LevelController : MonoBehaviour
     private int _level;
     private bool _pause;
     private bool _victory;
+    private List<Enemy> _enemiesAvailable = new List<Enemy>();
 
     public bool Pause
     {
@@ -52,31 +50,43 @@ public class LevelController : MonoBehaviour
 
     private void Start()
     {
-        Initialized(0);
-        _playerController.OnFinishShot += PlayerController_OnFinishShot;
         _levelView.OnPause += LevelView_OnPause;
         _levelView.OnDesPause += LevelView_OnDesPause;
         _levelView.OnContinue += LevelView_OnContinue;
-        _victoryView.OnNextLevel += VictoryView_OnNextLevel;
-        _gameOverView.OnRestartLevel += GameOverView_OnRestartLevel;
+        _levelView.OnGoToMenu += LevelView_OnGoToMenu;
+        _levelManager.OnPlayLevel += LevelManager_OnPlayLevel;
+        _playerController.OnFinishShot += PlayerController_OnFinishShot;
     }
 
     private void OnDestroy()
     {
-        _playerController.OnFinishShot -= PlayerController_OnFinishShot;
         _levelView.OnPause -= LevelView_OnPause;
         _levelView.OnDesPause -= LevelView_OnDesPause;
         _levelView.OnContinue -= LevelView_OnContinue;
-        _victoryView.OnNextLevel -= VictoryView_OnNextLevel;
-        _gameOverView.OnRestartLevel -= GameOverView_OnRestartLevel;
+        _levelView.OnGoToMenu -= LevelView_OnGoToMenu;
+        _levelManager.OnPlayLevel -= LevelManager_OnPlayLevel;
+        _playerController.OnFinishShot -= PlayerController_OnFinishShot;
     }
 
     public void Initialized(int level)
     {
         _level = level;
+
         _currentWave = 0;
+
         _pause = false;
+
         _victory = false;
+
+        _enemiesAvailable.Clear();
+        foreach(Enemy enemy in _enemiesPrefabs)
+        {
+            if(enemy.LevelMin <= _level)
+            {
+                _enemiesAvailable.Add(enemy);
+            }
+        }
+        _playerController.gameObject.SetActive(true);
         SpawnEnemies(_level);
         if (OnUserTurn != null) OnUserTurn(_currentWave);
         if (OnInitialized != null) OnInitialized(_level,_currentWave);
@@ -91,17 +101,19 @@ public class LevelController : MonoBehaviour
                 Destroy(_enemies[i].gameObject);
             }
         }
+        _playerController.gameObject.SetActive(false);
         _enemies.Clear();
         if (_boss != null) Destroy(_boss.gameObject);
     }
 
-    private void VictoryView_OnNextLevel(){
-        Initialized(_level + 1);
+    private void LevelManager_OnPlayLevel(int level)
+    {
+        Initialized(level);
     }
 
-    private void GameOverView_OnRestartLevel()
+    private void LevelManager_OnRestartLevel(int level)
     {
-        Initialized(_level);
+        Initialized(level);
     }
 
     private void LevelView_OnPause()
@@ -112,6 +124,11 @@ public class LevelController : MonoBehaviour
     private void LevelView_OnDesPause()
     {
         ContinueLevel();
+    }
+
+    private void LevelView_OnGoToMenu()
+    {
+        ClearLevel();
     }
 
     private void LevelView_OnContinue()
@@ -167,14 +184,14 @@ public class LevelController : MonoBehaviour
     {
         if (OnMoveTable != null) OnMoveTable();
 
-        Timing.RunCoroutine(NextWaveLogic(1.1f));
+        Timing.RunCoroutine(NextWaveLogic(0.6f));
     }
 
     IEnumerator<float> NextWaveLogic(float time)
     {
         yield return Timing.WaitForSeconds(time);
 
-        if (_playerController.IsPlayerAlive())
+        if ( _playerController.IsPlayerAlive())
         {
             if (_currentWave >= 9)
             {
@@ -188,7 +205,7 @@ public class LevelController : MonoBehaviour
                 if (OnVictory != null) OnVictory(_level, _currentWave);
                 ClearLevel();
             }
-            else
+            else if(_playerController.isActiveAndEnabled)
             {
                 if (_currentWave < 7)
                 {
@@ -232,7 +249,7 @@ public class LevelController : MonoBehaviour
 
             } while (!positions[index]);
 
-            Enemy enemy = Instantiate(_enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Count)],
+            Enemy enemy = Instantiate(_enemiesAvailable[Random.Range(0, _enemiesAvailable.Count)],
                 _enemiesSpawnersTransforms[index]);
             enemy.Initialized(level, this);
             enemy.OnDied += Enemy_OnDied;

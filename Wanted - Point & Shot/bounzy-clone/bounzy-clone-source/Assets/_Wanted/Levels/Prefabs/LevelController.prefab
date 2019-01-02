@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 949111979362321662}
   - component: {fileID: 1274251743445731801}
+  - component: {fileID: 1877754306}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -63,8 +64,22 @@ MonoBehaviour:
   - {fileID: 3298857367032280055, guid: e9cf73fcd19154b1b8553cd86f3c2e82, type: 3}
   _bossesPrefabs:
   - {fileID: 2974688595960462280, guid: 515c20d3a6d99484bb618db4ac13d970, type: 3}
+  _levelManager: {fileID: 1877754306}
   _playerController: {fileID: 0}
   _levelView: {fileID: 0}
+--- !u!114 &1877754306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949111979362321649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9fc648dad194f0cbc0d7544625edfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuView: {fileID: 0}
   _victoryView: {fileID: 0}
   _gameOverView: {fileID: 0}
 --- !u!1 &949111979713602569

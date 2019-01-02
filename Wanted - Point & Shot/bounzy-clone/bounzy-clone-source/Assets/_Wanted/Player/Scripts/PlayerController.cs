@@ -53,6 +53,11 @@ public class PlayerController : MonoBehaviour
         _levelController.OnInitialized -= LevelController_OnInitialized;
     }
 
+    private void OnDisable()
+    {
+        LevelView_OnEndTurn();
+    }
+
     private void LevelController_OnInitialized(int level, int currentWave){
         Initialized(level, currentWave);
     }
@@ -113,7 +118,9 @@ public class PlayerController : MonoBehaviour
 
     void Initialized(int level, int currentWave)
     {
-        _player.Initialized(12, 10, 5);
+        //TODO: Coger del guardado
+        _player.Initialized();
+
         _positionX = 0f;
         _transform.position = new Vector3(_positionX,-3f,0f);
         Timing.RunCoroutine(DelayCanShot());

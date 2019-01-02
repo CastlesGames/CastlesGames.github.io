@@ -588,4 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 8307445740018014061}
   _damage: 1
+  _incrementDamage: 1
+  _levelMin: 0
   _life: 18
+  _incrementLife: 5

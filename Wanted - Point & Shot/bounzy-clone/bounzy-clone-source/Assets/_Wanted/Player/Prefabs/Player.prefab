@@ -327,7 +327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1801101837898549697
 Transform:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801101837898549696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 94436306452396869}
@@ -405,10 +405,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb846f4fa3424258891d62533805160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _life: 10
-  _damageBullet: 5
-  _bullets: 3
+  _lifeInitial: 10
+  _damageBulletsInitial: 10
+  _bulletsInitial: 4
   _shotVelocity: 8
+  _incrementLife: 1
+  _incrementBullets: 1
+  _maxBullets: 10
+  _incrementDamage: 2
 --- !u!114 &1804956174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,7 +803,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.478, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

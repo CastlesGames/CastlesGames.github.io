@@ -11,6 +11,20 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _damage;
 
+    [SerializeField]
+    private float _incrementDamage;
+
+    [SerializeField]
+    private int _levelMin;
+
+    public int LevelMin
+    {
+        get
+        {
+            return _levelMin;
+        }
+    }
+
     public float Damage
     {
         get
@@ -21,6 +35,9 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private float _life;
+
+    [SerializeField]
+    private float _incrementLife;
 
     public event System.Action<float> OnChangeLife;
     public event System.Action<float> OnInitialized;
@@ -68,7 +85,7 @@ public class Enemy : MonoBehaviour
     {
         if(level > 0)
         {
-            float newDamage = _damage * level;
+            float newDamage = _damage + (_incrementDamage * level);
             return newDamage;
         }
         else
@@ -81,7 +98,7 @@ public class Enemy : MonoBehaviour
     {
         if (level > 0)
         {
-            float newLife = _life * level;
+            float newLife = _life +(_incrementLife * level); ;
             return newLife;
         }
         else
@@ -92,7 +109,7 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        _transform.DOMoveY(_transform.position.y - 0.97f, 1f).OnComplete(() => {
+        _transform.DOMoveY(_transform.position.y - 0.97f, 0.5f).OnComplete(() => {
             if (_currentPosition >= _damagePosition)
             {
                 if (OnDoDamage != null) OnDoDamage(this);
