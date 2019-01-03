@@ -23,15 +23,6 @@ public class CyclicScale : MonoBehaviour
     int _repeat = 0;
 
     [SerializeField]
-    float _delay = 0;
-
-    [SerializeField]
-    float _inverseDelay = 0;
-
-    [SerializeField]
-    float _sleep = 0;
-
-    [SerializeField]
     bool _isolatedCurves = false;
 
     [SerializeField]
@@ -155,13 +146,14 @@ public class CyclicScale : MonoBehaviour
         Stop();
     }
 
+    private void OnDestroy()
+    {
+        Timing.KillCoroutines(_handler);
+    }
+
     public void Play()
     {
-        if (_delay > 0)
-        {
-            Timing.CallDelayed(_delay, Scale);
-        }
-        else
+        if (gameObject != null)
         {
             Scale();
         }
@@ -189,108 +181,103 @@ public class CyclicScale : MonoBehaviour
 
     void Scale()
     {
-        Scale(false);
+        if(gameObject != null)
+        {
+            Scale(false);
+        }
     }
 
     void Scale(bool inverse)
     {
-        Vector3 endScale;
-        float duration;
-        Ease curve = Ease.InOutSine;
-        Ease xCurve = Ease.InOutSine;
-        Ease yCurve = Ease.InOutSine;
-        Ease zCurve = Ease.InOutSine;
-        if (inverse)
+        if(gameObject != null)
         {
-            endScale = _startScale;
-            duration = _inverseDuration;
-            if (_isolatedCurves)
+            Vector3 endScale;
+            float duration;
+            Ease curve = Ease.InOutSine;
+            Ease xCurve = Ease.InOutSine;
+            Ease yCurve = Ease.InOutSine;
+            Ease zCurve = Ease.InOutSine;
+            if (inverse)
             {
-                xCurve = _inverseXCurve;
-                yCurve = _inverseYCurve;
-                zCurve = _inverseZCurve;
-            }
-            else
-            {
-                curve = _curve;
-            }
-
-        }
-        else
-        {
-            endScale = transform.localScale + _rescale;
-            duration = _duration;
-            if (_isolatedCurves)
-            {
-                xCurve = _xCurve;
-                yCurve = _yCurve;
-                zCurve = _zCurve;
-            }
-            else
-            {
-                curve = _inverseCurve;
-            }
-        }
-
-        if (_isolatedCurves)
-        {
-            if (_rescale.x != 0)
-            {
-                _xTweener = transform.DOScaleX(endScale.x, duration).SetEase(xCurve);
-            }
-            if (_rescale.y != 0)
-            {
-                _yTweener = transform.DOScaleY(endScale.y, duration).SetEase(yCurve);
-            }
-            if (_rescale.z != 0)
-            {
-                _zTweener = transform.DOScaleZ(endScale.z, duration).SetEase(zCurve);
-            }
-        }
-        else
-        {
-            _xTweener = transform.DOScale(endScale, duration).SetEase(curve);
-        }
-
-        _handler = Timing.CallDelayed(duration + _sleep, () => {
-            if (_repeat > 0 && inverse == _inverseLoop)
-            {
-                ++_repetitions;
-                if (_repetitions >= _repeat)
+                endScale = _startScale;
+                duration = _inverseDuration;
+                if (_isolatedCurves)
                 {
-                    Stop();
-                    return;
-                }
-            }
-
-            if (_inverseLoop)
-            {
-                if (inverse && _delay > 0)
-                {
-                    Timing.CallDelayed(_delay, Scale);
-                }
-                else if (!inverse && _inverseDelay > 0)
-                {
-                    Timing.CallDelayed(_inverseDelay, Scale);
+                    xCurve = _inverseXCurve;
+                    yCurve = _inverseYCurve;
+                    zCurve = _inverseZCurve;
                 }
                 else
                 {
-                    Scale(!inverse);
+                    curve = _curve;
+                }
+
+            }
+            else
+            {
+                endScale = transform.localScale + _rescale;
+                duration = _duration;
+                if (_isolatedCurves)
+                {
+                    xCurve = _xCurve;
+                    yCurve = _yCurve;
+                    zCurve = _zCurve;
+                }
+                else
+                {
+                    curve = _inverseCurve;
+                }
+            }
+
+            if (_isolatedCurves)
+            {
+                if (_rescale.x != 0)
+                {
+                    _xTweener = transform.DOScaleX(endScale.x, duration).SetEase(xCurve);
+                }
+                if (_rescale.y != 0)
+                {
+                    _yTweener = transform.DOScaleY(endScale.y, duration).SetEase(yCurve);
+                }
+                if (_rescale.z != 0)
+                {
+                    _zTweener = transform.DOScaleZ(endScale.z, duration).SetEase(zCurve);
                 }
             }
             else
             {
-                transform.localScale = _startScale;
-                if (_delay > 0)
+                _xTweener = transform.DOScale(endScale, duration).SetEase(curve);
+            }
+
+            _handler = Timing.CallDelayed(duration, () => {
+                if (_repeat > 0 && inverse == _inverseLoop)
                 {
-                    Timing.CallDelayed(_delay, Scale);
+                    ++_repetitions;
+                    if (_repetitions >= _repeat)
+                    {
+                        Stop();
+                        return;
+                    }
+                }
+
+                if (_inverseLoop)
+                {
+                    if (inverse )
+                    {
+                         Scale();
+                    }
+                    else
+                    {
+                        Scale(!inverse);
+                    }
                 }
                 else
                 {
+                    transform.localScale = _startScale;
                     Scale();
                 }
-            }
-        });
+            });
+        }
     }
 }
 
