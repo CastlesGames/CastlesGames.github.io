@@ -45,6 +45,7 @@ public class MenuView : MonoBehaviour
 
     private void Start()
     {
+        //cambio
         InitialAnimation();
         _levelView.OnGoToMenu += LevelView_OnGoToMenu;
     }
