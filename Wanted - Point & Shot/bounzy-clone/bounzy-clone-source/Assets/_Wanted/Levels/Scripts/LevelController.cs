@@ -176,8 +176,8 @@ public class LevelController : MonoBehaviour
     private void Boss_OnDoDamage(Boss boss)
     {
         _playerController.KillPlayer();
-        Destroy(_boss.gameObject);
-        _boss = null;
+        //Destroy(_boss.gameObject);
+        //_boss = null;
     }
 
     private void NextWave()
@@ -200,7 +200,7 @@ public class LevelController : MonoBehaviour
                     _victory = true;
                 }
             }
-            if (_victory)
+            if (_victory && _playerController.isActiveAndEnabled)
             {
                 if (OnVictory != null) OnVictory(_level, _currentWave);
                 ClearLevel();

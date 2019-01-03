@@ -22,6 +22,7 @@ public class BulletController : MonoBehaviour
 
     public void Initialized(Vector3 direction, float velocity, float damage){
         _rigidbody.velocity = direction * velocity;
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
         _damage = damage;
     }
 

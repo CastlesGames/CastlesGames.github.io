@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using MovementEffects;
+using System;
 
 public class Boss : MonoBehaviour
 {
     [SerializeField]
     Transform _transform;
+
+    [SerializeField]
+    Collider2D _collision;
 
     [SerializeField]
     private float _damage;
@@ -31,6 +36,7 @@ public class Boss : MonoBehaviour
 
     private int _currentPosition;
     private int _damagePosition = 5;
+    private bool _isDied = false;
 
     public void Initialized(int level, LevelController levelController)
     {
@@ -60,9 +66,20 @@ public class Boss : MonoBehaviour
         }
         else
         {
-            if (OnDied != null) OnDied();
-            Destroy(this.gameObject);
+            if (!_isDied)
+            {
+                if (OnDied != null) OnDied();
+                _isDied = true;
+                _collision.enabled = false;
+                Timing.RunCoroutine(AnimationDie(1f));
+            }
         }
+    }
+
+    private IEnumerator<float> AnimationDie(float time)
+    {
+        yield return Timing.WaitForSeconds(time);
+        Destroy(this.gameObject);
     }
 
     private float CalculateDamage(int level)
@@ -96,7 +113,15 @@ public class Boss : MonoBehaviour
         _transform.DOMoveY(_transform.position.y - 0.97f, 0.5f).OnComplete(() => {
             if (_currentPosition >= _damagePosition)
             {
-                if (OnDoDamage != null) OnDoDamage(this);
+                if (!_isDied)
+                {
+                    if (OnDied != null) OnDied();
+                    if (OnDoDamage != null) OnDoDamage(this);
+
+                    _isDied = true;
+                    _collision.enabled = false;
+                    Timing.RunCoroutine(AnimationDie(1f));
+                }
                 //Destroy(this.gameObject);
             }
         });

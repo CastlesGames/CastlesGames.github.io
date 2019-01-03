@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public event System.Action OnFinishShot;
     public event System.Action OnActivateShot;
     public event System.Action OnInstantiateBullets;
+    public event System.Action<float> OnMove;
 
     void Awake()
     {
@@ -165,18 +166,21 @@ public class PlayerController : MonoBehaviour
     {
         if(positionX > 1.3f)
         {
+            if (OnMove != null) OnMove(1.3f);
             _transform.DOMoveX(1.3f, 0.4f).OnComplete(() => {
                 if (OnFinishShot != null) OnFinishShot();
              });
         }
         else if(positionX < -1.3f)
         {
+            if (OnMove != null) OnMove(-1.3f);
             _transform.DOMoveX(-1.3f, 0.4f).OnComplete(() => {
                 if (OnFinishShot != null) OnFinishShot();
             });
         }
         else
         {
+            if (OnMove != null) OnMove(positionX);
             _transform.DOMoveX(positionX, 0.4f).OnComplete(() => {
                 if (OnFinishShot != null) OnFinishShot();
             });

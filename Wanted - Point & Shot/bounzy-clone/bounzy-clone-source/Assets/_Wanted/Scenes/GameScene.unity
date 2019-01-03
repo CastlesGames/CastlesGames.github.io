@@ -309,6 +309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1801101837898549696, guid: e72d2762f20bc4942a3b7f5b65948971,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1804956174, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
       propertyPath: _levelController
       value: 
@@ -377,6 +382,16 @@ PrefabInstance:
       propertyPath: _endTurnButton
       value: 
       objectReference: {fileID: 1601621193}
+    - target: {fileID: 1652048219679727462, guid: e72d2762f20bc4942a3b7f5b65948971,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652048219679727462, guid: e72d2762f20bc4942a3b7f5b65948971,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e72d2762f20bc4942a3b7f5b65948971, type: 3}
 --- !u!1 &618366753

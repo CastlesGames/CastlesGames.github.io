@@ -16,6 +16,12 @@ public class PlayerView : MonoBehaviour
     Transform _endTurnButton;
 
     [SerializeField]
+    ParticleSystem _bloodParticleSystem;
+
+    [SerializeField]
+    ParticleSystem _shotParticleSystem;
+
+    [SerializeField]
     Player _player;
 
     [SerializeField]
@@ -30,6 +36,7 @@ public class PlayerView : MonoBehaviour
         _player.OnChangeLife += Player_OnChangeLife;
         _playerController.OnInstantiateBullets += PlayerController_OnInstantiateBullets;
         _playerController.OnFinishShot += PlayerController_OnFinishShot;
+        _playerController.OnShot += PlayerController_OnShot;
     }
 
     private void OnDestroy()
@@ -38,6 +45,13 @@ public class PlayerView : MonoBehaviour
         _player.OnChangeLife -= Player_OnChangeLife;
         _playerController.OnInstantiateBullets -= PlayerController_OnInstantiateBullets;
         _playerController.OnFinishShot -= PlayerController_OnFinishShot;
+        _playerController.OnShot -= PlayerController_OnShot;
+    }
+
+    private void PlayerController_OnShot()
+    {
+        _shotParticleSystem.gameObject.SetActive(true);
+        _shotParticleSystem.Play();
     }
 
     private void PlayerController_OnFinishShot(){
@@ -68,6 +82,8 @@ public class PlayerView : MonoBehaviour
     void UpdateInfo(float life){
         _lifeText.text = life.ToString();
         _lifeSlider.value = life;
+        _bloodParticleSystem.gameObject.SetActive(true);
+        _bloodParticleSystem.Play();
     }
 
     //public void EndTurn(){
