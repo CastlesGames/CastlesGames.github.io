@@ -1,12 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using MovementEffects;
 using UnityEngine;
 using DG.Tweening;
+using System;
+using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
     Transform _transform;
+
+    [SerializeField]
+    Collider2D _collision;
 
     [SerializeField]
     private float _damage;
@@ -41,12 +45,13 @@ public class Enemy : MonoBehaviour
 
     public event System.Action<float> OnChangeLife;
     public event System.Action<float> OnInitialized;
-    public event System.Action<Enemy> OnDied;
+    public event System.Action<Enemy,float> OnDied;
     public event System.Action<Enemy> OnDoDamage;
 
     private LevelController _levelController;
     private int _currentPosition;
     private int _damagePosition = 6;
+    private bool _isDied = false;
 
     public void Initialized(int level, LevelController levelController)
     {
@@ -76,9 +81,20 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (OnDied != null) OnDied(this);
-            Destroy(this.gameObject);
+            if(!_isDied)
+            {
+                if (OnDied != null) OnDied(this, _life);
+                _isDied = true;
+                _collision.enabled = false;
+                Timing.RunCoroutine(AnimationDie(1f));
+            }
         }
+    }
+
+    private IEnumerator<float> AnimationDie(float time)
+    {
+        yield return Timing.WaitForSeconds(time);
+        Destroy(this.gameObject);
     }
 
     private float CalculateDamage(int level)
@@ -112,7 +128,15 @@ public class Enemy : MonoBehaviour
         _transform.DOMoveY(_transform.position.y - 0.97f, 0.5f).OnComplete(() => {
             if (_currentPosition >= _damagePosition)
             {
-                if (OnDoDamage != null) OnDoDamage(this);
+                if (!_isDied)
+                {
+                    if (OnDied != null) OnDied(this, _life);
+                    if (OnDoDamage != null) OnDoDamage(this);
+
+                    _isDied = true;
+                    _collision.enabled = false;
+                    Timing.RunCoroutine(AnimationDie(1f));
+                }
             }
         });
         _currentPosition++;

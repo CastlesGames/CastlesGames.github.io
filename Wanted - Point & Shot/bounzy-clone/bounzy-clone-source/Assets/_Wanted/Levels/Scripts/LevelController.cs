@@ -153,7 +153,7 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    private void Enemy_OnDied(Enemy enemy)
+    private void Enemy_OnDied(Enemy enemy,float life)
     {
         _enemies.Remove(enemy);
 
@@ -169,8 +169,8 @@ public class LevelController : MonoBehaviour
     private void Enemy_OnDoDamage(Enemy enemy)
     {
         _playerController.GetDamage(enemy.Damage);
-        _enemies.Remove(enemy);
-        Destroy(enemy.gameObject);
+        //_enemies.Remove(enemy);
+        //Destroy(enemy.gameObject);
     }
 
     private void Boss_OnDoDamage(Boss boss)
