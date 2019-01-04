@@ -43,16 +43,16 @@ public class BossView : MonoBehaviour
         _lifeText.text = life.ToString();
 
         _instantiateParticleSystem.Play();
-        if (_renderer != null) _renderer.DOScale(new Vector3(1.05f, 1.3f, 1f), 0.04f).OnComplete(() =>
-        {
-            if (_renderer != null) _renderer.DOScale(new Vector3(1f, 1f, 1f), 0.06f);
-        });
     }
 
     private void Boss_OnChangeLife(float life)
     {
         _lifeSlider.value = life;
         _lifeText.text = life.ToString();
+        if (_renderer != null) _renderer.DOScale(new Vector3(1.05f, 1.2f, 1f), 0.04f).OnComplete(() =>
+        {
+            if (_renderer != null) _renderer.DOScale(new Vector3(1f, 1f, 1f), 0.06f);
+        });
     }
 
     void Boss_OnDied()

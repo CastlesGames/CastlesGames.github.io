@@ -25,10 +25,7 @@ public class MenuView : MonoBehaviour
     RectTransform _sherifButton;
 
     [SerializeField]
-    RectTransform _cloudLeft;
-
-    [SerializeField]
-    RectTransform _cloudRight;
+    Image _fadeImage;
 
     [SerializeField]
     Text _levelText;
@@ -57,12 +54,12 @@ public class MenuView : MonoBehaviour
 
     private void LevelView_OnGoToMenu()
     {
-        CloudsAnimation(3);
+        FadeAnimation(3);
     }
 
     public void Play()
     {
-        CloudsAnimation(0);
+        FadeAnimation(0);
     }
 
     public void Ranking()
@@ -72,18 +69,17 @@ public class MenuView : MonoBehaviour
 
     public void Sherif()
     {
-        CloudsAnimation(2);
+        FadeAnimation(2);
     }
 
-    private void CloudsAnimation(int type)
+    private void FadeAnimation(int type)
     {
-        _cloudLeft.gameObject.SetActive(true);
-        _cloudRight.gameObject.SetActive(true);
-        _cloudLeft.position = new Vector3(-960f, _cloudLeft.position.y, _cloudLeft.position.z);
-        _cloudRight.position = new Vector3(1140f, _cloudRight.position.y, _cloudRight.position.z);
+        _fadeImage.gameObject.SetActive(true);
+        _fadeImage.color = new Color(0, 0, 0, 0);
+        _fadeImage.DOColor(Color.black, 0.5f).OnComplete(() => {
 
-        _cloudLeft.DOMoveX(-460f,0.8f).OnComplete(() => {
-            if(type != 3)_background.gameObject.SetActive(false);
+            if (type != 3) _background.gameObject.SetActive(false);
+
             switch (type)
             {
                 case 0:
@@ -97,15 +93,11 @@ public class MenuView : MonoBehaviour
                     break;
 
             }
-            _cloudLeft.DOMoveX(-960f, 1f).OnComplete(() => {
-                _cloudLeft.gameObject.SetActive(false);
 
-             });
-         });
-        _cloudRight.DOMoveX(240f, 0.8f).OnComplete(() => {
-            _cloudRight.DOMoveX(1140f, 1f).OnComplete(() => {
-                _cloudRight.gameObject.SetActive(false);
-                if (type != 3) 
+            _fadeImage.DOColor(new Color(0, 0, 0, 0),0.6f).OnComplete(() => {
+
+                _fadeImage.gameObject.SetActive(false);
+                if (type != 3)
                 {
                     _background.gameObject.SetActive(false);
                 }

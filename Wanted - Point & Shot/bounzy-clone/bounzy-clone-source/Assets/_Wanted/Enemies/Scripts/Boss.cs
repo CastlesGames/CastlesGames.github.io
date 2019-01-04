@@ -14,6 +14,9 @@ public class Boss : MonoBehaviour
     Collider2D _collision;
 
     [SerializeField]
+    private float _incrementDamage;
+
+    [SerializeField]
     private float _damage;
 
     public float Damage
@@ -26,6 +29,9 @@ public class Boss : MonoBehaviour
 
     [SerializeField]
     private float _life;
+
+    [SerializeField]
+    private float _incrementLife;
 
     LevelController _levelController;
 
@@ -86,7 +92,7 @@ public class Boss : MonoBehaviour
     {
         if (level > 0)
         {
-            float newDamage = _damage * level;
+            float newDamage = _damage + (_incrementDamage * level);
             return newDamage;
         }
         else
@@ -99,7 +105,7 @@ public class Boss : MonoBehaviour
     {
         if (level > 0)
         {
-            float newLife = _life * level;
+            float newLife = _life + (_incrementLife * level); ;
             return newLife;
         }
         else
