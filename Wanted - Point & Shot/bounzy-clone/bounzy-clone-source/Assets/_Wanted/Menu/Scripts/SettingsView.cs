@@ -80,6 +80,7 @@ public class SettingsView : MonoBehaviour
 
     public void Music()
     {
+        AudioController.Instance.PlayButtonSound();
         if(AudioController.Instance.IsMusicOn)
         {
             _musicButtonImage.color = _redColor;
@@ -94,6 +95,7 @@ public class SettingsView : MonoBehaviour
 
     public void Sound()
     {
+        AudioController.Instance.PlayButtonSound();
         if (AudioController.Instance.IsSoundOn)
         {
             _soundButtonImage.color = _redColor;
@@ -108,6 +110,7 @@ public class SettingsView : MonoBehaviour
 
     public void Close()
     {
+        AudioController.Instance.PlayButtonSound();
         _panelSettings.DOScale(0f,0.2f).OnComplete(() => {
             _background.gameObject.SetActive(false);
             if (OnClose != null) OnClose();
@@ -116,11 +119,11 @@ public class SettingsView : MonoBehaviour
 
     public void SpanishLenguage()
     {
-        
+        AudioController.Instance.PlayButtonSound();
     }
 
     public void EnglishLenguage()
     {
-        
+        AudioController.Instance.PlayButtonSound();
     }
 }
