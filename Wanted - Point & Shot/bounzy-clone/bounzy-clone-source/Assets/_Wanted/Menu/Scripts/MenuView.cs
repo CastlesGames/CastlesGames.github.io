@@ -22,9 +22,6 @@ public class MenuView : MonoBehaviour
     RectTransform _rankingButton;
 
     [SerializeField]
-    RectTransform _sherifButton;
-
-    [SerializeField]
     Image _fadeImage;
 
     [SerializeField]
@@ -34,22 +31,26 @@ public class MenuView : MonoBehaviour
     LevelView _levelView;
 
     [SerializeField]
+    SettingsView _settingsView;
+
+    [SerializeField]
     LevelManager _levelManager;
 
     public event System.Action OnPlay;
     public event System.Action OnRanking;
-    public event System.Action OnSherif;
+    public event System.Action OnSettings;
 
     private void Start()
     {
-        //cambio
         InitialAnimation();
         _levelView.OnGoToMenu += LevelView_OnGoToMenu;
+        _settingsView.OnClose += SettingsView_OnClose;
     }
 
     private void OnDestroy()
     {
         _levelView.OnGoToMenu -= LevelView_OnGoToMenu;
+        _settingsView.OnClose -= SettingsView_OnClose;
     }
 
     private void LevelView_OnGoToMenu()
@@ -57,18 +58,26 @@ public class MenuView : MonoBehaviour
         FadeAnimation(3);
     }
 
+    private void SettingsView_OnClose()
+    {
+        FadeAnimation(3);
+    }
+
     public void Play()
     {
+        AudioController.Instance.PlayButtonSound();
         FadeAnimation(0);
     }
 
     public void Ranking()
     {
+        AudioController.Instance.PlayButtonSound();
         //TODO: VER COMO HAGO RANKING
     }
 
-    public void Sherif()
+    public void Settings()
     {
+        AudioController.Instance.PlayButtonSound();
         FadeAnimation(2);
     }
 
@@ -89,7 +98,7 @@ public class MenuView : MonoBehaviour
                     if (OnRanking != null) OnRanking();
                     break;
                 case 2:
-                    if (OnSherif != null) OnSherif();
+                    if (OnSettings != null) OnSettings();
                     break;
 
             }
@@ -117,15 +126,13 @@ public class MenuView : MonoBehaviour
         _levelText.text = "";
         _playButton.localScale = Vector3.zero;
         _rankingButton.localScale = Vector3.zero;
-        _sherifButton.localScale = Vector3.zero;
 
         _title.DOScaleY(1f, 0.2f).OnComplete(() => {
             _menuPanel.DOScaleY(1f, 0.4f).OnComplete(() => {
                 _levelText.text = "Nivel: " + (_levelManager.Level +1);
-                _playButton.DOScale(1f, 0.2f);
-                _rankingButton.DOScale(1f, 0.2f);
-                _sherifButton.DOScale(1f, 0.2f);
             });
+            _playButton.DOScale(1f, 0.2f);
+            _rankingButton.DOScale(1f, 0.2f);
         });
     }
 }

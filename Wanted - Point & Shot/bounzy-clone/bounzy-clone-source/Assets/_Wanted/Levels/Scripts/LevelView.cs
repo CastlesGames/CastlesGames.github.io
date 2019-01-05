@@ -145,6 +145,7 @@ public class LevelView : MonoBehaviour
     }
 
     public void Pause(){
+        AudioController.Instance.PlayButtonSound();
         _pauseBackground.gameObject.SetActive(true);
 
         _pausePopUp.localScale = Vector3.zero;
@@ -154,6 +155,7 @@ public class LevelView : MonoBehaviour
     }
 
     public void Continue(){
+        AudioController.Instance.PlayButtonSound();
         if (OnDesPause != null) OnDesPause();
 
         _pausePopUp.DOScale(0f, 0.5f).OnComplete(() => {
@@ -164,11 +166,13 @@ public class LevelView : MonoBehaviour
 
     public void EndTurn()
     {
+        AudioController.Instance.PlayButtonSound();
         if (OnEndTurn != null) OnEndTurn();
     }
 
     public void GoToMenu()
     {
+        AudioController.Instance.PlayButtonSound();
         if (OnGoToMenu != null) OnGoToMenu();
         if (OnDesPause != null) OnDesPause();
         _pauseBackground.gameObject.SetActive(false);

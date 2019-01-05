@@ -102,6 +102,7 @@ public class VictoryView : MonoBehaviour
 
     public void ImproveLife()
     {
+        AudioController.Instance.PlayButtonSound();
         _improveLifeImage.DOShakeScale(0.3f).OnComplete(() => {
 
             _player.ImproveLife();
@@ -117,6 +118,7 @@ public class VictoryView : MonoBehaviour
 
     public void ImproveDamage()
     {
+        AudioController.Instance.PlayButtonSound();
         _improveDamageImage.DOShakeScale(0.3f).OnComplete(() => {
 
             _player.ImproveDamage();
@@ -132,6 +134,7 @@ public class VictoryView : MonoBehaviour
 
     public void ImproveBullets()
     {
+        AudioController.Instance.PlayButtonSound();
         _improveBulletsImage.DOShakeScale(0.3f).OnComplete(() => {
 
             _player.ImproveBullets();
@@ -147,6 +150,7 @@ public class VictoryView : MonoBehaviour
 
     public void NextLevel()
     {
+        AudioController.Instance.PlayButtonSound();
         _victoryScreen.gameObject.SetActive(false);
         _victoryPopUp.DOScale(0f, 0.5f).OnComplete(() => {
             if (OnNextLevel != null) OnNextLevel(); 

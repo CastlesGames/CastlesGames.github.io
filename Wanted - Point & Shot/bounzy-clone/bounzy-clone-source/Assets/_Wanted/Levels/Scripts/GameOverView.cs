@@ -45,6 +45,7 @@ public class GameOverView : MonoBehaviour
 
     public void ReStartLevel()
     {
+        AudioController.Instance.PlayButtonSound();
         _gameOverScreen.gameObject.SetActive(false);
         _gameOverPopUp.DOScale(0f, 0.5f).OnComplete(() => {
             if (OnRestartLevel != null) OnRestartLevel();

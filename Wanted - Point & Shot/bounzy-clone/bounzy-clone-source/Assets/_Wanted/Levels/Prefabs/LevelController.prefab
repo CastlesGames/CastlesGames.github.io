@@ -65,6 +65,9 @@ MonoBehaviour:
   - {fileID: 3298857367032280055, guid: bc314d1dac29443169299988fbbe9c33, type: 3}
   _bossesPrefabs:
   - {fileID: 2974688595960462280, guid: 515c20d3a6d99484bb618db4ac13d970, type: 3}
+  - {fileID: 2974688595960462280, guid: c59e5e77c0ee746b591fee2e67a53cf2, type: 3}
+  - {fileID: 2974688595960462280, guid: ec0e98993cf234bc4b4074e7713d15ce, type: 3}
+  - {fileID: 2974688595960462280, guid: 1532f41de83a141b5aa7e89bc4135038, type: 3}
   _levelManager: {fileID: 1877754306}
   _playerController: {fileID: 0}
   _levelView: {fileID: 0}

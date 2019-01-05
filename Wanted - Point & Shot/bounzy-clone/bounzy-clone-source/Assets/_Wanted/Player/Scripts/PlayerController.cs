@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
                 Timing.RunCoroutine(InstantiateBullets(0.1f, direction));
 
+                AudioController.Instance.PlayShotSound();
                 if (OnShot != null) OnShot();
             }
             else

@@ -7,6 +7,7 @@ public class PhysicsController : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             collision.isTrigger = false;
+            AudioController.Instance.PlayBounceSound();
         }
     }
 

@@ -89,6 +89,8 @@ public class LevelController : MonoBehaviour
         _playerController.gameObject.SetActive(true);
         SpawnEnemies(_level);
         if (OnUserTurn != null) OnUserTurn(_currentWave);
+
+        AudioController.Instance.PlayNewLevelSound();
         if (OnInitialized != null) OnInitialized(_level,_currentWave);
     }
 
@@ -225,6 +227,7 @@ public class LevelController : MonoBehaviour
         }
         else
         {
+            AudioController.Instance.PlayDefeatSound();
             if (OnGameOver != null) OnGameOver(_level,_currentWave);
             ClearLevel();
         }
