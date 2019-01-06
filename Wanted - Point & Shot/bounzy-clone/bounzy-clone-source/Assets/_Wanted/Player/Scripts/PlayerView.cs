@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MovementEffects;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour
@@ -20,6 +21,9 @@ public class PlayerView : MonoBehaviour
 
     [SerializeField]
     ParticleSystem _shotParticleSystem;
+
+    [SerializeField]
+    Animator _animator;
 
     [SerializeField]
     Player _player;
@@ -50,6 +54,7 @@ public class PlayerView : MonoBehaviour
 
     private void PlayerController_OnShot()
     {
+        _animator.Play("@shot");
         _shotParticleSystem.gameObject.SetActive(true);
         _shotParticleSystem.Play();
     }
