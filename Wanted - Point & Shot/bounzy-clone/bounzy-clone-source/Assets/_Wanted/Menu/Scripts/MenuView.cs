@@ -100,6 +100,9 @@ public class MenuView : MonoBehaviour
                 case 2:
                     if (OnSettings != null) OnSettings();
                     break;
+                case 3:
+                    InitialAnimation();
+                    break;
 
             }
 
@@ -110,16 +113,14 @@ public class MenuView : MonoBehaviour
                 {
                     _background.gameObject.SetActive(false);
                 }
-                else
-                {
-                    InitialAnimation();
-                }
             });
         });
     }
 
     private void InitialAnimation()
     {
+        AudioController.Instance.PlayMenuMusic();
+
         _background.gameObject.SetActive(true);
         _title.localScale = new Vector3(1f, 0f, 1f);
         _menuPanel.localScale = new Vector3(1f, 0f, 1f);

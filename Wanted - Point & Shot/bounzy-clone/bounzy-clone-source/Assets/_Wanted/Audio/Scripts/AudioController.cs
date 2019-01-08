@@ -22,6 +22,12 @@ public class AudioController : GlobalSingleton<AudioController>
     [SerializeField]
     AudioClip _bounceSound;
 
+    [SerializeField]
+    AudioClip _gameMusic;
+
+    [SerializeField]
+    AudioClip _menuMusic;
+
     #endregion
 
     #region Private Fields
@@ -191,8 +197,11 @@ public class AudioController : GlobalSingleton<AudioController>
             //{
             //    MusicSource.Stop();
             //}
-            MusicSource.clip = music;
-            MusicSource.Play();
+            if(MusicSource.clip != music)
+            {
+                MusicSource.clip = music;
+                MusicSource.Play();
+            }
         }
         else
         {
@@ -342,6 +351,16 @@ public class AudioController : GlobalSingleton<AudioController>
     public void PlayShotSound()
     {
         PlayFxSound(_shotSound);
+    }
+
+    public void PlayGameMusic()
+    {
+        PlayMusic(_gameMusic);
+    }
+
+    public void PlayMenuMusic()
+    {
+        PlayMusic(_menuMusic);
     }
 
     #endregion

@@ -84,6 +84,8 @@ public class LevelView : MonoBehaviour
 
     void Initialized(int level, int currentWave)
     {
+        AudioController.Instance.PlayGameMusic();
+
         _levelUI.gameObject.SetActive(true);
         _levelText.text = (level+1).ToString();
         _levelText.transform.DOScale(1.2f,0.1f).OnComplete(() => {
