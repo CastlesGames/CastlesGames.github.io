@@ -34,6 +34,9 @@ public class MenuView : MonoBehaviour
     SettingsView _settingsView;
 
     [SerializeField]
+    RecordsView _recordsView;
+
+    [SerializeField]
     LevelManager _levelManager;
 
     public event System.Action OnPlay;
@@ -45,12 +48,14 @@ public class MenuView : MonoBehaviour
         InitialAnimation();
         _levelView.OnGoToMenu += LevelView_OnGoToMenu;
         _settingsView.OnClose += SettingsView_OnClose;
+        _recordsView.OnClose += RecordsView_OnClose;
     }
 
     private void OnDestroy()
     {
         _levelView.OnGoToMenu -= LevelView_OnGoToMenu;
         _settingsView.OnClose -= SettingsView_OnClose;
+        _recordsView.OnClose -= RecordsView_OnClose;
     }
 
     private void LevelView_OnGoToMenu()
@@ -59,6 +64,11 @@ public class MenuView : MonoBehaviour
     }
 
     private void SettingsView_OnClose()
+    {
+        FadeAnimation(3);
+    }
+
+    private void RecordsView_OnClose()
     {
         FadeAnimation(3);
     }
@@ -72,7 +82,7 @@ public class MenuView : MonoBehaviour
     public void Ranking()
     {
         AudioController.Instance.PlayButtonSound();
-        //TODO: VER COMO HAGO RANKING
+        FadeAnimation(1);
     }
 
     public void Settings()
