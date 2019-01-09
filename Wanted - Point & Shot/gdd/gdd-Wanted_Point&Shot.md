@@ -1,4 +1,7 @@
 ﻿# *Wanted: Point and Shot*
+
+[Encuentra el juego en nuestra página de GitHub](https://castlesgames.github.io/)
+
 Título
 : Documento de diseño de juego - *Wanted: Point and Shot*
 
@@ -38,8 +41,17 @@ El jugador encarna al *Sherif* del condado cuya misión es acabar con la delincu
 La fase de acción se basa en un sistema de turnos y una mecánica de disparo, en la que el jugador apunta hacia una parte de la pantalla y dispara una serie de elementos (balas) que rebotan en el escenario a través de un sistema de físicas, estos elementos infringen daño a los enemigos del tablero y dichos enemigos caen una posición en el tablero cada turno, cuando llegan al personaje del jugador le infringen daño.
 
  - Fase de acción - Wanted: Point and Shot
- 
+
+	+ Concept: 
 <img alt="Gameplay" src="assets/gameplay.png">
+
+	+ Versión final:
+		+ *Smartphones* :
+		<img alt="Gameplay smartphones" src="assets/gameplay-movil.jpg">
+		+ Web:
+		<img alt="Gameplay web" src="assets/gameplay-web.png">
+
+
 
 ## 4. Mecánicas
    + **Cámara:** Videojuego en 3D con una cámara estática. Plano *top-down*. El jugador puede ver en todo momento todos los elementos del nivel.
@@ -91,34 +103,40 @@ El número de oleadas, enemigos y posiciones de éstos en cada nivel se generar�
 	  + *Nombre*: **Pat Garrett**
       + *Descripción*: Es el sheriff encargado de eliminar a los bandidos.
       + *Concepto*: El personaje será un varón adulto. Su vestimenta tendrá estilo cowboy.
+       <img alt="Concept - Front" src="assets/concept-front.png">
+       <img alt="Concept - Left" src="assets/concept-left.png">
       + *Encuentro*: El jugador se encontrará con este personaje al iniciar cada partida, y jugará siempre con él.
       + *Características*: El personaje solo tendrá una salud máxima.
       + *Jugable/No-Jugable*: Jugable.
+      + *Vista jugador*: <img alt="Sheriff vista jugador" src="assets/sheriff_view.png">
+      + *Imagen final*:  <img alt="Sheriff final" src="assets/sheriff.png">
+ 
+ 
  
 ## 9. Enemigos
 A continuación se da una breve descripción de los personajes que sirven de enemigo para el jugador en el juego:
    - **Enemigo Verde**
       + *Nombre*: **Captus matón**.
       + *Descripción*: Enemigos de color verde, son los más débiles del juego
-      + *Imagen*:
+      + *Imagen*: <img alt="Captus matón" src="assets/cactus128.png">
       + *Salud*: 500.
       + *Ataque*: 1.
    - **Enemigo Azul**
       + *Nombre*: **Indio enrabietado**.
       + *Descripción*: Enemigos marcados de color azul, son más difíciles de derrotar que los enemigos de color verde, ya que ven aumentada su salud y su daño de ataque.
-      + *Imagen*:
+      + *Imagen*: <img alt="Indio enrabietado" src="assets/indio128.png">
       + *Salud*: 1500.
       + *Ataque*: 3.
    - **Enemigo rojo**
 	   + *Nombre*: **Forajido**.
 	   + *Descripción*: Enemigos marcados de color rojo, son los que presentarán más problemas al jugador ya que serán los más resistentes a la hora de destruirlos.
-	   + *Imagen*:
+	   + *Imagen*: <img alt="Forajido" src="assets/forajido128.png">
 	   + *Salud*: 3000.
 	   + *Ataque*: 4.
    - **Boss**:
 	   + *Nombre*: **Billy el Niño**.
        + *Descripción*: Si consigue avanzar hasta la posición del jugador, se acaba la partida, y deberá comenzar de nuevo el nivel. Es muy resistente, y ocupa 4 casillas del grid.
-       + *Imagen*:
+       + *Imagen*: <img alt="Forajido" src="assets/billyniño128.png">
        + *Salud*: 5000.
 	   + *Ataque*: Toda la vida del jugador.
     
@@ -130,6 +148,12 @@ A continuación se muestran algunos primeros *concepts* del juego.
 + **Pantalla de juego**
 
 <img alt="Pantalla de juego" src="assets/Concept - Pantalla de juego.png">
+
+A continuación se muestra el resultado final del escenario, junto al personaje.
+
+<img alt="Escenario de juego" src="assets/background-gameplay.jpg">
+<img alt="Render Sheriff" src="assets/sheriff-pose.png">
+
 
 ## 12. Miembros del equipo
 1. Game designer: *Laura Rodríguez*.
