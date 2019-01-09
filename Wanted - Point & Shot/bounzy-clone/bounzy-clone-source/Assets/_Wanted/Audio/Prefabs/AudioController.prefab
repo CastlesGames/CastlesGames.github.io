@@ -48,5 +48,5 @@ MonoBehaviour:
   _shotSound: {fileID: 8300000, guid: dd365c2e8ed2d417890de53ae89e757e, type: 3}
   _newLevelSound: {fileID: 8300000, guid: 3dfb5b2fdca7749cd9cdc87db6bd6f43, type: 3}
   _bounceSound: {fileID: 8300000, guid: b23b110db1db745a1847eead706dd171, type: 3}
-  _gameMusic: {fileID: 8300000, guid: 25106c8ab0fe8495a915b600ecb051e2, type: 3}
+  _gameMusic: {fileID: 8300000, guid: 751e88628886045839faa204469d14b4, type: 3}
   _menuMusic: {fileID: 8300000, guid: 0f2712c5465c345d79effa5fe29e94e0, type: 3}
