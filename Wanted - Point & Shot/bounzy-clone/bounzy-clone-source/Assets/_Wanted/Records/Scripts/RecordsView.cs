@@ -94,8 +94,8 @@ public class RecordsView : MonoBehaviour
     private IEnumerator WaitForPlayFabLoginCoroutine()
     {
         yield return new WaitUntil(() => _facebookAndPlayFabManager.IsLoggedOnPlayFab);
-        FacebookAndPlayFabManager.Instance.UpdateStat(PlayFabStatConstants.Records, PlayerPrefs.GetInt("Level"));
         GetLeaderboard(PlayFabStatConstants.Records, filterSlider.value == 0, 0);
+        FacebookAndPlayFabManager.Instance.UpdateStat(PlayFabStatConstants.Records, 1 + PlayerPrefs.GetInt("Level"));
     }
 
     private IEnumerator WaitForUserNameCoroutine()
@@ -115,6 +115,7 @@ public class RecordsView : MonoBehaviour
 
     public void GetLeaderboard(string statisticName, bool friendsOnly, int startPosition)
     {
+        Debug.Log("ENTRO en poner message");
         _scrollRect.vertical = false;
         messagePanel.SetActive(true);
         _facebookAndPlayFabManager.GetLeaderboard(statisticName, friendsOnly, maxResultsCount, GetLeaderboardCallback, startPosition);
@@ -122,6 +123,8 @@ public class RecordsView : MonoBehaviour
 
     public void GetLeaderboardCallback(GetLeaderboardResult result)
     {
+        Debug.Log("ENTRO en Pintar Leaderboard");
+
         _scrollRect.vertical = true;
         messagePanel.SetActive(false);
         filterSlider.interactable = true;
@@ -132,6 +135,8 @@ public class RecordsView : MonoBehaviour
 
         foreach (PlayerLeaderboardEntry playerEntry in result.Leaderboard)
         {
+            Debug.Log("ENTRO en Pintar USER "+ playerEntry.DisplayName);
+
             LeaderboardEntry entry = Instantiate(entryPrefab.gameObject, leaderboardEntryParent).GetComponent<LeaderboardEntry>();
 
             int width = 100;
