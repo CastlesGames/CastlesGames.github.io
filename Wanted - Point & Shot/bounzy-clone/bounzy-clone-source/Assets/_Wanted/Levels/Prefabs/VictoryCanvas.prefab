@@ -964,7 +964,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1686052625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6791930662843089511}
+        m_MethodName: GoToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1995398312
@@ -1052,6 +1063,7 @@ GameObject:
   - component: {fileID: 6972822179008899171}
   - component: {fileID: 6972822179008899169}
   - component: {fileID: 6972822179008899168}
+  - component: {fileID: 3534971973479983549}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1120,6 +1132,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Continue
+--- !u!114 &3534971973479983549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972822179008899170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 6972822179008899168}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 4f74305e103de4201a4733cb620b8546, type: 2}
+  m_FormatArgs: []
 --- !u!1 &6972822179041563574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,7 +1339,6 @@ MonoBehaviour:
   _victoryPopUp: {fileID: 6972822179790897975}
   _nextLevelButton: {fileID: 6972822180314305607}
   _menuButton: {fileID: 1686052623}
-  _tileText: {fileID: 6972822180123076531}
   _improveLifeButton: {fileID: 7230237348978289197}
   _improveDamageButton: {fileID: 3454920193299432250}
   _improveBulletsButton: {fileID: 3701575329225108194}
@@ -1409,6 +1436,7 @@ GameObject:
   - component: {fileID: 6972822180123076530}
   - component: {fileID: 6972822180123076528}
   - component: {fileID: 6972822180123076531}
+  - component: {fileID: 7440405738043988477}
   m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
@@ -1476,7 +1504,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1Victory!"
+  m_Text: Victory!!
+--- !u!114 &7440405738043988477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972822180123076533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 6972822180123076531}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: cd9ba71bc892d491582cd18aa7097fe4, type: 2}
+  m_FormatArgs: []
 --- !u!1 &6972822180299985901
 GameObject:
   m_ObjectHideFlags: 0

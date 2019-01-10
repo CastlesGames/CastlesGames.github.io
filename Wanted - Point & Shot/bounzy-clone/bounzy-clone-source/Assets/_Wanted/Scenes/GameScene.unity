@@ -179,6 +179,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1011418844627299245, guid: 125e7b4bf7b16466bbfd95a9d30b19a7,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 611623453, guid: 125e7b4bf7b16466bbfd95a9d30b19a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab82bfd222e8847a0b16053ff7648a29,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 125e7b4bf7b16466bbfd95a9d30b19a7, type: 3}
 --- !u!114 &499625713 stripped
@@ -338,11 +348,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeaderBoardCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3973753679660858258, guid: 6ffd20596b8a241a6a467e258fda5074,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3973753679660858270, guid: 6ffd20596b8a241a6a467e258fda5074,
         type: 3}
@@ -585,16 +590,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 623953672237149290, guid: 7ca2e043b4e6f4a6da3b15bfebed3cd5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7285787453168173674, guid: 7ca2e043b4e6f4a6da3b15bfebed3cd5,
         type: 3}
       propertyPath: _levelController
       value: 
       objectReference: {fileID: 1144799478}
+    - target: {fileID: 3192154105346232146, guid: 7ca2e043b4e6f4a6da3b15bfebed3cd5,
+        type: 3}
+      propertyPath: m_Text
+      value: You lost!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ca2e043b4e6f4a6da3b15bfebed3cd5, type: 3}
 --- !u!114 &854870903 stripped
@@ -813,6 +818,10 @@ PrefabInstance:
       propertyPath: _gameOverView
       value: 
       objectReference: {fileID: 854870903}
+    - target: {fileID: 1877754306, guid: 29d3f2c61c16c4807aa514661e669f25, type: 3}
+      propertyPath: _levelView
+      value: 
+      objectReference: {fileID: 7987423645277467812}
     - target: {fileID: 1274251743445731801, guid: 29d3f2c61c16c4807aa514661e669f25,
         type: 3}
       propertyPath: _playerController
@@ -823,6 +832,11 @@ PrefabInstance:
       propertyPath: _levelView
       value: 
       objectReference: {fileID: 7987423645277467812}
+    - target: {fileID: 1274251743445731801, guid: 29d3f2c61c16c4807aa514661e669f25,
+        type: 3}
+      propertyPath: _victoryView
+      value: 
+      objectReference: {fileID: 499625713}
     - target: {fileID: 949111979362321662, guid: 29d3f2c61c16c4807aa514661e669f25,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -960,11 +974,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SettingsCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203792434917577718, guid: ce9adbb5572a840d9a34872e99c96b57,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5203792434917577722, guid: ce9adbb5572a840d9a34872e99c96b57,
         type: 3}
@@ -1159,11 +1168,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5915497253713599998, guid: 1f80df50ee1a4457abe4462355388ee7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6497756249981410548, guid: 1f80df50ee1a4457abe4462355388ee7,
         type: 3}
       propertyPath: _levelView
@@ -1176,14 +1180,19 @@ PrefabInstance:
       objectReference: {fileID: 7096137341658981194}
     - target: {fileID: 6497756249981410548, guid: 1f80df50ee1a4457abe4462355388ee7,
         type: 3}
-      propertyPath: _levelManager
-      value: 
-      objectReference: {fileID: 559536653}
-    - target: {fileID: 6497756249981410548, guid: 1f80df50ee1a4457abe4462355388ee7,
-        type: 3}
       propertyPath: _recordsView
       value: 
       objectReference: {fileID: 814593104}
+    - target: {fileID: 6497756249981410548, guid: 1f80df50ee1a4457abe4462355388ee7,
+        type: 3}
+      propertyPath: _victoryView
+      value: 
+      objectReference: {fileID: 499625713}
+    - target: {fileID: 6497756249981410548, guid: 1f80df50ee1a4457abe4462355388ee7,
+        type: 3}
+      propertyPath: _levelManager
+      value: 
+      objectReference: {fileID: 559536653}
     - target: {fileID: 5915497253713599938, guid: 1f80df50ee1a4457abe4462355388ee7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1554,21 +1563,6 @@ PrefabInstance:
       propertyPath: _levelController
       value: 
       objectReference: {fileID: 1144799478}
-    - target: {fileID: 5852508754376803760, guid: 58add3605d73b4338aa6411d5ffb7758,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089677159435313575, guid: 58add3605d73b4338aa6411d5ffb7758,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2990888148444893849, guid: 58add3605d73b4338aa6411d5ffb7758,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58add3605d73b4338aa6411d5ffb7758, type: 3}
 --- !u!114 &7987423645277467812 stripped

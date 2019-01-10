@@ -14,6 +14,9 @@ public class LevelManager : MonoBehaviour
     GameOverView _gameOverView;
 
     [SerializeField]
+    LevelView _levelView;
+
+    [SerializeField]
     LevelController _levelController;
 
     private int _level;
@@ -36,6 +39,7 @@ public class LevelManager : MonoBehaviour
         _menuView.OnPlay += MenuView_OnPlay;
         _victoryView.OnNextLevel += VictoryView_OnNextLevel;
         _gameOverView.OnRestartLevel += GameOverView_OnRestartLevel;
+        _levelView.OnRestartLevel += LevelView_OnRestartLevel;
     }
 
     private void OnDestroy()
@@ -44,6 +48,7 @@ public class LevelManager : MonoBehaviour
         _menuView.OnPlay -= MenuView_OnPlay;
         _victoryView.OnNextLevel -= VictoryView_OnNextLevel;
         _gameOverView.OnRestartLevel -= GameOverView_OnRestartLevel;
+        _levelView.OnRestartLevel -= LevelView_OnRestartLevel;
     }
 
     private void MenuView_OnPlay()
@@ -57,6 +62,11 @@ public class LevelManager : MonoBehaviour
     }
 
     private void GameOverView_OnRestartLevel()
+    {
+        PlayLevel();
+    }
+
+    void LevelView_OnRestartLevel()
     {
         PlayLevel();
     }

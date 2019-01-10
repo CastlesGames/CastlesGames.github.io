@@ -115,7 +115,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2839257642911918036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510434989118046813}
+        m_MethodName: Sound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &549758732157729946
@@ -307,7 +318,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 272126301745637185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510434989118046813}
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &982465648613271843
@@ -357,6 +379,7 @@ GameObject:
   - component: {fileID: 8880149328804560783}
   - component: {fileID: 554269185221361185}
   - component: {fileID: 4158221828413916614}
+  - component: {fileID: 3391127779608216151}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -424,7 +447,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OLEADAS
+  m_Text: Waves
+--- !u!114 &3391127779608216151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413111653502734307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 4158221828413916614}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 40f158cb0b4594d80bb7c2643c282768, type: 2}
+  m_FormatArgs: []
 --- !u!1 &2160659556245805072
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,6 +958,7 @@ GameObject:
   - component: {fileID: 8244776569065705000}
   - component: {fileID: 4795719002506999818}
   - component: {fileID: 856387055350505831}
+  - component: {fileID: 347727884731342200}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -987,6 +1027,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Continue
+--- !u!114 &347727884731342200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762106829525463237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 856387055350505831}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 4f74305e103de4201a4733cb620b8546, type: 2}
+  m_FormatArgs: []
 --- !u!1 &3849229689591206254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1276,7 @@ GameObject:
   - component: {fileID: 3164685477857324987}
   - component: {fileID: 376440768592147087}
   - component: {fileID: 14788596383241644}
+  - component: {fileID: 3564094888180601136}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1287,7 +1344,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1T\xDA TURNO!"
+  m_Text: YOUR TURN!
+--- !u!114 &3564094888180601136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4877514396413576812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 14788596383241644}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: bb93ffbdb95b1405d8ffb94d2173b66e, type: 2}
+  m_FormatArgs: []
 --- !u!1 &5022775185679182028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,7 +1476,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3629554170981660754}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510434989118046813}
+        m_MethodName: Music
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &5769870671527540978
@@ -1417,6 +1501,7 @@ GameObject:
   - component: {fileID: 5530315565532164079}
   - component: {fileID: 9086855060414335441}
   - component: {fileID: 3494409904850753148}
+  - component: {fileID: 336344581980507133}
   m_Layer: 5
   m_Name: RandomText
   m_TagString: Untagged
@@ -1484,7 +1569,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Dale ca\xF1a y no olvides de hacer caca blalblablaclaslc"
+  m_Text: 'Juega para ganar '
+--- !u!114 &336344581980507133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769870671527540978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 3494409904850753148}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: eb995df76eb894b82944d6846c6fca52, type: 2}
+  m_FormatArgs: []
 --- !u!1 &5781398656349541391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,6 +1597,7 @@ GameObject:
   - component: {fileID: 3191206633375183286}
   - component: {fileID: 8556709092264606113}
   - component: {fileID: 7344224474540695349}
+  - component: {fileID: 8418341016719014803}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1563,7 +1665,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pausa
+  m_Text: Pause
+--- !u!114 &8418341016719014803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781398656349541391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 7344224474540695349}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 560ca5413c2524a6e991fb708b67207e, type: 2}
+  m_FormatArgs: []
 --- !u!1 &5852508754376803760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,6 +2678,7 @@ GameObject:
   - component: {fileID: 7987423643821537266}
   - component: {fileID: 7987423643821537276}
   - component: {fileID: 7987423643821537277}
+  - component: {fileID: 1861135374906853167}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2627,7 +2746,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fin Turno
+  m_Text: Fin de Turno
+--- !u!114 &1861135374906853167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7987423643821537267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 7987423643821537277}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 18bc4b89769654a5984fed1f7ab62157, type: 2}
+  m_FormatArgs: []
 --- !u!1 &7987423643986561630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,6 +3023,10 @@ MonoBehaviour:
   _pauseButton: {fileID: 3457637831845093857}
   _pauseBackground: {fileID: 2990888148444893849}
   _pausePopUp: {fileID: 6530351280933456380}
+  _soundButtonImage: {fileID: 2839257642911918036}
+  _musicButtonImage: {fileID: 3629554170981660754}
+  _greenColor: {r: 0.23137255, g: 0.3764706, b: 0.14901961, a: 1}
+  _redColor: {r: 0.5019608, g: 0.105882354, b: 0.10980392, a: 1}
   _randomPhrases:
   - "\xA1A por ellos!"
   - "\xA1Juega para ganar!"

@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using System;
 using MovementEffects;
 
 public class LevelView : MonoBehaviour
@@ -17,12 +16,6 @@ public class LevelView : MonoBehaviour
     Transform _randomPhrasesTransform;
 
     [SerializeField]
-    Text _titleRandomPhrasesText;
-
-    [SerializeField]
-    Text _randomPhraseText;
-
-    [SerializeField]
     List<Image> _waveListImages;
 
     [SerializeField]
@@ -35,7 +28,16 @@ public class LevelView : MonoBehaviour
     Transform _pausePopUp;
 
     [SerializeField]
-    String[] _randomPhrases;
+    Image _soundButtonImage;
+
+    [SerializeField]
+    Image _musicButtonImage;
+
+    [SerializeField]
+    Color _greenColor;
+
+    [SerializeField]
+    Color _redColor;
 
     [SerializeField]
     LevelController _levelController;
@@ -45,6 +47,8 @@ public class LevelView : MonoBehaviour
     public event System.Action OnContinue;
     public event System.Action OnEndTurn;
     public event System.Action OnGoToMenu;
+    public event System.Action OnRestartLevel;
+    public event System.Action OnClearLevel;
 
     private void Awake()
     {
@@ -97,6 +101,24 @@ public class LevelView : MonoBehaviour
         }
         _pauseButton.gameObject.SetActive(false);
         AnimationImageWave(currentWave -1);
+
+        if (AudioController.Instance.IsMusicOn)
+        {
+            _musicButtonImage.color = _greenColor;
+        }
+        else
+        {
+            _musicButtonImage.color = _redColor;
+        }
+
+        if (AudioController.Instance.IsSoundOn)
+        {
+            _soundButtonImage.color = _greenColor;
+        }
+        else
+        {
+            _soundButtonImage.color = _redColor;
+        }
     }
 
     void UpdateInfo(int currentWave)
@@ -106,13 +128,9 @@ public class LevelView : MonoBehaviour
 
     private void SetRandomPhrase(){
         _randomPhrasesTransform.gameObject.SetActive(true);
-        _randomPhraseText.text = "";
-        _titleRandomPhrasesText.text = "";
         _randomPhrasesTransform.localScale = new Vector3(0f, 1f, 1f);
 
         _randomPhrasesTransform.DOScaleX(1f, 0.15f).OnComplete(() => {
-            _titleRandomPhrasesText.text = "¡TÚ TURNO!";
-            _randomPhraseText.text = GetRandomPhrase();
             Timing.RunCoroutine(DesactivateRandomPhrase(1f));
         });
     }
@@ -120,17 +138,10 @@ public class LevelView : MonoBehaviour
     IEnumerator<float> DesactivateRandomPhrase(float time)
     {
         yield return Timing.WaitForSeconds(time);
-        _randomPhraseText.text = "";
-        _titleRandomPhrasesText.text = "";
         _randomPhrasesTransform.DOScaleX(0f, 0.15f).OnComplete(() => {
             _randomPhrasesTransform.gameObject.SetActive(false);
             _pauseButton.gameObject.SetActive(true);
         });
-    }
-
-    private string GetRandomPhrase()
-    {
-        return _randomPhrases[UnityEngine.Random.Range(0, _randomPhrases.Length)];
     }
 
     private void AnimationImageWave(int index){
@@ -179,5 +190,44 @@ public class LevelView : MonoBehaviour
         if (OnDesPause != null) OnDesPause();
         _pauseBackground.gameObject.SetActive(false);
         _levelUI.gameObject.SetActive(false);
+    }
+
+    public void Sound()
+    {
+        AudioController.Instance.PlayButtonSound();
+        if (AudioController.Instance.IsSoundOn)
+        {
+            _soundButtonImage.color = _redColor;
+            AudioController.Instance.SwitchSound();
+        }
+        else
+        {
+            _soundButtonImage.color = _greenColor;
+            AudioController.Instance.SwitchSound();
+        }
+    }
+
+    public void Music()
+    {
+        AudioController.Instance.PlayButtonSound();
+        if (AudioController.Instance.IsMusicOn)
+        {
+            _musicButtonImage.color = _redColor;
+            AudioController.Instance.SwitchMusic();
+        }
+        else
+        {
+            _musicButtonImage.color = _greenColor;
+            AudioController.Instance.SwitchMusic();
+        }
+    }
+
+    public void Restart()
+    {
+        AudioController.Instance.PlayButtonSound();
+        if (OnClearLevel != null) OnClearLevel();
+        if (OnRestartLevel != null) OnRestartLevel();
+        if (OnDesPause != null) OnDesPause();
+        _pauseBackground.gameObject.SetActive(false);
     }
 }

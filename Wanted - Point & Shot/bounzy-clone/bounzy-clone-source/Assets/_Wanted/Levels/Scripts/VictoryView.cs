@@ -17,9 +17,6 @@ public class VictoryView : MonoBehaviour
     Transform _menuButton;
 
     [SerializeField]
-    Text _tileText;
-
-    [SerializeField]
     Button _improveLifeButton;
 
     [SerializeField]
@@ -53,6 +50,7 @@ public class VictoryView : MonoBehaviour
     Player _player;
 
     public event System.Action OnNextLevel;
+    public event System.Action OnGoToMenu;
 
     void Awake()
     {
@@ -74,13 +72,11 @@ public class VictoryView : MonoBehaviour
         _menuButton.gameObject.SetActive(false);
         _nextLevelButton.gameObject.SetActive(false);
         _victoryPopUp.localScale = Vector3.zero;
-        _tileText.text = "";
         _improveBulletsButton.interactable = true;
         _improveLifeButton.interactable = true;
         _improveDamageButton.interactable = true;
 
         _victoryPopUp.DOScale(1f, 0.5f).OnComplete(() => {
-            _tileText.text = "Victoria en el nivel " + (level+1);
             _improveLifeText.text = "¡Mejorar Vida!" +"\n" +"\n" + 
                 "Vida: " + _player.Life + "+" + _player.IncrementLife;
             _improveDamageText.text = "¡Mejorar Daño!" + "\n" + "\n" +
@@ -154,6 +150,15 @@ public class VictoryView : MonoBehaviour
         _victoryScreen.gameObject.SetActive(false);
         _victoryPopUp.DOScale(0f, 0.5f).OnComplete(() => {
             if (OnNextLevel != null) OnNextLevel(); 
+        });
+    }
+
+    public void GoToMenu()
+    {
+        AudioController.Instance.PlayButtonSound();
+        _victoryScreen.gameObject.SetActive(false);
+        _victoryPopUp.DOScale(0f, 0.5f).OnComplete(() => {
+            if (OnGoToMenu != null) OnGoToMenu();
         });
     }
 }
