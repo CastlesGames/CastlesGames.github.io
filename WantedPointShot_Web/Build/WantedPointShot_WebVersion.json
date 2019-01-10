@@ -1,0 +1,13 @@
+{
+"companyName": "CastlesGames",
+"productName": "Wanted",
+"dataUrl": "WantedPointShot_WebVersion.data.unityweb",
+"wasmCodeUrl": "WantedPointShot_WebVersion.wasm.code.unityweb",
+"wasmFrameworkUrl": "WantedPointShot_WebVersion.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
