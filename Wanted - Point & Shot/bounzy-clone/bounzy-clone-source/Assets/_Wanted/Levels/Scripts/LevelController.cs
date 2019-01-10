@@ -25,6 +25,9 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     LevelView _levelView;
 
+    [SerializeField]
+    VictoryView _victoryView;
+
     private List<Enemy> _enemies = new List<Enemy>();
     private Boss _boss;
 
@@ -54,6 +57,8 @@ public class LevelController : MonoBehaviour
         _levelView.OnDesPause += LevelView_OnDesPause;
         _levelView.OnContinue += LevelView_OnContinue;
         _levelView.OnGoToMenu += LevelView_OnGoToMenu;
+        _victoryView.OnGoToMenu += VictoryView_OnGoToMenu;
+        _levelView.OnClearLevel += LevelView_OnClearLevel;
         _levelManager.OnPlayLevel += LevelManager_OnPlayLevel;
         _playerController.OnFinishShot += PlayerController_OnFinishShot;
     }
@@ -64,6 +69,8 @@ public class LevelController : MonoBehaviour
         _levelView.OnDesPause -= LevelView_OnDesPause;
         _levelView.OnContinue -= LevelView_OnContinue;
         _levelView.OnGoToMenu -= LevelView_OnGoToMenu;
+        _victoryView.OnGoToMenu -= VictoryView_OnGoToMenu;
+        _levelView.OnClearLevel -= LevelView_OnClearLevel;
         _levelManager.OnPlayLevel -= LevelManager_OnPlayLevel;
         _playerController.OnFinishShot -= PlayerController_OnFinishShot;
     }
@@ -118,6 +125,11 @@ public class LevelController : MonoBehaviour
         Initialized(level);
     }
 
+    void VictoryView_OnGoToMenu()
+    {
+        ClearLevel();
+    }
+
     private void LevelView_OnPause()
     {
         PauseLevel();
@@ -136,6 +148,11 @@ public class LevelController : MonoBehaviour
     private void LevelView_OnContinue()
     {
         _pause = false;
+    }
+
+    void LevelView_OnClearLevel()
+    {
+        ClearLevel();
     }
 
     private void PlayerController_OnFinishShot()

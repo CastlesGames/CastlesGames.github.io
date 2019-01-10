@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine;
+using GameToolkit.Localization;
 
 public class SettingsView : MonoBehaviour
 {
@@ -31,12 +32,24 @@ public class SettingsView : MonoBehaviour
     [SerializeField]
     Color _redColor;
 
+    int language;
+
     public event System.Action OnClose;
 
     // Start is called before the first frame update
     void Start()
     {
         _menuView.OnSettings += MenuView_OnSettings;
+
+        language = PlayerPrefs.GetInt("Language", 0);
+        if(language == 0)
+        {
+            Localization.Instance.CurrentLanguage = SystemLanguage.Spanish;
+        }
+        else
+        {
+            Localization.Instance.CurrentLanguage = SystemLanguage.English;
+        }
     }
 
     void OnDestroy()
@@ -73,7 +86,16 @@ public class SettingsView : MonoBehaviour
                 _soundButtonImage.color = _redColor;
             }
 
-            //TODO: HACER LENGUAJE
+            if(Localization.Instance.CurrentLanguage == SystemLanguage.Spanish)
+            {
+                _spanishButtonText.color = _greenColor;
+                _englishButtonText.color = Color.white;
+            }
+            else
+            {
+                _spanishButtonText.color = Color.white;
+                _englishButtonText.color = _greenColor;
+            }
 
         });
     }
@@ -120,10 +142,22 @@ public class SettingsView : MonoBehaviour
     public void SpanishLenguage()
     {
         AudioController.Instance.PlayButtonSound();
+        Localization.Instance.CurrentLanguage = SystemLanguage.Spanish;
+        _spanishButtonText.color = _greenColor;
+        _englishButtonText.color = Color.white;
+
+        language = 0;
+        PlayerPrefs.SetInt("Language", language);
     }
 
     public void EnglishLenguage()
     {
         AudioController.Instance.PlayButtonSound();
+        Localization.Instance.CurrentLanguage = SystemLanguage.English;
+        _englishButtonText.color = _greenColor;
+        _spanishButtonText.color = Color.white;
+
+        language = 1;
+        PlayerPrefs.SetInt("Language", language);
     }
 }

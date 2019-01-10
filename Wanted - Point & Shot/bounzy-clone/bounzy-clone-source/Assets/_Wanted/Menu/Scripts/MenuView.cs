@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using GameToolkit.Localization;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
@@ -37,6 +36,9 @@ public class MenuView : MonoBehaviour
     RecordsView _recordsView;
 
     [SerializeField]
+    VictoryView _victoryView;
+
+    [SerializeField]
     LevelManager _levelManager;
 
     public event System.Action OnPlay;
@@ -49,6 +51,7 @@ public class MenuView : MonoBehaviour
         _levelView.OnGoToMenu += LevelView_OnGoToMenu;
         _settingsView.OnClose += SettingsView_OnClose;
         _recordsView.OnClose += RecordsView_OnClose;
+        _victoryView.OnGoToMenu += VictoryView_OnGoToMenu;
     }
 
     private void OnDestroy()
@@ -56,6 +59,7 @@ public class MenuView : MonoBehaviour
         _levelView.OnGoToMenu -= LevelView_OnGoToMenu;
         _settingsView.OnClose -= SettingsView_OnClose;
         _recordsView.OnClose -= RecordsView_OnClose;
+        _victoryView.OnGoToMenu -= VictoryView_OnGoToMenu;
     }
 
     private void LevelView_OnGoToMenu()
@@ -69,6 +73,11 @@ public class MenuView : MonoBehaviour
     }
 
     private void RecordsView_OnClose()
+    {
+        FadeAnimation(3);
+    }
+
+    void VictoryView_OnGoToMenu()
     {
         FadeAnimation(3);
     }
@@ -89,6 +98,11 @@ public class MenuView : MonoBehaviour
     {
         AudioController.Instance.PlayButtonSound();
         FadeAnimation(2);
+    }
+
+    public void Share()
+    {
+        Application.OpenURL("https://castlesgames.github.io/");
     }
 
     private void FadeAnimation(int type)
@@ -134,13 +148,12 @@ public class MenuView : MonoBehaviour
         _background.gameObject.SetActive(true);
         _title.localScale = new Vector3(1f, 0f, 1f);
         _menuPanel.localScale = new Vector3(1f, 0f, 1f);
-        _levelText.text = "";
         _playButton.localScale = Vector3.zero;
         _rankingButton.localScale = Vector3.zero;
 
         _title.DOScaleY(1f, 0.2f).OnComplete(() => {
             _menuPanel.DOScaleY(1f, 0.4f).OnComplete(() => {
-                _levelText.text = "Nivel: " + (_levelManager.Level +1);
+                _levelText.text = (_levelManager.Level +1).ToString();
             });
             _playButton.DOScale(1f, 0.2f);
             _rankingButton.DOScale(1f, 0.2f);

@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 969272171031693153}
   - component: {fileID: 6338054112648184314}
   - component: {fileID: 2208117719076629735}
+  - component: {fileID: 1223475963}
   m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
@@ -366,6 +367,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Settings
+--- !u!114 &1223475963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742842203152334211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 2208117719076629735}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 033ac723423664317ab5ee67c2d36e2c, type: 2}
+  m_FormatArgs: []
 --- !u!1 &3059447762914817390
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +394,7 @@ GameObject:
   - component: {fileID: 4826172478294533134}
   - component: {fileID: 93048191904090708}
   - component: {fileID: 8905038509328233855}
+  - component: {fileID: 876345256}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -445,6 +463,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: English
+--- !u!114 &876345256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059447762914817390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 8905038509328233855}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: b773fdb1a2ff74acba2c261aaa00eb1c, type: 2}
+  m_FormatArgs: []
 --- !u!1 &4248316267401227450
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +619,7 @@ GameObject:
   - component: {fileID: 3424509977676501401}
   - component: {fileID: 829027053704598736}
   - component: {fileID: 1780772242159150333}
+  - component: {fileID: 1796100127}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -652,7 +687,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Castellano
+  m_Text: Spanish
+--- !u!114 &1796100127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048549394413091287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 1780772242159150333}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 22584e3bc960b4714a0ab26f1e195b6c, type: 2}
+  m_FormatArgs: []
 --- !u!1 &5116590831535579885
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +910,7 @@ GameObject:
   - component: {fileID: 4670477482973105113}
   - component: {fileID: 7888710100187189772}
   - component: {fileID: 9210810470364307250}
+  - component: {fileID: 685502415}
   m_Layer: 5
   m_Name: CreditsTitleText
   m_TagString: Untagged
@@ -926,7 +978,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cr\xE9ditos"
+  m_Text: Credits
+--- !u!114 &685502415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734581038130965613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 9210810470364307250}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 13aeba2fbbc47497c938414cd79c611d, type: 2}
+  m_FormatArgs: []
 --- !u!1 &6810429797817826121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1283,7 @@ GameObject:
   - component: {fileID: 2093534776281105792}
   - component: {fileID: 6375129326920411770}
   - component: {fileID: 6948791756718579009}
+  - component: {fileID: 1273717572}
   m_Layer: 5
   m_Name: LenguageText
   m_TagString: Untagged
@@ -1282,7 +1351,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lenguaje
+  m_Text: Language
+--- !u!114 &1273717572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050704423736971003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 6948791756718579009}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 9c258c9b7bff444d5b8d1e95336d359c, type: 2}
+  m_FormatArgs: []
 --- !u!1 &8418468964801967088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,6 +1508,7 @@ GameObject:
   - component: {fileID: 1987899080486876273}
   - component: {fileID: 2534809663597157939}
   - component: {fileID: 3147025478232776327}
+  - component: {fileID: 1319374488}
   m_Layer: 5
   m_Name: CreditsText
   m_TagString: Untagged
@@ -1490,9 +1576,34 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Javi - Artista 3D\nLaura - Dise\xF1adora Gr\xE1fica\nGuille - Audio / Dise\xF1o
-    de juego\nJuankar - Artista 2D\nDiego - Programaci\xF3n\n\nDesarrollado en Unity
-    3D 3.0"
+  m_Text: 'Javi - 3D Artist
+
+    Laura - Graphic Designer
+
+    Guille - Audio / Game Designer
+
+    Juankar - 2D Artist
+
+    Diego - Programmer
+
+
+    Made with Unity 3D 3.0'
+--- !u!114 &1319374488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036040975863761704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725bf5ddb878f09429d39010d9e2d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Component: {fileID: 3147025478232776327}
+  m_Property: text
+  m_LocalizedAsset: {fileID: 11400000, guid: 10731f9eb290b475da9b57658d077f2f, type: 2}
+  m_FormatArgs: []
 --- !u!1 &9070416621795372236
 GameObject:
   m_ObjectHideFlags: 0

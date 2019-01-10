@@ -11,9 +11,6 @@ public class GameOverView : MonoBehaviour
     Transform _gameOverPopUp;
 
     [SerializeField]
-    Text _tileText;
-
-    [SerializeField]
     LevelController _levelController;
 
     public event System.Action OnRestartLevel;
@@ -37,10 +34,7 @@ public class GameOverView : MonoBehaviour
     {
         _gameOverScreen.gameObject.SetActive(true);
         _gameOverPopUp.localScale = Vector3.zero;
-        _tileText.text = "";
-        _gameOverPopUp.DOScale(1f, 0.5f).OnComplete(() => {
-            _tileText.text = "Has perdido en el nivel " + (level + 1);
-        });
+        _gameOverPopUp.DOScale(1f, 0.5f);
     }
 
     public void ReStartLevel()
